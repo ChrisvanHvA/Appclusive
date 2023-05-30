@@ -1,5 +1,20 @@
 :root {
-    --white: #FFFFFF;
-    --black: #040505;
-    --appclusive-black: #1E1E1E;
+    --light: #FFFFFF;
+    --dark: #1E1E1E;
+    --dark-alt: #040505;
+    --primary: #044ECF;
+    --secondary: #505050;
+    --tertiary: #F1F1F1;
+}
+
+/* dark mode variables */
+
+:root.dark {
+    --primary: #3393FF;
+    --secondary: #989898;
+    --tertiary: #1E1E1E;
+}
+
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
 }
