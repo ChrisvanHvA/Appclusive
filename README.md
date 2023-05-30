@@ -3,10 +3,24 @@
 The readme and links to the prototype will appear here!
 
 
+![image](https://github.com/ChrisvanHvA/Appclusive/assets/90341211/97bc65a3-8953-41f4-aa65-2936546a81ce)
+
+## Task
+Appclusive is een online webtool voor UX designers en organisaties om gemakkelijk en snel digitale toegankelijkheid van begin tot eind binnen een project toe te passen. Door middel van een checklist en stappen pas je met deze tool digitale toegankelijkheid toe aan apps met gemotiveerde feedback. Alle beschikbare informatie over de WCAG richtlijnen en andere tips voor digitale toegankelijkheid is beschikbaar op een plek in de webtool zodat de gebruiker niet zelf alles hoeft op te zoeken.
+
+## Opdrachtgever
+Sanne Duinker, onlangs afgestudeerd bij CMD.
 
 
+## Design challenge
+‘Hoe kan ik met behulp van een digitaal interactief product UX designers motiveren en organisaties ondersteunen om apps toegankelijk te maken voor mensen met een (visuele) beperking, zodat hiermee de drempel voor designers verlaagd wordt om digitale toegankelijkheid toe te passen?’
 
+## User stories
+1. Als UX designer wil ik alle informatie over digitale toegankelijkheid op een plek kunnen vinden, zodat ik geen tijd kwijt ben aan het zoeken van de juiste informatie.
 
+2. Als projectmanager wil ik taken kunnen toewijzen, zodat ik een overzicht heb wie wat doet van de digitale toegankelijkheid binnen de organisatie en binnen het project.
+
+3. Als UX designer wil ik met stappen kunnen zien hoe ik digitale toegankelijkheid moet toepassen, zodat ik weet waar ik moet beginnen.
 
 
 
