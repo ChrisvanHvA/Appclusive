@@ -6,6 +6,8 @@ export default {
 	ceil: (n) => Math.ceil(n),
 	floor: (n) => Math.floor(n),
 	round: (n) => Math.round(n),
+
+	log: (value) => console.log(value),
 	
 	toUpperCase: (str) => str?.toUpperCase(),
 	toLowerCase: (str) => str?.toLowerCase(),

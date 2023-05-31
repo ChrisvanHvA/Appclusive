@@ -88,3 +88,16 @@
 .project-cards li.card__item a section.progress progress[value]::-webkit-progress-value {
 	background-color: var(--primary);
 }
+
+/* ---------------------------------- */
+/*   styles for create project card   */
+/* ---------------------------------- */
+.project-cards li.card__item.admin-card a {
+	border-color: var(--primary);
+	background-color: var(--create-card-bg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--primary);
+	font-weight: bold;
+}
