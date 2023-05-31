@@ -1,0 +1,141 @@
+.checklist__item {
+    border: var(--border-style);
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    background: var(--tertiary);
+
+    display: flex;
+    gap: 1.25rem;
+    
+    width: 100%;
+}
+
+/* ---------------------------------- */
+/*              CHECKBOX              */
+/* ---------------------------------- */
+
+.checklist__checkbox > input {
+    display: none;
+}
+
+.checklist__checkbox > label {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+
+    border: var(--border-style);
+    border-radius: 50%;
+    background: var(--light);
+}
+
+.checklist__checkbox > input:checked + label {
+    background: var(--primary);
+}
+
+
+/* ---------------------------------- */
+/*               CONTENT              */
+/* ---------------------------------- */
+
+.checklist__content {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+}
+
+    .checklist__content h4 {
+        color: var(--secondary);
+    }
+
+/* --------- DETAILS ELEMENT -------- */
+
+.checklist__content > details {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+
+    background: var(--primary);
+    padding: .4375rem 1.25rem;
+    color: var(--light);
+    border-radius: 50rem;
+    width: fit-content;
+}
+
+    .checklist__content > details a {
+        color: var(--light);
+        font-style: italic;
+    }
+
+.checklist__content summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    gap: .625rem;
+    align-items: center;
+    font-weight: 700;
+}
+
+    .checklist__content summary > p {
+        position: relative;
+        padding-left: 1.625rem;
+    }
+
+    .checklist__content summary > p::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 1.25rem;
+        height: 1.25rem;
+        background: url(../images/plus.svg) no-repeat center center;
+        background-size: contain;
+    }
+
+.checklist__content > details img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
+/* if details open */
+
+.checklist__content > details[open] > summary > p::before {
+    background: url(../images/minus.svg) no-repeat center center;
+    background-size: contain;
+}
+
+
+.checklist__content > details[open] {
+    border-radius: .9375rem;
+    padding: 1.25rem;
+}
+
+.checklist__content > details > ul {
+    list-style:  disc;
+    margin: .625rem 0 0 1rem;
+}
+
+/* ---------------------------------- */
+/*                USERS               */
+/* ---------------------------------- */
+
+.checklist__users {
+    display: flex;
+    gap: .625rem;
+    align-items: center;
+}
+
+    .checklist__users figure {
+        width: 1.875rem;
+        height: 1.875rem;
+        border-radius: 50%;
+        border: 1.5px solid var(--primary);
+    }
+
+        .checklist__users figure img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
