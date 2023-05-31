@@ -1,22 +1,20 @@
 export default {
-	calcProgress: (checklists) => {
-		const completed = checklists.filter((checklist) => checklist.completed).length;
-
-		return Math.round((completed / checklists.length) * 100);
-	},
-
-	toUpperCase: (str) => {
-		return str?.toUpperCase();
-	},
-
-	spreadAttributes: (attributes) => {
-		return attributes?.join(' ');
-	},
+	divide: (a, b) => a / b,
+	multiply: (a, b) => a * b,
+	add: (a, b) => a + b,
+	subtract: (a, b) => a - b,
+	ceil: (n) => Math.ceil(n),
+	floor: (n) => Math.floor(n),
+	round: (n) => Math.round(n),
+	
+	toUpperCase: (str) => str?.toUpperCase(),
+	toLowerCase: (str) => str?.toLowerCase(),
+	spreadAttributes: (attributes) => attributes?.join(' '),
 
 	// basically zorgt voor logical operator == !== || etc
 	// <3 handlebars
-	eq: function() { return reduceOp(arguments, (a, b) => a === b); },
-	ne: function() { return reduceOp(arguments, (a, b) => a !== b); },
+	eq: function(){ return reduceOp(arguments, (a, b) => a === b)},
+	ne: function() {return reduceOp(arguments, (a, b) => a !== b)},
 	lt: function() { return reduceOp(arguments, (a, b) => a  <  b); },
 	gt: function() { return reduceOp(arguments, (a, b) => a  >  b); },
 	lte: function() { return reduceOp(arguments, (a, b) => a  <= b); },

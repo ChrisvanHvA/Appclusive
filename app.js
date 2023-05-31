@@ -2,8 +2,6 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import http from 'http';
 import path from 'path';
-import router from './router/router.js';
-import session from 'express-session';
 import routes from './router/router.js';
 import hbsHelpers from './helpers/hbsHelpers.js';
 
@@ -43,5 +41,5 @@ app.engine(
 );
 
 server.listen(port, () => {
-    console.log(`Example app listening on port 5500! http://localhost:${port}`);
+    console.log(`Example app listening on port ${port}! http://localhost:${port}`);
 });

@@ -17,7 +17,7 @@
         </div>
         <div class='checklists'>
             <h4>Checklists</h4>
-            <p>{{this.checklists}}</p>
+            <p>{{this.completedChecklists}} / {{this.checkLists.length}}</p>
         </div>
 
         <div class='team-members'>
@@ -36,7 +36,20 @@
     </section>
 
     <section class='progress'>
-        <progress value='50' min='0' max='100'></progress>
-        <p>50% toegankelijk</p>
+        <progress
+            value={{round
+                (multiply
+                    (divide this.completedChecklists this.checkLists.length) 100
+                )
+            }}
+            min='0'
+            max='100'
+        ></progress>
+        {{! <3 handlebars }}
+        <p>{{round
+                (multiply
+                    (divide this.completedChecklists this.checkLists.length) 100
+                )
+            }}% toegankelijk</p>
     </section>
 </a>
