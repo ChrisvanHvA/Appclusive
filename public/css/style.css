@@ -5,6 +5,9 @@
     --primary: #044ecf;
     --secondary: #505050;
     --tertiary: #f1f1f1;
+    --border-gray: #7a7a7a;
+    --border-style: var(--border-gray) solid 1.5px;
+    --border-radius: 1.25rem;
 }
 
 /* dark mode variables */
@@ -17,4 +20,12 @@
 
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.checklist__item {
+    border: var(--border-style);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--light);
 }
