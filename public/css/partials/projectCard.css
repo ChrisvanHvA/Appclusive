@@ -1,0 +1,86 @@
+.project-cards li.card__item {
+	--card-min-width: 300px;
+	--card-max-width: 500px;
+}
+
+.project-cards li.card__item a {
+	display: block;
+	min-width: var(--card-min-width);
+	max-width: var(--card-max-width);
+	background-color: var(--tertiary);
+	color: inherit;
+	text-decoration: none;
+	padding: 2rem;
+	border-radius: 1.25rem;
+	border: 2px solid var(--secondary);
+}
+
+.project-cards li.card__item a header {
+	display: flex;
+	gap: .5rem;
+}
+
+.project-cards li.card__item a header img {
+	border-radius: 50%;
+	height: 3rem;
+}
+
+.project-cards li.card__item a header div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: .2rem;
+}
+
+/* ---------------------------------- */
+/*       section with extra info      */
+/* ---------------------------------- */
+.project-cards li.card__item a section.project-data {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	height: 3rem;
+	margin: 1rem 0;
+}
+
+.project-cards li.card__item a section.project-data div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.project-cards li.card__item a section.project-data div.team-members span {
+	display: flex;
+	gap: .4rem;
+}
+
+.project-cards li.card__item a section.project-data div.team-members span img {
+	border-radius: 50%;
+	height: 1.5rem;
+	border: 2px solid var(--dark);
+}
+
+.project-cards li.card__item a section.progress {
+	color: var(--secondary);
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.project-cards li.card__item a section.progress progress[value] {
+	width: 100%;
+	height: 24px;
+	border-radius: 10px;
+	overflow: hidden;
+	appearance: none;
+	border: solid 2px var(--primary);
+	background-color: transparent;
+}
+
+.project-cards li.card__item a section.progress progress[value]::-webkit-progress-bar {
+	background-color: transparent;
+}
+
+.project-cards li.card__item a section.progress progress[value]::-moz-progress-bar,
+.project-cards li.card__item a section.progress progress[value]::-webkit-progress-value {
+	background-color: var(--primary);
+}

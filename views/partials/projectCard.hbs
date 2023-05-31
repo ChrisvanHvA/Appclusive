@@ -1,0 +1,42 @@
+<a href='' draggable='false'>
+    <header>
+        <img
+            src='https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo'
+            alt='a'
+        />
+        <div>
+            <h3>{{this.name}}</h3>
+            <p>{{this.status}}</p>
+        </div>
+    </header>
+
+    <section class='project-data'>
+        <div class='step'>
+            <h4>Stap</h4>
+            <p>{{this.step}}</p>
+        </div>
+        <div class='checklists'>
+            <h4>Checklists</h4>
+            <p>{{this.checklists}}</p>
+        </div>
+
+        <div class='team-members'>
+            <h4>Teamleden</h4>
+            <span>
+
+                {{#each this.teamMembers}}
+                    <img
+                        src={{this.imgUrl}}
+                        title={{this.name}}
+                        alt={{this.name}}
+                    />
+                {{/each}}
+            </span>
+        </div>
+    </section>
+
+    <section class='progress'>
+        <progress value='50' min='0' max='100'></progress>
+        <p>50% toegankelijk</p>
+    </section>
+</a>

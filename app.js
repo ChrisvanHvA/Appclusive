@@ -5,6 +5,7 @@ import path from 'path';
 import router from './router/router.js';
 import session from 'express-session';
 import routes from './router/router.js';
+import hbsHelpers from './helpers/hbsHelpers.js';
 
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
@@ -37,6 +38,7 @@ app.engine(
         extname: 'hbs',
         defaultLayout: 'index',
         partialsDir: [path.join(__dirname, 'views', 'partials')],
+		helpers: { ...hbsHelpers }
     })
 );
 
