@@ -80,7 +80,11 @@
 	background-color: transparent;
 }
 
-.project-cards li.card__item a section.progress progress[value]::-moz-progress-bar,
+/* LAAT DIT ZO STAAN, MET EEN KOMMA WERKT HET NIET FOR SOME REASON */
+.project-cards li.card__item a section.progress progress[value]::-moz-progress-bar {
+	background-color: var(--primary);
+
+}
 .project-cards li.card__item a section.progress progress[value]::-webkit-progress-value {
 	background-color: var(--primary);
 }
