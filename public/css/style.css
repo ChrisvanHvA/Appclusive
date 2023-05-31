@@ -5,6 +5,8 @@
     --primary: #044ecf;
     --secondary: #505050;
     --tertiary: #f1f1f1;
+
+    --border: 2px solid red;
 }
 
 /* dark mode variables */

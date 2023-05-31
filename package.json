@@ -7,9 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm run build",
+    "prestart:dev": "npm run build",
     "start": "node app.js",
-    "start:dev": "nodemon --inspect app.js"
+    "start:dev": "nodemon --inspect app.js & npm run watch",
+    "build": "node build-scripts/buildStyles.js",
+    "watch": "chokidar 'public/css/*.css' '!public/css/index.css' --command 'npm run build'"
+
   },
   "nodemonConfig": {
     "watch": [
@@ -39,6 +43,7 @@
     "socket.io": "^4.6.1"
   },
   "devDependencies": {
+    "chokidar-cli": "^3.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
