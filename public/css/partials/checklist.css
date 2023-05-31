@@ -29,9 +29,36 @@
 }
 
 .checklist__checkbox > input:checked + label {
-    background: var(--primary);
+    background: var(--primary) url(../images/check.svg) no-repeat center center;
+    background-size: 60%;
+    background-origin: 50%;
+    animation: bounce-in .3s ease-in-out;
 }
 
+/* bounce background size */
+
+@keyframes bounce-in {
+    0% {
+        background-size: 0%;
+    }
+    50% {
+        background-size: 80%;
+    }
+    100% {
+        background-size: 60%;
+    }
+}
+
+.checklist__item:has(.checklist__checkbox > input:checked) p, 
+.checklist__item:has(.checklist__checkbox > input:checked) h4 {
+    text-decoration: line-through;
+    color: var(--secondary);
+}
+
+.checklist__item:has(.checklist__checkbox > input:checked) details,
+.checklist__item:has(.checklist__checkbox > input:checked) .checklist__users {
+    display: none;
+}
 
 /* ---------------------------------- */
 /*               CONTENT              */
