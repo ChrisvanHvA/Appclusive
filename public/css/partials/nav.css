@@ -1,0 +1,142 @@
+.navigation{
+    background-color: var(--dark);
+    height: 100dvh;
+    width: clamp(15rem, 100%, 20rem);
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+}
+
+.logo{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+}
+    .logo h1 {
+        display: block;
+        width: 100%;
+    }
+    .logo svg{
+        width: 100%;
+    }
+
+.searchbar{
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+    .searchbar__input{
+        width: 80%;
+        height: 2rem;
+        border-radius: 1.5rem;
+        border: none;
+        font-size: 1rem;
+        padding-left: 2.5rem;
+        color: var(--dark);
+    }
+    .searchbar__button{
+        position: absolute;
+        left: 0.5rem;
+        padding: 0;
+        height: 1rem;
+        width: 1rem;
+        border: none;
+        background: none;
+    }
+    .searchbar__button img{
+        width: 1rem;
+        height: 1rem;
+        border-radius: 1rem;
+    }
+
+.navigator {
+    height: 100%;
+}
+    .navigator--list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+        .navigator__item a{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-decoration: none;
+            color: var(--light);
+            width: 80%;
+            margin-bottom: 0.5rem;
+        }
+        .navigator__item svg,
+        .navigator__projects svg:first-child{
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 13%;
+        }
+
+        .navigator__projects a{
+            text-decoration: none;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            width: 80%;
+            position: relative;
+        }
+        .navigator__projects ol{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            margin-bottom: 1.2rem;
+        }
+            .navigator__projects ol li:first-of-type a{
+                font-weight: bold;
+                color: var(--primary);
+            }
+            .navigator__projects ol li a{
+                width: fit-content;
+                margin-top: 1.5rem;
+        }
+        .navigator__projects svg:nth-of-type(2){
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            right: 0;
+        }
+        .navigator__account a{
+            text-decoration: none;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 2rem;
+            width: 80%;
+        }
+        .navigator__account img{
+            width: 2rem;
+            height: 2rem;
+            margin-right: 7%;
+        }
+        .navigator__account svg{
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            right: 0;
+        }
+        .navigator__account img:first-of-type{
+            border-radius: 1rem;
+            margin-left: -0.25rem;
+        }
+        .navigator__account img:nth-child(2){
+            position: absolute;
+            display: none;
+            left: 0;
+        }
+        .navigator li:nth-last-child(2){
+            margin-top: auto;
+        }
