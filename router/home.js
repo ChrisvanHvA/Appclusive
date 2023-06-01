@@ -51,7 +51,7 @@ let projects = [
     },
 	{
         name: 'project1',
-        status: 'New',
+        status: 'Started',
         step: '1. onderzoek',
         checkLists: [
             {
@@ -84,7 +84,7 @@ let projects = [
     },
 	{
         name: 'project1',
-        status: 'New',
+        status: 'Done',
         step: '1. onderzoek',
         checkLists: [
             {
