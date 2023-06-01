@@ -23,6 +23,72 @@ let projects = [
         checkLists: [
             {
                 name: 'taak1',
+                completed: true,
+            },
+            {
+                name: 'taak2',
+                completed: true,
+            },
+            {
+                name: 'taak3',
+                completed: true,
+            },
+        ],
+        teamMembers: [
+            {
+                name: 'Jeroen',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Bert',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Klaas',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+        ],
+    },
+	{
+        name: 'project1',
+        status: 'New',
+        step: '1. onderzoek',
+        checkLists: [
+            {
+                name: 'taak1',
+                completed: false,
+            },
+            {
+                name: 'taak2',
+                completed: false,
+            },
+            {
+                name: 'taak3',
+                completed: true,
+            },
+        ],
+        teamMembers: [
+            {
+                name: 'Jeroen',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Bert',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Klaas',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+        ],
+    },
+	{
+        name: 'project1',
+        status: 'New',
+        step: '1. onderzoek',
+        checkLists: [
+            {
+                name: 'taak1',
                 completed: false,
             },
             {
@@ -49,10 +115,72 @@ let projects = [
             },
         ],
     },
-    // { name: 'project2' },
-    // { name: 'project3' },
-    // { name: 'project4' },
-    // { name: 'project5' },
+	{
+        name: 'project1',
+        status: 'New',
+        step: '1. onderzoek',
+        checkLists: [
+            {
+                name: 'taak1',
+                completed: false,
+            },
+            {
+                name: 'taak2',
+                completed: true,
+            },
+            {
+                name: 'taak3',
+                completed: true,
+            },
+        ],
+        teamMembers: [
+            {
+                name: 'Jeroen',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Bert',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Klaas',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+        ],
+    },
+	{
+        name: 'project1',
+        status: 'New',
+        step: '1. onderzoek',
+        checkLists: [
+            {
+                name: 'taak1',
+                completed: false,
+            },
+            {
+                name: 'taak2',
+                completed: true,
+            },
+            {
+                name: 'taak3',
+                completed: true,
+            },
+        ],
+        teamMembers: [
+            {
+                name: 'Jeroen',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Bert',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+            {
+                name: 'Klaas',
+                imgUrl: 'https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo',
+            },
+        ],
+    },
 ];
 
 export default router;

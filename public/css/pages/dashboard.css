@@ -1,0 +1,10 @@
+.cards.project-cards {
+	display: grid;
+  	grid-template-columns: repeat(2, 1fr);
+  	gap: 2.5rem;
+	width: fit-content;
+}
+
+.cards.project-cards .card__item {
+	height: 100%;
+}
