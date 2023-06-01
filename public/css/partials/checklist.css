@@ -7,10 +7,10 @@
 
 
 .checklist__item {
-    border: var(--border-style);
-    border-radius: var(--border-radius);
+    border: var(--card-border-style);
+    border-radius: var(--card-border-radius);
     padding: 1.25rem;
-    background: var(--tertiary);
+    background-color: var(--secondary-bg);
 
     display: flex;
     gap: 1.25rem;
@@ -31,13 +31,13 @@
     width: 2rem;
     height: 2rem;
 
-    border: var(--border-style);
+    border: var(--card-border-style);
     border-radius: 50%;
-    background: var(--light);
+    background-color: var(--light);
 }
 
 .checklist__checkbox > input:checked + label {
-    background: var(--primary) url(../images/check.svg) no-repeat center center;
+    background: var(--primary-color) url(../images/check.svg) no-repeat center center;
     background-size: 60%;
     background-origin: 50%;
     animation: bounce-in .3s ease-in-out;
@@ -60,7 +60,7 @@
 .checklist__item:has(.checklist__checkbox > input:checked) p, 
 .checklist__item:has(.checklist__checkbox > input:checked) h4 {
     text-decoration: line-through;
-    color: var(--secondary);
+    color: var(--secondary-text);
 }
 
 .checklist__item:has(.checklist__checkbox > input:checked) details,
@@ -79,7 +79,7 @@
 }
 
     .checklist__content h4 {
-        color: var(--secondary);
+        color: var(--secondary-text);
     }
 
 /* --------- DETAILS ELEMENT -------- */
@@ -89,7 +89,7 @@
     flex-direction: column;
     gap: .625rem;
 
-    background: var(--primary);
+    background: var(--primary-color);
     padding: .625rem 1.25rem;
     color: var(--light);
     border-radius: 50rem;
@@ -165,7 +165,7 @@
         width: 1.875rem;
         height: 1.875rem;
         border-radius: 50%;
-        border: 1.5px solid var(--primary);
+        border: 1.5px solid var(--primary-color);
     }
 
         .checklist__users figure img {
