@@ -1,10 +1,30 @@
+.project-overview-container {
+	display: grid;
+	grid-template-columns: 20% 1fr;
+}
+
+.project-overview-container main {
+	margin: 0 auto;
+	width: 95%;
+	max-width: 70rem;
+}
+
+.project-overview-container main h1 {
+	margin: 10vh 0 2.5rem 0;
+}
+
 .cards.project-cards {
 	display: grid;
   	grid-template-columns: repeat(2, 1fr);
-  	gap: 2.5rem;
-	width: fit-content;
+  	gap: 1.5rem;
 }
 
 .cards.project-cards .card__item {
 	height: 100%;
+}
+
+@media screen and (max-width: 950px) {
+	.cards.project-cards {
+		grid-template-columns: 1fr;
+	}	
 }

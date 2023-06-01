@@ -1,13 +1,22 @@
-<ul class="cards project-cards">
-	{{!-- todo: check if user is admin (can create projects) --}}
-	{{#if true}}
-	<li class="card__item admin-card">
-		{{> projectCard null}}
-	</li>
-	{{/if}}
-	{{#each projects}}
-	<li class="card__item">
-		{{> projectCard this}}
-	{{/each}}
-	</li>
-</ul>
+<div class="project-overview-container">
+	<nav style="background-color:#1e1e1e; width:100%;height:100%;"></nav>
+
+	<main>
+		<h1>Hi, Anna!</h1>
+
+		<ul class="cards project-cards">
+			{{!-- todo: check if user is admin (can create projects) --}}
+			{{#if true}}
+				<li class="card__item admin-card">
+					{{> projectCard null}}
+				</li>
+			{{/if}}
+
+			{{#each projects}}
+				<li class="card__item">
+					{{> projectCard this}}
+				{{/each}}
+				</li>
+		</ul>
+	</main>
+</div>
