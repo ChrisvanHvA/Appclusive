@@ -1,0 +1,74 @@
+{{#if (ne this null)}}
+    <a href='/checklist' draggable='false'>
+        <header>
+            <img
+                src='https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo'
+                alt='a'
+            />
+            <div>
+                <h3>{{this.name}}</h3>
+                <div class='status {{toLowerCase this.status}}'>
+					
+                    {{#if (eq (toLowerCase this.status) 'new')}}
+						{{> icons/bolt}}
+                    {{else if (eq (toLowerCase this.status) 'started')}}
+						{{> icons/clock}}
+                    {{else}}
+						{{> icons/check}}
+                    {{/if}}
+
+                    <p>{{this.status}}</p>
+                </div>
+            </div>
+        </header>
+
+        <section class='project-data'>
+            <div class='step'>
+                <h4>Stap</h4>
+                <p>{{this.step}}</p>
+            </div>
+            <div class='checklists'>
+                <h4>Checklists</h4>
+                <p>{{this.completedChecklists}} / {{this.checkLists.length}}</p>
+            </div>
+
+            <div class='team-members'>
+                <h4>Teamleden</h4>
+                <span>
+
+                    {{#each this.teamMembers}}
+                        <img
+                            src={{this.imgUrl}}
+                            title={{this.name}}
+                            alt={{this.name}}
+                        />
+                    {{/each}}
+                </span>
+            </div>
+        </section>
+
+        <section class='progress'>
+            <progress
+                value={{round
+                    (multiply
+                        (divide this.completedChecklists this.checkLists.length)
+                        100
+                    )
+                }}
+                min='0'
+                max='100'
+            ></progress>
+            {{! <3 handlebars }}
+            <p>{{round
+                    (multiply
+                        (divide this.completedChecklists this.checkLists.length)
+                        100
+                    )
+                }}% toegankelijk</p>
+        </section>
+    </a>
+
+{{else}}
+    <a href=''>+ New project</a>
+
+{{/if}}

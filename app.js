@@ -2,9 +2,8 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import http from 'http';
 import path from 'path';
-import router from './router/router.js';
-import session from 'express-session';
 import routes from './router/router.js';
+import hbsHelpers from './helpers/hbsHelpers.js';
 
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
@@ -37,9 +36,10 @@ app.engine(
         extname: 'hbs',
         defaultLayout: 'index',
         partialsDir: [path.join(__dirname, 'views', 'partials')],
+		helpers: { ...hbsHelpers }
     })
 );
 
 server.listen(port, () => {
-    console.log(`Example app listening on port 5500! http://localhost:${port}`);
+    console.log(`Example app listening on port ${port}! http://localhost:${port}`);
 });

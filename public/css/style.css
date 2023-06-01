@@ -8,6 +8,7 @@
     --border-gray: #7a7a7a;
     --border-style: var(--border-gray) solid 1.5px;
     --border-radius: 1.25rem;
+    --create-card-bg: #E1ECFF;
 }
 
 /* dark mode variables */

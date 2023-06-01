@@ -1,0 +1,13 @@
+<ul class="cards project-cards">
+	{{!-- todo: check if user is admin (can create projects) --}}
+	{{#if true}}
+	<li class="card__item admin-card">
+		{{> projectCard null}}
+	</li>
+	{{/if}}
+	{{#each projects}}
+	<li class="card__item">
+		{{> projectCard this}}
+	{{/each}}
+	</li>
+</ul>
