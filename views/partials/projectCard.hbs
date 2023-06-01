@@ -8,13 +8,13 @@
             <div>
                 <h3>{{this.name}}</h3>
                 <div class='status {{toLowerCase this.status}}'>
-					
+
                     {{#if (eq (toLowerCase this.status) 'new')}}
 						{{> icons/bolt}}
                     {{else if (eq (toLowerCase this.status) 'started')}}
 						{{> icons/clock}}
                     {{else}}
-						{{> icons/check}}
+						{{> icons/check-border}}
                     {{/if}}
 
                     <p>{{this.status}}</p>
