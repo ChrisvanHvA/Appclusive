@@ -4,7 +4,11 @@
     width: clamp(10rem, 100%, 40rem);
 }
 
-
+.checklist > ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
 
 .checklist__item {
     border: var(--border-style);
@@ -22,11 +26,19 @@
 /*              CHECKBOX              */
 /* ---------------------------------- */
 
-.checklist__checkbox > input {
-    display: none;
+.checklist__item input {
+    appearance: none;
+    width: 0;
+    height: 0;
+    position: absolute;
 }
 
-.checklist__checkbox > label {
+.checklist__item input:focus-visible + label {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.checklist__item label {
     display: inline-block;
     width: 2rem;
     height: 2rem;
@@ -34,9 +46,11 @@
     border: var(--border-style);
     border-radius: 50%;
     background: var(--light);
+
+    flex-shrink: 0;
 }
 
-.checklist__checkbox > input:checked + label {
+.checklist__item input:checked + label {
     background: var(--primary) url(../images/check.svg) no-repeat center center;
     background-size: 60%;
     background-origin: 50%;
@@ -57,16 +71,14 @@
     }
 }
 
-.checklist__item:has(.checklist__checkbox > input:checked) p, 
-.checklist__item:has(.checklist__checkbox > input:checked) h4 {
+.checklist__item input:checked ~ .checklist__content {
     text-decoration: line-through;
     color: var(--secondary);
 }
 
-.checklist__item:has(.checklist__checkbox > input:checked) details,
-.checklist__item:has(.checklist__checkbox > input:checked) .checklist__users {
+.checklist__item input:checked ~ .checklist__content .checklist__users, .checklist__item input:checked ~ .checklist__content > details {
     display: none;
-}
+}   
 
 /* ---------------------------------- */
 /*               CONTENT              */
@@ -88,17 +100,13 @@
     display: flex;
     flex-direction: column;
     gap: .625rem;
-
-    background: var(--primary);
-    padding: .625rem 1.25rem;
-    color: var(--light);
-    border-radius: 50rem;
     width: fit-content;
 }
 
     .checklist__content > details a {
         color: var(--light);
         font-style: italic;
+        word-break: break-all;
     }
 
 .checklist__content summary {
@@ -108,7 +116,16 @@
     gap: .625rem;
     align-items: center;
     font-weight: 700;
+    background: var(--primary);
+    padding: .625rem 1.25rem;
+    color: var(--light);
+    border-radius: 50rem;
 }
+
+    .checklist__content summary:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
 
     .checklist__content summary > p {
         position: relative;
@@ -144,6 +161,18 @@
 .checklist__content > details[open] {
     border-radius: .9375rem;
     padding: .625rem 1.25rem 1.25rem 1.25rem;
+    background: var(--primary);
+    color: var(--light);
+    border-radius: 1.25rem;
+}
+
+
+.checklist__content > details[open] > summary {
+    padding: 0;
+}
+
+.checklist__content > details[open] > summary:focus-visible {
+    outline: 2px solid var(--light);
 }
 
 .checklist__content > details > ul {

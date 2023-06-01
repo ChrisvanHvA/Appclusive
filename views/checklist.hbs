@@ -4,7 +4,12 @@
         <p>0/4</p>
     </div>
 
+
     <ol>
-        {{>listItem}}
+        {{!-- for each task insert listItem and pass data --}}
+        {{#each tasks}}
+            {{> listItem this}}
+        {{/each}}
+
     </ol>
 </section>
