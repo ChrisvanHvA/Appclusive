@@ -1,3 +1,11 @@
+
+/* width can be changed once its container has been styled */
+.checklist {
+    width: clamp(10rem, 100%, 40rem);
+}
+
+
+
 .checklist__item {
     border: var(--border-style);
     border-radius: var(--border-radius);
@@ -82,7 +90,7 @@
     gap: .625rem;
 
     background: var(--primary);
-    padding: .4375rem 1.25rem;
+    padding: .625rem 1.25rem;
     color: var(--light);
     border-radius: 50rem;
     width: fit-content;
@@ -135,7 +143,7 @@
 
 .checklist__content > details[open] {
     border-radius: .9375rem;
-    padding: 1.25rem;
+    padding: .625rem 1.25rem 1.25rem 1.25rem;
 }
 
 .checklist__content > details > ul {
