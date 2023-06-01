@@ -1,14 +1,8 @@
 <aside class='navigation'>
-    <a class='logo' href='#'><h1 class='logo logo--text'><img
-                class='logo__img'
-                src='https://unsplash.it/40/40'
-                alt='Appclusive'
-            /></h1></a>
+    <a class='logo' href='#'><h1 class='logo logo--text'>{{>icons/logo}}</h1></a>
 
     <div class='searchbar'>
-        <button class='searchbar__button' type='submit'><img
-                src="https://unsplash.it/8/8"
-            ></img></button>
+        <button class='searchbar__button' type='submit'>{{>icons/searchicon}}</button>
         <input class='searchbar__input' type='text' placeholder='Zoeken' />
     </div>
 
@@ -16,9 +10,9 @@
         <ul class='navigator navigator--list'>
             <li class='navigator__projects'>
                 <a href='#'>
-                    <img src='https://unsplash.it/40/40' />
+                    {{>icons/tilesicon}}
                     <p>Alle projecten</p>
-                    <img src='https://unsplash.it/40/40' />
+                    {{>icons/arrowup}}
                 </a>
 
                 <ol>
@@ -27,22 +21,18 @@
                     <li><a href='#'>Project 3</a></li>
                 </ol>
             </li>
-            <li class='navigator__item'><a href='#'><img
-                        src='https://unsplash.it/40/40'
-                    />Recent</a></li>
-            <li class='navigator__item'><a href='#'><img
-                        src='https://unsplash.it/40/40'
-                    />Archief</a></li>
-            <li class='navigator__item'><a href='#'><img
-                        src='https://unsplash.it/40/40'
-                    />Instellingen</a></li>
+            <li class='navigator__item'><a href='#'>{{>icons/recenticon}}Recent</a></li>
+            <li class='navigator__item'><a href='#'>{{>icons/archieficon}}Archief</a></li>
+            <li class='navigator__item'><a href='#'>{{>icons/settingsicon}}Instellingen</a></li>
             <li class='navigator__account'>
                 <a href='#'>
+                    <img src='../../public/images/avatar.jpg' />
                     <img src='https://unsplash.it/40/40' />
-                    <img src='https://unsplash.it/40/40' />
+                    <div>
                     <p>Sofia</p>
                     <p>sofia@gmail.com</p>
-                    <img src='https://unsplash.it/40/40' />
+                    </div>
+                    {{>icons/loginicon}}
                 </a>
             </li>
         </ul>

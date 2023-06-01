@@ -1,19 +1,23 @@
 .navigation{
     background-color: var(--nav-bg);
     height: 100dvh;
-    width: 100%;
+    width: clamp(15rem, 100%, 20rem);
     display: flex;
     flex-direction: column;
     padding-left: 3rem;
 }
 
 .logo{
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
 }
-    .logo__img{
-        width: 15rem;
-        aspect-ratio: 3/1;
+    .logo h1 {
+        display: block;
+        width: 100%;
+    }
+    .logo svg{
+        width: 100%;
     }
 
 .searchbar{
@@ -24,7 +28,7 @@
     align-items: center;
 }
     .searchbar__input{
-        width: 12.5rem;
+        width: 80%;
         height: 2rem;
         border-radius: 1.5rem;
         border: none;
@@ -37,6 +41,7 @@
         left: 0.5rem;
         padding: 0;
         height: 1rem;
+        width: 1rem;
         border: none;
         background: none;
     }
@@ -64,18 +69,44 @@
             align-items: center;
             text-decoration: none;
             color: var(--light);
+            width: 80%;
+            margin-bottom: 0.5rem;
         }
-        .navigator__item img,
-        .navigator__projects img:first-child{
+        .navigator__item svg,
+        .navigator__projects svg:first-child{
             width: 1.5rem;
             height: 1.5rem;
-            margin-right: 1rem;
+            margin-right: 13%;
         }
+
         .navigator__projects a{
             text-decoration: none;
             color: var(--light);
             display: flex;
             align-items: center;
+            width: 80%;
+            position: relative;
+        }
+        .navigator__projects ol{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            margin-bottom: 1.2rem;
+        }
+            .navigator__projects ol li:first-of-type a{
+                font-weight: bold;
+                color: var(--nav-selected);
+            }
+            .navigator__projects ol li a{
+                width: fit-content;
+                margin-top: 1.5rem;
+        }
+        .navigator__projects svg:nth-of-type(2){
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            right: 0;
         }
         .navigator__account a{
             text-decoration: none;
@@ -83,14 +114,27 @@
             display: flex;
             align-items: center;
             position: relative;
+            margin-bottom: 2rem;
+            width: 80%;
         }
         .navigator__account img{
+            width: 2rem;
+            height: 2rem;
+            margin-right: 7%;
+        }
+        .navigator__account svg{
             width: 1.5rem;
             height: 1.5rem;
-            margin-right: 1rem;
+            position: absolute;
+            right: 0;
+        }
+        .navigator__account img:first-of-type{
+            border-radius: 1rem;
+            margin-left: -0.25rem;
         }
         .navigator__account img:nth-child(2){
             position: absolute;
+            display: none;
             left: 0;
         }
         .navigator li:nth-last-child(2){

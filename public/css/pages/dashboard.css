@@ -1,3 +1,4 @@
+.project-checklist-container,
 .project-overview-container {
 	display: grid;
 	grid-template-columns: 20% 1fr;
