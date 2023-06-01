@@ -21,33 +21,33 @@
 	gap: .5rem;
 }
 
-.project-cards li.card__item a header img {
-	border-radius: 50%;
-	height: 3rem;
-}
+	.project-cards li.card__item a header img {
+		border-radius: 50%;
+		height: 3rem;
+	}
 
-.project-cards li.card__item a header > div {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: .2rem;
-}
+	.project-cards li.card__item a header > div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: .2rem;
+	}
 
-.project-cards li.card__item a header > div div.status {
-	display: flex;
-	align-items: center;
-	gap: .2rem;
-	color: var(--tertiary-text);
-}
+		.project-cards li.card__item a header > div div.status {
+			display: flex;
+			align-items: center;
+			gap: .2rem;
+			color: var(--tertiary-text);
+		}
 
-.project-cards li.card__item a header > div div.status svg {
-	height: 1.125rem;
-	stroke: currentColor;
-}
+			.project-cards li.card__item a header > div div.status svg {
+				height: 1.125rem;
+				stroke: currentColor;
+			}
 
-.project-cards li.card__item a header > div div.status.new {
-	color: var(--primary-color);
-}
+		.project-cards li.card__item a header > div div.status.new {
+			color: var(--primary-color);
+		}
 
 /* ---------------------------------- */
 /*       section with extra info      */
@@ -59,27 +59,29 @@
 	margin: 1rem 0;
 }
 
-.project-cards li.card__item a section.project-data div h4 {
-	font-weight: normal;
-	color: var(--tertiary-text);
-}
-
 .project-cards li.card__item a section.project-data div {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-.project-cards li.card__item a section.project-data div.team-members span {
-	display: flex;
-	gap: .4rem;
-}
+	.project-cards li.card__item a section.project-data div h4 {
+		font-weight: normal;
+		color: var(--tertiary-text);
+	}
 
-.project-cards li.card__item a section.project-data div.team-members span img {
-	border-radius: 50%;
-	height: 1.5rem;
-	border: 2px solid var(--primary-text);
-}
+
+	.project-cards li.card__item a section.project-data div.team-members span {
+		display: flex;
+		gap: .4rem;
+	}
+
+		.project-cards li.card__item a section.project-data div.team-members span img {
+			border-radius: 50%;
+			height: 1.5rem;
+			border: 2px solid var(--primary-text);
+		}
+
 
 .project-cards li.card__item a section.progress {
 	color: var(--tertiary-text);
@@ -88,38 +90,38 @@
 	gap: 1rem;
 }
 
-.project-cards li.card__item a section.progress progress[value] {
-	--progress-bar-height: 24px;
-	--progress-bar-border-radius: calc(var(--progress-bar-height) / 2);
-	width: 100%;
-	height: var(--progress-bar-height);
-	border-radius: var(--progress-bar-border-radius);
-	overflow: hidden;
-	appearance: none;
-	border: solid 2px var(--primary-color);
-	background-color: transparent;
-}
+	.project-cards li.card__item a section.progress progress[value] {
+		--progress-bar-height: 24px;
+		--progress-bar-border-radius: calc(var(--progress-bar-height) / 2);
+		width: 100%;
+		height: var(--progress-bar-height);
+		border-radius: var(--progress-bar-border-radius);
+		overflow: hidden;
+		appearance: none;
+		border: solid 2px var(--primary-color);
+		background-color: transparent;
+	}
 
-.project-cards li.card__item a section.progress progress[value]::-webkit-progress-bar {
-	background-color: transparent;
-}
+	.project-cards li.card__item a section.progress progress[value]::-webkit-progress-bar {
+		background-color: transparent;
+	}
 
-/* LAAT DIT ZO STAAN, MET EEN KOMMA WERKT HET NIET FOR SOME REASON, blame webkit of moz */
-.project-cards li.card__item a section.progress progress[value]::-moz-progress-bar {
-	background-color: var(--primary-color);
-	border-radius: 0 var(--progress-bar-border-radius) var(--progress-bar-border-radius) 0;
+	/* LAAT DIT ZO STAAN, MET EEN KOMMA WERKT HET NIET FOR SOME REASON, blame webkit of moz */
+	.project-cards li.card__item a section.progress progress[value]::-moz-progress-bar {
+		background-color: var(--primary-color);
+		border-radius: 0 var(--progress-bar-border-radius) var(--progress-bar-border-radius) 0;
 
-}
-.project-cards li.card__item a section.progress progress[value]::-webkit-progress-value {
-	background-color: var(--primary-color);
-}
+	}
+	.project-cards li.card__item a section.progress progress[value]::-webkit-progress-value {
+		background-color: var(--primary-color);
+	}
 
 /* ---------------------------------- */
 /*   styles for create project card   */
 /* ---------------------------------- */
 .project-cards li.card__item.admin-card a {
 	border-color: var(--primary-color);
-	background-color: var(--create-card-bg);
+	background-color: var(--create-project-card-bg);
 	display: flex;
 	justify-content: center;
 	align-items: center;

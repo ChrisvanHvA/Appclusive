@@ -1,13 +1,6 @@
-:root {
-    /* --light: #ffffff;
-    --dark: #1e1e1e;
-    --dark-alt: #040505;
-    --primary: #044ecf;
-    --secondary: #505050;
-    --tertiary: #f1f1f1;
-    --create-card-bg: #E1ECFF; */
-
+:root {	
 	--light: #fff;
+    --dark: #1e1e1e;
 	
 	
 	--primary-color: #044ECF;
@@ -21,7 +14,8 @@
 	--tertiary-text: #505050;
 	
 	--nav-bg: #1E1E1E;
-
+	
+    --create-project-card-bg: #E1ECFF; 
 	
     --card-border-radius: 1.25rem;
     --card-border-color: #7a7a7a;
@@ -30,23 +24,21 @@
 
 /* dark mode variables */
 :root
-/* .dark  */
+.dark 
 {
-    --primary: #3393ff;
-    --secondary: #989898;
-    --tertiary: #1e1e1e;
-
-
-
 	--primary-color: #3393FF;
+	
+	--primary-bg: #040505;
+	--secondary-bg: #1E1E1E;
+	--tertiary-bg: #989898;
 
 	--primary-text: #fff;
 	--secondary-text: #989898;
 	--tertiary-text: var(--secondary-text);
 
-	--primary-bg: #040505;
-	--secondary-bg: #1E1E1E;
-	--tertiary-bg: #989898;
+
+    /* --create-project-card-bg: #001c4d;  */
+
 }
 
 body {
