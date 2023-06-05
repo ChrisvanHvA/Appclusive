@@ -1,10 +1,10 @@
 import express from 'express';
 import home from './home.js';
+import checklist from './checklist.js';
 
 const routes = [
-    // { path: '/test', view: test},
+    { path: '/checklist', view: checklist },
     { path: '/', view: home },
-    // { path: '*', view: error}
 ];
 
 export default routes;

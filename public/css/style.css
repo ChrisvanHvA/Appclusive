@@ -1,22 +1,51 @@
-:root {
-    --light: #ffffff;
+:root {	
+	--light: #fff;
     --dark: #1e1e1e;
-    --dark-alt: #040505;
-    --primary: #044ecf;
-    --secondary: #505050;
-    --tertiary: #f1f1f1;
-
-    --border: 2px solid green;
+	
+	
+	--primary-color: #044ECF;
+	
+	--primary-bg: #fff;
+	--secondary-bg: #F1F1F1;
+	--tertiary-bg: #7A7A7A;
+	
+	--primary-text: #000;
+	--secondary-text: #1B1F24;
+	--tertiary-text: #505050;
+	
+	--nav-bg: #1E1E1E;
+	--nav-selected: #3393FF;
+	
+    --create-project-card-bg: #E1ECFF; 
+	
+    --card-border-radius: 1.25rem;
+    --card-border-color: #7a7a7a;
+    --card-border-style: var(--card-border-color) solid 1.5px;
 }
 
 /* dark mode variables */
+:root
+.dark 
+{
+	--primary-color: #3393FF;
+	
+	--primary-bg: #040505;
+	--secondary-bg: #1E1E1E;
+	--tertiary-bg: #989898;
 
-:root.dark {
-    --primary: #3393ff;
-    --secondary: #989898;
-    --tertiary: #1e1e1e;
+	--primary-text: #fff;
+	--secondary-text: #989898;
+	--tertiary-text: var(--secondary-text);
+
+
+    /* --create-project-card-bg: #001c4d;  */
+
 }
 
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 400;
+    line-height: 22.4px;
+	color: var(--primary-text);
+	background-color: var(--primary-bg);
 }
