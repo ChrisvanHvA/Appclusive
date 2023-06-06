@@ -22,7 +22,9 @@
     --card-border-color: #7a7a7a;
     --card-border-style: var(--card-border-color) solid 1.5px;
 }
-
+.hide {
+	display: none;
+}
 /* dark mode variables */
 :root
 .dark 
