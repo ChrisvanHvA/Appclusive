@@ -1,7 +1,7 @@
 .project-checklist-container,
 .project-overview-container {
-	display: grid;
-	grid-template-columns: 20% 1fr;
+	/* display: grid;
+	grid-template-columns: 20% 1fr; */
 }
 
 .project-overview-container main {

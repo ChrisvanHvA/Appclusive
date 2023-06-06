@@ -140,3 +140,9 @@
         .navigator li:nth-last-child(2){
             margin-top: auto;
         }
+
+@media screen and (max-width: 950px) {
+	.navigation {
+		display: none;
+	}
+}

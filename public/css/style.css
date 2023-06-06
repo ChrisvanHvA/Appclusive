@@ -49,3 +49,14 @@ body {
 	color: var(--primary-text);
 	background-color: var(--primary-bg);
 }
+
+.page-with-nav {
+	display: grid;
+	grid-template-columns: 25% 1fr;
+}
+
+@media screen and (max-width: 950px) {
+	.page-with-nav {
+		grid-template-columns: 1fr;
+	}
+}
