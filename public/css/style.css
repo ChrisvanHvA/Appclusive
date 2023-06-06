@@ -11,7 +11,7 @@
 	
 	--primary-text: #000;
 	--secondary-text: #1B1F24;
-	--tertiary-text: #505050;
+	--tertiary-text: #69717B;
 	
 	--nav-bg: #1E1E1E;
 	--nav-selected: #3393FF;
@@ -19,8 +19,8 @@
     --create-project-card-bg: #E1ECFF; 
 	
     --card-border-radius: 1.25rem;
-    --card-border-color: #7a7a7a;
-    --card-border-style: var(--card-border-color) solid 1.5px;
+    --card-border-color: #A1A1A1;
+    --card-border-style: var(--card-border-color) solid 2px;
 }
 
 /* dark mode variables */
