@@ -1,49 +1,46 @@
 <li class='checklist__item'>
-        <input type='checkbox' id='check1' name='check1' value='check1' />
-        <label for='check1'></label>
-    <div class='checklist__content'>
-        <h4>{{name}}</h4>
-        <p>{{description}}</p>
+    <form action="/" method="post">
+        <input class="checklist__checkbox" type='checkbox' id={{wcag_item_id}} name={{wcag_item_id}} value={{wcag_item_id}} />
+        <label for={{wcag_item_id}}></label>
+        <div class='checklist__content'>
+            <h4>{{wcagTitle}}</h4>
+            <p>{{{title}}}</p>
 
-        {{!-- if tips, details --}}
+            {{!-- if tips, details --}}
 
-        {{#if tips}}
             <details>
                 <summary>
                     <p>
-						{{>icons/plus}}
-						{{>icons/minus}}
-						Tips & Tricks</p>
+                        {{>icons/plus}}
+                        {{>icons/minus}}
+                        Tip</p>
                 </summary>
-                <ul>
-                    {{#each tips}}
-                        <li>{{this.content}}</li>
-                    {{/each}}
-                </ul>
+                <p>{{{wcagText}}}</p>
+                <a class="checklist__source" href={{wcagHref}}>Official WCAG website</a>
             </details>
-        {{/if}}
 
-        {{#if users}}
+            {{#if users}}
             <div class='checklist__users'>
 
                 {{#if (gt users.length 2)}}
-                    {{#each users}}
-                        {{#if (lt @index 2)}}
-                            <figure>
-                                <img src='https://unsplash.it/40/40' alt='' />
-                            </figure>
-                        {{/if}}
-                    {{/each}}
-                    <span>+{{subtract users.length 3}}</span>
-                {{else}}
-                    {{#each users}}
-                        <figure>
-                            <img src='https://unsplash.it/40/40' alt='' />
-                        </figure>
-                    {{/each}}
+                {{#each users}}
+                {{#if (lt @index 2)}}
+                <figure>
+                    <img src='https://unsplash.it/40/40' alt='' />
+                </figure>
                 {{/if}}
-                
+                {{/each}}
+                <span>+{{subtract users.length 3}}</span>
+                {{else}}
+                {{#each users}}
+                <figure>
+                    <img src='https://unsplash.it/40/40' alt='' />
+                </figure>
+                {{/each}}
+                {{/if}}
+
             </div>
-        {{/if}}
-    </div>
+            {{/if}}
+        </div>
+    </form>
 </li>

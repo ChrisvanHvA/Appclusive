@@ -20,12 +20,18 @@
     border: var(--card-border-style);
     border-radius: var(--card-border-radius);
     padding: 1.25rem;
-    background-color: var(--secondary-bg);
-
-    display: flex;
-    gap: 1.25rem;
+    background-color: var(--primary-bg);
     
     width: 100%;
+}
+
+.checklist__item > form {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.checklist__source {
+    margin-top: 1rem;
 }
 
 /* ---------------------------------- */
@@ -58,6 +64,7 @@
 }
 
 .checklist__item input:checked + label {
+    border: transparent;
     background: var(--primary-color) url(../images/check.svg) no-repeat center center;
     background-size: 60%;
     background-origin: 50%;
@@ -99,7 +106,7 @@
 }
 
     .checklist__content h4 {
-        color: var(--secondary-text);
+        color: var(--tertiary-text);
     }
 
 /* --------- DETAILS ELEMENT -------- */
@@ -112,7 +119,7 @@
 }
 
     .checklist__content > details a {
-        color: var(--light);
+        color: var(--primary-color);
         font-style: italic;
         word-break: break-all;
     }
@@ -124,9 +131,9 @@
     gap: .625rem;
     align-items: center;
     font-weight: 700;
-    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     padding: .625rem 1.25rem;
-    color: var(--light);
+    color: var(--primary-color);
     border-radius: 50rem;
 }
 
@@ -149,7 +156,7 @@
         top: 50%;
 		transform: translateY(-50%);
         left: 0;
-		fill: var(--light);
+		fill: var(--primary-color);
 	}
 
 	.checklist__content > details[open] > summary > p svg:first-of-type,
@@ -157,42 +164,24 @@
 		display: none;
 	}
 
-    /* .checklist__content summary > p::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        width: 1.25rem;
-        height: 1.25rem;
-        background-size: contain;
-		background: url(../images/plus.svg) no-repeat center center;
-    } */
-
 .checklist__content > details img {
 	width: 1.25rem;
     height: 1.25rem;
 }
 
 
-
-/* .checklist__content > details[open] > summary > p::before {
-	background: url(../images/plus.svg) no-repeat center center;
-    background-size: contain;
-} */
-
-
 .checklist__content > details[open] {
     border-radius: .9375rem;
     padding: .625rem 1.25rem 1.25rem 1.25rem;
-    background-color: var(--primary-color);
-    color: var(--light);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     border-radius: 1.25rem;
 }
 
 
 .checklist__content > details[open] > summary {
-    padding: 0;
+    padding: 0 0 .625rem 0;
+    border: none;
 }
 
 .checklist__content > details[open] > summary:focus-visible {
