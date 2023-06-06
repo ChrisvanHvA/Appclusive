@@ -9,6 +9,9 @@
 		<link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 	</head>
 	<body>
-		{{{body}}}
+		<div {{#unless noNav}}class="page-with-nav"{{/unless}}>
+			{{#unless noNav}}{{> navigation}}{{/unless}}
+			{{{body}}}
+		</div>
 	</body>
 </html>

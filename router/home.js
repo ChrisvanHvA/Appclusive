@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 	});
 
     res.render('dashboard', {
-        projects: projects,
+        projects: projects
     });
 });
 

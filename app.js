@@ -32,7 +32,7 @@ routes.forEach((route) => {
 app.engine(
     'hbs',
     handlebars.engine({
-        layoutsDir: __dirname + '/views/layouts',
+        layoutsDir: path.join(__dirname, 'views', 'layouts'),
         extname: 'hbs',
         defaultLayout: 'index',
         partialsDir: [path.join(__dirname, 'views', 'partials')],
