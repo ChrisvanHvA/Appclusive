@@ -64,7 +64,7 @@
 }
 
 .checklist__item input:checked + label {
-    border: none;
+    border: transparent;
     background: var(--primary-color) url(../images/check.svg) no-repeat center center;
     background-size: 60%;
     background-origin: 50%;
