@@ -109,6 +109,10 @@
         color: var(--tertiary-text);
     }
 
+    .checklist__content h4 > span {
+        color: var(--primary-color);
+    }
+
 /* --------- DETAILS ELEMENT -------- */
 
 .checklist__content > details {
