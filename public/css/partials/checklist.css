@@ -21,11 +21,17 @@
     border-radius: var(--card-border-radius);
     padding: 1.25rem;
     background-color: var(--secondary-bg);
-
-    display: flex;
-    gap: 1.25rem;
     
     width: 100%;
+}
+
+.checklist__item > form {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.checklist__source {
+    margin-top: 1rem;
 }
 
 /* ---------------------------------- */
@@ -192,7 +198,7 @@
 
 
 .checklist__content > details[open] > summary {
-    padding: 0;
+    padding: 0 0 .625rem 0;
 }
 
 .checklist__content > details[open] > summary:focus-visible {
