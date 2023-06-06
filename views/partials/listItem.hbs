@@ -3,8 +3,8 @@
         <input class="checklist__checkbox" type='checkbox' id={{wcag_item_id}} name={{wcag_item_id}} value={{wcag_item_id}} />
         <label for={{wcag_item_id}}></label>
         <div class='checklist__content'>
-            <h4>{{wcagTitle}}</h4>
-            <p>{{{title}}}</p>
+            <h4>{{title}} <span>({{wcag_level}})</span></h4>
+            <p>{{{description}}}</p>
 
             {{!-- if tips, details --}}
 
@@ -13,10 +13,10 @@
                     <p>
                         {{>icons/plus}}
                         {{>icons/minus}}
-                        Tip</p>
+                        Tips & Tricks</p>
                 </summary>
-                <p>{{{wcagText}}}</p>
-                <a class="checklist__source" href={{wcagHref}}>Official WCAG website</a>
+                <p>{{{tip_description}}}</p>
+                <a class="checklist__source" href={{ref_link}}>Official WCAG website</a>
             </details>
 
             {{#if users}}
