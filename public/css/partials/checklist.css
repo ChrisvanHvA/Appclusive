@@ -1,24 +1,14 @@
-.project-checklist-container > main {
-    display: flex;
-    gap: 4.375rem;
-}
 
-/* width can be changed once its container has been styled */
 .checklist {
-    /* width: clamp(10rem, 100%, 40rem); */
-
-	margin: 0 auto;
-	width: 95%;
+	width: 100%;
 	max-width: 70rem;
-
-    margin-top: 10vh;
 }
 
-.checklist > ol {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
+    .checklist > ol {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
 
 .checklist__item {
     border: var(--card-border-style);
@@ -29,14 +19,25 @@
     width: 100%;
 }
 
-.checklist__item > form {
-    display: flex;
-    gap: 1.25rem;
-}
+    .checklist__item > form {
+        display: flex;
+        gap: 1.25rem;
+    }
 
 .checklist__source {
     margin-top: 1rem;
 }
+
+.checklist__title {
+    margin-bottom: 1.25rem;
+    display: flex;
+    gap: .625rem;
+}
+
+    .checklist__title > p {
+        color: var(--tertiary-text);
+        font-size: 14px;
+    }
 
 /* ---------------------------------- */
 /*              CHECKBOX              */

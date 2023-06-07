@@ -1,10 +1,14 @@
 .desktop-nav {
     background-color: var(--nav-bg);
     height: 100dvh;
-    width: clamp(15rem, 100%, 22.5rem);
+    width: clamp(15rem, 100%, 18.75rem);
     display: flex;
     flex-direction: column;
     padding-left: min(3rem, 2vw);
+
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 .logo{

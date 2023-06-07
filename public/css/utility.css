@@ -16,3 +16,16 @@
     background: var(--primary-color);
     color: var(--light);
 }
+
+.layout__checklist {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4.375rem;
+    margin: 10rem 4.375rem 0 4.375rem;
+}
+
+@media screen and (max-width: 950px) {
+    .layout__checklist {
+        grid-template-columns: 1fr;
+    }
+}
