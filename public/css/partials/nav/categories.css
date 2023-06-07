@@ -1,0 +1,41 @@
+.categories > p {
+    font-size: 1rem;
+    width: 90%;
+    margin: 1.25rem;
+    max-width: 70rem;
+}
+.divider { 
+   
+    height: 3px;
+    
+  background: lightgrey;
+border:none;
+    border-radius: .25rem;
+        width: 90%;
+        max-width: 70rem;
+
+
+}
+.checklist__categories ol li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1.25rem;
+    border-radius: .75rem;
+    border: 0.187rem solid var(--primary-color);
+    margin: 1.25rem;
+    max-width: 70rem;
+}
+
+.checklist__categories ol li progress {
+    width: 80vw;
+    height: 1.25rem;
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.checklist__categories ol li img {
+
+    width: 0.625rem;
+    height: auto;
+}
