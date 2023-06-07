@@ -7,7 +7,7 @@ import profile from './profile.js';
 import logout from './logout.js';
 
 const routes = [
-	  { path: '/new-project', handler: projectCreate, auth: true },
+    { path: '/new-project', handler: projectCreate, auth: true },
     { path: '/profile', handler: profile, auth: true },
     { path: '/login', handler: login, auth: false },
     { path: '/logout', handler: logout, auth: true },

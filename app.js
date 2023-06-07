@@ -50,7 +50,7 @@ app.use(setHeadData);
 
 // routes
 routes.forEach((route) => {
-    app.use(route.path, route.handler);
+    app.use(route.path, checkAuth, route.handler);
 });
 
 app.engine(
