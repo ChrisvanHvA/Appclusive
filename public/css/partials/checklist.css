@@ -1,3 +1,7 @@
+.project-checklist-container > main {
+    display: flex;
+    gap: 4.375rem;
+}
 
 /* width can be changed once its container has been styled */
 .checklist {
