@@ -29,3 +29,19 @@
         grid-template-columns: 1fr;
     }
 }
+
+.textinput {
+	border: 2px solid var(--primary-text);
+	padding: .5rem .75rem;
+	border-radius: 50rem;
+	font-size: 1.1rem;
+	font-family: inherit;
+	color: var(--primary-text);
+	background-color: var(--primary-bg);
+}
+
+.textinput:focus {
+	outline: var(--primary-color) solid 2px;
+	outline-offset: 1px;
+	border-color: var(--primary-color);
+}

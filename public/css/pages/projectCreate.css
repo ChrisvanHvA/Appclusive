@@ -1,0 +1,37 @@
+main.layout__project-create {
+	width: min(90%, 25rem);
+}
+
+.layout__project-create form {
+	display: flex;
+	flex-direction: column;
+}
+
+.layout__project-create form label {
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin-bottom: 0.25rem;
+}
+
+.layout__project-create form label + * {
+	margin-bottom: 1.25rem;
+}
+
+.layout__project-create form div {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.layout__project-create form div small {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: var(--tertiary-text);
+}
+
+.layout__project-create form textarea {
+	resize: none;
+	height: 5rem;
+	border-radius: 0.8rem;
+}
