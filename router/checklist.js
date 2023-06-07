@@ -6,6 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.render('checklist', {
         tasks: tasks,
+        ...res.locals
     });
 });
 

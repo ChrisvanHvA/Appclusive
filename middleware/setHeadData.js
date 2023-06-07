@@ -20,7 +20,7 @@ const data = {
 	'/checklist': {
 		title: 'Checklist',
 		description: '',
-		scripts: ['script']
+		scripts: ['checklist']
 	},
 	fallback: {
 		title: 'Whoopsy',

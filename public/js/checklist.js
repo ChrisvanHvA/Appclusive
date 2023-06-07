@@ -25,6 +25,5 @@ function submitHandler() {
     });
 }
 
-export default {
-    submitHandler,
-};
+
+submitHandler();
