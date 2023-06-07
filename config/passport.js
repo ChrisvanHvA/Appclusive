@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 const usersFilePath = 'config/users.json';
 
 export default function (passport) {
-    // passport serialize and unserialize users out of session
+    // passport serialize/unserialize users out of session
     passport.serializeUser(function (user, done) {
         done(null, user.id);
     });
