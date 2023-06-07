@@ -1,21 +1,20 @@
 <div class="project-checklist-container">
-{{>navigation}}
 
-<section class="checklist">
-    <div>
-        <h3>Checklist</h3>
-        <p>0/4</p>
-    </div>
+    <section class="checklist">
+        <div>
+            <h3>Checklist</h3>
+            <p>0/4</p>
+        </div>
 
 
-    <ol>
-        {{!-- for each task insert listItem and pass data --}}
-        {{#each tasks}}
-            {{#each this.items}}
-                {{> listItem this}}
+        <ol>
+            {{!-- for each task insert listItem and pass data --}}
+            {{#each tasks}}
+                {{#each this.items}}
+                    {{> listItem this}}
+                {{/each}}
             {{/each}}
-        {{/each}}
 
-    </ol>
-</section>
+        </ol>
+    </section>
 </div>
