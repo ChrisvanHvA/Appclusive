@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
         return res.redirect('/profile');
     }
-    res.render('login');
+    res.render('login', { noNav: true });
 });
 
 export default router;

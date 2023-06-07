@@ -11,7 +11,7 @@ router.post(
 );
 
 router.get('/', (req, res) => {
-    res.render('register');
+    res.render('register', { noNav: true });
 });
 
 export default router;

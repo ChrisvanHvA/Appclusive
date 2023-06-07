@@ -1,26 +1,34 @@
-<h1>Register</h1>
-<form action='/register' method='POST'>
+<main>
+    <h1>Register</h1>
+    <form action='/register' method='POST'>
 
-    <input type='email' name='email' id='email' placeholder='Email' required />
+        <input
+            type='email'
+            name='email'
+            id='email'
+            placeholder='Email'
+            required
+        />
 
-    <input
-        type='password'
-        name='password'
-        id='password'
-        placeholder='Password'
-        autocomplete='off'
-        required
-    />
-    {{!-- <input
+        <input
+            type='password'
+            name='password'
+            id='password'
+            placeholder='Password'
+            autocomplete='off'
+            required
+        />
+        {{! <input
         type='password'
         name='confirm_password'
         id='confirm_password'
         placeholder='Confirm Password'
         autocomplete='off'
         required
-    /> --}}
+    /> }}
 
-    <input type='submit' value='Register' />
+        <input type='submit' value='Register' />
 
-    <a href='/login'>Login</a>
-</form>
+        <a href='/login'>Login</a>
+    </form>
+</main>

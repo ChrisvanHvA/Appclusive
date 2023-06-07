@@ -22,6 +22,16 @@ const data = {
 		description: '',
 		scripts: ['checklist']
 	},
+	'/login': {
+		title: 'Login',
+		description: '',
+		scripts: []
+	},
+	'/register': {
+		title: 'Register',
+		description: '',
+		scripts: []
+	},
 	fallback: {
 		title: 'Whoopsy',
 		description: 'whoops',
