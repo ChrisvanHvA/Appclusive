@@ -1,8 +1,8 @@
-<aside class='navigation'>
+<aside class='desktop-nav'>
     <a class='logo' href='#'><h1 class='logo logo--text'>{{>icons/logo}}</h1></a>
 
     <div class='searchbar'>
-        <button class='searchbar__button' type='submit'>{{>icons/searchicon}}</button>
+        <button class='searchbar__button' type='submit'>{{>icons/search}}</button>
         <input class='searchbar__input' type='text' placeholder='Zoeken' />
     </div>
 
@@ -21,20 +21,40 @@
                     <li><a href='#'>Project 3</a></li>
                 </ol>
             </li>
-            <li class='navigator__item'><a href='#'>{{>icons/recenticon}}Recent</a></li>
-            <li class='navigator__item'><a href='#'>{{>icons/archieficon}}Archief</a></li>
-            <li class='navigator__item'><a href='#'>{{>icons/settingsicon}}Instellingen</a></li>
+            <li class='navigator__item'><a href='#'>{{>icons/recent}}Recent</a></li>
+            <li class='navigator__item'><a href='#'>{{>icons/archive}}Archief</a></li>
+            <li class='navigator__item'><a href='#'>{{>icons/settings}}Instellingen</a></li>
             <li class='navigator__account'>
                 <a href='#'>
-                    <img src='../../public/images/avatar.jpg' />
                     <img src='https://unsplash.it/40/40' />
                     <div>
-                    <p>Sofia</p>
-                    <p>sofia@gmail.com</p>
+                    	<p>Sofia</p>
+                    	<p>sofia@gmail.com</p>
                     </div>
-                    {{>icons/loginicon}}
+                    	{{>icons/login}}
                 </a>
             </li>
         </ul>
     </nav>
 </aside>
+
+<header class='mobile-nav'>
+    <div>
+    {{! todo: if icoontje rechtsboven laad dit in }}
+        {{#if true}}
+            <a href='' aria-label="open settings">
+				{{> icons/settings}}
+			</a>
+        {{/if}}
+    </div>
+
+    <div>
+        <p>Welcome, Pis</p>
+        <h1>Dashboard</h1>
+    </div>
+	
+	{{!-- decorative spans --}}
+	<span></span>
+	<span></span>
+	<span></span>
+</header>

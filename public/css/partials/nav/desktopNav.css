@@ -1,10 +1,10 @@
-.navigation{
+.desktop-nav {
     background-color: var(--nav-bg);
     height: 100dvh;
-    width: clamp(15rem, 100%, 20rem);
+    width: clamp(15rem, 100%, 22.5rem);
     display: flex;
     flex-direction: column;
-    padding-left: 3rem;
+    padding-left: min(3rem, 2vw);
 }
 
 .logo{
@@ -76,7 +76,7 @@
         .navigator__projects svg:first-child{
             width: 1.5rem;
             height: 1.5rem;
-            margin-right: 13%;
+			margin-right: 1rem;
         }
 
         .navigator__projects a{
@@ -90,9 +90,7 @@
         .navigator__projects ol{
             display: flex;
             flex-direction: column;
-            align-items: center;
-            width: 80%;
-            margin-bottom: 1.2rem;
+			padding-left: 2.5rem;
         }
             .navigator__projects ol li:first-of-type a{
                 font-weight: bold;
@@ -100,7 +98,7 @@
             }
             .navigator__projects ol li a{
                 width: fit-content;
-                margin-top: 1.5rem;
+				padding: 0.75rem 0;
         }
         .navigator__projects svg:nth-of-type(2){
             width: 1.5rem;
@@ -121,6 +119,8 @@
             width: 2rem;
             height: 2rem;
             margin-right: 7%;
+			border-radius: 50%;
+			margin-left: -0.25rem;
         }
         .navigator__account svg{
             width: 1.5rem;
@@ -128,15 +128,12 @@
             position: absolute;
             right: 0;
         }
-        .navigator__account img:first-of-type{
-            border-radius: 1rem;
-            margin-left: -0.25rem;
-        }
-        .navigator__account img:nth-child(2){
-            position: absolute;
-            display: none;
-            left: 0;
-        }
         .navigator li:nth-last-child(2){
             margin-top: auto;
         }
+
+@media screen and (max-width: 950px) {
+	.desktop-nav {
+		display: none;
+	}
+}
