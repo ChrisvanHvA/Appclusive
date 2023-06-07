@@ -1,6 +1,4 @@
 import express from 'express';
-// experimental
-// import tasks from "../public/wcag.json" assert { type: "json" };
 const router = express.Router();
 
 router.get('/', (req, res) => {
