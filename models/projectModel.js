@@ -1,7 +1,6 @@
 import sql from '../config/db.js';
 
 class projectModel {
-    constructor() {}
 
     /**
      * Async function to retrieve list of projects user is involved in
@@ -11,10 +10,10 @@ class projectModel {
     async listProjects(userId) {
         try {
             const projects = await sql`
-				SELECT p.* pu.user_id, pu.is_admin
+				SELECT p.*, pu.user_id, pu.is_admin
 				FROM project_users AS pu
 				LEFT JOIN projects AS p ON p.project_id = pu.project_id
-				WHERE pu.user_id = ${userId}
+				WHERE pu.user_id = ${ userId }
 				`;
 			return projects
         } catch (error) {

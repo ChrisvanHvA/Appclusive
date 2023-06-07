@@ -1,10 +1,6 @@
 import express from 'express';
 const router = express.Router();
 
-// import projectModel from '../models/projectModel.js';
-// import wcagController from '../controllers/wcagController.js';
-// import wcagModel from '../models/wcagModel.js';
-
 router.get('/', (req, res) => {
 	projects.forEach((project) => {
 		project.completedChecklists = getCompletedChecklists(project.checkLists);
@@ -13,25 +9,6 @@ router.get('/', (req, res) => {
     res.render('dashboard', {
         projects: projects
     });
-});
-
-
-router.get('/wcag', async (req, res) => {
-
-    // const data = await wcagController.createWCAGOverview();
-    // const WCAGModel = new wcagModel();
-    // const data = await WCAGModel.listWCAGItemsByParentId(2);
-
-    res.send('hehe');
-});
-
-router.get('/projects', async (req, res) => {
-	const ProjectModel = new projectModel();
-	const projects = await ProjectModel.listProjects();
-
-	console.log(projects);
-
-	res.send(projects);
 });
 
 const getCompletedChecklists = (checklists) => {

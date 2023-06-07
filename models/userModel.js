@@ -13,6 +13,29 @@ class userModel {
     async update() {
 
     }
+
+    async authenticateUser (email_address, password) {
+
+        try {
+
+            const userByEmail = await this.getUserByEmail(email_address);
+
+            const decryptedPass = userByEmail.password;
+
+            if (decryptedPass != password) {
+                return false;
+            }
+
+            return true;
+            
+        } catch (error) {
+
+            console.log(error);
+            return {};
+            
+        }
+
+    }
     
     /**
      * 
@@ -32,6 +55,34 @@ class userModel {
                 SELECT *
                 FROM users
                 WHERE user_id = ${ this.user_id }
+            `;
+
+            return user || {};
+            
+        } catch (error) {
+            console.log(error);
+            return {};
+        }
+    }
+
+    /**
+     * 
+     * Async function to retrieve a user based on email_address
+     * 
+     * @param email_address
+     * @returns user object
+     */
+    async getUserByEmail(email_address) {
+
+        try {
+
+            if (email_address == '')
+                return {};
+
+            const [user] = await sql`
+                SELECT *
+                FROM users
+                WHERE email_address = ${ email_address }
             `;
 
             return user || {};
