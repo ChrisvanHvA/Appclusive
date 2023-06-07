@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
 	});
 
     res.render('dashboard', {
-        projects: projects,
+		...res.locals,
+        projects: projects
     });
 });
 

@@ -13,6 +13,9 @@ import bodyParser from 'body-parser';
 
 import { checkAuth } from './middleware/checkAuth.js';
 
+// custom middleware
+import { setHeadData } from './middleware/setHeadData.js';
+
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
 
@@ -42,15 +45,18 @@ io.on('connection', (socket) => {
     // Do stuff§
 });
 
+// middleware
+app.use(setHeadData);
+
 // routes
 routes.forEach((route) => {
-    app.use(route.path, checkAuth, route.view);
+    app.use(route.path, route.handler);
 });
 
 app.engine(
     'hbs',
     handlebars.engine({
-        layoutsDir: __dirname + '/views/layouts',
+        layoutsDir: path.join(__dirname, 'views', 'layouts'),
         extname: 'hbs',
         defaultLayout: 'index',
         partialsDir: [path.join(__dirname, 'views', 'partials')],

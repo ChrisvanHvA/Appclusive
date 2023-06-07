@@ -1,0 +1,45 @@
+
+.checklist__sidebar {
+    gap: 1.25rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.checklist__sidebar > div > h3 {
+    margin-bottom: 0.625rem;   
+}
+
+.sidebar__users {
+    border-radius: 50%;
+    width: 1.875rem;
+    height: 1.875rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .checklist__sidebar > div {
+    padding: 1.25rem;
+} */
+
+.sidebar__buttons {
+    cursor: pointer;
+    padding: 0.625rem 1.25rem;
+    margin: 1.25rem 0rem 0rem 0rem;
+    border-radius: 50rem;
+    color: var(--light);
+    background-color: var(--primary-color);
+    border:none;
+    align-items: center;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 950px) {
+    .checklist__sidebar {
+        display: none;
+    }
+}

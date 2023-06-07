@@ -18,7 +18,6 @@ function submitHandler() {
                     },
                 });
                 const data = await res.json();
-                console.log(data);
             } catch (err) {
                 console.log(err);
             }
@@ -26,6 +25,5 @@ function submitHandler() {
     });
 }
 
-export default {
-    submitHandler,
-};
+
+submitHandler();
