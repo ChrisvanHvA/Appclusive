@@ -1,5 +1,7 @@
 import express from 'express';
 import wcagModel from '../models/wcagModel.js';
+import projectModel from '../models/projectModel.js';
+
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -20,6 +22,15 @@ router.get('/users', async (req, res) => {
     console.log(users);
 
     res.send(users);
+});
+
+router.get('/projects', async (req, res) => {
+	const ProjectModel = new projectModel();
+	const projects = await ProjectModel.listProjects();
+
+	console.log(projects);
+
+	res.send(projects);
 });
 
 const getCompletedChecklists = (checklists) => {
