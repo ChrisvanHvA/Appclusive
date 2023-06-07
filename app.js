@@ -4,6 +4,14 @@ import http from 'http';
 import path from 'path';
 import routes from './router/router.js';
 import hbsHelpers from './helpers/hbsHelpers.js';
+import configurePassport from './config/passport.js';
+
+import passport from 'passport';
+import session from 'express-session';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+
+import { checkAuth } from './middleware/checkAuth.js';
 
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
@@ -20,13 +28,23 @@ app.use('/', express.static(__dirname + '/'));
 app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', 1);
 
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+    session({ secret: 'fckweebnation', saveUninitialized: true, resave: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+configurePassport(passport);
+
 io.on('connection', (socket) => {
-    // Do stuff
+    // Do stuff§
 });
 
 // routes
 routes.forEach((route) => {
-    app.use(route.path, route.view);
+    app.use(route.path, checkAuth, route.view);
 });
 
 app.engine(
@@ -36,10 +54,12 @@ app.engine(
         extname: 'hbs',
         defaultLayout: 'index',
         partialsDir: [path.join(__dirname, 'views', 'partials')],
-		helpers: { ...hbsHelpers }
+        helpers: { ...hbsHelpers },
     })
 );
 
 server.listen(port, () => {
-    console.log(`Example app listening on port ${port}! http://localhost:${port}`);
+    console.log(
+        `Example app listening on port ${port}! http://localhost:${port}`
+    );
 });
