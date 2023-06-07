@@ -1,7 +1,6 @@
 import router from '../router/router.js';
 
 const checkAuth = (req, res, next) => {
-    console.log(req);
     const path = req.originalUrl.split('?')[0];
     const route = router.find((route) => route.path === path);
 
