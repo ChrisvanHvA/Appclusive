@@ -1,32 +1,82 @@
 import sql from "../config/db.js";
 
 class wcagModel {
-
-    constructor() {
-
-    }
     
     /**
      * 
-     * Async function to retrieve list of all users in DB
+     * Async function to retrieve list of all WCAG categories
      * 
-     * @param data [user_id, name] 
-     * @returns list of users
+     * @returns list of WCAG categories
      */
-    async listUsers(data) {
+    async listWCAGCategories() {
 
         try {
 
-            const users = await sql`
-                select *
-                from users
-            `
+            const categories = await sql`
+                SELECT *
+                FROM wcag
+            `;
 
-            return users
+            return categories;
             
         } catch (error) {
             console.log(error);
             return [];
+        }
+    }
+    
+    /**
+     * 
+     * Async function to retrieve a list of WCAG items based on category parent id
+     * 
+     * @returns list of WCAG categories
+     */
+    async listWCAGItemsByParentId(parent_id) {
+
+        try {
+
+            if (parent_id == 0)
+                return [];
+
+            const wcagItem = await sql`
+                SELECT *
+                FROM wcag_item
+                WHERE parent_id = ${ parent_id }
+            `;
+
+            return wcagItem;
+            
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
+    
+    /**
+     * 
+     * Async function to retrieve a specific WCAG item based on its id
+     * 
+     * @returns get specific WCAG item {}
+     */
+    async getWCAGItemById(wcag_item_id) {
+
+        try {
+
+            if (wcag_item_id == 0)
+                return {};
+
+            
+            const [wcagItem] = await sql`
+                SELECT *
+                FROM wcag_item
+                WHERE wcag_item_id = ${ wcag_item_id }
+            `;
+
+            return wcagItem || {};
+            
+        } catch (error) {
+            console.log(error);
+            return {};
         }
     }
 }

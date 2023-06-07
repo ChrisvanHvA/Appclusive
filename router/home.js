@@ -1,6 +1,7 @@
 import express from 'express';
-import wcagModel from '../models/wcagModel.js';
 const router = express.Router();
+// import wcagController from '../controllers/wcagController.js';
+// import wcagModel from '../models/wcagModel.js';
 
 router.get('/', (req, res) => {
 	projects.forEach((project) => {
@@ -12,14 +13,14 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/users', async (req, res) => {
 
-    const WCAGModel = new wcagModel();
-    const users = await WCAGModel.listUsers();
+router.get('/wcag', async (req, res) => {
 
-    console.log(users);
+    // const data = await wcagController.createWCAGOverview();
+    // const WCAGModel = new wcagModel();
+    // const data = await WCAGModel.listWCAGItemsByParentId(2);
 
-    res.send(users);
+    res.send('hehe');
 });
 
 const getCompletedChecklists = (checklists) => {
