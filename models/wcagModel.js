@@ -8,16 +8,18 @@ class wcagModel {
     
     /**
      * 
+     * Async function to retrieve list of all users in DB
+     * 
+     * @param data [user_id, name] 
      * @returns list of users
      */
-    async listUsers() {
+    async listUsers(data) {
 
         try {
 
             const users = await sql`
                 select *
                 from users
-                where name = 'poep'
             `
 
             return users
