@@ -20,8 +20,8 @@
 .layout__checklist {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 4.375rem;
-    margin: 10rem 4.375rem 0 4.375rem;
+    gap: 2.5rem;
+    margin: 10rem 2.5rem 0 2.5rem;
 }
 
 @media screen and (max-width: 950px) {
