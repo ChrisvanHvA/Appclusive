@@ -25,7 +25,7 @@ main.layout__project-create {
 
 .layout__project-create form div small {
 	position: absolute;
-	bottom: 0;
+	bottom: -.2rem;
 	right: 0;
 	color: var(--tertiary-text);
 }

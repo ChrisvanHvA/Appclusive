@@ -12,6 +12,11 @@ const data = {
 		description: '',
 		scripts: []
 	},
+	'/new-project': {
+		title: 'New Project | Appclusive',
+		description: '',
+		scripts: ['createProject']
+	},
 	'/checklist': {
 		title: 'Checklist',
 		description: '',
