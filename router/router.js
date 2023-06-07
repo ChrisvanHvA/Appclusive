@@ -1,10 +1,11 @@
-import express from 'express';
 import home from './home.js';
 import checklist from './checklist.js';
+import projectCreate from './projectCreate.js';
 
 const routes = [
-    { path: '/checklist', view: checklist },
-    { path: '/', view: home },
+	{ path: '/new-project', handler: projectCreate },
+    { path: '/checklist', handler: checklist },
+    { path: '/', handler: home },
 ];
 
 export default routes;

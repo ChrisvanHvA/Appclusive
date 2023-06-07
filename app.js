@@ -5,6 +5,9 @@ import path from 'path';
 import routes from './router/router.js';
 import hbsHelpers from './helpers/hbsHelpers.js';
 
+// custom middleware
+import { setHeadData } from './middleware/setHeadData.js';
+
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
 
@@ -24,9 +27,12 @@ io.on('connection', (socket) => {
     // Do stuff
 });
 
+// middleware
+app.use(setHeadData);
+
 // routes
 routes.forEach((route) => {
-    app.use(route.path, route.view);
+    app.use(route.path, route.handler);
 });
 
 app.engine(
