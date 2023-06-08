@@ -8,15 +8,15 @@
    
     height: 3px;
     
-  background: lightgrey;
-border:none;
+    background: var(--card-border-color);
+    border:none;
     border-radius: .25rem;
         width: 90%;
         max-width: 70rem;
 
 
 }
-.checklist__categories ol li {
+.checklist__categories ol li > a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -26,6 +26,15 @@ border:none;
     border: 0.187rem solid var(--primary-color);
     margin: 1.25rem;
     max-width: 70rem;
+    text-decoration: none;
+}
+
+.checklist__categories h2 {
+    color: var(--primary-text);
+}
+
+.checklist__categories p {
+    color: var(--tertiary-text);
 }
 
 .checklist__categories ol li progress {
