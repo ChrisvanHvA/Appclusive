@@ -22,7 +22,6 @@ class UserModel {
 
                 RETURNING user_id;
             `;
-
             return insertedRow.user_id ?? 0;
             
         } catch (error) {
