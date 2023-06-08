@@ -12,8 +12,10 @@ router.post(
 );
 
 router.get('/', (req, res) => {
-    res.render('register', { noNav: true });
+    res.render('register', {
+        noNav: true,
         message: req.flash('registerMsg'),
+    });
 });
 
 export default router;

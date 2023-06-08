@@ -1,64 +1,53 @@
-import sql from "../config/db.js";
+import sql from '../config/db.js';
+import bcrypt from 'bcrypt';
 
-class userModel {
-
+class UserModel {
     constructor(user_id) {
         this.user_id = user_id ?? 0;
     }
 
-    async insert() {
+    async insertUser() {}
 
-    }
+    async updateUser() {}
 
-    async update() {
-
-    }
-
-    async authenticateUser (email_address, password) {
-
+    async authenticateUser(email_address, password) {
         try {
-
             const userByEmail = await this.getUserByEmail(email_address);
+            const hashedPassword = userByEmail.password;
 
-            const decryptedPass = userByEmail.password;
-
-            if (decryptedPass != password) {
+            const isPasswordValid = await bcrypt.compare(
+                password,
+                hashedPassword
+            );
+            if (!isPasswordValid) {
                 return false;
             }
 
             return true;
-            
         } catch (error) {
-
             console.log(error);
             return {};
-            
         }
-
     }
-    
+
     /**
-     * 
+     *
      * Async function to retrieve the current logged in user
-     * 
+     *
      * @param user_id
      * @returns user object
      */
     async getCurrentLoggedUser() {
-
         try {
-
-            if (this.user_id == 0)
-                return {};
+            if (this.user_id == 0) return {};
 
             const [user] = await sql`
                 SELECT *
                 FROM users
-                WHERE user_id = ${ this.user_id }
+                WHERE user_id = ${this.user_id}
             `;
 
             return user || {};
-            
         } catch (error) {
             console.log(error);
             return {};
@@ -66,27 +55,23 @@ class userModel {
     }
 
     /**
-     * 
+     *
      * Async function to retrieve a user based on email_address
-     * 
+     *
      * @param email_address
      * @returns user object
      */
     async getUserByEmail(email_address) {
-
         try {
-
-            if (email_address == '')
-                return {};
+            if (email_address == '') return {};
 
             const [user] = await sql`
                 SELECT *
                 FROM users
-                WHERE email_address = ${ email_address }
+                WHERE email_address = ${email_address}
             `;
 
             return user || {};
-            
         } catch (error) {
             console.log(error);
             return {};
@@ -94,27 +79,23 @@ class userModel {
     }
 
     /**
-     * 
+     *
      * Async function to retrieve a user based on user_id
-     * 
+     *
      * @param user_id
      * @returns user object
      */
     async getUser(user_id) {
-
         try {
-
-            if (user_id == 0)
-                return {};
+            if (user_id == 0) return {};
 
             const [user] = await sql`
                 SELECT *
                 FROM users
-                WHERE user_id = ${ user_id }
+                WHERE user_id = ${user_id}
             `;
 
             return user || {};
-            
         } catch (error) {
             console.log(error);
             return {};
@@ -122,22 +103,19 @@ class userModel {
     }
 
     /**
-     * 
+     *
      * Async function to retrieve list of all users in DB
-     * 
+     *
      * @returns list of users
      */
     async listUsers() {
-
         try {
-
             const users = await sql`
                 SELECT *
                 FROM users
             `;
 
             return users;
-            
         } catch (error) {
             console.log(error);
             return [];
@@ -145,4 +123,4 @@ class userModel {
     }
 }
 
-export default userModel;
+export default UserModel;
