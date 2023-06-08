@@ -1,3 +1,6 @@
+
+
+
 .categories > p {
     font-size: 1rem;
     width: 90%;
@@ -15,22 +18,38 @@
 
 
 }
-.checklist__categories ol li > a {
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.categories li {
     display: flex;
     padding: 1.25rem;
     border-radius: .75rem;
     border: 0.187rem solid var(--primary-color);
     margin: 1.25rem;
     max-width: 70rem;
+}
+
+.categories li > a {
     text-decoration: none;
 }
-.checklist__categories ol li > a > ul{
+
+.category__item__content > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories li > a > ul{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
 }
-.checklist__categories ol li > a > ul > li:last-of-type{
+.categories li > a > ul > li:last-of-type{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -44,13 +63,13 @@
     color: var(--tertiary-text);
 }
 
-.checklist__categories ol li progress {
+.categories li progress {
     width: 30cqb;
     height: 1.25rem;
     margin: 1rem 0rem 1rem 0rem;
 }
 
-.checklist__categories ol li > a > ul > li:last-of-type img {
+.categories li > a > ul > li:last-of-type img {
 
     width: 0.625rem;
     height: auto;
@@ -64,7 +83,7 @@ ul.categoryContent > li:first-of-type img{
 }
 
 @media screen and (min-width: 950px) {
-    .checklist__categories ol li > a {
+    /* .checklist__categories ol li > a {
         display: flex;
         padding: 1.25rem;
         border-radius: .75rem;
@@ -72,8 +91,8 @@ ul.categoryContent > li:first-of-type img{
         margin: 1.25rem;
         max-width: 70rem;
         text-decoration: none;
-    }
-	.checklist__categories ol li > a > ul{
+    } */
+	.categories li > a > ul{
         display: flex;
         flex-direction: column;
         justify-content: space-between;

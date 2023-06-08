@@ -1,32 +1,50 @@
-<li>
+{{!-- <li>
     <a href={{href}}>
         <ul class="categoryContent">
-        <li>
-        <img src="/images/image.svg" alt="image icon">
-        </li>
-        <li>
-        <h2>Content</h2>
-        <img src="/images/nextArrow.svg" alt="next arrow">
-        <section class='progress'>
-            <progress>
-                value={{round
-                (multiply
-                (divide this.completedChecklists this.checkLists.length)
-                100
-                )
-                }}
-                min='0'
-                max='100'
-            </progress>
-            {{! <3 handlebars }} </section>
-                <p>{{round
-                    (multiply
-                    (divide this.completedChecklists this.checkLists.length)
-                    100
-                    )
-                    }}% accessible</p>
-        <p>1/3</p>
-        </li>
+            <li>
+                <img src="/images/image.svg" alt="image icon">
+            </li>
+            <li>
+                <h2>Content</h2>
+                <img src="/images/nextArrow.svg" alt="next arrow">
+                <section class='progress'>
+                    <progress>
+                        value={{round
+                        (multiply
+                        (divide this.completedChecklists this.checkLists.length)
+                        100
+                        )
+                        }}
+                        min='0'
+                        max='100'
+                    </progress>
+                    {{! <3 handlebars }} </section>
+                        <p>{{round
+                            (multiply
+                            (divide this.completedChecklists this.checkLists.length)
+                            100
+                            )
+                            }}% accessible</p>
+                        <p>1/3</p>
+            </li>
         </ul>
+    </a>
+</li> --}}
+
+<li class="category__item">
+    <a href={{href}}>
+        <img src="/images/image.svg" alt="image icon">
+        <div class="category__item__content">
+            <div>
+                <h2>Content</h2>
+                <img src="/images/nextArrow.svg" alt="next arrow">
+            </div>
+            <progress value="33" min="0" max="100"></progress>
+
+            <div>
+                <p>33% accessible</p>
+                <p>1/3</p>
+            </div>
+        </div>
     </a>
 </li>
