@@ -1,4 +1,9 @@
 <main class='layout layout__login'>
+
+    {{#if message.length}}
+        <p>{{message}}</p>
+    {{/if}}
+
     <form class='login' method='POST'>
         <h2 class='login__title'>Welcome back!</h2>
 
@@ -30,10 +35,6 @@
         <p class='login__or'>or</p>
         <a class='login__signup' href='/register'>Register</a>
     </form>
-
-    {{#if message.length}}
-        <p>{{message}}</p>
-    {{/if}}
 
     <section class='login-aside'>
         <h1 class='login__slogan'>Digital accessibility made easy with
