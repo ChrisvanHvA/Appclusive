@@ -1,23 +1,23 @@
 import { Strategy as LocalStrategy } from 'passport-local';
-import fs from 'fs';
 import bcrypt from 'bcrypt';
+import UserModel from '../models/userModel.js';
 
-const usersFilePath = 'config/users.json';
+const userModel = new UserModel();
 
-export default function (passport) {
-    // passport serialize/unserialize users out of session
-    passport.serializeUser(function (user, done) {
-        done(null, user.id);
+export default (passport) => {
+    passport.serializeUser((user_id, done) => {
+        done(null, user_id);
     });
 
-    passport.deserializeUser(function (id, done) {
-        // read users JSON file
-        const users = getUsersFromFile();
-        const user = users.find((user) => user.id === id);
-        done(null, user);
+    passport.deserializeUser(async (id, done) => {
+        try {
+            const user = await userModel.getUser(id);
+            done(null, user.user_id);
+        } catch (error) {
+            done(error);
+        }
     });
 
-    // ================= SIGNUP =================
     passport.use(
         'local-signup',
         new LocalStrategy(
@@ -26,37 +26,49 @@ export default function (passport) {
                 passwordField: 'password',
                 passReqToCallback: true,
             },
-            function (req, email, password, done) {
-                process.nextTick(function () {
-                    // read users JSON file
-                    const users = getUsersFromFile();
-                    const user = users.find(
-                        (user) => user.local.email === email
+            async (req, email_address, password, done) => {
+                const confirmPassword = req.body.confirm_password;
+                if (password !== confirmPassword) {
+                    return done(
+                        null,
+                        false,
+                        req.flash('registerMsg', 'Passwords do not match..')
                     );
+                }
+
+                try {
+                    const user = await userModel.getUserByEmail(email_address);
+
                     if (user) {
-                        return done(null, false, 'ERROR MSG HERE');
+                        return done(
+                            null,
+                            false,
+                            req.flash(
+                                'registerMsg',
+                                'This email address is already in use..'
+                            )
+                        );
                     } else {
-                        // no user --> create user
-                        const newUser = {
-                            id: generateUniqueId(),
-                            local: {
-                                email: email,
-                                password: generateHash(password),
-                            },
-                        };
-                        users.push(newUser);
-                        // push user to users JSON file
-                        saveUsersToFile(users, function (err) {
-                            if (err) throw err;
-                            return done(null, newUser);
+
+                        const hashedPassword = await generateHash(password);
+
+                        const userId = await userModel.insert({
+                            first_name: req.body.first_name,
+                            insertion: req.body.insertion,
+                            surname: req.body.surname,
+                            email_address: email_address,
+                            password: hashedPassword
                         });
+
+                        return done(null, userId);
                     }
-                });
+                } catch (error) {
+                    return done(error);
+                }
             }
         )
     );
 
-    // ================= LOGIN =================
     passport.use(
         'local-login',
         new LocalStrategy(
@@ -65,48 +77,42 @@ export default function (passport) {
                 passwordField: 'password',
                 passReqToCallback: true,
             },
-            function (req, email, password, done) {
-                // read users JSON file
-                const users = getUsersFromFile();
-                const user = users.find((user) => user.local.email === email);
-                if (!user) {
-                    return done(null, false, 'ERROR MSG HERE');
+            async (req, email, password, done) => {
+                try {
+                    const user = await userModel.getUserByEmail(email);
+                    if (!user) {
+                        return done(
+                            null,
+                            false,
+                            req.flash('loginMsg', 'User not found..')
+                        );
+                    }
+                    const isValidPassword = await validPassword(
+                        password,
+                        user.password
+                    );
+                    if (!isValidPassword) {
+                        return done(
+                            null,
+                            false,
+                            req.flash('loginMsg', 'Oops! Wrong password..')
+                        );
+                    }
+                    return done(null, user.user_id);
+                } catch (error) {
+                    return done(error);
                 }
-                if (!validPassword(user, password)) {
-                    return done(null, false, 'ERROR MSG HERE');
-                }
-                return done(null, user);
             }
         )
     );
 
-    // helper function to read the users data from the JSON file
-    function getUsersFromFile() {
-        const usersData = fs.readFileSync(usersFilePath);
-        return JSON.parse(usersData);
-    }
-
-    // helper function to save the updated users array back to the JSON file
-    function saveUsersToFile(users, callback) {
-        const usersData = JSON.stringify(users, null, 2);
-        fs.writeFile(usersFilePath, usersData, callback);
-    }
-
-    function generateUniqueId() {
-        const timestamp = new Date().getTime().toString(36);
-        const randomString = Math.random().toString(36).substring(2, 7);
-        return timestamp + randomString;
-    }
-
-    function generateHash(password) {
-        const saltRounds = 10; // salt rounds for bcrypt
-        const salt = bcrypt.genSaltSync(saltRounds);
-        const hash = bcrypt.hashSync(password, salt);
+    const generateHash = async (password) => {
+        const saltRounds = 10;
+        const hash = await bcrypt.hash(password, saltRounds);
         return hash;
-    }
+    };
 
-    // helper function to validate the provided password against the stored hash
-    function validPassword(user, password) {
-        return bcrypt.compareSync(password, user.local.password);
-    }
-}
+    const validPassword = async (password, hashedPassword) => {
+        return await bcrypt.compare(password, hashedPassword);
+    };
+};

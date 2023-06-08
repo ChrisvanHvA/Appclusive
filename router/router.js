@@ -7,13 +7,13 @@ import profile from './profile.js';
 import logout from './logout.js';
 
 const routes = [
-	  { path: '/new-project', handler: projectCreate, auth: true },
-    { path: '/profile', handler: profile, auth: true },
+    { path: '/new-project', handler: projectCreate, auth: false },
+    { path: '/profile', handler: profile, auth: false },
     { path: '/login', handler: login, auth: false },
-    { path: '/logout', handler: logout, auth: true },
+    { path: '/logout', handler: logout, auth: false },
     { path: '/register', handler: register, auth: false },
-    { path: '/checklist', handler: checklist, auth: true },
-    { path: '/', handler: home, auth: true },
+    { path: '/checklist', handler: checklist, auth: false },
+    { path: '/', handler: home, auth: false },
 ];
 
 export default routes;

@@ -1,143 +1,126 @@
-import sql from "../config/db.js";
+import sql from '../config/db.js';
 
-class userModel {
-
+class UserModel {
     constructor(user_id) {
+        this.table_name = 'users';
         this.user_id = user_id ?? 0;
     }
 
-    async insert() {
-
-    }
-
-    async update() {
-
-    }
-
-    async authenticateUser (email_address, password) {
-
+    async insert(insertData) {
         try {
 
-            const userByEmail = await this.getUserByEmail(email_address);
+            const [insertedRow] = await sql`
+                INSERT INTO users (email_address, first_name, insertion, surname, password, profile_pic)
+                VALUES (
+                    ${ insertData.email_address ?? null },
+                    ${ insertData.first_name ?? null },
+                    ${ insertData.insertion ?? null },
+                    ${ insertData.surname ?? null },
+                    ${ insertData.password ?? null },
+                    ${ insertData.profile_pic ?? null }
+                )
 
-            const decryptedPass = userByEmail.password;
+                RETURNING user_id;
+            `;
 
-            if (decryptedPass != password) {
-                return false;
-            }
-
-            return true;
+            return insertedRow.user_id ?? 0;
             
         } catch (error) {
-
             console.log(error);
-            return {};
-            
+            return 0;
         }
+    }
+
+    async update(updateData) {
 
     }
-    
+
     /**
-     * 
+     *
      * Async function to retrieve the current logged in user
-     * 
+     *
      * @param user_id
      * @returns user object
      */
     async getCurrentLoggedUser() {
-
         try {
-
-            if (this.user_id == 0)
-                return {};
+            if (this.user_id == 0) return {};
 
             const [user] = await sql`
                 SELECT *
                 FROM users
-                WHERE user_id = ${ this.user_id }
+                WHERE user_id = ${this.user_id}
             `;
 
-            return user || {};
-            
+            return user || null;
         } catch (error) {
             console.log(error);
-            return {};
+            return null;
         }
     }
 
     /**
-     * 
+     *
      * Async function to retrieve a user based on email_address
-     * 
+     *
      * @param email_address
      * @returns user object
      */
     async getUserByEmail(email_address) {
-
         try {
-
-            if (email_address == '')
-                return {};
+            if (email_address == '') return {};
 
             const [user] = await sql`
                 SELECT *
                 FROM users
-                WHERE email_address = ${ email_address }
+                WHERE email_address = ${email_address}
             `;
 
-            return user || {};
-            
+            return user || null;
         } catch (error) {
             console.log(error);
-            return {};
+            return null;
         }
     }
 
     /**
-     * 
+     *
      * Async function to retrieve a user based on user_id
-     * 
+     *
      * @param user_id
      * @returns user object
      */
     async getUser(user_id) {
-
         try {
-
-            if (user_id == 0)
-                return {};
+            if (user_id == 0) return {};
 
             const [user] = await sql`
                 SELECT *
                 FROM users
-                WHERE user_id = ${ user_id }
+                WHERE user_id = ${user_id}
             `;
 
-            return user || {};
-            
+            return user || null;
         } catch (error) {
             console.log(error);
-            return {};
+            return null;
         }
     }
 
     /**
-     * 
+     *
      * Async function to retrieve list of all users in DB
-     * 
+     *
      * @returns list of users
      */
     async listUsers() {
-
         try {
-
             const users = await sql`
                 SELECT *
                 FROM users
             `;
 
             return users;
-            
         } catch (error) {
             console.log(error);
             return [];
@@ -145,4 +128,4 @@ class userModel {
     }
 }
 
-export default userModel;
+export default UserModel;

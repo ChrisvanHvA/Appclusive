@@ -7,14 +7,13 @@ import hbsHelpers from './helpers/hbsHelpers.js';
 import configurePassport from './config/passport.js';
 
 import passport from 'passport';
+import flash from 'connect-flash';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
-import { checkAuth } from './middleware/checkAuth.js';
-
-// custom middleware
 import { setHeadData } from './middleware/setHeadData.js';
+import { checkAuth } from './middleware/checkAuth.js';
 
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
@@ -41,18 +40,18 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 configurePassport(passport);
+
+app.use(setHeadData);
 
 io.on('connection', (socket) => {
     // Do stuff§
 });
 
-// middleware
-app.use(setHeadData);
-
 // routes
 routes.forEach((route) => {
-    app.use(route.path, route.handler);
+    app.use(route.path, checkAuth, route.handler);
 });
 
 app.engine(
@@ -67,7 +66,5 @@ app.engine(
 );
 
 server.listen(port, () => {
-    console.log(
-        `Example app listening on port ${port}! http://localhost:${port}`
-    );
+    console.log(`Appclusive listening on http://localhost:${port}!`);
 });
