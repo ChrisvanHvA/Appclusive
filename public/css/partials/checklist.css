@@ -11,11 +11,6 @@
     }
 
 .checklist__item {
-    border: var(--card-border-style);
-    border-radius: var(--card-border-radius);
-    padding: 1.25rem;
-    background-color: var(--primary-bg);
-    
     width: 100%;
 }
 
@@ -56,25 +51,35 @@
 }
 
 .checklist__item label {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-	cursor: pointer;
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1.25rem;
+    width: 100%;
+    padding: 1.25rem;
 
     border: var(--card-border-style);
-    border-radius: 50%;
-    background-color: var(--light);
+    border-radius: var(--card-border-radius);
+    background-color: var(--primary-bg);
 
-    flex-shrink: 0;
+	cursor: pointer;
 }
 
-.checklist__item input:checked + label {
-    border: transparent;
-    background: var(--primary-color) url(../images/check.svg) no-repeat center center;
-    background-size: 60%;
-    background-origin: 50%;
-    animation: bounce-in .3s ease-in-out;
-}
+    .checklist__item label > span {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        border: var(--card-border-style);
+        border-radius: 50%;
+    }
+    .checklist__item input:checked + label > span {
+        border: transparent;
+        border: var(--primary-color) solid 2px;
+
+        background: var(--primary-color) url(../images/check.svg) no-repeat center center;
+        background-size: 60%;
+        background-origin: 50%;
+        animation: bounce-in .3s ease-in-out;
+    }
 
 /* bounce background size */
 
@@ -90,13 +95,13 @@
     }
 }
 
-.checklist__item input:checked ~ .checklist__content {
+.checklist__item input:checked + label .checklist__content {
     text-decoration: line-through;
     color: var(--secondary-text);
 }
 
-.checklist__item input:checked ~ .checklist__content .checklist__users, 
-.checklist__item input:checked ~ .checklist__content > details {
+.checklist__item input:checked + label .checklist__content .checklist__users, 
+.checklist__item input:checked + label .checklist__content > details {
     display: none;
 }   
 

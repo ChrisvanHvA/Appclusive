@@ -21,7 +21,12 @@
     margin: 10rem 2.5rem 0 2.5rem;
 }
 
-.textinput {
+.layout h1 {
+	margin-bottom: 1rem;
+}
+
+input:where([type='text'], [type='number'] [type='email'], [type='password']),
+textarea {
 	border: 2px solid var(--primary-text);
 	padding: .5rem .75rem;
 	border-radius: 50rem;
@@ -31,8 +36,15 @@
 	background-color: var(--primary-bg);
 }
 
-.textinput:focus {
+input:where([type='text'], [type='number'] [type='email'], [type='password']):focus,
+textarea:focus {
 	outline: var(--primary-color) solid 2px;
 	outline-offset: 1px;
 	border-color: var(--primary-color);
+}
+
+@media screen and (max-width: 950px) {
+	.layout {
+		margin-top: 5rem;
+	}
 }
