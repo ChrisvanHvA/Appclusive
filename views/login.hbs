@@ -2,7 +2,7 @@
     <form class='login' method='POST'>
         <h2 class='login__title'>Welcome back!</h2>
 
-        <div class='login__item'>
+        <fieldset class='login__item'>
             <label for='email'>Email</label>
             <input
                 type='email'
@@ -13,9 +13,9 @@
                 pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
                 required
             />
-        </div>
+        </fieldset>
 
-        <div class='login__item'>
+        <fieldset class='login__item'>
             <label for='password'>Password</label>
             <input
                 type='password'
@@ -24,7 +24,7 @@
                 placeholder='Enter your password'
                 required
             />
-        </div>
+        </fieldset>
 
         <a class='login__forgot' href='/register'>Forgot password?</a>
 

@@ -2,55 +2,74 @@
     <h1>Register</h1>
     <form action='/register' method='POST'>
 
-        <input
-            type='name'
-            name='first_name'
-            id='first_name'
-            placeholder='First Name'
-            required
-        />
+        <fieldset>
+            <label for='first_name'>First Name</label>
+            <input
+                type='name'
+                name='first_name'
+                id='first_name'
+                placeholder='First Name'
+                required
+            />
+        </fieldset>
 
-        <input
-            type='name'
-            name='insertion'
-            id='insertion'
-            placeholder='Insertion'
-        />
+        <fieldset>
+            <label for='insertion'></label>
+            <input
+                type='name'
+                name='insertion'
+                id='insertion'
+                placeholder='Insertion'
+            />
+        </fieldset>
 
-        <input
-            type='name'
-            name='surname'
-            id='surname'
-            placeholder='Surname'
-            required
-        />
+        <fieldset>
+            <label for='surname'></label>
+            <input
+                type='name'
+                name='surname'
+                id='surname'
+                placeholder='Surname'
+                required
+            />
+        </fieldset>
 
-        <input
-            type='email'
-            name='email'
-            id='email'
-            placeholder='Email'
-            autocapitalize='off'
-            pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
-            required
-        />
+        <fieldset>
+            <label for='email'></label>
+            <input
+                type='email'
+                name='email'
+                id='email'
+                placeholder='Email'
+                autocapitalize='off'
+                pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
+                required
+            />
+        </fieldset>
 
-        <input
-            type='password'
-            name='password'
-            id='password'
-            placeholder='Password'
-            autocomplete='off'
-            required
-        />
-        <input
-            type='password'
-            name='confirm_password'
-            id='confirm_password'
-            placeholder='Confirm Password'
-            autocomplete='off'
-            required
-        />
+        <fieldset>
+            <label for='password'></label>
+            <input
+                type='password'
+                name='password'
+                id='password'
+                placeholder='Password'
+                autocomplete='off'
+                required
+            />
+        </fieldset>
+
+        <fieldset>
+            <label for='confirm_password'></label>
+            <input
+                type='password'
+                name='confirm_password'
+                id='confirm_password'
+                placeholder='Confirm Password'
+                autocomplete='off'
+                required
+            />
+        </fieldset>
 
         <input type='submit' value='Register' />
 
