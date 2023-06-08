@@ -1,5 +1,4 @@
 import sql from '../config/db.js';
-import bcrypt from 'bcrypt';
 
 class UserModel {
     constructor(user_id) {
@@ -32,34 +31,8 @@ class UserModel {
         }
     }
 
-    async update() {}
+    async update(updateData) {
 
-    /**
-     *
-     * Async function to compare passwords for authentication
-     *
-     * @param user_id
-     * @returns user object
-     */
-    async authenticateUser(email_address, password) {
-        try {
-            const userByEmail = await this.getUserByEmail(email_address);
-            const hashedPassword = userByEmail.password;
-
-            const isPasswordValid = await bcrypt.compare(
-                password,
-                hashedPassword
-            );
-
-            if (!isPasswordValid)
-                return false;
-
-            return true;
-
-        } catch (error) {
-            console.log(error);
-            return false;
-        }
     }
 
     /**
