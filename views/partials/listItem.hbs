@@ -1,6 +1,6 @@
 <li class='checklist__item'>
     <form action="/" method="post">
-        <input class="checklist__checkbox" type='checkbox' id={{wcag_item_id}} name={{wcag_item_id}} value={{wcag_item_id}} />
+        <input class="checklist__checkbox" type='checkbox' id={{wcag_item_id}} name={{wcag_item_id}} value={{wcag_item_id}} {{#if is_completed}}checked{{/if}}/>
         <label for={{wcag_item_id}}></label>
         <div class='checklist__content'>
             <h4>{{title}} <span>({{wcag_level}})</span></h4>

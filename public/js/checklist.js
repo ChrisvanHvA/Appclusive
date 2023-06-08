@@ -7,17 +7,31 @@ function submitHandler() {
     checklistItemsCheckboxes.forEach((checkbox) => {
         checkbox.addEventListener('click', async (e) => {
 
-            const checklistValue = e.target.checked ? 1 : 0;
+            const checklistValue = e.target.checked ? true : false;
 
             try {
+
                 const res = await fetch('/checklist/submit', {
                     method: 'post',
-                    data: {
-                        wcag_item_id: e.target,
-                        is_checked: checklistValue,
+                    headers: {
+                        'Content-Type': 'application/json',
                     },
+                    body: JSON.stringify({
+                        wcag_item_id: parseInt(e.target.id),
+                        is_checked: checklistValue,
+                    }),
                 });
-                const data = await res.json();
+
+                const checkStatusSaved = await res.json();
+
+                // TODO: error handling
+                if (!checkStatusSaved) {
+                    
+                } else {
+
+                }
+
+
             } catch (err) {
                 console.log(err);
             }

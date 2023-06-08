@@ -39,8 +39,9 @@ class wcagModel {
                 return [];
 
             const wcagItem = await sql`
-                SELECT *
-                FROM wcag_item
+                SELECT wi.*, pc.is_completed
+                FROM wcag_item AS wi
+                LEFT JOIN project_checklists AS pc ON pc.wcag_item_id = wi.wcag_item_id
                 WHERE parent_id = ${ parent_id }
             `;
 

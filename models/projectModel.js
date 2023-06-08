@@ -2,6 +2,36 @@ import sql from '../config/db.js';
 
 class projectModel {
 
+    constructor() {
+    }
+
+    /**
+     * 
+     * @params 
+     * @returns 
+     */
+    async updateChecklistCompletion(wcag_item_id, bool) {
+        try {
+            
+            const updated = await sql`
+                UPDATE project_checklists
+                SET is_completed = ${ bool }
+                WHERE wcag_item_id = ${ wcag_item_id }
+                RETURNING project_checklists_id;
+            `;
+
+            if (updated.project_checklists_id) {
+                return true;
+            }
+
+			return false;
+
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
     /**
      * Async function to retrieve list of projects user is involved in
      * @params userId: id of the user account
