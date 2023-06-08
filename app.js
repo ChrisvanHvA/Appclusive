@@ -11,10 +11,8 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
-import { checkAuth } from './middleware/checkAuth.js';
-
-// custom middleware
 import { setHeadData } from './middleware/setHeadData.js';
+import { checkAuth } from './middleware/checkAuth.js';
 
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
@@ -41,12 +39,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 configurePassport(passport);
 
+app.use(setHeadData);
+
 io.on('connection', (socket) => {
     // Do stuff§
 });
-
-// middleware
-app.use(setHeadData);
 
 // routes
 routes.forEach((route) => {
@@ -65,7 +62,5 @@ app.engine(
 );
 
 server.listen(port, () => {
-    console.log(
-        `Example app listening on port ${port}! http://localhost:${port}`
-    );
+    console.log(`Appclusive listening on http://localhost:${port}!`);
 });
