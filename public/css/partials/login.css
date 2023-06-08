@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: var(--light);
+    margin: 0;
 }
 .login {
     display: flex;
