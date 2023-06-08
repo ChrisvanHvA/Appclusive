@@ -1,6 +1,6 @@
 <main>
     <h1>Register</h1>
-    <form action='/register' method='POST'>
+    <form action='/register' method='POST' id="registerForm">
 
         <fieldset>
             <label for='first_name'>First Name</label>
@@ -9,6 +9,7 @@
                 name='first_name'
                 id='first_name'
                 placeholder='First Name'
+                data-input-type="first_name"
                 required
             />
         </fieldset>
@@ -20,6 +21,7 @@
                 name='insertion'
                 id='insertion'
                 placeholder='Insertion'
+                data-input-type="insertion"
             />
         </fieldset>
 
@@ -30,6 +32,7 @@
                 name='surname'
                 id='surname'
                 placeholder='Surname'
+                data-input-type="surname"
                 required
             />
         </fieldset>
@@ -43,6 +46,7 @@
                 placeholder='Email'
                 autocapitalize='off'
                 pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
+                data-input-type="email"
                 required
             />
         </fieldset>
@@ -55,6 +59,7 @@
                 id='password'
                 placeholder='Password'
                 autocomplete='off'
+                data-input-type="password"
                 required
             />
         </fieldset>
@@ -67,6 +72,7 @@
                 id='confirm_password'
                 placeholder='Confirm Password'
                 autocomplete='off'
+                data-input-type="confirm_password"
                 required
             />
         </fieldset>
