@@ -53,6 +53,9 @@ export default (passport) => {
                         const hashedPassword = await generateHash(password);
 
                         const userId = await userModel.insert({
+                            first_name: req.body.first_name,
+                            insertion: req.body.insertion,
+                            surname: req.body.surname,
                             email_address: email_address,
                             password: hashedPassword
                         });
