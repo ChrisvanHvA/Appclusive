@@ -1,0 +1,27 @@
+<main class="layout layout__login">
+    <form class="login">
+        <h2 class="login__title">Welcome back!</h2>
+
+        <div class="login__item">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email">
+        </div>
+
+        <div class="login__item">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password">
+        </div>
+
+        <a class="login__forgot" href="/register">Forgot password?</a>
+
+        <button class="login__submit" type="submit">Login</button>
+        <p class="login__or">or</p>
+        <a class="login__signup" href="/signup">Sign Up</a>
+    </form>
+
+    <section class="login-aside">
+        <h1 class="login__slogan">Digital accessibility made easy with Appclusive</h1>
+        <div class="login__checklistitem"></div>
+        {{>icons/logo}}
+    </section>
+</main>
