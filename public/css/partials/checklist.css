@@ -45,7 +45,7 @@
     position: absolute;
 }
 
-.checklist__item input:focus-visible + label {
+.checklist__item input:focus-visible + label > span {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
