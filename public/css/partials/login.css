@@ -1,0 +1,71 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    padding: min(1.5rem,2.5vw);
+    margin-top: 1.313rem;
+}
+    .login__title {
+        margin-top: 3.5rem;
+        font-size: 1.875rem;
+        margin-bottom: 1.125rem;
+    }
+    .login__item {
+        height: 5.5rem;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1.25rem;
+    }
+        .login__item label {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+        .login__item input {
+            margin-top: 0.938rem;
+            padding: 1.063rem;
+            padding-left: 1.25rem;
+            border-radius: 6.25rem;
+            border: 0.125rem solid var(--dark);
+        }
+    .login__forgot {
+        text-decoration: none;
+        text-align: right;
+        margin-top: 0.938rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    .login__submit,
+    .login__signup {
+        text-decoration: none;
+        margin-top: 1.25rem;
+        padding: 0.875rem;
+        border-radius: 6.25rem;
+        font-weight: 700;
+        font-size: 1rem;
+        background-color: var(--primary-color);
+        border: 0.125rem solid var(--primary-color);
+        color: var(--light);
+    }
+    .login__signup {
+        text-align: center;
+        background-color: var(--light);
+        color: var(--primary-color);
+    }
+    .login__or{
+        margin-top: 1.688rem;
+        text-align: center;
+        position: relative;
+        color: var(--tertiary-text);
+    }
+        .login__or::before,
+        .login__or::after {
+            content: '';
+            display: block;
+            width: 9.875rem;
+            height: 0.063rem;
+            background-color: var(--tertiary-text);
+            position: absolute;
+            top: 50%;
+        }
+        .login__or::after {
+            right: 0;
+        }
