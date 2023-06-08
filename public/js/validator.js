@@ -1,3 +1,49 @@
+import messageController from "./messageController.js";
+const MessageController = new messageController();
+
+const registerForm = document.querySelector('#registerForm');
+
+// if(registerForm) {
+
+//     registerForm.addEventListener('submit', (e) => {
+//         e.preventDefault();
+//         submitHandler(e.target)
+//     });
+
+//     // Invalid data
+//     document.addEventListener('invalid', (function(){
+//         return function(e) {
+
+//             //prevent the browser from showing default error bubble / hint
+//             e.preventDefault();
+
+//             const inputElement = document.querySelector(`[data-input-type="${e.target.name}"]`);
+//             console.log(inputElement);
+
+//             // if (!inputWrapper.className.includes('hide')) {
+//             //     inputHandler(e);
+//             // } else {
+//             //     submitHandler(registerForm);
+//             // }
+
+//         };
+//     })(), true);
+
+//     function submitHandler(formEl) {
+
+//         const formData = new FormData(formEl);
+//         const formProps = Object.fromEntries(formData);
+
+//         console.log(formProps);
+
+//         // TODO: check data and then through server!!
+        
+
+//         return;
+//     }
+// }
+
+
 function checkPattern(pattern, value) {
     const term = value;
     const re = new RegExp(`${pattern}`);

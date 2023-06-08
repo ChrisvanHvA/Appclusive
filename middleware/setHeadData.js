@@ -30,7 +30,7 @@ const data = {
 	'/register': {
 		title: 'Register',
 		description: '',
-		scripts: []
+		scripts: ['validator' ]
 	},
 	'/profile': {
 		title: 'Profile',
