@@ -18,17 +18,20 @@
             autocomplete='off'
             required
         />
-        {{! <input
-        type='password'
-        name='confirm_password'
-        id='confirm_password'
-        placeholder='Confirm Password'
-        autocomplete='off'
-        required
-    /> }}
+        <input
+            type='password'
+            name='confirm_password'
+            id='confirm_password'
+            placeholder='Confirm Password'
+            autocomplete='off'
+            required
+        />
 
         <input type='submit' value='Register' />
 
         <a href='/login'>Login</a>
     </form>
+    {{#if message.length}}
+        <p>{{message}}</p>
+    {{/if}}
 </main>

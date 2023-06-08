@@ -7,6 +7,7 @@ router.post(
     passport.authenticate('local-login', {
         successRedirect: '/profile',
         failureRedirect: '/login',
+        failureFlash: true,
     })
 );
 
@@ -15,6 +16,7 @@ router.get('/', (req, res) => {
         return res.redirect('/profile');
     }
     res.render('login', { noNav: true });
+        message: req.flash('loginMsg'),
 });
 
 export default router;
