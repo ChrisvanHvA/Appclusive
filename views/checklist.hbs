@@ -1,12 +1,10 @@
-<div class="project-checklist-container">
+<main class="layout layout__checklist">
 
-    <main>
-
-        <section class="checklist">
-            <div>
-                <h3>Checklist</h3>
-                <p>0/4</p>
-            </div>
+    <section class="checklist">
+        <div class="checklist__title">
+            <h3>Checklist</h3>
+            <p>0/4</p>
+        </div>
 
 
         <ol>
@@ -17,11 +15,9 @@
                 {{/each}}
             {{/each}}
 
-            </ol>
-        </section>
+        </ol>
+    </section>
 
-        {{>checklistSidebar}}
+    {{>checklistSidebar tasks}}
 
-    </main>
-
-</div>
+</main>

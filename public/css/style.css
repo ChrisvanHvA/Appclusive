@@ -22,9 +22,7 @@
     --card-border-color: #A1A1A1;
     --card-border-style: var(--card-border-color) solid 2px;
 }
-.hide {
-	display: none;
-}
+
 /* dark mode variables */
 :root
 .dark 
@@ -44,17 +42,23 @@
 
 }
 
+/* turn on to debug weird margins and such */
+
+/* * {
+	border: 1px solid red !important;
+} */
+
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: 400;
-    line-height: 22.4px;
+    line-height: 140%;
 	color: var(--primary-text);
 	background-color: var(--primary-bg);
 }
 
 .page-with-nav {
 	display: grid;
-	grid-template-columns: 25% 1fr;
+	grid-template-columns: clamp(15rem, 100%, 18.75rem) 1fr;
 }
 
 @media screen and (max-width: 950px) {
