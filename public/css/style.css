@@ -51,7 +51,7 @@
 body {
     font-family: 'Helvetica', 'Arial', sans-serif;
     font-weight: 400;
-    line-height: 22.4px;
+    line-height: 140%;
 	color: var(--primary-text);
 	background-color: var(--primary-bg);
 }
