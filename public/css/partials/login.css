@@ -1,11 +1,19 @@
+.layout__login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--light);
+}
 .login {
     display: flex;
     flex-direction: column;
-    padding: min(1.5rem,2.5vw);
-    margin-top: 1.313rem;
+    align-items: center;
+}
+.login > * {
+    width: clamp(14.5rem, 22.5rem, 23.125rem);
 }
     .login__title {
-        margin-top: 3.5rem;
         font-size: 1.875rem;
         margin-bottom: 1.125rem;
     }
@@ -49,9 +57,11 @@
         text-align: center;
         background-color: var(--light);
         color: var(--primary-color);
+        margin-top: 0;
     }
     .login__or{
         margin-top: 1.688rem;
+        margin-bottom: 1.688rem;
         text-align: center;
         position: relative;
         color: var(--tertiary-text);
@@ -69,3 +79,58 @@
         .login__or::after {
             right: 0;
         }
+
+.login-aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: clamp(14.5rem, 22.5rem, 23.125rem); */
+}
+.login-aside > *:not(svg){
+    display: none;
+}
+    .login-aside svg{
+        width: 9.375rem;
+        height: 3.313rem;
+        margin-top: 1.5rem;
+        margin-right: 13.125rem;
+    }
+    .login-aside svg path{
+        fill: var(--primary-color);
+    }
+
+
+
+
+ @media screen and (min-width: 950px) {
+    .layout__login{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+        .login-aside{
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            background-color: var(--primary-color);
+            position: relative;
+        }
+            .login-aside > *:not(svg){
+                display: flex;
+            }
+            .login-aside svg{
+                position: absolute;
+                bottom: 2.75rem;
+                left: 2.75rem;
+            }
+                .login-aside svg path{
+                    fill: var(--light);
+                }
+            h1{
+                color: var(--light);
+                font-weight: 700;
+                font-size: 2.25rem;
+                line-height: 2.588rem;
+                width: 29.938rem;
+            }
+}
