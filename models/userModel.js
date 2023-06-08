@@ -3,13 +3,44 @@ import bcrypt from 'bcrypt';
 
 class UserModel {
     constructor(user_id) {
+        this.table_name = 'users';
         this.user_id = user_id ?? 0;
     }
 
-    async insertUser() {}
+    async insert(insertData) {
+        try {
 
-    async updateUser() {}
+            const [insertedRow] = await sql`
+                INSERT INTO users (email_address, first_name, insertion, surname, password, profile_pic)
+                VALUES (
+                    ${ insertData.email_address ?? null },
+                    ${ insertData.first_name ?? null },
+                    ${ insertData.insertion ?? null },
+                    ${ insertData.surname ?? null },
+                    ${ insertData.password ?? null },
+                    ${ insertData.profile_pic ?? null }
+                )
 
+                RETURNING user_id;
+            `;
+
+            return insertedRow.user_id ?? 0;
+            
+        } catch (error) {
+            console.log(error);
+            return 0;
+        }
+    }
+
+    async update() {}
+
+    /**
+     *
+     * Async function to compare passwords for authentication
+     *
+     * @param user_id
+     * @returns user object
+     */
     async authenticateUser(email_address, password) {
         try {
             const userByEmail = await this.getUserByEmail(email_address);
@@ -19,14 +50,15 @@ class UserModel {
                 password,
                 hashedPassword
             );
-            if (!isPasswordValid) {
+
+            if (!isPasswordValid)
                 return false;
-            }
 
             return true;
+
         } catch (error) {
             console.log(error);
-            return {};
+            return false;
         }
     }
 
@@ -47,10 +79,10 @@ class UserModel {
                 WHERE user_id = ${this.user_id}
             `;
 
-            return user || {};
+            return user || null;
         } catch (error) {
             console.log(error);
-            return {};
+            return null;
         }
     }
 
@@ -71,10 +103,10 @@ class UserModel {
                 WHERE email_address = ${email_address}
             `;
 
-            return user || {};
+            return user || null;
         } catch (error) {
             console.log(error);
-            return {};
+            return null;
         }
     }
 
@@ -95,10 +127,10 @@ class UserModel {
                 WHERE user_id = ${user_id}
             `;
 
-            return user || {};
+            return user || null;
         } catch (error) {
             console.log(error);
-            return {};
+            return null;
         }
     }
 

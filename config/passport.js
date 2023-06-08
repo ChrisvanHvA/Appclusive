@@ -5,14 +5,14 @@ import UserModel from '../models/userModel.js';
 const userModel = new UserModel();
 
 export default (passport) => {
-    passport.serializeUser((user, done) => {
-        done(null, user.user_id);
+    passport.serializeUser((user_id, done) => {
+        done(null, user_id);
     });
 
     passport.deserializeUser(async (id, done) => {
         try {
             const user = await userModel.getUser(id);
-            done(null, user);
+            done(null, user.user_id);
         } catch (error) {
             done(error);
         }
@@ -26,7 +26,7 @@ export default (passport) => {
                 passwordField: 'password',
                 passReqToCallback: true,
             },
-            async (req, email, password, done) => {
+            async (req, email_address, password, done) => {
                 const confirmPassword = req.body.confirm_password;
                 if (password !== confirmPassword) {
                     return done(
@@ -37,7 +37,8 @@ export default (passport) => {
                 }
 
                 try {
-                    const user = await userModel.getUserByEmail(email);
+                    const user = await userModel.getUserByEmail(email_address);
+
                     if (user) {
                         return done(
                             null,
@@ -48,12 +49,15 @@ export default (passport) => {
                             )
                         );
                     } else {
+
                         const hashedPassword = await generateHash(password);
-                        const newUser = await userModel.insertUser(
-                            email,
-                            hashedPassword
-                        );
-                        return done(null, newUser);
+
+                        const userId = await userModel.insert({
+                            email_address: email_address,
+                            password: hashedPassword
+                        });
+
+                        return done(null, userId);
                     }
                 } catch (error) {
                     return done(error);
@@ -91,7 +95,7 @@ export default (passport) => {
                             req.flash('loginMsg', 'Oops! Wrong password..')
                         );
                     }
-                    return done(null, user);
+                    return done(null, user.user_id);
                 } catch (error) {
                     return done(error);
                 }
