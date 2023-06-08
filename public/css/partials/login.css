@@ -59,10 +59,15 @@
         color: var(--light);
     }
     .login__signup {
+        display: block;
         text-align: center;
         background-color: var(--light);
         color: var(--primary-color);
         margin-top: 0;
+        width: 100%;
+    }
+    .login__signuptext{
+        display: none;
     }
     .login__or{
         margin-top: 1.688rem;
@@ -138,4 +143,49 @@
                 line-height: 2.588rem;
                 width: 29.938rem;
             }
+            .login-aside span {
+                position: absolute;
+                height: 24.5rem;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                border: solid 3px var(--light);
+                z-index: 0;
+            }
+               .login-aside span:first-of-type{
+                    bottom: -5.25rem;
+                    left: -6.25rem;
+                }
+                .login-aside span:nth-of-type(2){
+                    bottom: 11.75rem;
+                    right: -14.25rem;
+                }
+                .login-aside span:last-of-type{
+                    top: -17.25rem;
+                    left: 0;
+                }
+        .login__or{
+            display: none;
+        }
+        .login__signuptext{
+            margin-top: 1.125rem;
+            font-weight: 700;
+            font-size: 1rem;
+            display: block;
+        }
+        .login__signup{
+            margin: 0;
+            display: inline;
+            padding: 0;
+            border: 0;
+            width: auto;
+            position: absolute;
+            right: 5rem;
+            bottom: 0;
+        }
+        .login__signup:hover{
+            text-decoration: solid underline var(--primary-color);
+        }
+        .login__register {
+            position: relative;
+        }
 }
