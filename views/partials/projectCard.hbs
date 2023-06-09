@@ -1,17 +1,17 @@
 {{#if (ne this null)}}
-    <a href='/checklist' draggable='false'>
+    <a href="/checklist" draggable="false">
         <header>
             <img
-                src='https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo'
-                alt='a'
+                src="https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo"
+                alt="a"
             />
             <div>
                 <h3>{{this.name}}</h3>
-                <div class='status {{toLowerCase this.status}}'>
+                <div class="status {{toLowerCase this.status}}">
 
-                    {{#if (eq (toLowerCase this.status) 'new')}}
+                    {{#if (eq (toLowerCase this.status) "new")}}
 						{{> icons/bolt}}
-                    {{else if (eq (toLowerCase this.status) 'started')}}
+                    {{else if (eq (toLowerCase this.status) "started")}}
 						{{> icons/clock}}
                     {{else}}
 						{{> icons/check-border}}
@@ -22,17 +22,17 @@
             </div>
         </header>
 
-        <section class='project-data'>
-            <div class='step'>
+        <section class="project-data">
+            <div class="step">
                 <h4>Stap</h4>
                 <p>{{this.step}}</p>
             </div>
-            <div class='checklists'>
+            <div class="checklists">
                 <h4>Checklists</h4>
                 <p>{{this.completedChecklists}} / {{this.checkLists.length}}</p>
             </div>
 
-            <div class='team-members'>
+            <div class="team-members">
                 <h4>Teamleden</h4>
                 <span>
 
@@ -47,16 +47,16 @@
             </div>
         </section>
 
-        <section class='progress'>
-            <progress
+        <section class="projectCard__progress">
+            <progress class="progress"
                 value={{round
                     (multiply
                         (divide this.completedChecklists this.checkLists.length)
                         100
                     )
                 }}
-                min='0'
-                max='100'
+                min="0"
+                max="100"
             ></progress>
             {{! <3 handlebars }}
             <p>{{round
@@ -69,6 +69,6 @@
     </a>
 
 {{else}}
-    <a href='/new-project'>+ New project</a>
+    <a href="/new-project">+ New project</a>
 
 {{/if}}

@@ -82,38 +82,16 @@
 		}
 
 
-.project-cards li.card__item a section.progress {
+.projectCard__progress {
 	color: var(--tertiary-text);
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 }
 
-	.project-cards li.card__item a section.progress progress[value] {
-		--progress-bar-height: 24px;
-		--progress-bar-border-radius: calc(var(--progress-bar-height) / 2);
-		width: 100%;
-		height: var(--progress-bar-height);
-		border-radius: var(--progress-bar-border-radius);
-		overflow: hidden;
-		appearance: none;
-		border: solid 2px var(--primary-color);
-		background-color: transparent;
-	}
-
-	.project-cards li.card__item a section.progress progress[value]::-webkit-progress-bar {
-		background-color: transparent;
-	}
-
-	/* LAAT DIT ZO STAAN, MET EEN KOMMA WERKT HET NIET FOR SOME REASON, blame webkit of moz */
-	.project-cards li.card__item a section.progress progress[value]::-moz-progress-bar {
-		background-color: var(--primary-color);
-		border-radius: 0 var(--progress-bar-border-radius) var(--progress-bar-border-radius) 0;
-
-	}
-	.project-cards li.card__item a section.progress progress[value]::-webkit-progress-value {
-		background-color: var(--primary-color);
-	}
+.projectCard__progress progress {
+	--progress-bar-height: 1.5rem;
+}
 
 /* ---------------------------------- */
 /*   styles for create project card   */

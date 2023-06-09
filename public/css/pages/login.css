@@ -7,87 +7,96 @@
     background-color: var(--light);
     margin: 0;
 }
-.login {
-    display: flex;
-    flex-direction: column;
-    width: var(--mobile-form-width);
-	margin: 0 auto;
-}
-    .login__title {
-        font-size: 1.875rem;
-        margin-bottom: 3rem;
-    }
-    .form__section {
+    .layout__login form {
         display: flex;
         flex-direction: column;
+        width: 22.5rem;
+        max-width: 95%;
+        margin: 0 auto;
     }
-    .form__section + .form__section {
-        margin-top: 1.25rem;
-    }
-        .form__section label {
-            font-size: 1.125rem;
+        .layout__login form h2 {
+            font-size: 1.875rem;
+            margin-bottom: 3rem;
+        }
+        .form__section {
+            display: flex;
+            flex-direction: column;
+        }
+        .form__section + .form__section {
+            margin-top: 1.25rem;
+        }
+            .form__section label {
+                font-size: 1.125rem;
+                font-weight: 700;
+            }
+            .form__section label + input {
+                margin-top: 0.5rem;
+            }
+            .form__section input {
+                font-size: 1rem;
+                padding: 0.75rem;
+                padding-left: 1.25rem;
+                border-radius: 6.25rem;
+                border: 0.125rem solid var(--dark);
+            }
+        .login__forgot {
+            text-decoration: none;
+            text-align: right;
+            margin-top: 0.938rem;
             font-weight: 700;
+            color: var(--primary-color);
         }
-        .form__section label + input {
-            margin-top: 0.5rem;
-        }
-        .form__section input {
-            font-size: 1rem;
+        .login__submit,
+        .login__signup {
+            text-decoration: none;
+            margin-top: 2.25rem;
             padding: 0.75rem;
-            padding-left: 1.25rem;
             border-radius: 6.25rem;
-            border: 0.125rem solid var(--dark);
+            font-weight: 700;
+            font-size: 1rem;
+            background-color: var(--primary-color);
+            border: 0.125rem solid var(--primary-color);
+            color: var(--light);
         }
-    .login__forgot {
-        text-decoration: none;
-        text-align: right;
-        margin-top: 0.938rem;
-        font-weight: 700;
-        color: var(--primary-color);
-    }
-    .login__submit,
-    .login__signup {
-        text-decoration: none;
-        margin-top: 2.25rem;
-        padding: 0.75rem;
-        border-radius: 6.25rem;
-        font-weight: 700;
-        font-size: 1rem;
-        background-color: var(--primary-color);
-        border: 0.125rem solid var(--primary-color);
-        color: var(--light);
-    }
-    .login__signup {
-        display: block;
-        text-align: center;
-        background-color: var(--light);
-        color: var(--primary-color);
-        margin-top: 0;
-        width: 100%;
-    }
-    .login__signuptext{
-        display: none;
-    }
-    .login__or{
-        margin-top: 1.688rem;
-        margin-bottom: 1.688rem;
-        text-align: center;
-        position: relative;
-        color: var(--tertiary-text);
-    }
-        .login__or::before,
-        .login__or::after {
-            content: '';
+        .login__signup {
             display: block;
+<<<<<<< HEAD
+            text-align: center;
+            background-color: var(--light);
+            color: var(--primary-color);
+            margin-top: 0;
+            width: 100%;
+=======
             width: min(9.875rem, calc(50% - 2ch));
             height: 1px;
             background-color: var(--tertiary-text);
             position: absolute;
             top: 50%;
+>>>>>>> df6ee92b903952a0b3c8f33a4d85267c26114c26
         }
-        .login__or::after {
-            right: 0;
+        .login__signuptext{
+            display: none;
         }
+        .login__or{
+            margin-top: 1.688rem;
+            margin-bottom: 1.688rem;
+            text-align: center;
+            position: relative;
+            color: var(--tertiary-text);
+        }
+            .login__or::before,
+            .login__or::after {
+                content: '';
+                display: block;
+                width: 9.875rem;
+                height: 0.063rem;
+                background-color: var(--tertiary-text);
+                position: absolute;
+                top: 50%;
+            }
+            .login__or::after {
+                right: 0;
+            }
 
 .login-aside{
     display: flex;

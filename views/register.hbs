@@ -1,85 +1,85 @@
 <main>
     <h1>Register</h1>
-    <form action='/register' method='POST' id="registerForm">
+    <form action="/register" method="POST" id="registerForm">
 
         <fieldset>
-            <label for='first_name'>First Name</label>
+            <label for="first_name">First Name</label>
             <input
-                type='name'
-                name='first_name'
-                id='first_name'
-                placeholder='First Name'
+                type="name"
+                name="first_name"
+                id="first_name"
+                placeholder="First Name"
                 data-input-type="first_name"
                 required
             />
         </fieldset>
 
         <fieldset>
-            <label for='insertion'></label>
+            <label for="insertion"></label>
             <input
-                type='name'
-                name='insertion'
-                id='insertion'
-                placeholder='Insertion'
+                type="name"
+                name="insertion"
+                id="insertion"
+                placeholder="Insertion"
                 data-input-type="insertion"
             />
         </fieldset>
 
         <fieldset>
-            <label for='surname'></label>
+            <label for="surname"></label>
             <input
-                type='name'
-                name='surname'
-                id='surname'
-                placeholder='Surname'
+                type="name"
+                name="surname"
+                id="surname"
+                placeholder="Surname"
                 data-input-type="surname"
                 required
             />
         </fieldset>
 
         <fieldset>
-            <label for='email'></label>
+            <label for="email"></label>
             <input
-                type='email'
-                name='email'
-                id='email'
-                placeholder='Email'
-                autocapitalize='off'
-                pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                autocapitalize="off"
+                pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                 data-input-type="email"
                 required
             />
         </fieldset>
 
         <fieldset>
-            <label for='password'></label>
+            <label for="password"></label>
             <input
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Password'
-                autocomplete='off'
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
                 data-input-type="password"
                 required
             />
         </fieldset>
 
         <fieldset>
-            <label for='confirm_password'></label>
+            <label for="confirm_password"></label>
             <input
-                type='password'
-                name='confirm_password'
-                id='confirm_password'
-                placeholder='Confirm Password'
-                autocomplete='off'
+                type="password"
+                name="confirm_password"
+                id="confirm_password"
+                placeholder="Confirm Password"
+                autocomplete="off"
                 data-input-type="confirm_password"
                 required
             />
         </fieldset>
 
-        <input type='submit' value='Register' />
+        <input type="submit" value="Register" />
 
-        <a href='/login'>Login</a>
+        <a href="/login">Login</a>
     </form>
     {{#if message.length}}
         <p>{{message}}</p>
