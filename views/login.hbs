@@ -1,7 +1,7 @@
 <main class="layout layout__login">
 
     {{#if message.length}}
-        <p>{{message}}</p>
+    <p>{{message}}</p>
     {{/if}}
 
     <form method="POST">
@@ -9,36 +9,20 @@
 
         <fieldset class="form__section">
             <label for="email">Email</label>
-            <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter your email"
-                autocapitalize="off"
-                pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                required
-            />
+            <input type="email" name="email" id="email" placeholder="Enter your email" autocapitalize="off"
+                pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required />
         </fieldset>
 
         <fieldset class="form__section">
             <label for="password">Password</label>
-            <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-            />
+            <input type="password" name="password" id="password" placeholder="Enter your password" required />
         </fieldset>
 
         <a class="login__forgot" href="/register">Forgot password?</a>
 
-        <button class="login__submit" type="submit">Login</button>
+        <button class="btn btn--dark" type="submit">Login</button>
         <p class="login__or">or</p>
-        <div class="login__register">
-        <p class="login__signuptext">Don"t you have an account?</p>
-        <a class="login__signup" href="/register">Register</a>
-        </div>
+        <p class="login__signuptext">Don't you have an account?<a class="login__signup" href="/register">Register</a></p>
     </form>
 
     <section class="login-aside">
