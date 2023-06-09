@@ -37,6 +37,11 @@ const data = {
 		description: '',
 		scripts: []
 	},
+	'/settings': {
+		title: 'Settings',
+		description: '',
+		scripts: []
+	},
 	fallback: {
 		title: 'Whoopsy',
 		description: 'whoops',

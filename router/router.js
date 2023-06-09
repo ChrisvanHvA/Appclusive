@@ -6,8 +6,10 @@ import login from './login.js';
 import register from './register.js';
 import profile from './profile.js';
 import logout from './logout.js';
+import accountSettings from './accountSettings.js';
 
 const routes = [
+	{ path: '/settings', handler: accountSettings, auth: false },
     { path: '/new-project', handler: projectCreate, auth: false },
     { path: '/profile', handler: profile, auth: false },
     { path: '/login', handler: login, auth: false },
