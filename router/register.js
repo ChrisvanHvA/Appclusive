@@ -2,6 +2,13 @@ import passport from 'passport';
 import express from 'express';
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    res.render('register', {
+        noNav: true,
+        message: req.flash('registerMsg'),
+    });
+});
+
 router.post(
     '/',
     passport.authenticate('local-signup', {
@@ -10,12 +17,5 @@ router.post(
         failureFlash: true,
     })
 );
-
-router.get('/', (req, res) => {
-    res.render('register', {
-        noNav: true,
-        message: req.flash('registerMsg'),
-    });
-});
 
 export default router;
