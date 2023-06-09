@@ -5,15 +5,39 @@
 .btn {
     cursor: pointer;
     font-weight: 700;
-    background: var(--light);
+    background-color: var(--light);
     border: 2px solid var(--primary-color);
     padding: .625rem 1.25rem;
     color: var(--primary-color);
     border-radius: 50rem;
+	transition: all .2s ease-in-out;
+}
+
+.btn:hover,
+.btn:focus-visible {
+	background-color: var(--primary-color);
+	color: var(--light);
+}
+
+.btn:focus-visible {
+	outline: solid 2px var(--primary-color);
+	outline-offset: 1px;
+}
+
+.btn-reverse {
+	background-color: var(--primary-color);
+	color: var(--light);
+	border-color: var(--light);
+}
+
+.btn-reverse:hover,
+.btn-reverse:focus-visible {
+	background-color: var(--light);
+	color: var(--primary-color);
 }
 
 .btn--dark {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: var(--light);
 }
 
