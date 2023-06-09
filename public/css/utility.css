@@ -25,7 +25,7 @@
 	margin-bottom: 1rem;
 }
 
-input:where([type='text'], [type='number'] [type='email'], [type='password']),
+input:where([type='text'], [type='number'], [type='email'], [type='password']),
 textarea {
 	border: 2px solid var(--primary-text);
 	padding: .5rem .75rem;
@@ -36,7 +36,7 @@ textarea {
 	background-color: var(--primary-bg);
 }
 
-input:where([type='text'], [type='number'] [type='email'], [type='password']):focus,
+input:where([type='text'], [type='number'], [type='email'], [type='password']):focus,
 textarea:focus {
 	outline: var(--primary-color) solid 2px;
 	outline-offset: 1px;
@@ -80,4 +80,13 @@ textarea:focus {
 	.layout {
 		margin-top: 5rem;
 	}
+}
+
+.bg-circle {
+	position: absolute;
+	pointer-events: none;
+	border-radius: 50%;
+	z-index: -1;
+	aspect-ratio: 1;
+	border: solid 3px var(--light);
 }

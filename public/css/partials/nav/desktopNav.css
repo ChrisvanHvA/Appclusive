@@ -11,8 +11,9 @@
     left: 0;
 }
 
-.logo{
+.logo {
     width: 60%;
+	margin: 1.25rem 0;
 }
     .logo h1 {
         display: block;

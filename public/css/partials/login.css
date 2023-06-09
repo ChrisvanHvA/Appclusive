@@ -1,4 +1,5 @@
 .layout__login {
+	--mobile-form-width: min(22.5rem, 95%);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -59,11 +60,19 @@
         }
         .login__signup {
             display: block;
+<<<<<<< HEAD
             text-align: center;
             background-color: var(--light);
             color: var(--primary-color);
             margin-top: 0;
             width: 100%;
+=======
+            width: min(9.875rem, calc(50% - 2ch));
+            height: 1px;
+            background-color: var(--tertiary-text);
+            position: absolute;
+            top: 50%;
+>>>>>>> df6ee92b903952a0b3c8f33a4d85267c26114c26
         }
         .login__signuptext{
             display: none;
@@ -92,9 +101,10 @@
 .login-aside{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     overflow: hidden;
-    /* width: clamp(14.5rem, 22.5rem, 23.125rem); */
+	width: var(--mobile-form-width);
+	margin: 0 auto;
 }
 
 .login-aside h1 {
@@ -103,14 +113,12 @@
     padding: 1.25rem;
 }
 
-.login-aside > *:not(svg){
+.login-aside h1, .login-aside span, .login-aside div {
     display: none;
 }
     .login-aside svg{
-        width: 9.375rem;
         height: 3.313rem;
         margin-top: 1.5rem;
-        margin-right: 13.125rem;
     }
     .login-aside svg path{
         fill: var(--primary-color);
@@ -131,19 +139,21 @@
             height: 100%;
             background-color: var(--primary-color);
             position: relative;
+			margin: unset;
+			width: unset;
+			padding-left: 1.75rem;
         }
-            .login-aside > *:not(svg){
-                display: flex;
-            }
             .login-aside svg{
                 position: absolute;
                 bottom: 2.75rem;
                 left: 2.75rem;
+				margin: 0;
             }
                 .login-aside svg path{
                     fill: var(--light);
                 }
-            h1{
+			.login-aside h1 {
+				display: block;
                 color: var(--light);
                 font-weight: 700;
                 font-size: 2.25rem;
@@ -151,12 +161,9 @@
                 width: 29.938rem;
             }
             .login-aside span {
-                position: absolute;
                 height: 24.5rem;
-                aspect-ratio: 1;
-                border-radius: 50%;
-                border: solid 3px var(--light);
-                z-index: 0;
+				display: block;
+				z-index: 0;
             }
                .login-aside span:first-of-type{
                     bottom: -5.25rem;
