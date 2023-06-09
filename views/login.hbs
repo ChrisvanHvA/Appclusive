@@ -1,50 +1,50 @@
-<main class='layout layout__login'>
+<main class="layout layout__login">
 
     {{#if message.length}}
         <p>{{message}}</p>
     {{/if}}
 
-    <form class='login' method='POST'>
-        <h2 class='login__title'>Welcome back!</h2>
+    <form method="POST">
+        <h2>Welcome back!</h2>
 
-        <fieldset class='form__section'>
-            <label for='email'>Email</label>
+        <fieldset class="form__section">
+            <label for="email">Email</label>
             <input
-                type='email'
-                name='email'
-                id='email'
-                placeholder='Enter your email'
-                autocapitalize='off'
-                pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+                autocapitalize="off"
+                pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                 required
             />
         </fieldset>
 
-        <fieldset class='form__section'>
-            <label for='password'>Password</label>
+        <fieldset class="form__section">
+            <label for="password">Password</label>
             <input
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Enter your password'
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
                 required
             />
         </fieldset>
 
-        <a class='login__forgot' href='/register'>Forgot password?</a>
+        <a class="login__forgot" href="/register">Forgot password?</a>
 
-        <button class='login__submit' type='submit'>Login</button>
-        <p class='login__or'>or</p>
+        <button class="login__submit" type="submit">Login</button>
+        <p class="login__or">or</p>
         <div class="login__register">
-        <p class="login__signuptext">Don't you have an account?</p>
-        <a class='login__signup' href='/register'>Register</a>
+        <p class="login__signuptext">Don"t you have an account?</p>
+        <a class="login__signup" href="/register">Register</a>
         </div>
     </form>
 
-    <section class='login-aside'>
-        <h1 class='login__slogan'>Digital accessibility made easy with
+    <section class="login-aside">
+        <h1 class="login__slogan">Digital accessibility made easy with
             Appclusive</h1>
-        <div class='login__checklistitem'></div>
+        <div class="login__checklistitem"></div>
         {{>icons/logo}}
 
         <span></span>
