@@ -1,0 +1,11 @@
+.layout__categories {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+}
+
+@media screen and (max-width: 950px) {
+    .layout__categories {
+        grid-template-columns: 1fr;
+    }
+}
