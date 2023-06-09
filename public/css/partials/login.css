@@ -152,13 +152,9 @@
                 width: 29.938rem;
             }
             .login-aside span {
-                position: absolute;
-				display: block;
                 height: 24.5rem;
-                aspect-ratio: 1;
-                border-radius: 50%;
-                border: solid 3px var(--light);
-                z-index: 0;
+				display: block;
+				z-index: 0;
             }
                .login-aside span:first-of-type{
                     bottom: -5.25rem;

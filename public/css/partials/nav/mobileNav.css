@@ -16,12 +16,7 @@
 }
 
 .mobile-nav > span {
-	position: absolute;
 	height: 90%;
-	aspect-ratio: 1;
-	border-radius: 50%;
-	border: solid 3px var(--light);
-	z-index: -1;
 }
 .mobile-nav > span:first-of-type {
 	left: -2.75rem;

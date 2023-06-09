@@ -48,3 +48,12 @@ textarea:focus {
 		margin-top: 5rem;
 	}
 }
+
+.bg-circle {
+	position: absolute;
+	pointer-events: none;
+	border-radius: 50%;
+	z-index: -1;
+	aspect-ratio: 1;
+	border: solid 3px var(--light);
+}
