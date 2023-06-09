@@ -1,0 +1,80 @@
+.mobile-nav {
+	width: 100%;
+	min-height: 10rem;
+	padding: min(1.5rem, 2.5vw);
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+
+	background-color: var(--nav-bg);
+	background-color: var(--primary-color);
+	color: var(--light);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.mobile-nav > span {
+	height: 90%;
+}
+.mobile-nav > span:first-of-type {
+	left: -2.75rem;
+	bottom: -.5rem;
+}
+.mobile-nav > span:nth-of-type(2) {
+	right: 5rem;
+	top: -55%;
+}
+.mobile-nav > span:nth-of-type(3) {
+	right: -2.5rem;
+	bottom: -50%;
+}
+
+/* div with icon */
+.mobile-nav div:first-of-type {
+	display: flex;
+	justify-content: flex-end;
+	height: 2.5rem;
+}
+
+.mobile-nav div:first-of-type a {
+	height: 100%;
+	display: block;
+	background-color: var(--light);
+	border-radius: 50%;
+	padding: 0.25rem;
+}
+
+.mobile-nav div:first-of-type a svg {
+	stroke: var(--primary-color);
+	height: 100%;
+}
+
+/* div with heading and welcome text */
+.mobile-nav div:last-of-type {
+	--welcome-padding-vertical: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: var(--welcome-padding-vertical);
+}
+
+.mobile-nav div:last-of-type p:not(:empty) {
+	padding: 0.3125rem var(--welcome-padding-vertical);
+	background-color: hotpink;
+	width: fit-content;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+.mobile-nav div:last-of-type h1 {
+	background-color: var(--primary-color);
+	padding: var(--welcome-padding-vertical) 0;
+	width: fit-content;
+}
+
+@media screen and (min-width: 951px) {
+	.mobile-nav {
+		display: none;
+	}
+}

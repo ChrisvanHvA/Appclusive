@@ -1,0 +1,32 @@
+<main class="layout layout__project-create">
+    <h1>New project</h1>
+
+    <form action="">
+        <label for="project_title">Project title</label>
+        <input
+            class="textinput"
+            type="text"
+            name="project_title"
+            id="project_title"
+            placeholder="What is the project&#39;s title?"
+        />
+
+        <div>
+
+            <label for="project_description">Project description</label>
+            <textarea
+                class="textinput"
+                name="project_description"
+                id="project_description"
+                placeholder="What is the project about?"
+				maxlength="500"
+            ></textarea>
+            <small class="description-char-counter"></small>
+        </div>
+
+        {{! <label for="project_assignees">Who will be working on this project?</label>
+        <input type="text" name="project_assignees" id="project_assignees" /> }}
+
+        <button class="btn">Create</button>
+    </form>
+</main>
