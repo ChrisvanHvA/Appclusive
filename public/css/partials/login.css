@@ -94,8 +94,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     /* width: clamp(14.5rem, 22.5rem, 23.125rem); */
 }
+
+.login-aside h1 {
+    background-color: var(--primary-color);
+    z-index: 1;
+    padding: 1.25rem;
+}
+
 .login-aside > *:not(svg){
     display: none;
 }
