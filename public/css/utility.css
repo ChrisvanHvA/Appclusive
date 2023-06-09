@@ -4,13 +4,18 @@
 
 .btn {
     cursor: pointer;
-    font-weight: 700;
     background-color: var(--light);
     border: 2px solid var(--primary-color);
     padding: .625rem 1.25rem;
-    color: var(--primary-color);
     border-radius: 50rem;
 	transition: all .2s ease-in-out;
+	
+	text-decoration: none;
+	text-align: center;
+	
+    color: var(--primary-color);
+	font-size: inherit;
+	font-weight: 700;
 }
 
 .btn:hover,
@@ -24,22 +29,18 @@
 	outline-offset: 1px;
 }
 
-.btn-reverse {
+.btn--alt {
 	background-color: var(--primary-color);
 	color: var(--light);
 	border-color: var(--light);
 }
 
-.btn-reverse:hover,
-.btn-reverse:focus-visible {
+.btn--alt:hover,
+.btn--alt:focus-visible {
 	background-color: var(--light);
 	color: var(--primary-color);
 }
 
-.btn--dark {
-    background-color: var(--primary-color);
-    color: var(--light);
-}
 
 .layout {
     margin: 10rem 2.5rem 0 2.5rem;
