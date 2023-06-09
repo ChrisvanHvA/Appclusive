@@ -20,7 +20,7 @@
 	height: 100%;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1200px) {
 	.cards.project-cards {
 		grid-template-columns: 1fr;
 	}	
