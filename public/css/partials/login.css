@@ -1,4 +1,5 @@
 .layout__login {
+	--mobile-form-width: min(22.5rem, 95%);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -9,8 +10,7 @@
 .login {
     display: flex;
     flex-direction: column;
-    width: 22.5rem;
-	max-width: 95%;
+    width: var(--mobile-form-width);
 	margin: 0 auto;
 }
     .login__title {
@@ -79,8 +79,8 @@
         .login__or::after {
             content: '';
             display: block;
-            width: 9.875rem;
-            height: 0.063rem;
+            width: min(9.875rem, calc(50% - 2ch));
+            height: 1px;
             background-color: var(--tertiary-text);
             position: absolute;
             top: 50%;
@@ -92,9 +92,10 @@
 .login-aside{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     overflow: hidden;
-    /* width: clamp(14.5rem, 22.5rem, 23.125rem); */
+	width: var(--mobile-form-width);
+	margin: 0 auto;
 }
 
 .login-aside h1 {
@@ -103,14 +104,12 @@
     padding: 1.25rem;
 }
 
-.login-aside > *:not(svg){
+.login-aside h1, .login-aside span, .login-aside div {
     display: none;
 }
     .login-aside svg{
-        width: 9.375rem;
         height: 3.313rem;
         margin-top: 1.5rem;
-        margin-right: 13.125rem;
     }
     .login-aside svg path{
         fill: var(--primary-color);
@@ -131,19 +130,21 @@
             height: 100%;
             background-color: var(--primary-color);
             position: relative;
+			margin: unset;
+			width: unset;
+			padding-left: 1.75rem;
         }
-            .login-aside > *:not(svg){
-                display: flex;
-            }
             .login-aside svg{
                 position: absolute;
                 bottom: 2.75rem;
                 left: 2.75rem;
+				margin: 0;
             }
                 .login-aside svg path{
                     fill: var(--light);
                 }
-            h1{
+			.login-aside h1 {
+				display: block;
                 color: var(--light);
                 font-weight: 700;
                 font-size: 2.25rem;
@@ -152,6 +153,7 @@
             }
             .login-aside span {
                 position: absolute;
+				display: block;
                 height: 24.5rem;
                 aspect-ratio: 1;
                 border-radius: 50%;
