@@ -16,11 +16,10 @@ const validPassword = async (password, hashedPassword) => {
 };
 
 router.post('/', async (req, res) => {
-    const { email, oldpassword, newpassword } = req.body;
+    const { oldpassword, newpassword } = req.body;
+    const user = req.user;
 
     try {
-        const user = await userModel.getUserByEmail(email);
-
         if (!user) {
             return res.send('User not found');
         }
