@@ -32,19 +32,19 @@
 		gap: .2rem;
 	}
 
-		.project-cards li.card__item a header > div div.status {
+		.project-cards li.card__item div.status {
 			display: flex;
 			align-items: center;
 			gap: .2rem;
 			color: var(--tertiary-text);
 		}
 
-			.project-cards li.card__item a header > div div.status svg {
+			.project-cards li.card__item div.status svg {
 				height: 1.125rem;
 				stroke: currentColor;
 			}
 
-		.project-cards li.card__item a header > div div.status.new {
+		.project-cards li.card__item div.status.new {
 			color: var(--primary-color);
 		}
 
