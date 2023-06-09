@@ -6,9 +6,11 @@ import login from './login.js';
 import register from './register.js';
 import profile from './profile.js';
 import logout from './logout.js';
+import changePassword from './changePassword.js';
 
 const routes = [
     { path: '/new-project', handler: projectCreate, auth: false },
+    { path: '/change-password', handler: changePassword, auth: false },
     { path: '/profile', handler: profile, auth: false },
     { path: '/login', handler: login, auth: false },
     { path: '/logout', handler: logout, auth: false },
