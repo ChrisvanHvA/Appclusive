@@ -33,10 +33,10 @@ class UserModel {
     async updatePassword(user_id, newPassword) {
         try {
             await sql`
-            UPDATE users
-            SET password = ${newPassword}
-            WHERE user_id = ${user_id}
-          `;
+                UPDATE users
+                SET password = ${newPassword}
+                WHERE user_id = ${user_id}
+            `;
             return true;
         } catch (error) {
             console.log(error);

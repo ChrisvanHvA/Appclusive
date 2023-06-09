@@ -1,8 +1,8 @@
 import express from 'express';
-const router = express.Router();
-
-import bcrypt from 'bcrypt';
 import UserModel from '../models/userModel.js';
+import bcrypt from 'bcrypt';
+
+const router = express.Router();
 const userModel = new UserModel();
 
 const generateHash = async (password) => {
