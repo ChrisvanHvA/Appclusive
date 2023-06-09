@@ -12,7 +12,7 @@ export default (passport) => {
     passport.deserializeUser(async (id, done) => {
         try {
             const user = await userModel.getUser(id);
-            done(null, user.user_id);
+            done(null, user);
         } catch (error) {
             done(error);
         }
@@ -49,7 +49,6 @@ export default (passport) => {
                             )
                         );
                     } else {
-
                         const hashedPassword = await generateHash(password);
 
                         const userId = await userModel.insert({
@@ -57,7 +56,7 @@ export default (passport) => {
                             insertion: req.body.insertion,
                             surname: req.body.surname,
                             email_address: email_address,
-                            password: hashedPassword
+                            password: hashedPassword,
                         });
 
                         return done(null, userId);
