@@ -1,0 +1,106 @@
+
+
+
+.categories > p {
+    font-size: 1rem;
+    width: 90%;
+    margin: 1.25rem;
+    max-width: 70rem;
+}
+.divider { 
+   
+    height: 0.1875rem;
+    background: var(--card-border-color);
+    border:none;
+    border-radius: .25rem;
+        width: 90%;
+        max-width: 70rem;
+
+
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.categories li {
+    display: flex;
+    padding: 1.25rem;
+    border-radius: .75rem;
+    border: 0.187rem solid var(--primary-color);
+    margin: 1.25rem;
+    max-width: 70rem;
+}
+
+.categories li > a {
+    text-decoration: none;
+}
+
+.category__item__content > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.categories li > a > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.categories li > a > ul > li:last-of-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.checklist__categories h2 {
+    color: var(--primary-text);
+}
+
+.checklist__categories p {
+    color: var(--tertiary-text);
+}
+
+.categories li progress {
+    width: 30cqb;
+    height: 1.25rem;
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.categories li > a > ul > li:last-of-type img {
+
+    width: 0.625rem;
+    height: auto;
+}
+
+ul.categoryContent > li:first-of-type img{
+    width: 3rem;
+    height: auto;
+   margin-top: 40% ;
+ margin-right: 1rem;
+}
+
+@media screen and (min-width: 950px) {
+    /* .checklist__categories ol li > a {
+        display: flex;
+        padding: 1.25rem;
+        border-radius: .75rem;
+        border: 0.187rem solid var(--primary-color);
+        margin: 1.25rem;
+        max-width: 70rem;
+        text-decoration: none;
+    } */
+	.categories li > a > ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    ul.categoryContent > li:first-of-type img{
+        width: 3rem;
+ margin: 1rem;
+    }
+    
+}
