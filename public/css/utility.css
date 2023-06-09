@@ -2,6 +2,7 @@
 	display: none;
 }
 
+/* ------------- #BUTTON ------------ */
 .btn {
     cursor: pointer;
     background-color: var(--light);
@@ -46,9 +47,16 @@
     margin: 10rem 2.5rem 0 2.5rem;
 }
 
-.layout h1 {
-	margin-bottom: 1rem;
+	.layout h1 {
+		margin-bottom: 1rem;
+	}
+
+@media screen and (max-width: 950px) {
+	.layout {
+		margin-top: 5rem;
+	}
 }
+	
 
 input:where([type='text'], [type='number'], [type='email'], [type='password']),
 textarea {
@@ -71,7 +79,6 @@ textarea:focus {
 
 /* ------ Progress bar styling ------ */
 
-
 .progress[value] {
 	--progress-bar-border-radius: calc(var(--progress-bar-height) / 2);
 	width: 100%;
@@ -91,21 +98,12 @@ textarea:focus {
 .progress[value]::-moz-progress-bar {
 	background-color: var(--primary-color);
 	border-radius: 0 var(--progress-bar-border-radius) var(--progress-bar-border-radius) 0;
-
 }
 
 .progress[value]::-webkit-progress-value {
 	background-color: var(--primary-color);
 }
 
-
-	
-
-@media screen and (max-width: 950px) {
-	.layout {
-		margin-top: 5rem;
-	}
-}
 
 .bg-circle {
 	position: absolute;
@@ -114,4 +112,13 @@ textarea:focus {
 	z-index: -1;
 	aspect-ratio: 1;
 	border: solid 3px var(--light);
+}
+
+hr { 
+    height: 0.1875rem;
+    background: var(--card-border-color);
+    border:none;
+    border-radius: .25rem;
+    width: 90%;
+    max-width: 70rem;
 }

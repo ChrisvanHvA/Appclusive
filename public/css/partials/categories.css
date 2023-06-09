@@ -1,14 +1,4 @@
 
-.divider { 
-    height: 0.1875rem;
-    background: var(--card-border-color);
-    border:none;
-    border-radius: .25rem;
-    width: 90%;
-    max-width: 70rem;
-
-}
-
 .categories {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -81,7 +71,6 @@
 
 
 .categories li > a > ul > li:last-of-type img {
-
     width: 0.625rem;
     height: auto;
 }
@@ -89,8 +78,8 @@
 ul.categoryContent > li:first-of-type img{
     width: 3rem;
     height: auto;
-   margin-top: 40% ;
- margin-right: 1rem;
+    margin-top: 40% ;
+    margin-right: 1rem;
 }
 
 @media screen and (min-width: 950px) {
@@ -103,7 +92,7 @@ ul.categoryContent > li:first-of-type img{
     }
     ul.categoryContent > li:first-of-type img{
         width: 3rem;
- margin: 1rem;
+        margin: 1rem;
     }
     
 }
