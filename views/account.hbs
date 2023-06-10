@@ -1,15 +1,10 @@
 <main>
     <h1>Account</h1>
-    {{#if user.first_name}}
-        <p>First name: {{user.first_name}}</p>
-    {{/if}}
+    <p>First name: {{user.first_name}}</p>
     {{#if user.insertion}}
         <p>Insertion: {{user.insertion}}</p>
     {{/if}}
-    {{#if user.surname}}
-        <p>Surname: {{user.surname}}</p>
-    {{/if}}
-
+    <p>Surname: {{user.surname}}</p>
     <p>Email: {{user.email_address}}</p>
 
     {{#if message}}
