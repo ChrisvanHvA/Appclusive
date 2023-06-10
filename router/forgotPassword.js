@@ -45,8 +45,8 @@ router.post('/', async (req, res, next) => {
         const mailOptions = {
             from: process.env.MAILER_MAIL,
             to: user.email_address,
-            subject: 'Password Reset',
-            text: `Click the link to reset your password: ${link}`,
+            subject: 'Appclusive: password reset',
+            text: `Click the link (expires in 15m) to reset your password: ${link}`,
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
