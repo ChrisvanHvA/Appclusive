@@ -30,7 +30,10 @@ router.post('/', async (req, res, next) => {
         const user = await userModel.getUserByEmail(email);
 
         if (!user) {
-            res.send('User not found');
+            res.render('forgotPassword', {
+                noNav: true,
+                message: 'User not found',
+            });
             return;
         }
 
@@ -52,13 +55,18 @@ router.post('/', async (req, res, next) => {
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.log(error);
-                res.send('Error sending password reset email');
+                res.render('forgotPassword', {
+                    noNav: true,
+                    message: 'Error sending password reset email',
+                });
             } else {
                 console.log('Email sent:', info.response);
-                res.send('Password reset link has been sent to your email');
+                res.render('forgotPassword', {
+                    noNav: true,
+                    message: 'Password reset link has been sent to your email',
+                });
             }
         });
-        res.send('Password reset link has been sent to your email');
     } catch (error) {
         console.log(error);
     }

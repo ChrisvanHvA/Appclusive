@@ -21,13 +21,21 @@ router.post('/', async (req, res) => {
 
     try {
         if (!user) {
-            return res.send('User not found');
+            res.render('account', {
+                user: req.user,
+                message: 'User not found',
+            });
+            return;
         }
 
         const isValidPassword = await validPassword(oldpassword, user.password);
 
         if (!isValidPassword) {
-            return res.send('Invalid old password');
+            res.render('account', {
+                user: req.user,
+                message: 'Invalid old password',
+            });
+            return;
         }
 
         const hashedPassword = await generateHash(newpassword);
@@ -37,14 +45,19 @@ router.post('/', async (req, res) => {
             hashedPassword
         );
 
-        if (success) {
-            return res.send('Password updated successfully');
-        } else {
-            return res.send('Error updating password');
+        if (!success) {
+            res.render('account', {
+                user: req.user,
+                message: 'Error updating password',
+            });
+            return;
         }
+        res.render('account', {
+            user: req.user,
+            message: 'Password updated successfully',
+        });
     } catch (error) {
         console.log(error);
-        return res.send('An error occurred');
     }
 });
 
