@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
 	projects.forEach((project) => {
 		project.completedChecklists = getCompletedChecklists(project.checkLists);
 	});
-
+    
     res.render('dashboard', {
 		...res.locals,
         projects: projects

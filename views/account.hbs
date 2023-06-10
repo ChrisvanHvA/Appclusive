@@ -1,0 +1,10 @@
+<main>
+    <h1>Account</h1>
+    <p>{{user.email_address}}</p>
+
+    <form action='/change-password' method='POST'>
+        <input type='password' placeholder='Current password' name='oldpassword' />
+        <input type='password' placeholder='New password' name='newpassword' />
+        <button type='submit'>Change Password</button>
+    </form>
+</main>

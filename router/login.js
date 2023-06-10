@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
-        return res.redirect('/profile');
+        return res.redirect('/account');
     }
 
     res.render('login', {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.post(
     '/',
     passport.authenticate('local-login', {
-        successRedirect: '/profile',
+        successRedirect: '/',
         failureRedirect: '/login',
         failureFlash: true,
     })
