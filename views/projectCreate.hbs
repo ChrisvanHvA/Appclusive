@@ -1,31 +1,63 @@
 <main class="layout layout__project-create">
     <h1>New project</h1>
 
-    <form action="">
-        <label for="project_title">Project title</label>
+    <form action="/new-project" method="post" novalidate>
+        <label for="title">Project title <span class="required">*</span>
+		{{#if formErrors.title}}<span class="formerror">A project title is required</span>{{/if}}
+		</label>
         <input
             class="textinput"
             type="text"
-            name="project_title"
-            id="project_title"
+            name="title"
+            id="title"
             placeholder="What is the project&#39;s title?"
+			required
         />
 
         <div>
 
-            <label for="project_description">Project description</label>
+            <label for="description">Project description</label>
             <textarea
                 class="textinput"
-                name="project_description"
-                id="project_description"
+                name="description"
+                id="description"
                 placeholder="What is the project about?"
-				maxlength="500"
+                maxlength="500"
             ></textarea>
             <small class="description-char-counter"></small>
         </div>
 
-        {{! <label for="project_assignees">Who will be working on this project?</label>
-        <input type="text" name="project_assignees" id="project_assignees" /> }}
+        <fieldset class="project__level">
+            <legend>What level of accessibility should be applied? <span class="required">*</span>
+			{{#if formErrors.level}}<span>An accessibility level is required</span>{{/if}}
+			</legend>
+
+            <section>
+                <input type="radio" id="a" name="level" value="a" required />
+                <label for="a">A</label>
+
+                <input type="radio" id="aa" name="level" value="aa" checked required />
+                <label for="aa">AA</label>
+
+                <input type="radio" id="aaa" name="level" value="aaa" required />
+                <label for="aaa">AAA</label>
+
+                <aside>
+                    <div>
+                        <h3>Niveau A</h3>
+                        <p>Dingen daarover</p>
+                    </div>
+                    <div>
+                        <h3>Niveau AA</h3>
+                        <p>Dingen daarover</p>
+                    </div>
+                    <div>
+                        <h3>Niveau AAA</h3>
+                        <p>Dingen daarover</p>
+                    </div>
+                </aside>
+            </section>
+        </fieldset>
 
         <button class="btn">Create</button>
     </form>

@@ -1,5 +1,8 @@
+const form = document.querySelector('form');
+const titleInput = document.querySelector('input[name="title"]');
+const levelInput = document.querySelector('input[name="level"]');
 const descriptionInput = document.querySelector(
-    'textarea[name="project_description"]'
+    'textarea[name="description"]'
 );
 const descriptionCharCount = document.querySelector(
     '.description-char-counter'
@@ -17,3 +20,21 @@ if (descriptionInput && descriptionCharCount) {
 		descriptionInput.dispatchEvent(new Event('input'));
 	}
 }
+
+const validateForm = (e) => {
+	const title = titleInput?.value;
+	const level = levelInput?.value;
+    const errors = {};
+
+    if (!title) {
+        errors.title = 'Title is required';
+    }
+
+    if (!level) {
+        errors.level = 'An accessibility level is required';
+    }
+
+    return errors;
+};
+
+form?.addEventListener('submit', validateForm);
