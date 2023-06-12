@@ -7,19 +7,23 @@ class projectUserModel {
 
     async insert(insertData) {
         try {
+            const {
+                project_id,
+                user_id,
+                is_admin
+            } = insertData;
 
             const [insertedRow] = await sql`
-                INSERT INTO project_users (project_id, user_id, is_admin)
-                VALUES ( 
-                    ${ insertData.email_address ?? null },
-                    ${ insertData.first_name ?? null },
-                    ${ insertData.insertion ?? null }
+                INSERT INTO users (project_id, user_id, is_admin)
+                VALUES (
+					${project_id ?? null},
+					${user_id ?? null},
+					${is_admin ?? null}		
                 )
 
-                RETURNING user_id;
+                RETURNING project_users_id;
             `;
-            return insertedRow.user_id ?? 0;
-            
+            return insertedRow.project_users_id ?? 0;
         } catch (error) {
             console.log(error);
             return 0;
