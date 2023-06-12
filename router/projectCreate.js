@@ -1,6 +1,8 @@
 import express from 'express';
 const router = express.Router();
 
+import projectModel from '../models/projectModel.js';
+
 router.get('/', (req, res) => {
     res.render('projectCreate', {
         ...res.locals,
@@ -16,6 +18,9 @@ router.post('/', (req, res) => {
             formErrors,
         });
     }
+
+	const ProjectModel = new projectModel();
+	ProjectModel.createProject(req.body);
 
     return res.send('ok');
 });

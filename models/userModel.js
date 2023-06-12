@@ -8,31 +8,36 @@ class UserModel {
 
     async insert(insertData) {
         try {
+            const {
+                email_address,
+                first_name,
+                insertion,
+                surname,
+                password,
+                profile_pic,
+            } = insertData;
 
             const [insertedRow] = await sql`
                 INSERT INTO users (email_address, first_name, insertion, surname, password, profile_pic)
                 VALUES (
-                    ${ insertData.email_address ?? null },
-                    ${ insertData.first_name ?? null },
-                    ${ insertData.insertion ?? null },
-                    ${ insertData.surname ?? null },
-                    ${ insertData.password ?? null },
-                    ${ insertData.profile_pic ?? null }
+					${email_address ?? null},
+					${first_name ?? null},
+					${insertion ?? null},
+					${surname ?? null},
+					${password ?? null},
+					${profile_pic ?? null}				
                 )
 
                 RETURNING user_id;
             `;
             return insertedRow.user_id ?? 0;
-            
         } catch (error) {
             console.log(error);
             return 0;
         }
     }
 
-    async update(updateData) {
-
-    }
+    async update(updateData) {}
 
     /**
      *

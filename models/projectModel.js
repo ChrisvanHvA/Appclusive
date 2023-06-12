@@ -1,22 +1,40 @@
 import sql from '../config/db.js';
 
 class projectModel {
+    constructor() {}
 
-    constructor() {
-    }
+	async insert(insertData) {
+		try {
+			const { title, description, level } = insertData;
+
+			const [insertedRow] = await sql`
+				INSERT INTO users (title, description, wcag_level)
+				VALUES (
+					${title ?? null},
+					${description ?? null},
+					${level ?? null}
+				)
+	
+				RETURNING project_id;
+			`;
+			return insertedRow.project_id ?? 0;
+		} catch (error) {
+			console.log(error);
+			return 0;
+		}
+	}
 
     /**
-     * 
-     * @params 
-     * @returns 
+     *
+     * @params
+     * @returns
      */
     async updateChecklistCompletion(wcag_item_id, bool) {
         try {
-            
             const updated = await sql`
                 UPDATE project_checklists
-                SET is_completed = ${ bool }
-                WHERE wcag_item_id = ${ wcag_item_id }
+                SET is_completed = ${bool}
+                WHERE wcag_item_id = ${wcag_item_id}
                 RETURNING project_checklists_id;
             `;
 
@@ -24,8 +42,7 @@ class projectModel {
                 return true;
             }
 
-			return false;
-
+            return false;
         } catch (error) {
             console.log(error);
             return false;
@@ -43,9 +60,9 @@ class projectModel {
 				SELECT p.*, pu.user_id, pu.is_admin
 				FROM project_users AS pu
 				LEFT JOIN projects AS p ON p.project_id = pu.project_id
-				WHERE pu.user_id = ${ userId }
+				WHERE pu.user_id = ${userId}
 				`;
-			return projects
+            return projects;
         } catch (error) {
             console.log(error);
             return [];

@@ -3,7 +3,7 @@
 
     <form action="/new-project" method="post" novalidate>
         <label for="title">Project title <span class="required">*</span>
-		{{#if formErrors.title}}<span class="formerror">A project title is required</span>{{/if}}
+		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
 		</label>
         <input
             class="textinput"
@@ -29,7 +29,7 @@
 
         <fieldset class="project__level">
             <legend>What level of accessibility should be applied? <span class="required">*</span>
-			{{#if formErrors.level}}<span>An accessibility level is required</span>{{/if}}
+			<span class="formerror">{{#if formErrors.level}}An accessibility level is required{{/if}}</span>
 			</legend>
 
             <section>
