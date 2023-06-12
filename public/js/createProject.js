@@ -8,6 +8,9 @@ const descriptionCharCount = document.querySelector(
     '.description-char-counter'
 );
 
+const titleError = document.querySelector('label[for="title"] span.formerror');
+const levelError = document.querySelector('label[for="level"] span.formerror');
+
 // check if description input and char counter exist, if so, update char counter on input
 if (descriptionInput && descriptionCharCount) {
 	const maxChars = descriptionInput.getAttribute('maxlength');
@@ -22,19 +25,23 @@ if (descriptionInput && descriptionCharCount) {
 }
 
 const validateForm = (e) => {
-	const title = titleInput?.value;
-	const level = levelInput?.value;
-    const errors = {};
+	if (titleError) {
+		titleError.textContent = '';
 
-    if (!title) {
-        errors.title = 'Title is required';
-    }
+		if (!titleInput?.value) {
+			e.preventDefault();
+			titleError.textContent = 'A title is required';
+		}
+	}
 
-    if (!level) {
-        errors.level = 'An accessibility level is required';
-    }
-
-    return errors;
+	if (levelError) {
+		levelError.textContent = '';
+		
+		if (!levelInput?.value) {
+			e.preventDefault();
+			levelError.textContent = 'An accessibility level is required';
+		}
+	}
 };
 
 form?.addEventListener('submit', validateForm);
