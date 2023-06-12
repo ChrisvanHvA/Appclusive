@@ -11,7 +11,7 @@ class UserModel {
 
             const [insertedRow] = await sql`
                 INSERT INTO users (email_address, first_name, insertion, surname, password, profile_pic)
-                VALUES (
+                VALUES ( 
                     ${ insertData.email_address ?? null },
                     ${ insertData.first_name ?? null },
                     ${ insertData.insertion ?? null },
