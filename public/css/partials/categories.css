@@ -1,11 +1,18 @@
+.layout__categories > header .project__subtitle:not(:empty) {
+    margin-bottom: 1rem;
+}
+
+.layout__categories > header svg {
+    color: var(--dark);
+    width: 1.5rem;
+    height: 1.5rem;
+}
 
 .categories {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     gap: 1.5rem;
-
 }
-
 
 .categories > p {
     font-size: 1rem;
@@ -21,20 +28,23 @@
 .categories li {
     padding: 1.25rem;
     border-radius: .75rem;
-    border: 0.187rem solid var(--primary-color);
+    border: var(--card-border-style-alt);
     max-width: 70rem;
     display: block;
     container-type: inline-size;
 }
 
-/* @container (min-width: 20rem){
-	p {
-		background: yellow;
-	}
-} */
-
     .categories li > a {
+        height: 100%;
         text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .categories a > img {
+        max-width: 2rem;
+        aspect-ratio: 1/1;
     }
 
 .category__item__content {
@@ -82,6 +92,17 @@ ul.categoryContent > li:first-of-type img{
     margin-right: 1rem;
 }
 
+.category__acc > span {
+    display: none;
+}
+
+/* When the screen size gets too small, "accessible" causes word wrap */
+@media screen and (min-width: 1400px) {
+    .category__acc > span {
+        display: inline-block;
+    }
+}
+
 @media screen and (min-width: 950px) {
 
 	.categories li > a > ul{
@@ -90,6 +111,7 @@ ul.categoryContent > li:first-of-type img{
         justify-content: space-between;
         flex-wrap: nowrap;
     }
+
     ul.categoryContent > li:first-of-type img{
         width: 3rem;
         margin: 1rem;

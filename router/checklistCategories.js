@@ -1,17 +1,17 @@
 import express from 'express';
-// experimental
-// import tasks from "../public/wcag.json" assert { type: "json" };
+import WCAGModel from '../models/wcagModel.js';
+import wcagModel from '../models/wcagModel.js';
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    const WCAGModel = new wcagModel();
+    const categories = await WCAGModel.listWCAGCategories();
+
     res.render('checklistCategories', {
-      
+        categories,
+        ...res.locals
     });
 });
 
-router.post('/submit', (req, res) => {
-    console.log(req.body);
-    res.json('hiii');
-});
 
 export default router;

@@ -44,7 +44,7 @@
 
 
 .layout {
-    margin: 10rem 2.5rem 0 2.5rem;
+    margin: 3.5rem 2.5rem;
 }
 
 	.layout h1 {
@@ -53,7 +53,7 @@
 
 @media screen and (max-width: 950px) {
 	.layout {
-		margin-top: 5rem;
+		margin-top: 1.5rem;
 	}
 }
 	
@@ -121,4 +121,14 @@ hr {
     border-radius: .25rem;
     width: 90%;
     max-width: 70rem;
+}
+
+
+.project__subtitle:not(:empty){
+	padding: 0.3125rem var(--welcome-padding-vertical);
+	background-color: hotpink;
+	width: fit-content;
+	border-radius: 5px;
+	text-transform: uppercase;
+	color: var(--light);
 }

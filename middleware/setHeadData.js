@@ -22,6 +22,11 @@ const data = {
 		description: '',
 		scripts: ['checklist']
 	},
+	'/categories': {
+		title: 'Categories',
+		description: '',
+		scripts: ['categories']
+	},
 	'/login': {
 		title: 'Login',
 		description: '',

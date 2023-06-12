@@ -1,13 +1,19 @@
 <main class="layout layout__categories">
+
+    <header>
+        <p class="project__subtitle">Project overview</p>
+        <h1><a href="/dashboard">{{> icons/arrowleft}}</a>Project 1</h1>
+    </header>
+
     <section class="checklist__categories">
         <p>Some text explaining these little cards and their purpose... A subtitle if you will</p>
                 
         <hr>
 
         <ol class="categories">
-            {{>categoryItem}}
-            {{>categoryItem}}
-            {{>categoryItem}}
+            {{#each categories}}
+                {{>categoryItem this}}
+            {{/each}}
         </ol>
     </section>
 

@@ -53,18 +53,9 @@
 
 /* div with heading and welcome text */
 .mobile-nav div:last-of-type {
-	--welcome-padding-vertical: 0.5rem;
 	display: flex;
 	flex-direction: column;
 	gap: var(--welcome-padding-vertical);
-}
-
-.mobile-nav div:last-of-type p:not(:empty) {
-	padding: 0.3125rem var(--welcome-padding-vertical);
-	background-color: hotpink;
-	width: fit-content;
-	border-radius: 5px;
-	text-transform: uppercase;
 }
 
 .mobile-nav div:last-of-type h1 {
