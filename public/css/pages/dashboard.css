@@ -10,18 +10,3 @@
 	margin: 10vh 0 2.5rem 0;
 } */
 
-.cards.project-cards {
-	display: grid;
-  	grid-template-columns: repeat(2, 1fr);
-  	gap: 1.5rem;
-}
-
-.cards.project-cards .card__item {
-	height: 100%;
-}
-
-@media screen and (max-width: 1200px) {
-	.cards.project-cards {
-		grid-template-columns: 1fr;
-	}	
-}

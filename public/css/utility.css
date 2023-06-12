@@ -1,48 +1,87 @@
-.hide {
-	display: none;
+/* ---------------------------------- */
+/*            #GENERAL           	  */
+/* ---------------------------------- */
+.hide { display: none; }
+
+hr { 
+    height: 0.1875rem;
+    background: var(--card-border-color);
+    border:none;
+    border-radius: .25rem;
+    width: 90%;
+    max-width: 70rem;
 }
 
-/* ------------- #BUTTON ------------ */
-.btn {
-    cursor: pointer;
-    background-color: var(--light);
-    border: 2px solid var(--primary-color);
-    padding: .625rem 1.25rem;
-    border-radius: 50rem;
-	transition: all .2s ease-in-out;
+/* ---------------------------------- */
+/*            #BUTTON           	  */
+/* ---------------------------------- */
+.btn {    
+	appearance: none;
+	padding: .625rem 1.25rem;
 	
+	font-size: inherit;
+	font-weight: 700;
+	color: var(--light);
 	text-decoration: none;
 	text-align: center;
 	
-    color: var(--primary-color);
-	font-size: inherit;
-	font-weight: 700;
+	border: 2px solid var(--primary-color);
+    border-radius: 50rem;
+	
+	transition: all .2s ease-in-out;
+	cursor: pointer;
+	
+	outline: none;
+	background-color: var(--primary-color);
 }
 
 .btn:hover,
 .btn:focus-visible {
-	background-color: var(--primary-color);
-	color: var(--light);
-}
-
-.btn:focus-visible {
-	outline: solid 2px var(--primary-color);
-	outline-offset: 1px;
-}
-
-.btn--alt {
-	background-color: var(--primary-color);
-	color: var(--light);
-	border-color: var(--light);
-}
-
-.btn--alt:hover,
-.btn--alt:focus-visible {
 	background-color: var(--light);
 	color: var(--primary-color);
 }
 
+/* SECONDARY BUTTON */
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+	background-color: var(--primary-color);
+	color: var(--light);
+}
 
+.btn--secondary:focus-visible {
+	outline: solid 2px var(--primary-color);
+	outline-offset: 1px;
+}
+
+.btn--secondary {
+	color: var(--primary-color);
+	border-color: var(--primary-color);
+	background-color: var(--light);
+}
+
+/* NAV BUTTON */
+.btn--nav {
+	display: flex;
+			
+	height: 2.8rem;
+	width: 2.8rem;
+	
+	padding: 3px;
+
+	background-color: var(--primary-color);
+	border-radius: 50%;
+}
+
+	.btn--nav svg {
+		width: 100%;
+
+		stroke: var(--light);
+		height: 100%;
+	}
+
+/* ---------------------------------- */
+/*            #LAYOUT           	  */
+/* ---------------------------------- */
 .layout {
     margin: 10rem 2.5rem 0 2.5rem;
 }
@@ -56,37 +95,93 @@
 		margin-top: 5rem;
 	}
 }
-	
 
-input:where([type='text'], [type='number'], [type='email'], [type='password']),
+/* ---------------------------------- */
+/*            	#FORM           	  */
+/* ---------------------------------- */
+input[type='text'], 
+input[type='number'], 
+input[type='email'], 
+input[type='password'],
 textarea {
 	border: 2px solid var(--primary-text);
-	padding: .5rem .75rem;
 	border-radius: 50rem;
+	
+	padding: .5rem .75rem;
+	
 	font-size: 1.1rem;
 	font-family: inherit;
 	color: var(--primary-text);
+	
 	background-color: var(--primary-bg);
 }
 
-input:where([type='text'], [type='number'], [type='email'], [type='password']):focus,
+input[type='text']:focus, 
+input[type='number']:focus, 
+input[type='email']:focus, 
+input[type='password']:focus,
 textarea:focus {
 	outline: var(--primary-color) solid 2px;
 	outline-offset: 1px;
 	border-color: var(--primary-color);
 }
 
+/* #SEARCH */
+.searchbar {
+    margin-bottom: 2rem;
+    position: relative;
+}
 
-/* ------ Progress bar styling ------ */
+    .searchbar input {
+        width: 80%;
+        height: 2rem;
+		
+        padding-left: 2rem;
+        
+		border-radius: 1.5rem;
+        border: none;
+        
+		font-size: 1rem;
+        color: #202020;
+    }
 
+    .searchbar .btn {
+        position: absolute;
+        left: 0;
+		top: 50%;
+		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+        
+		padding: 0 0 0 .5rem;
+        
+		height: 100%;
+        width: 2rem;
+        
+		border: none;
+        background-color: transparent;
+		transform: translateY(-50%);
+    }
+
+	.searchbar .btn svg {
+		height: 1rem;
+	}
+/* ---------------------------------- */
+/*            #PROGRESS           	  */
+/* ---------------------------------- */
 .progress[value] {
 	--progress-bar-border-radius: calc(var(--progress-bar-height) / 2);
+	appearance: none;
+
 	width: 100%;
 	height: var(--progress-bar-height);
+	
 	border-radius: var(--progress-bar-border-radius);
-	overflow: hidden;
-	appearance: none;
 	border: solid 2px var(--primary-color);
+	
+	overflow: hidden;
+	
 	background-color: transparent;
 }
 
@@ -104,21 +199,17 @@ textarea:focus {
 	background-color: var(--primary-color);
 }
 
-
+/* ---------------------------------- */
+/*            #CIRCLES           	  */
+/* ---------------------------------- */
 .bg-circle {
 	position: absolute;
-	pointer-events: none;
+	
 	border-radius: 50%;
-	z-index: -1;
-	aspect-ratio: 1;
 	border: solid 3px var(--light);
-}
-
-hr { 
-    height: 0.1875rem;
-    background: var(--card-border-color);
-    border:none;
-    border-radius: .25rem;
-    width: 90%;
-    max-width: 70rem;
+	
+	pointer-events: none;
+	
+	aspect-ratio: 1;
+	z-index: -1;
 }

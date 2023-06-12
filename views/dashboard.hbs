@@ -2,10 +2,10 @@
 <main class="layout layout__dashboard">
 	<h1>Hi, Anna!</h1>
 
-	<ul class="cards project-cards">
+	<ul class="cards cards--project">
 		{{!-- todo: check if user is admin (can create projects) --}}
 		{{#if true}}
-			<li class="card__item admin-card">
+			<li class="card__item card__item--admin">
 				{{> projectCard null}}
 			</li>
 		{{/if}}

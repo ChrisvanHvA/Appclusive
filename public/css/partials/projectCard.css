@@ -1,81 +1,100 @@
-.project-cards li.card__item {
-	--card-min-width: 25rem;
-	--card-max-width: 31.25rem;
+
+.cards--project{
+	display: grid;
+  	grid-template-columns: repeat(2, 1fr);
+  	gap: 1.5rem;
 }
 
-.project-cards li.card__item a {
-	display: block;
-	height: 100%;
-	width: 100%;
-	background-color: var(--secondary-bg);
-	color: inherit;
-	text-decoration: none;
-	padding: 1.55rem 1.875rem;
-	border-radius: var(--card-border-radius);
-	border: var(--card-border-style);
-}
+	.cards--project .card__item {
+		height: 100%;
 
-.project-cards li.card__item a header {
-	display: flex;
-	gap: .5rem;
-}
-
-	.project-cards li.card__item a header img {
-		border-radius: 50%;
-		height: 3rem;
+		--card-min-width: 25rem;
+		--card-max-width: 31.25rem;
 	}
 
-	.project-cards li.card__item a header > div {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: .2rem;
-	}
+		.cards--project li.card__item a {
+			display: block;
 
-		.project-cards li.card__item div.status {
+			height: 100%;
+			width: 100%;
+
+			padding: 1.55rem 1.875rem;
+
+			color: inherit;
+			text-decoration: none;
+			
+			border-radius: var(--card-border-radius);
+			border: var(--card-border-style);
+
+			background-color: var(--secondary-bg);
+		}
+
+			.cards--project li.card__item a header {
+				display: flex;
+				gap: .5rem;
+			}
+
+				.cards--project li.card__item a header img {
+					border-radius: 50%;
+					height: 3rem;
+				}
+
+				.cards--project li.card__item a header > div {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					gap: .2rem;
+				}
+
+		.cards--project li.card__item div.status {
 			display: flex;
 			align-items: center;
 			gap: .2rem;
 			color: var(--tertiary-text);
 		}
 
-			.project-cards li.card__item div.status svg {
+			.cards--project li.card__item div.status svg {
 				height: 1.125rem;
 				stroke: currentColor;
 			}
 
-		.project-cards li.card__item div.status.new {
-			color: var(--primary-color);
-		}
+			.cards--project li.card__item div.status.new {
+				color: var(--primary-color);
+			}
 
+@media screen and (max-width: 1200px) {
+	.cards--project{
+		grid-template-columns: 1fr;
+	}	
+}
 /* ---------------------------------- */
 /*       section with extra info      */
 /* ---------------------------------- */
-.project-cards li.card__item a section.project-data {
+.cards--project li.card__item a section.project-data {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	height: 3rem;
 	margin: 1rem 0;
 }
 
-.project-cards li.card__item a section.project-data div {
+.cards--project li.card__item a section.project-data div {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-	.project-cards li.card__item a section.project-data div h4 {
+	.cards--project li.card__item a section.project-data div h4 {
 		font-weight: normal;
 		color: var(--tertiary-text);
 	}
 
 
-	.project-cards li.card__item a section.project-data div.team-members span {
+	.cards--project li.card__item a section.project-data div.team-members span {
 		display: flex;
 		gap: .4rem;
 	}
 
-		.project-cards li.card__item a section.project-data div.team-members span img {
+		.cards--project li.card__item a section.project-data div.team-members span img {
 			border-radius: 50%;
 			height: 1.5rem;
 			border: 2px solid var(--primary-text);
@@ -96,7 +115,7 @@
 /* ---------------------------------- */
 /*   styles for create project card   */
 /* ---------------------------------- */
-.project-cards li.card__item.admin-card a {
+.cards--project li.card__item.card__item--admin a {
 	border-color: var(--primary-color);
 	background-color: var(--create-project-card-bg);
 	display: flex;
