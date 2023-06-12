@@ -1,0 +1,19 @@
+<main>
+    <h1>Account</h1>
+    <p>First name: {{user.first_name}}</p>
+    {{#if user.insertion}}
+        <p>Insertion: {{user.insertion}}</p>
+    {{/if}}
+    <p>Surname: {{user.surname}}</p>
+    <p>Email: {{user.email_address}}</p>
+
+    {{#if message}}
+        <p>{{message}}</p>
+    {{/if}}
+
+    <form action='/change-password' method='POST'>
+        <input type='password' placeholder='Current password' name='oldpassword' />
+        <input type='password' placeholder='New password' name='newpassword' />
+        <button type='submit'>Change Password</button>
+    </form>
+</main>
