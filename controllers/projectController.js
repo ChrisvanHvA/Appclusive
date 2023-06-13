@@ -10,21 +10,39 @@ const checklistModel = new projectChecklistModel();
 
 const createProject = async (insertData, user_id) => {
 	const projectId = await ProjectModel.insert(insertData);
-    await ProjectUserModel.insert(projectId, user_id, true);
+
+    const projectUserInsert = {
+        project_id: projectId, 
+        user_id: 1,
+        is_admin: true
+    }
+
+    await ProjectUserModel.insert(projectUserInsert);
 
     const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(insertData.level);
 
-    // project_id, wcag_item_id, is_completed, assignees
-    allMatchingWCAGItems.forEach(async (item) => {
+    let completedInsert = true;
+
+    for (let i = 0; i < allMatchingWCAGItems.length; i++) {
+        const item = allMatchingWCAGItems[i];
+
         const data = { 
             project_id: projectId,
             wcag_item_id: item.wcag_item_id,
             is_completed: false,
-            assignees: []
         };
 
-        await checklistModel.insert(data);
-    });
+        const insertId = await checklistModel.insert(data);
+
+        if (insertId == 0) {
+            console.log('something went wrong...');
+            completedInsert = false;
+            break;          
+        }
+        
+    }
+
+    return completedInsert;
 
 };
 

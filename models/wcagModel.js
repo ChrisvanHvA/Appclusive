@@ -65,9 +65,12 @@ class wcagModel {
             if (!wcag_level || wcag_level == '')
                 return [];
 
+            console.log(wcag_level);
+            console.log(wcag_level.length);
+
             const wcagItem = await sql`
-                SELECT wi.*, 
-                FROM wcag_item AS wi
+                SELECT *
+                FROM wcag_item
                 WHERE LENGTH(wcag_level) <= ${ wcag_level.length }
             `;
 

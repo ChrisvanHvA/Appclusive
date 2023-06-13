@@ -14,7 +14,7 @@ class projectUserModel {
             } = insertData;
 
             const [insertedRow] = await sql`
-                INSERT INTO users (project_id, user_id, is_admin)
+                INSERT INTO project_users (project_id, user_id, is_admin)
                 VALUES (
 					${project_id ?? null},
 					${user_id ?? null},

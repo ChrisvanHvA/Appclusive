@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import projectModel from '../models/projectModel.js';
+import ProjectController from "../controllers/projectController.js";
 
 router.get('/', (req, res) => {
     res.render('projectCreate', {
@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     const formErrors = validateForm(req.body);
 
     if (Object.keys(formErrors).length > 0) {
@@ -18,9 +18,12 @@ router.post('/', (req, res) => {
             formErrors,
         });
     }
+    
+    const projectCreated = await ProjectController.createProject(req.body);
 
-	const ProjectModel = new projectModel();
-	ProjectModel.createProject(req.body);
+    if (!projectCreated) {
+        return res.send('failed');
+    }
 
     return res.send('ok');
 });

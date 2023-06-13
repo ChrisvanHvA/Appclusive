@@ -8,7 +8,7 @@ class projectModel {
 			const { title, description, level } = insertData;
 
 			const [insertedRow] = await sql`
-				INSERT INTO users (title, description, wcag_level)
+				INSERT INTO projects (title, description, wcag_level)
 				VALUES (
 					${title ?? null},
 					${description ?? null},

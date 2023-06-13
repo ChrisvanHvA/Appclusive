@@ -7,6 +7,7 @@ class projectChecklistModel {
 
     async insert(insertData) {
         try {
+
             const {
                 project_id,
                 wcag_item_id,
@@ -14,17 +15,20 @@ class projectChecklistModel {
                 assignees,
             } = insertData;
 
+            console.log(insertData);
+
             const [insertedRow] = await sql`
                 INSERT INTO project_checklists (project_id, wcag_item_id, is_completed, assignees)
                 VALUES (
-					${project_id ?? null},
-					${wcag_item_id ?? null},
-					${is_completed ?? false}		
+					${parseInt(project_id) ?? null},
+					${parseInt(wcag_item_id) ?? null},
+					${is_completed ?? false},	
 					${assignees ?? []}		
                 )
 
                 RETURNING project_checklists_id;
             `;
+
             return insertedRow.project_checklists_id ?? 0;
         } catch (error) {
             console.log(error);
