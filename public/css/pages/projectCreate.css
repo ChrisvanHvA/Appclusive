@@ -12,6 +12,10 @@ main.layout__project-create {
 		flex-direction: column;
 	}
 
+		.layout__project-create form .formerror {
+			display: block;
+		}
+
 		.layout__project-create form label,
 		.layout__project-create form fieldset legend {
 			font-size: 1.125rem;
