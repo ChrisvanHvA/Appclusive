@@ -67,7 +67,24 @@ class projectModel {
             const projects = await sql`
 				SELECT p.*, pu.user_id,
                     (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) AS all_checklists,
-                    (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) AS completed_checklists
+                    (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) AS completed_checklists,
+                ARRAY(
+                    SELECT ARRAY
+                    [
+                        u.first_name,
+                        u.insertion,
+                        u.surname,
+                        CONCAT_WS(' ',
+                            NULLIF(u.first_name, ''),
+                            NULLIF(u.insertion, ''),
+                            NULLIF(u.surname, '')
+                        ),
+                        u.profile_pic
+                    ]
+                    FROM project_users AS pu
+                    LEFT JOIN users AS u ON u.user_id = pu.user_id
+                    WHERE pu.project_id = p.project_id
+                ) AS all_users
                 FROM project_users AS pu
                 LEFT JOIN projects AS p ON p.project_id = pu.project_id
                 LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
