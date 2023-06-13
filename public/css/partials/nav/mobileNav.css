@@ -53,7 +53,6 @@
 
 /* div with heading and welcome text */
 .mobile-nav div:last-of-type {
-	--welcome-padding-vertical: 0.5rem;
 	display: flex;
 	flex-direction: column;
 	gap: var(--welcome-padding-vertical);
