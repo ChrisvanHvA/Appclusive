@@ -52,6 +52,32 @@ class wcagModel {
             return [];
         }
     }
+    /**
+     * 
+     * Async function to retrieve a list of WCAG items based on category parent id
+     * 
+     * @returns list of WCAG categories
+     */
+    async listWCAGItemsByLevel(wcag_level) {
+
+        try {
+
+            if (!wcag_level || wcag_level == '')
+                return [];
+
+            const wcagItem = await sql`
+                SELECT wi.*, 
+                FROM wcag_item AS wi
+                WHERE wcag_level = ${ wcag_level }
+            `;
+
+            return wcagItem;
+            
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
     
     /**
      * 
