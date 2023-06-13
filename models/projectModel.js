@@ -3,6 +3,12 @@ import sql from '../config/db.js';
 class projectModel {
     constructor() {}
 
+    /**
+     * Async function to insert a project into the db
+     * 
+     * @params insertData: todo
+     * @returns project_id
+     */
 	async insert(insertData) {
 		try {
 			const { title, description, level } = insertData;
@@ -25,9 +31,11 @@ class projectModel {
 	}
 
     /**
-     *
-     * @params
-     * @returns
+     * Async function to update the completion status of a specific checklist item
+     * 
+     * @params wcag_item_id
+     * @params bool
+     * @returns bool
      */
     async updateChecklistCompletion(wcag_item_id, bool) {
         try {

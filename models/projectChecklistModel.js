@@ -1,21 +1,18 @@
 import sql from '../config/db.js';
 
 class projectChecklistModel {
+    constructor() {}
 
-    constructor() {
-    }
-
+    /**
+     * Async function to insert checklists into db
+     *
+     * @params insertData: todo
+     * @returns inserted row id
+     */
     async insert(insertData) {
         try {
-
-            const {
-                project_id,
-                wcag_item_id,
-                is_completed,
-                assignees,
-            } = insertData;
-
-            console.log(insertData);
+            const { project_id, wcag_item_id, is_completed, assignees } =
+                insertData;
 
             const [insertedRow] = await sql`
                 INSERT INTO project_checklists (project_id, wcag_item_id, is_completed, assignees)
@@ -35,7 +32,6 @@ class projectChecklistModel {
             return 0;
         }
     }
-    
 }
 
 export default projectChecklistModel;

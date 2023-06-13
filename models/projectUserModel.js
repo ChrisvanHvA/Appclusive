@@ -1,17 +1,17 @@
 import sql from '../config/db.js';
 
 class projectUserModel {
+    constructor() {}
 
-    constructor() {
-    }
-
+    /**
+     * Async function to insert project users into db
+     *
+     * @params insertData: todo
+     * @returns inserted row id
+     */
     async insert(insertData) {
         try {
-            const {
-                project_id,
-                user_id,
-                is_admin
-            } = insertData;
+            const { project_id, user_id, is_admin } = insertData;
 
             const [insertedRow] = await sql`
                 INSERT INTO project_users (project_id, user_id, is_admin)
@@ -29,7 +29,6 @@ class projectUserModel {
             return 0;
         }
     }
-    
 }
 
 export default projectUserModel;

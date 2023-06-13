@@ -8,34 +8,43 @@ const ProjectModel = new projectModel();
 const ProjectUserModel = new projectUserModel();
 const checklistModel = new projectChecklistModel();
 
-const createProject = async (insertData, user_id) => {
-	const projectId = await ProjectModel.insert(insertData);
+/**
+ * Inserting data into multiple tables to ensure 
+ * checklists are connected to the right projects and users
+ * 
+ * @params insertData: todo
+ * @params user_id: user who created the project
+ * @returns bool
+ */
+const createProject = async (projectData, user_id) => {
+    let completedInsert = true;
+	const projectId = await ProjectModel.insert(projectData);
 
     const projectUserInsert = {
         project_id: projectId, 
-        user_id: 1,
+        user_id: user_id,
         is_admin: true
-    }
+    };
 
     await ProjectUserModel.insert(projectUserInsert);
 
-    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(insertData.level);
+    // Get all WCAG items based on the WCAG level
+    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(projectData.level);
 
-    let completedInsert = true;
-
+    // Insert each WCAG item into the project checklist model
     for (let i = 0; i < allMatchingWCAGItems.length; i++) {
         const item = allMatchingWCAGItems[i];
 
-        const data = { 
+        const insertData = { 
             project_id: projectId,
             wcag_item_id: item.wcag_item_id,
             is_completed: false,
         };
 
-        const insertId = await checklistModel.insert(data);
+        const insertId = await checklistModel.insert(insertData);
 
+        // If the insert went wrong, it will return 0, so end the loop!
         if (insertId == 0) {
-            console.log('something went wrong...');
             completedInsert = false;
             break;          
         }
@@ -43,7 +52,6 @@ const createProject = async (insertData, user_id) => {
     }
 
     return completedInsert;
-
 };
 
 export default {

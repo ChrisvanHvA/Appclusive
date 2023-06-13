@@ -20,12 +20,8 @@ router.post('/', async (req, res) => {
     }
     
     const projectCreated = await ProjectController.createProject(req.body);
-
-    if (!projectCreated) {
-        return res.send('failed');
-    }
-
-    return res.send('ok');
+    // TODO: render category page
+    return projectCreated ? res.send('ok') : res.send('failed');
 });
 
 const validateForm = (formData) => {
