@@ -11,7 +11,7 @@
 
                     {{#if (eq (toLowerCase this.status) "new")}}
 						{{> icons/bolt}}
-                    {{else if (eq (toLowerCase this.status) "started")}}
+                    {{else if (eq (toLowerCase this.status) "wip")}}
 						{{> icons/clock}}
                     {{else}}
 						{{> icons/check-border}}
@@ -24,7 +24,7 @@
 
         <section class="project-data">
             <div class="step">
-                <h4>Stap</h4>
+                <h4>Step</h4>
                 <p>{{this.step}}</p>
             </div>
             <div class="checklists">
@@ -33,7 +33,7 @@
             </div>
 
             <div class="team-members">
-                <h4>Teamleden</h4>
+                <h4>Members</h4>
                 <span>
 
                     {{#each this.teamMembers}}
@@ -59,12 +59,16 @@
                 max="100"
             ></progress>
             {{! <3 handlebars }}
-            <p>{{round
+            <div>
+                <p>{{round
                     (multiply
                         (divide this.completedChecklists this.checkLists.length)
                         100
                     )
-                }}% toegankelijk</p>
+                }}% accessible</p>
+                <p>{{this.completedChecklists}} / {{this.checkLists.length}}</p>
+                {{> icons/arrowright}}
+            </div>
         </section>
     </a>
 

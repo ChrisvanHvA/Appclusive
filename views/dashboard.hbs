@@ -2,8 +2,49 @@
 <main class="layout layout__dashboard">
 	<h1>Hi, {{user.first_name}}!</h1>
 
+	<section id="searchbar">
+		<form autocomplete="off">
+			<label for="search">
+				{{> icons/search}}
+			</label>
+			<input
+				type="text"
+				placeholder="Search for projects..."
+				name="search"
+				id="search"
+			/>
+		</form>
+	</section>
+
+	{{#if true}}
+		<ul class="cards project-cards">
+			<li class="card__item admin-card">
+				{{> projectCard null}}
+			</li>
+		</ul>
+	{{/if}}
+
+	<div>
+		<h3>Recently viewed</h3>
+		<label>
+			<input type="checkbox" name="overview" />
+			<p></p>
+		</label>
+	</div>
+	
+	<ul class="cards project-cards cards-category__recent">
+		{{#each projects}}
+			<li class="card__item">
+				{{> projectCard this}}
+			</li>
+		{{/each}}
+	</ul>
+
+	<div>
+		<h3>All projects</h3>
+	</div>
+
 	<ul class="cards project-cards">
-		{{!-- todo: check if user is admin (can create projects) --}}
 		{{#if true}}
 			<li class="card__item admin-card">
 				{{> projectCard null}}
@@ -11,9 +52,9 @@
 		{{/if}}
 
 		{{#each projects}}
-			<li class="card__item">
+			<li class="card__item allprojects-card">
 				{{> projectCard this}}
-			{{/each}}
 			</li>
+		{{/each}}
 	</ul>
 </main>

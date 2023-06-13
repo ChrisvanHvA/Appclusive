@@ -7,8 +7,9 @@ router.get('/', async (req, res) => {
     const tasks = await WCAGController.createWCAGOverview();
 
     res.render('checklist', {
-        tasks: tasks,
-        ...res.locals
+        ...res.locals,
+        title: 'Checklist',
+        tasks: tasks
     });
 });
 

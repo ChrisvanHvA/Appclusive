@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
     
     res.render('dashboard', {
 		...res.locals,
+        title: 'Dashboard',
         user: req.user,
         projects: projects
     });
@@ -19,21 +20,21 @@ const getCompletedChecklists = (checklists) => {
 
 let projects = [
     {
-        name: 'project1',
+        name: 'Appclusive',
         status: 'New',
         step: '1. onderzoek',
         checkLists: [
             {
                 name: 'taak1',
-                completed: true,
+                completed: false,
             },
             {
                 name: 'taak2',
-                completed: true,
+                completed: false,
             },
             {
                 name: 'taak3',
-                completed: true,
+                completed: false,
             },
         ],
         teamMembers: [
@@ -52,8 +53,8 @@ let projects = [
         ],
     },
 	{
-        name: 'project1',
-        status: 'Started',
+        name: 'Appclusive',
+        status: 'WIP',
         step: '1. onderzoek',
         checkLists: [
             {
@@ -85,13 +86,13 @@ let projects = [
         ],
     },
 	{
-        name: 'project1',
+        name: 'Appclusive',
         status: 'Done',
         step: '1. onderzoek',
         checkLists: [
             {
                 name: 'taak1',
-                completed: false,
+                completed: true,
             },
             {
                 name: 'taak2',
@@ -118,7 +119,7 @@ let projects = [
         ],
     },
 	{
-        name: 'project1',
+        name: 'Appclusive',
         status: 'New',
         step: '1. onderzoek',
         checkLists: [
@@ -128,11 +129,11 @@ let projects = [
             },
             {
                 name: 'taak2',
-                completed: true,
+                completed: false,
             },
             {
                 name: 'taak3',
-                completed: true,
+                completed: false,
             },
         ],
         teamMembers: [
@@ -151,7 +152,7 @@ let projects = [
         ],
     },
 	{
-        name: 'project1',
+        name: 'Appclusive',
         status: 'New',
         step: '1. onderzoek',
         checkLists: [
@@ -161,11 +162,11 @@ let projects = [
             },
             {
                 name: 'taak2',
-                completed: true,
+                completed: false,
             },
             {
                 name: 'taak3',
-                completed: true,
+                completed: false,
             },
         ],
         teamMembers: [

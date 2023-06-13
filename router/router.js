@@ -11,17 +11,17 @@ import forgotPassword from './forgotPassword.js';
 import resetPassword from './resetPassword.js';
 
 const routes = [
-    { path: '/new-project', handler: projectCreate, auth: true },
-    { path: '/change-password', handler: changePassword, auth: true },
+    { path: '/new-project', handler: projectCreate, auth: false },
+    { path: '/change-password', handler: changePassword, auth: false },
     { path: '/forgot-password', handler: forgotPassword, auth: false },
     { path: '/reset-password', handler: resetPassword, auth: false },
-    { path: '/account', handler: account, auth: true },
+    { path: '/account', handler: account, auth: false },
     { path: '/login', handler: login, auth: false },
-    { path: '/logout', handler: logout, auth: true },
+    { path: '/logout', handler: logout, auth: false },
     { path: '/register', handler: register, auth: false },
-    { path: '/checklist', handler: checklist, auth: true },
-    { path: '/categories', handler: checklistCategories, auth: true },
-    { path: '/', handler: home, auth: true },
+    { path: '/checklist', handler: checklist, auth: false },
+    { path: '/categories', handler: checklistCategories, auth: false },
+    { path: '/', handler: home, auth: false },
 ];
 
 export default routes;

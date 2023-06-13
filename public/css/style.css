@@ -19,9 +19,17 @@
     --create-project-card-bg: #E1ECFF; 
 	
     --card-border-radius: 1.25rem;
+    --card-border-radius-mobile: 0.5rem;
     --card-border-color: #A1A1A1;
     --card-border-style: var(--card-border-color) solid 2px;
 	--card-border-color-style: var(--primary-color) solid 2px;
+
+	--status-bg-new: #6FD3FE;
+	--status-bg-wip: #FFCA42;
+	--status-bg-done: #77E087;
+	--status-text-new: #002971;
+	--status-text-wip: #5B3100;
+	--status-text-done: #035C11;
 }
 
 /* dark mode variables */

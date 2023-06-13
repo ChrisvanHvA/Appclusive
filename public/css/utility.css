@@ -44,7 +44,7 @@
 
 
 .layout {
-    margin: 10rem 2.5rem 0 2.5rem;
+    padding: 10rem 2.5rem 0 2.5rem;
 }
 
 	.layout h1 {
@@ -53,8 +53,11 @@
 
 @media screen and (max-width: 950px) {
 	.layout {
-		margin-top: 5rem;
+		padding: 1.5rem;
 	}
+		.layout h1 {
+			display: none;
+		}
 }
 	
 
