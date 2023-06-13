@@ -10,8 +10,9 @@ const createProject = async (insertData, user_id) => {
 	const projectId = await ProjectModel.insert(insertData);
     const userProjectId = await ProjectUserModel.insert(projectId, user_id, true);
 
+    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(insertData.level);
 };
 
 export default {
-    createWCAGOverview,
+    createProject,
 };
