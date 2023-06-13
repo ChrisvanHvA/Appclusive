@@ -99,7 +99,6 @@
         position: absolute;
         display: flex;
         background-color: var(--light);
-        color: var(--primary-color);
         top: 4.4rem;
         padding: 0.5rem;
         padding-right: 2rem;
@@ -108,7 +107,14 @@
         left: -3.7rem;
         display: flex;
         align-items: center;
+        transition: .5s;
     }   
+        .checklist__sidebar .sidebar__infoicon > svg {
+            color: var(--primary-color);
+            width: 1.5rem;
+            aspect-ratio: 1;
+        }
+
     .checklist__sidebar-active .sidebar__infoicon {
         left: -2.5rem;
     }   
