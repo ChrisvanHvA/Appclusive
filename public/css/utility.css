@@ -208,9 +208,14 @@ textarea:focus {
 /* ---------------------------------- */
 .bg-circle {
 	position: absolute;
-	
-	border-radius: 50%;
-	border: solid 3px var(--light);
+    
+    border-radius: 50%;
+    border: solid 3px var(--light);
+    
+    pointer-events: none;
+    
+    aspect-ratio: 1;
+    z-index: -1;
 }
 
 hr { 
