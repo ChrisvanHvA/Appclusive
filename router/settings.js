@@ -2,8 +2,8 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('account', {
-        title: 'Account',
+    res.render('settings', {
+        title: 'Settings',
         user: req.user,
     });
 });

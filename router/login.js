@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
-        return res.redirect('/account');
+        return res.redirect('/settings');
     }
 
     res.render('login', {

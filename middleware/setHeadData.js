@@ -32,8 +32,8 @@ const data = {
         description: '',
         scripts: ['validator'],
     },
-    '/account': {
-        title: 'Account',
+    '/settings': {
+        title: 'Settings',
         description: '',
         scripts: [],
     },

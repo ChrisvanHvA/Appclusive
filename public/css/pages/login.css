@@ -118,11 +118,12 @@
 
 
 
- @media screen and (min-width: 950px) {
+ @media screen and (min-width: 951px) {
     .layout__login{
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
+        padding: 0;
     }
         .login-aside{
             display: flex;

@@ -4,7 +4,7 @@ import checklistCategories from './checklistCategories.js';
 import projectCreate from './projectCreate.js';
 import login from './login.js';
 import register from './register.js';
-import account from './account.js';
+import settings from './settings.js';
 import logout from './logout.js';
 import changePassword from './changePassword.js';
 import forgotPassword from './forgotPassword.js';
@@ -15,7 +15,7 @@ const routes = [
     { path: '/change-password', handler: changePassword, auth: false },
     { path: '/forgot-password', handler: forgotPassword, auth: false },
     { path: '/reset-password', handler: resetPassword, auth: false },
-    { path: '/account', handler: account, auth: false },
+    { path: '/settings', handler: settings, auth: false },
     { path: '/login', handler: login, auth: false },
     { path: '/logout', handler: logout, auth: false },
     { path: '/register', handler: register, auth: false },

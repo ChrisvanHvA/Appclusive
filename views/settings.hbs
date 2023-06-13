@@ -1,0 +1,58 @@
+<main class="layout layout__settings">
+    <h1>Settings</h1>
+
+    <section class="settings__item">
+        <h2>Name</h2>
+        <form>
+            <label for="first_name">
+                <input type="text" name="first_name" id="first_name" />
+            </label>
+            <label for="insertion">
+                <input type="text" name="insertion" id="insertion" />
+            </label>
+            <label for="surname">
+                <input type="text" name="surname" id="surname" />
+            </label>
+        </form>
+    </section>
+
+    <section class="settings__item">
+        <h2>Email</h2>
+        <form>
+            <label for="email_address">
+                <input type="email" name="email_address" id="email_address">
+            </label>
+        </form>
+    </section>
+
+    <section class="settings__item">
+        <h2>Password</h2>
+        <form>
+
+        </form>
+    </section>
+
+    <section class="settings__item">
+        <h2>Theme</h2>
+        <form>
+
+        </form>
+    </section>
+
+    <p>First name: {{user.first_name}}</p>
+    {{#if user.insertion}}
+        <p>Insertion: {{user.insertion}}</p>
+    {{/if}}
+    <p>Surname: {{user.surname}}</p>
+    <p>Email: {{user.email_address}}</p>
+
+    {{#if message}}
+        <p>{{message}}</p>
+    {{/if}}
+
+    <form action='/change-password' method='POST'>
+        <input type='password' placeholder='Current password' name='oldpassword' />
+        <input type='password' placeholder='New password' name='newpassword' />
+        <button type='submit'>Change Password</button>
+    </form>
+</main>

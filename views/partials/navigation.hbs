@@ -23,9 +23,9 @@
 			<li><a href="#">{{> icons/recent}}Recent</a></li>
 			<li><a href="#">{{> icons/archive}}Archive</a></li>
 
-			<li><a href="#">{{> icons/settings}}Settings</a></li>
+			<li><a href="/settings">{{> icons/settings}}Settings</a></li>
 			<li>
-				<a href="/account">
+				<a href="/settings">
                     <img src="https://unsplash.it/40/40" />
                     <div>
                     	<p>Sofia</p>
@@ -42,7 +42,7 @@
     <div>
     {{! todo: if icoontje rechtsboven laad dit in }}
         {{#if true}}
-            <a href="/account" aria-label="open settings">
+            <a href="/settings" aria-label="open settings">
 				{{> icons/settings}}
 			</a>
         {{/if}}
