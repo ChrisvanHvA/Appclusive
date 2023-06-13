@@ -68,7 +68,7 @@ class wcagModel {
             const wcagItem = await sql`
                 SELECT wi.*, 
                 FROM wcag_item AS wi
-                WHERE wcag_level = ${ wcag_level }
+                WHERE LENGTH(wcag_level) <= ${ wcag_level.length }
             `;
 
             return wcagItem;
