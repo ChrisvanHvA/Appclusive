@@ -20,12 +20,12 @@ const data = {
     '/checklist': {
         title: 'Checklist',
         description: '',
-        scripts: ['checklist'],
+        scripts: ['checklist', 'projectinfo'],
     },
     '/categories': {
 		title: 'Categories',
 		description: '',
-		scripts: ['categories']
+		scripts: ['categories', 'projectinfo']
 	},
     '/login': {
         title: 'Login',

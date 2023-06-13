@@ -1,38 +1,41 @@
 <aside class="checklist__sidebar">
+    <button class="sidebar__infoicon">
+        {{> icons/info }}
+    </button>
     <section>
-        <p>Voortgang project</p>
-        <h3>0% toegankelijk</h3>
+        <h2>Progress project</h2>
+        <h3>0% accessible</h3>
             <progress
             class="progress"
                 value="50"
                 min="0"
                 max="100"
             ></progress>
-        <button class="btn hide">Project Afsluiten</button>
+        <button class="hide" class="sidebar__buttons">Close project</button>
     </section>
 
     <section>
         <h3>Project info</h3>
-        <p>Project info komt hier te staan. versie: 1.2.4.</p>
+        <p>Project info is displayed here. version: 1.2.4.</p>
     </section>
 
     <section>
-        <h3>Doelgroep</h3>
-        <p>Doelgroep van de applicatie komt hier te staan</p>
+        <h3>Audience</h3>
+        <p>The target audience is displayed here</p>
     </section>
 
     <section>
 
-        <h3>Niveau Toegankelijkheid</h3>
-        <button class="btn btn--secondary">Niveau 2 (WCAG niveau AA)</button>
+        <h3>Level accessibility</h3>
+        <button class="btn">Level 2 (WCAG level AA)</button>
     </section>
     <section>
-        <h3>Collega's op dit project</h3>
+        <h3>Co-workers on this project</h3>
         <ul>
             <li>
                 <img class="sidebar__users" src="https://unsplash.it/40/40" alt="">
                 <p>Sofia</p>
-                <p>(Jij)</p>
+                <p>(You)</p>
             </li>
             <li>
                 <img class="sidebar__users" src="https://unsplash.it/40/40" alt="">
@@ -42,7 +45,7 @@
             <li>
                 <img class="sidebar__users" src="https://unsplash.it/40/40" alt="">
                 <p>Anna</p>
-                <p>Projectleider</p>
+                <p>Team lead</p>
             </li>
         </ul>
     </section>
