@@ -1,7 +1,9 @@
+/* ---------------------------------- */
+/*            #VARIABLES           	  */
+/* ---------------------------------- */
 :root {	
 	--light: #fff;
     --dark: #1e1e1e;
-	
 	
 	--primary-color: #044ECF;
 	
@@ -35,10 +37,8 @@
 	--welcome-padding-vertical: 0.5rem;
 }
 
-/* dark mode variables */
-:root
-.dark 
-{
+/* ------------- #DARK MODE ------------ */
+:root .dark  {
 	--primary-color: #3393FF;
 	
 	--primary-bg: #040505;
@@ -49,9 +49,7 @@
 	--secondary-text: #989898;
 	--tertiary-text: var(--secondary-text);
 
-
     /* --create-project-card-bg: #001c4d;  */
-
 }
 
 /* turn on to debug weird margins and such */
@@ -65,6 +63,7 @@ body {
     font-weight: 400;
     line-height: 140%;
 	color: var(--primary-text);
+
 	background-color: var(--primary-bg);
 }
 

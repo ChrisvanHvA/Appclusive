@@ -30,18 +30,6 @@
     padding: 1.25rem;
 } */
 
-.sidebar__buttons {
-    cursor: pointer;
-    padding: 0.625rem 1.25rem;
-    margin: 1.25rem 0rem 0rem 0rem;
-    border-radius: 50rem;
-    color: var(--light);
-    background-color: var(--primary-color);
-    border:none;
-    align-items: center;
-    font-weight: 700;
-}
-
 @media screen and (max-width: 950px) {
     .checklist__sidebar {
         display: none;
