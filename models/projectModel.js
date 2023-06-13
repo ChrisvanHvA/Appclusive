@@ -65,11 +65,15 @@ class projectModel {
     async listProjects(userId) {
         try {
             const projects = await sql`
-				SELECT p.*, pu.user_id, pu.is_admin
-				FROM project_users AS pu
-				LEFT JOIN projects AS p ON p.project_id = pu.project_id
-				WHERE pu.user_id = ${userId}
-				`;
+				SELECT p.*, pu.user_id,
+                    (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) AS all_checklists,
+                    (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) AS completed_checklists
+                FROM project_users AS pu
+                LEFT JOIN projects AS p ON p.project_id = pu.project_id
+                LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
+                WHERE pu.user_id = ${ userId }
+                GROUP BY p.project_id, pu.user_id;
+            `;
             return projects;
         } catch (error) {
             console.log(error);
