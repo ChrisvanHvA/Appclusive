@@ -20,7 +20,7 @@ const data = {
 	'/checklist': {
 		title: 'Checklist',
 		description: '',
-		scripts: ['checklist']
+		scripts: ['checklist', 'projectinfo']
 	},
 	'/login': {
 		title: 'Login',
