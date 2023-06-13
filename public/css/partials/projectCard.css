@@ -37,6 +37,16 @@
 	margin-bottom: 1rem;
 }
 
+	.project-cards li.card__item a header h3 {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 13.25rem;
+	}
+	.project-cards li.card__item.allprojects-card a header h3 {
+		max-width: calc(100vw - 12.9rem);
+	}
+
 	.project-cards li.card__item a header img {
 		display: none;
 	}
@@ -117,6 +127,7 @@
 	.projectCard__progress div {
 		display: flex;
 		justify-content: space-between;
+		white-space: nowrap;
 	}
 
 		.project-cards li.card__item.allprojects-card .projectCard__progress div > p:last-of-type {
@@ -163,6 +174,10 @@
 		display: inline-block;
 		border-radius: 50%;
 		height: 3.5rem;
+	}
+
+	.project-cards li.card__item.allprojects-card a header h3 {
+		max-width: 23.875rem;
 	}
 
 	.project-cards li.card__item a header > div {
