@@ -6,18 +6,16 @@
                 alt="a"
             />
             <div>
-                <h3>{{this.name}}</h3>
+                <h3>{{this.title}}</h3>
                 <div class="status {{toLowerCase this.status}}">
-
-                    {{#if (eq (toLowerCase this.status) "new")}}
+                    {{#if (eq this.completed_checklists 0)}}
 						{{> icons/bolt}}
-                    {{else if (eq (toLowerCase this.status) "started")}}
-						{{> icons/clock}}
-                    {{else}}
+                    {{else if (eq this.completed_checklists this.all_checklists)}}
 						{{> icons/check-border}}
+                    {{else}}
+						{{> icons/clock}}
                     {{/if}}
-
-                    <p>{{this.status}}</p>
+					<p>{{this.status}}</p>
                 </div>
             </div>
         </header>
@@ -29,19 +27,25 @@
             </div>
             <div class="checklists">
                 <h4>Checklists</h4>
-                <p>{{this.completedChecklists}} / {{this.checkLists.length}}</p>
+                <p>{{this.completed_checklists}} / {{this.all_checklists}}</p>
             </div>
 
             <div class="team-members">
                 <h4>Teamleden</h4>
                 <span>
 
-                    {{#each this.teamMembers}}
+                    {{#each this.all_users}}
+					{{log this}}
+						{{#if this.profile_pic}}
                         <img
-                            src={{this.imgUrl}}
-                            title={{this.name}}
-                            alt={{this.name}}
+                            src="{{this.profile_pic}}"
+                            title="{{this.full_name}}"
+                            alt="{{this.full_name}}"
                         />
+
+						{{else}}
+						<div title="{{this.full_name}}">{{fullNameToInitials this.full_name}}</div>
+						{{/if}}
                     {{/each}}
                 </span>
             </div>
@@ -51,7 +55,7 @@
             <progress class="progress"
                 value={{round
                     (multiply
-                        (divide this.completedChecklists this.checkLists.length)
+                        (divide this.completed_checklists this.all_checklists)
                         100
                     )
                 }}
@@ -61,7 +65,7 @@
             {{! <3 handlebars }}
             <p>{{round
                     (multiply
-                        (divide this.completedChecklists this.checkLists.length)
+                        (divide this.completed_checklists this.all_checklists)
                         100
                     )
                 }}% toegankelijk</p>

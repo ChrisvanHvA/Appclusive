@@ -1,6 +1,10 @@
 
 <main class="layout layout__dashboard">
-	<h1>Hi, {{user.first_name}}!</h1>
+	{{#if user.first_name}}
+		<h1>Hi, {{user.first_name}}!</h1>
+	{{else}}
+		<h1>Hi, PIS!</h1>
+	{{/if}}
 
 	<ul class="cards project-cards">
 		{{!-- todo: check if user is admin (can create projects) --}}
@@ -13,7 +17,7 @@
 		{{#each projects}}
 			<li class="card__item">
 				{{> projectCard this}}
-			{{/each}}
 			</li>
+		{{/each}}
 	</ul>
 </main>

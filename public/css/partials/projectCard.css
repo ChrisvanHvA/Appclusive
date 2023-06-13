@@ -75,10 +75,14 @@
 		gap: .4rem;
 	}
 
+		.project-cards li.card__item a section.project-data div.team-members span div,
 		.project-cards li.card__item a section.project-data div.team-members span img {
 			border-radius: 50%;
 			height: 1.5rem;
+			aspect-ratio: 1;
 			border: 2px solid var(--primary-text);
+			font-size: .6rem;
+			text-align: center;
 		}
 
 
