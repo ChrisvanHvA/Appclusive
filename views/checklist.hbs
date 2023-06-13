@@ -8,13 +8,11 @@
 
 
         <ol>
-            {{!-- for each task insert listItem and pass data --}}
             {{#each tasks}}
-                {{#each this.items}}
-                    {{> listItem this}}
-                {{/each}}
+				<li class="checklist__item">
+					{{> listItem this}}
+				</li>
             {{/each}}
-
         </ol>
     </section>
 
