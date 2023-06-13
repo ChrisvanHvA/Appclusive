@@ -76,7 +76,8 @@
 }
 
 .checklist__categories p {
-    color: var(--tertiary-text);
+    color: var(--primary-text);
+    margin-bottom: 1rem;
 }
 
 

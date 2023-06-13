@@ -44,17 +44,21 @@
 
 
 .layout {
-    margin: 3.5rem 2.5rem;
+    padding: 1.5rem;
 }
+    .layout h1 {
+        display: none;
+    }
 
-	.layout h1 {
-		margin-bottom: 1rem;
-	}
-
-@media screen and (max-width: 950px) {
-	.layout {
-		margin-top: 1.5rem;
-	}
+@media screen and (min-width: 951px) {
+    .layout {
+        padding: 3.5rem 2.5rem;
+    }
+    
+        .layout h1 {
+            display: block;
+            margin-bottom: 1rem;
+        }
 }
 	
 
@@ -119,7 +123,7 @@ hr {
     background: var(--card-border-color);
     border:none;
     border-radius: .25rem;
-    width: 90%;
+    /* width: 90%; */
     max-width: 70rem;
 }
 
