@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
 	padding: 1rem 0 1rem min(3rem, 2vw);
-
+overflow: clip;
     position: sticky;
     top: 0;
     left: 0;
@@ -166,10 +166,44 @@
 	font-weight: 800;
 }
 
+.desktop-nav  .desktopCircles {
+    top: 0;
+    left: 0;
+	overflow: clip;
+	position:absolute;
+	display: flex;
+	flex-direction: column;
+}
+.desktopCircles span.bg-circle {
 
+	pointer-events: none;
+	border-radius: 50%;
+	aspect-ratio: 1;
+	border: solid 3px var(--light);
+	width: 10rem;
+	margin: 5rem;
+}
+.desktopCircles> span.bg-circle:nth-child(1) {
+	top: -10rem;
+	right: -5rem;
+
+	}
+.desktopCircles> span.bg-circle:nth-child(2) {
+	top: -5rem;
+left: -13rem;
+width: 15rem;
+}
+.desktopCircles> span.bg-circle:nth-child(3) {
+	right: 0;
+	width: 20rem;
+	bottom: 5rem;
+
+	}
 
 @media screen and (max-width: 950px) {
 	.desktop-nav {
 		display: none;
 	}
+
 }
+
