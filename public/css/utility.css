@@ -42,24 +42,23 @@
 	color: var(--primary-color);
 }
 
-
 .layout {
-    padding: 10rem 2.5rem 0 2.5rem;
+	padding: 1.5rem;
 }
-
 	.layout h1 {
-		margin-bottom: 1rem;
+		display: none;
 	}
 
-@media screen and (max-width: 950px) {
+@media screen and (min-width: 951px) {
 	.layout {
-		padding: 1.5rem;
+		padding: 10rem 2.5rem 0 2.5rem;
 	}
+	
 		.layout h1 {
-			display: none;
+			display: block;
+			margin-bottom: 1rem;
 		}
 }
-	
 
 input:where([type='text'], [type='number'], [type='email'], [type='password']),
 textarea {
