@@ -5,11 +5,10 @@ router.get('/', (req, res) => {
 	projects.forEach((project) => {
 		project.completedChecklists = getCompletedChecklists(project.checkLists);
 	});
-    
+
     res.render('dashboard', {
 		...res.locals,
         title: 'Dashboard',
-        user: req.user,
         projects: projects
     });
 });

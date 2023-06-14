@@ -13,6 +13,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
 import { setHeadData } from './middleware/setHeadData.js';
+import { getLoggedUser } from './middleware/getLoggedUser.js';
 import { checkAuth } from './middleware/checkAuth.js';
 
 const __dirname = path.resolve();
@@ -44,6 +45,7 @@ app.use(flash());
 configurePassport(passport);
 
 app.use(setHeadData);
+app.use(getLoggedUser);
 
 io.on('connection', (socket) => {
     // Do stuff§

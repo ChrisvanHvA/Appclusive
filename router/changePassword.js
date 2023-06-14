@@ -22,7 +22,6 @@ router.post('/', async (req, res) => {
     try {
         if (!user) {
             res.render('settings', {
-                user: req.user,
                 message: 'User not found',
             });
             return;
@@ -32,7 +31,6 @@ router.post('/', async (req, res) => {
 
         if (!isValidPassword) {
             res.render('settings', {
-                user: req.user,
                 message: 'Invalid old password',
             });
             return;
@@ -47,13 +45,11 @@ router.post('/', async (req, res) => {
 
         if (!success) {
             res.render('settings', {
-                user: req.user,
                 message: 'Error updating password',
             });
             return;
         }
         res.render('settings', {
-            user: req.user,
             message: 'Password updated successfully',
         });
     } catch (error) {
