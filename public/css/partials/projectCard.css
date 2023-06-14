@@ -191,7 +191,6 @@
 
 @media screen and (min-width: 951px) {
 	.project-cards li.card__item a {
-		min-width: none;
 		padding: 1.55rem 1.875rem;
 		border-radius: var(--card-border-radius);
 	}
@@ -248,8 +247,6 @@
 				}	
 
 	.project-cards li.card__item.allprojects-card div.status {
-		min-width: none;
-		min-height: none;
 		padding: 0.25rem 0.5rem;
 	}
 
