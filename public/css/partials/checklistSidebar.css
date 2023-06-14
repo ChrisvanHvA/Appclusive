@@ -118,7 +118,8 @@
     .checklist__sidebar-active .sidebar__infoicon {
         left: -2.5rem;
     }   
-        .checklist__sidebar-active::before {
+
+    .checklist__sidebar-active::before {
         content: '';
         position: absolute;
         z-index: -2;
@@ -128,7 +129,7 @@
 
         width: 100vw;
         height: 100dvh;
-        background-color: rgba(255, 255, 255, 0.32);
+        background-color: rgba(0, 0, 0, 0.70);
         left: -100vw;
     }
 }
