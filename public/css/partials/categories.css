@@ -90,6 +90,7 @@
     padding: 1.25rem;
     border-radius: .75rem;
     background-color: var(--primary-bg);
+    transform: rotateX(0deg)
 }
 
 .category__item__front {
