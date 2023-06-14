@@ -18,7 +18,7 @@ export default {
 
         return string.replace(regex, (_, placeholder) => {
 			placeholder = placeholder.trim().replace(/\./g, '?.');
-			const value = eval(`context.data.root.${placeholder.trim()}`) || 'pis';
+			const value = eval(`context.data.root.${placeholder.trim()}`) || '';
 
             return value;
         });
