@@ -8,15 +8,24 @@ class UserModel {
 
     async insert(insertData) {
         try {
+            const {
+                email_address,
+                first_name,
+                insertion,
+                surname,
+                password,
+                profile_pic,
+            } = insertData;
+
             const [insertedRow] = await sql`
                 INSERT INTO users (email_address, first_name, insertion, surname, password, profile_pic)
                 VALUES (
-                    ${insertData.email_address ?? null},
-                    ${insertData.first_name ?? null},
-                    ${insertData.insertion ?? null},
-                    ${insertData.surname ?? null},
-                    ${insertData.password ?? null},
-                    ${insertData.profile_pic ?? null}
+					${email_address ?? null},
+					${first_name ?? null},
+					${insertion ?? null},
+					${surname ?? null},
+					${password ?? null},
+					${profile_pic ?? null}				
                 )
 
                 RETURNING user_id;
@@ -77,7 +86,7 @@ class UserModel {
      */
     async getUserByEmail(email_address) {
         try {
-            if (email_address == '') return {};
+            if (email_address == '') return null;
 
             const [user] = await sql`
                 SELECT *

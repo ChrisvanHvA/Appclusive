@@ -2,22 +2,24 @@
 
     <section class="checklist">
         <div class="checklist__title">
-            <h3>Checklist</h3>
-            <p>0/4</p>
+            <h2>{{projectInfo.title}}</h2>
+			<p> - </p>
+			<h3>{{category}}</h3>
+            <p class="counter">0/4</p>
         </div>
 
 
         <ol>
-            {{!-- for each task insert listItem and pass data --}}
             {{#each tasks}}
-                {{#each this.items}}
-                    {{> listItem this}}
-                {{/each}}
+				<li class="checklist__item">
+					{{> listItem this}}
+				</li>
             {{/each}}
-
         </ol>
     </section>
 
     {{>checklistSidebar}}
 
 </main>
+
+<input class="hidden-project-id" type="hidden" value="{{projectInfo.project_id}}">

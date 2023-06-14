@@ -130,6 +130,53 @@ textarea:focus {
 	border-color: var(--primary-color);
 }
 
+/* radio styling, change size variable as needed, should scale */
+input[type="radio"] {
+	--size: 2rem;
+	appearance: none;
+	position: relative;
+	width: var(--size);
+	aspect-ratio: 1;
+}
+
+input[type="radio"]:not(:checked) {
+	cursor: pointer;
+}
+
+input[type="radio"]::before,
+input[type="radio"]::after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--primary-color);
+	aspect-ratio: 1;
+}
+
+
+input[type="radio"]::before {
+	content: '';
+	width: 100%;
+	border: 2px solid currentColor;
+}
+
+input[type="radio"]::after {
+	content: none;
+	width: 65%;
+	background-color: currentColor;
+}
+
+input[type="radio"]:checked::after {
+	content: '';
+}
+
+.required {
+	color: var(--primary-color);
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
 /* #SEARCH */
 .searchbar {
     margin-bottom: 2rem;

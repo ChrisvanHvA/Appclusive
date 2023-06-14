@@ -1,6 +1,5 @@
 
 <main class="layout layout__dashboard">
-
 	{{>pageTitleHeader title=(concat "Hi, {{user.first_name}}!")}}
 
 	<section id="searchbar">
@@ -17,47 +16,47 @@
 		</form>
 	</section>
 
+
+
 	{{#if true}}
-		{{!-- mobile admin-card --}}
-		<ul class="cards project-cards">
-			<li class="card__item admin-card">
-				{{> projectCard null}}
-			</li>
-		</ul>
-	{{/if}}
+        {{!-- mobile create project card --}}
+        <ul class="cards project-cards">
+            <li class="card__item admin-card">
+                {{> projectCard null}}
+            </li>
+        </ul>
+    {{/if}}
 
 	<div>
-		<h3>Recently viewed</h3>
-		<label>
-			<input type="checkbox" name="overview" />
-			<p></p>
-		</label>
-	</div>
-	
-	<ul class="cards project-cards cards-category__recent">
-		{{#each projects}}
-			<li class="card__item">
-				{{> projectCard this}}
-			</li>
-		{{/each}}
-	</ul>
+        <h3>Recently viewed</h3>
+        <label>
+            <input type="checkbox" name="overview" />
+            <p></p>
+        </label>
+    </div>
+    
+    <ul class="cards project-cards cards-category__recent">
+        {{#each projects}}
+            <li class="card__item">
+                {{> projectCard this}}
+            </li>
+        {{/each}}
+    </ul>
 
-	<div>
-		<h3>All projects</h3>
-	</div>
+    <div>
+        <h3>All projects</h3>
+    </div>
 
-	<ul class="cards project-cards">
-		{{!-- desktop admin-card --}}
-		{{#if true}}
-			<li class="card__item admin-card">
-				{{> projectCard null}}
-			</li>
-		{{/if}}
+    <ul class="cards project-cards">
+        {{!-- desktop create project card --}}
+		<li class="card__item admin-card">
+			{{> projectCard null}}
+		</li>
 
-		{{#each projects}}
-			<li class="card__item allprojects-card">
-				{{> projectCard this}}
-			</li>
-		{{/each}}
-	</ul>
+        {{#each projects}}
+            <li class="card__item allprojects-card">
+                {{> projectCard this}}
+            </li>
+        {{/each}}
+    </ul>
 </main>

@@ -107,6 +107,34 @@
 	display: none;
 }
 
+.project-cards li.card__item a section.project-data div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+	.project-cards li.card__item a section.project-data div h4 {
+		font-weight: normal;
+		color: var(--tertiary-text);
+	}
+
+
+	.project-cards li.card__item a section.project-data div.team-members span {
+		display: flex;
+		gap: .4rem;
+	}
+
+		.project-cards li.card__item a section.project-data div.team-members span div,
+		.project-cards li.card__item a section.project-data div.team-members span img {
+			border-radius: 50%;
+			height: 1.5rem;
+			aspect-ratio: 1;
+			border: 2px solid var(--primary-text);
+			font-size: .6rem;
+			text-align: center;
+		}
+
+
 .projectCard__progress {
 	color: var(--tertiary-text);
 	display: flex;

@@ -1,7 +1,9 @@
-const setHeadData = async (req, res, next) => {
-    const path = req.originalUrl.split('?')[0];
+import { findRoute } from '../helpers/findRoute.js';
 
-    res.locals.head = data[path] ?? data.fallback;
+const setHeadData = async (req, res, next) => {
+	const match = await findRoute(req.originalUrl);
+
+    res.locals.head = data[match.route.path] ?? data.fallback;
 
     next();
 };
@@ -17,7 +19,7 @@ const data = {
         description: '',
         scripts: ['createProject'],
     },
-    '/checklist': {
+    '/project/:projectId': {
         title: 'Checklist',
         description: '',
         scripts: ['checklist', 'projectinfo'],

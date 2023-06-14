@@ -24,6 +24,12 @@ export default {
         });
     },
 
+	fullNameToInitials: (fullName) => {
+		const nameArray = fullName.split(' ');
+		const initials = nameArray[0][0] + nameArray[nameArray.length - 1][0];
+		return initials.toUpperCase();
+	},
+
     // basically zorgt voor logical operator == !== || etc
     // <3 handlebars
     eq: function () {
