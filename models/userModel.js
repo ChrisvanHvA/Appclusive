@@ -86,7 +86,7 @@ class UserModel {
      */
     async getUserByEmail(email_address) {
         try {
-            if (email_address == '') return {};
+            if (email_address == '') return null;
 
             const [user] = await sql`
                 SELECT *

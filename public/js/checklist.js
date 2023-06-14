@@ -1,4 +1,7 @@
+const projectId = document.querySelector('.hidden-project-id').value;
+
 function submitHandler() {
+	console.log(projectId);
 
     const checklistItemsCheckboxes = document.querySelectorAll(
         '.checklist__checkbox'
@@ -11,7 +14,7 @@ function submitHandler() {
 
             try {
 
-                const res = await fetch('/checklist/submit', {
+                const res = await fetch(`/project/${projectId}/submit`, {
                     method: 'post',
                     headers: {
                         'Content-Type': 'application/json',
@@ -23,13 +26,15 @@ function submitHandler() {
                 });
 
                 const checkStatusSaved = await res.json();
+				// returns true or false depending on the success of the query
+				console.log(checkStatusSaved);
 
                 // TODO: error handling
-                if (!checkStatusSaved) {
+                // if (!checkStatusSaved) {
                     
-                } else {
+                // } else {
 
-                }
+                // }
 
 
             } catch (err) {

@@ -31,31 +31,56 @@ class projectModel {
     }
 
     /**
-     * Async function to update the completion status of a specific checklist item
+     * Async function to update the completion status of a specific checklist item within a project
      *
      * @params wcag_item_id
+     * @params project_id
      * @params bool
      * @returns bool
      */
-    async updateChecklistCompletion(wcag_item_id, bool) {
+    async updateChecklistCompletion(wcag_item_id, project_id, bool) {
+		if (wcag_item_id == 0 || project_id == 0 || bool == null) {
+			return false;
+		}
         try {
-            const updated = await sql`
+            const [updated] = await sql`
                 UPDATE project_checklists
                 SET is_completed = ${bool}
                 WHERE wcag_item_id = ${wcag_item_id}
+				AND project_id = ${project_id}
                 RETURNING project_checklists_id;
             `;
 
-            if (updated.project_checklists_id) {
-                return true;
-            }
-
-            return false;
+			return updated.project_checklists_id ? true : false;
         } catch (error) {
             console.log(error);
             return false;
         }
     }
+
+	/**
+     * Async function to retrieve singular project by id
+     * @params projectId: id of the requested project
+     * @returns project
+     */
+	async getProject(projectId) {
+		if (!projectId || projectId == 0 ) return null;
+		
+			try {
+	
+				const [project] = await sql`
+					SELECT *
+					FROM projects
+					WHERE project_id = ${projectId}
+				`;
+	
+				return project;
+			} catch (error) {
+				console.log(error);
+				return null;
+			}
+		
+	}
 
     /**
      * Async function to retrieve list of projects user is involved in

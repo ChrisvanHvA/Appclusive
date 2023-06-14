@@ -23,17 +23,6 @@
     margin-top: 1rem;
 }
 
-.checklist__title {
-    margin-bottom: 1.25rem;
-    display: flex;
-    gap: .625rem;
-}
-
-    .checklist__title > p {
-        color: var(--tertiary-text);
-        font-size: 14px;
-    }
-
 /* ---------------------------------- */
 /*              CHECKBOX              */
 /* ---------------------------------- */

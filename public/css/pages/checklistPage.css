@@ -4,6 +4,20 @@
     gap: 2.5rem;
 }
 
+.checklist__title {
+    margin-bottom: 1.25rem;
+    display: flex;
+	align-items: baseline;
+    gap: .625rem;
+	text-transform: capitalize;
+	font-size: 1.3rem;
+}
+
+    .checklist__title > .counter {
+        color: var(--tertiary-text);
+        font-size: .9rem;
+    }
+
 @media screen and (max-width: 950px) {
     .layout__checklist {
         grid-template-columns: 1fr;

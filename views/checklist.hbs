@@ -2,8 +2,10 @@
 
     <section class="checklist">
         <div class="checklist__title">
-            <h3>Checklist</h3>
-            <p>0/4</p>
+            <h2>{{projectInfo.title}}</h2>
+			<p> - </p>
+			<h3>{{category}}</h3>
+            <p class="counter">0/4</p>
         </div>
 
 
@@ -19,3 +21,5 @@
     {{>checklistSidebar}}
 
 </main>
+
+<input class="hidden-project-id" type="hidden" value="{{projectInfo.project_id}}">

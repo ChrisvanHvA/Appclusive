@@ -64,9 +64,6 @@ class wcagModel {
         try {
             if (!wcag_level || wcag_level == '') return [];
 
-            console.log(wcag_level);
-            console.log(wcag_level.length);
-
             const wcagItem = await sql`
                 SELECT *
                 FROM wcag_item
