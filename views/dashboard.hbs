@@ -1,6 +1,7 @@
 
 <main class="layout layout__dashboard">
-	<h1>Hi, {{user.first_name}}!</h1>
+
+	{{>pageTitleHeader title=(concat "Hi, {{user.first_name}}!")}}
 
 	<section id="searchbar">
 		<form autocomplete="off">

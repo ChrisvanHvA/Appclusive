@@ -13,6 +13,19 @@ export default {
 	toLowerCase: (str) => str?.toLowerCase(),
 	spreadAttributes: (attributes) => attributes?.join(' '),
 
+	concat: function(string, context) {
+		var regex = /{{(.*?)}}/g; // Regular expression to match placeholders inside curly brackets
+        return string.replace(regex, function (match, placeholder) {
+            try {
+                var value = eval('context.data.root.' + placeholder.trim()); // Evaluate the placeholder expression
+                return value !== undefined ? value : match; // Replace the placeholder or keep the original match if the value is undefined
+            } catch (error) {
+                console.error('Error evaluating placeholder:', error);
+                return match; // Keep the original match if an error occurs during evaluation
+            }
+        });
+	},
+
 	// basically zorgt voor logical operator == !== || etc
 	// <3 handlebars
 	eq: function(){ return reduceOp(arguments, (a, b) => a === b)},
