@@ -10,11 +10,11 @@
                 <div class="status {{toLowerCase this.status}}">
 
                     {{#if (eq (toLowerCase this.status) "new")}}
-						{{> icons/bolt}}
+						<i class="fa-solid fa-bolt"></i>
                     {{else if (eq (toLowerCase this.status) "wip")}}
-						{{> icons/clock}}
+						<i class="fa-regular fa-hourglass-half"></i>
                     {{else}}
-						{{> icons/check-border}}
+						<i class="fa-regular fa-circle-check"></i>
                     {{/if}}
 
                     <p>{{this.status}}</p>
@@ -67,7 +67,7 @@
                     )
                 }}% accessible</p>
                 <p>{{this.completedChecklists}} / {{this.checkLists.length}}</p>
-                {{> icons/arrowright}}
+                <i class="icon fa-solid fa-chevron-right"></i>
             </div>
         </section>
     </a>

@@ -236,3 +236,23 @@ hr {
 	text-transform: uppercase;
 	color: var(--light);
 }
+
+/* ---------------------------------- */
+/*               #ICONS               */
+/* ---------------------------------- */
+
+.icon {
+	color: var(--icon);
+}
+
+.icon--alt {
+	color: var(--icon-alt);
+}
+
+.icon--dark {
+	color: var(--dark);
+}
+
+.icon--light {
+	color: var(--light);
+}

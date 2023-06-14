@@ -61,6 +61,7 @@
 		.project-cards li.card__item div.status {
 			display: flex;
 			align-items: center;
+			justify-content: center;
 			gap: 0.2rem;
 			width: fit-content;
 			padding: 0.25rem 0.5rem;
@@ -90,15 +91,14 @@
 				display: none;
 			}
 
-			.project-cards li.card__item div.status svg {
+			.project-cards li.card__item div.status .icon {
 				margin: auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				height: 1.125rem;
-				stroke: currentColor;
 			}
 
-				.project-cards li.card__item div.status svg path {
-					stroke-width: 2;
-				}
 
 /* ---------------------------------- */
 /*       section with extra info      */
@@ -120,7 +120,7 @@
 
 	.project-cards li.card__item.allprojects-card .projectCard__progress progress,
 	.project-cards li.card__item.allprojects-card .projectCard__progress div > p:first-of-type,
-	.project-cards li.card__item .projectCard__progress div > svg {
+	.project-cards li.card__item .projectCard__progress div > .icon {
 		display: none;
 	}
 
@@ -137,15 +137,13 @@
 			border-radius: 0.25rem;
 		}
 
-		.project-cards li.card__item.allprojects-card .projectCard__progress div > svg {
-			display: block;
+		.project-cards li.card__item.allprojects-card .projectCard__progress div > .icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			width: 1.25rem;
 			margin-left: 0.5rem;
 		}
-			.project-cards li.card__item.allprojects-card .projectCard__progress div > svg path {
-				stroke: var(--primary-color);
-				stroke-width: 3;
-			}
 
 /* ---------------------------------- */
 /*   styles for create project card   */
@@ -265,7 +263,7 @@
 	.project-cards li.card__item.allprojects-card .projectCard__progress div > p:last-of-type {
 		display: none;
 	}
-	.project-cards li.card__item.allprojects-card .projectCard__progress div > svg {
+	.project-cards li.card__item.allprojects-card .projectCard__progress div > .icon {
 		display: none;
 	}
 }

@@ -109,9 +109,8 @@
         align-items: center;
         transition: .5s;
     }   
-        .checklist__sidebar .sidebar__infoicon > svg {
-            color: var(--primary-color);
-            width: 1.5rem;
+        .checklist__sidebar .sidebar__infoicon > .icon {
+            font-size: 1.5rem;
             aspect-ratio: 1;
         }
 

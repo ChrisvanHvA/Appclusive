@@ -171,18 +171,17 @@
     }
 	
 	/* if details open */
-	.checklist__content > details > summary > p svg {
+	.checklist__content > details > summary > p .icon {
 		width: 1.25rem;
 		height: 1.25rem;
 		position: absolute;
         top: 50%;
 		transform: translateY(-50%);
         left: 0;
-		fill: var(--primary-color);
 	}
 
-	.checklist__content > details[open] > summary > p svg:first-of-type,
-	.checklist__content > details:not([open]) > summary > p svg:last-of-type {
+	.checklist__content > details[open] > summary > p .icon:first-of-type,
+	.checklist__content > details:not([open]) > summary > p .icon:last-of-type {
 		display: none;
 	}
 
