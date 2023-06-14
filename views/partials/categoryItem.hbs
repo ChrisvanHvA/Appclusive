@@ -3,7 +3,13 @@
     <input id="{{this.title}}flip" type="checkbox">
     <a href="categories/{{this.title}}">
         <div class="category__item__back">
-            <p>{{this.description}}</p>
+            <p>
+                {{#if this.short_description}}
+                    {{this.short_description}}
+                {{else}}
+                    {{this.description}}
+                {{/if}}
+            </p>
         </div>  
         <div class="category__item__front">
             <img src="/images/image.svg" alt="image icon">

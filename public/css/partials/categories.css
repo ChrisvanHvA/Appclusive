@@ -1,13 +1,3 @@
-.layout__categories > header .project__subtitle:not(:empty) {
-    margin-bottom: 1rem;
-}
-
-.layout__categories > header svg {
-    color: var(--dark);
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
 .categories {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
