@@ -30,34 +30,6 @@ class projectModel {
         }
     }
 
-    /**
-     * Async function to update the completion status of a specific checklist item within a project
-     *
-     * @params wcag_item_id
-     * @params project_id
-     * @params bool
-     * @returns bool
-     */
-    async updateChecklistCompletion(wcag_item_id, project_id, bool) {
-		if (wcag_item_id == 0 || project_id == 0 || bool == null) {
-			return false;
-		}
-        try {
-            const [updated] = await sql`
-                UPDATE project_checklists
-                SET is_completed = ${bool}
-                WHERE wcag_item_id = ${wcag_item_id}
-				AND project_id = ${project_id}
-                RETURNING project_checklists_id;
-            `;
-
-			return updated.project_checklists_id ? true : false;
-        } catch (error) {
-            console.log(error);
-            return false;
-        }
-    }
-
 	/**
      * Async function to retrieve singular project by id
      * @params projectId: id of the requested project
@@ -99,9 +71,9 @@ class projectModel {
 				'insertion', u.insertion,
 				'surname', u.surname,
 				'full_name', CONCAT_WS(' ',
-				  NULLIF(u.first_name, ''),
+				  u.first_name,
 				  NULLIF(u.insertion, ''),
-				  NULLIF(u.surname, '')
+				  u.surname
 				),
 				'profile_pic', u.profile_pic
 			  ))

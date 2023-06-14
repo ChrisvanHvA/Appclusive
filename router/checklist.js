@@ -1,13 +1,14 @@
 import express from 'express';
-import WCAGController from '../controllers/wcagController.js';
 
 import wcagModel from '../models/wcagModel.js';
+import projectChecklistModel from '../models/projectChecklistModel.js';
 import projectModel from '../models/projectModel.js';
 
 import { findCategoryIdByName } from '../helpers/wcagCategoryFind.js';
 
 const router = express.Router({ mergeParams: true });
 const ProjectModel = new projectModel();
+const ProjectChecklistModel = new projectChecklistModel();
 
 router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
@@ -39,7 +40,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/submit', async (req, res) => {	
-    const updateChecklist = await ProjectModel.updateChecklistCompletion(
+    const updateChecklist = await ProjectChecklistModel.updateChecklistCompletion(
         req.body.wcag_item_id,
         req.params.projectId,
         req.body.is_checked
