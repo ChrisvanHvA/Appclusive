@@ -19,6 +19,9 @@
 	--nav-selected: #3393FF;
 	
     --create-project-card-bg: #E1ECFF; 
+
+	--icon: var(--primary-color);
+	--icon-alt: #3C5581;
 	
     --card-border-radius: 1.25rem;
     --card-border-radius-mobile: 0.5rem;

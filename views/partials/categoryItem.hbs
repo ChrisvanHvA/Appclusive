@@ -1,5 +1,5 @@
 <li class="category__item">
-    <label aria-label="Info about category" class="category__item__info" for="{{this.title}}flip">{{>icons/info}}</label>
+    <label aria-label="Info about category" class="category__item__info" for="{{this.title}}flip"><i class="icon fa-regular fa-circle-question"></i></label>
     <input id="{{this.title}}flip" type="checkbox">
     <a href="categories/{{this.title}}">
         <div class="category__item__back">
@@ -12,11 +12,13 @@
             </p>
         </div>  
         <div class="category__item__front">
-            <img src="/images/image.svg" alt="image icon">
+            {{!-- <img src="/images/image.svg" alt="image icon"> --}}
+            <i class="icon icon--alt {{this.icon_class}}"></i>
             <div class="category__item__content">
                 <div>
                     <h2>{{this.title}}</h2>
-                    <img src="/images/nextArrow.svg" alt="next arrow">
+                    {{!-- <img src="/images/nextArrow.svg" alt="next arrow"> --}}
+                    <i class="icon fa-solid fa-chevron-right"></i>
                 </div>
                 
                 <progress class="progress" value="33" min="0" max="100"></progress>

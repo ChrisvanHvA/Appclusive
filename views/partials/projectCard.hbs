@@ -8,12 +8,13 @@
             <div>
                 <h3>{{this.title}}</h3>
                 <div class="status {{toLowerCase this.status}}">
+
                     {{#if (eq this.completed_checklists 0)}}
-						{{> icons/bolt}}
+						<i class="fa-solid fa-bolt"></i>
                     {{else if (eq (toLowerCase this.status) "wip")}}
-						{{> icons/clock}}
+						<i class="fa-regular fa-hourglass-half"></i>
                     {{else}}
-						{{> icons/check-border}}
+						<i class="fa-regular fa-circle-check"></i>
                     {{/if}}
 					<p>{{this.status}}</p>
                 </div>
@@ -69,8 +70,8 @@
                         100
                     )
                 }}% accessible</p>
-                <p>{{this.completed_checklists}} / {{this.all_checklists}}</p>
-                {{> icons/arrowright}}
+                <p>{{this.completedChecklists}} / {{this.checkLists.length}}</p>
+                <i class="icon fa-solid fa-chevron-right"></i>
             </div>
         </section>
     </a>

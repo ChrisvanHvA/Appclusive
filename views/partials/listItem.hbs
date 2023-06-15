@@ -9,16 +9,16 @@
 
 			{{!-- if tips, details --}}
 
-			<details>
-				<summary>
-					<p>
-						{{>icons/plus}}
-						{{>icons/minus}}
-						Tips &amp; Tricks</p>
-				</summary>
-				<p>{{{tip_description}}}</p>
-				<a class="checklist__source" target="_blank" href={{ref_link}}>Official WCAG website</a>
-			</details>
+                <details>
+                    <summary>
+                        <p>
+                            <i class="icon fa-solid fa-plus"></i>
+                            <i class="icon fa-solid fa-minus"></i>
+                            Tips & Tricks</p>
+                    </summary>
+                    <p>{{{tip_description}}}</p>
+                    <a class="checklist__source" target="_blank" href={{ref_link}}>Official WCAG website</a>
+                </details>
 
 			{{#if users}}
 				<div class="checklist__users">
