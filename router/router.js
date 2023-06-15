@@ -23,7 +23,7 @@ const routes = [
 
     { path: '/project/:projectId', handler: checklist, auth: false },
     // { path: '/checklist', handler: checklist, auth: false },
-    { path: '/categories', handler: checklistCategories, auth: false },
+    { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
 
     { path: '/', handler: home, auth: false },
 ];

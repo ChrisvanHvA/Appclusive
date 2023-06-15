@@ -60,6 +60,63 @@ class projectChecklistModel {
 				return false;
 			}
 		}
+
+		async getProjectCategoryData(project_id) {
+			if (project_id == 0) {
+				return null;
+			}
+			try {
+				// const data = await sql`
+				// SELECT wc.*,
+				// (
+				// 	SELECT COUNT(wi.*) 
+				// 	FROM project_checklists AS pc
+				// 	LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+				// 	LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+				// 	WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
+				// ) AS all_checklists,
+				// (
+				// 	SELECT COUNT(wi.*) 
+				// 	FROM project_checklists AS pc
+				// 	LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+				// 	LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+				// 	WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
+				// ) AS completed_checklists,
+				// (
+				// 	SELECT wcag_level
+				// 	FROM projects
+				// 	WHERE project_id = ${project_id}
+				// ) AS project_level
+				// FROM wcag AS wc
+				// ORDER BY wc.wcag_id;
+				// `;
+
+				const data = await sql`
+				SELECT wc.*,
+				(
+					SELECT COUNT(wi.*) 
+					FROM project_checklists AS pc
+					LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+					LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+					WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
+				) AS all_checklists,
+				(
+					SELECT COUNT(wi.*) 
+					FROM project_checklists AS pc
+					LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+					LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+					WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
+				) AS completed_checklists
+				FROM wcag AS wc
+				ORDER BY wc.wcag_id;
+				`;
+	
+				return data;
+			} catch (error) {
+				console.log(error);
+				return null;
+			}
+		}
 }
 
 export default projectChecklistModel;
