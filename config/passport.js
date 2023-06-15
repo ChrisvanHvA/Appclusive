@@ -27,15 +27,6 @@ export default (passport) => {
                 passReqToCallback: true,
             },
             async (req, email_address, password, done) => {
-                const confirmPassword = req.body.confirm_password;
-                if (password !== confirmPassword) {
-                    return done(
-                        null,
-                        false,
-                        req.flash('registerMsg', 'Passwords do not match..')
-                    );
-                }
-
                 try {
                     const user = await userModel.getUserByEmail(email_address);
 
@@ -72,13 +63,13 @@ export default (passport) => {
         'local-login',
         new LocalStrategy(
             {
-                usernameField: 'email',
+                usernameField: 'email_address',
                 passwordField: 'password',
                 passReqToCallback: true,
             },
-            async (req, email, password, done) => {
+            async (req, email_address, password, done) => {
                 try {
-                    const user = await userModel.getUserByEmail(email);
+                    const user = await userModel.getUserByEmail(email_address);
                     if (!user) {
                         return done(
                             null,
