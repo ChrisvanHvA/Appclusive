@@ -4,18 +4,24 @@
     </button>
     <section>
         <h2>{{capitalize title}}</h2>
-        <h3>{{round
+
+        <div class="sidebar__progress">
+            <h3>{{round
                     (multiply
                         (divide project.completed_checklists project.all_checklists)
                         100
                     )
                 }}% accessible</h3>
+            <p>{{project.completed_checklists}} / {{project.all_checklists}}</p>
+        </div>
+
         <progress class="progress" value="{{round
                     (multiply
                         (divide project.completed_checklists project.all_checklists)
                         100
                     )
                 }}" min="0" max="100"></progress>
+
         <button class="hide" class="sidebar__buttons">Close project</button>
     </section>
 

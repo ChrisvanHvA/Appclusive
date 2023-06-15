@@ -37,10 +37,9 @@ router.get('/', async (req, res) => {
 
     res.render('checklist', {
         ...res.locals,
-        title: 'Checklist',
         tasks: wcagItems,
 		category,
-		projectInfo
+		project: projectInfo
     });
 });
 
