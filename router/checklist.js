@@ -4,6 +4,7 @@ import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
 import projectModel from '../models/projectModel.js';
 
+import { calcTotalProgressByItems } from '../helpers/calcTotalProgress.js';
 import { findCategoryIdByName } from '../helpers/wcagCategoryFind.js';
 
 const router = express.Router({ mergeParams: true });
@@ -28,7 +29,13 @@ router.get('/', async (req, res) => {
         projectId
     );
 
+	
 	const projectInfo = await ProjectModel.getProject(projectId);
+
+	const { all_checklists, completed_checklists } = calcTotalProgressByItems(wcagItems);
+
+	projectInfo.all_checklists = all_checklists;
+	projectInfo.completed_checklists = completed_checklists;
 
     res.render('checklist', {
         ...res.locals,

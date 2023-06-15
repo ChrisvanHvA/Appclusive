@@ -3,47 +3,66 @@
         <i class="icon fa-regular fa-circle-question"></i>
     </button>
     <section>
-        <h2>Progress project</h2>
-        <h3>0% accessible</h3>
-            <progress
-            class="progress"
-                value="50"
-                min="0"
-                max="100"
-            ></progress>
+        <h2>{{capitalize title}}</h2>
+        <h3>{{round
+                    (multiply
+                        (divide project.completed_checklists project.all_checklists)
+                        100
+                    )
+                }}% accessible</h3>
+        <progress class="progress" value="{{round
+                    (multiply
+                        (divide project.completed_checklists project.all_checklists)
+                        100
+                    )
+                }}" min="0" max="100"></progress>
         <button class="hide" class="sidebar__buttons">Close project</button>
     </section>
 
-    <section>
-        <h3>Project info</h3>
-        <p>Project info is displayed here. version: 1.2.4.</p>
-    </section>
+    {{#if project.description}}
+        <section>
+            <h3>Project description</h3>
+            <p>{{project.description}}</p>
+        </section>
+    {{/if}}
 
-    <section>
+    {{!-- <section>
         <h3>Audience</h3>
         <p>The target audience is displayed here</p>
-    </section>
+    </section> --}}
 
     <section>
 
         <h3>Level accessibility</h3>
-        <button class="btn">Level 2 (WCAG level AA)</button>
+        <button class="btn">Level {{length project.wcag_level}} (WCAG level {{project.wcag_level}})</button>
     </section>
     <section>
         <h3>Co-workers on this project</h3>
         <ul>
             <li>
-                <img class="sidebar__users" src="https://unsplash.it/40/40" alt="">
+                <img
+                    class="sidebar__users"
+                    src="https://unsplash.it/40/40"
+                    alt=""
+                />
                 <p>Sofia</p>
                 <p>(You)</p>
             </li>
             <li>
-                <img class="sidebar__users" src="https://unsplash.it/40/40" alt="">
+                <img
+                    class="sidebar__users"
+                    src="https://unsplash.it/40/40"
+                    alt=""
+                />
                 <p>Thomas</p>
                 <p>Researcher</p>
             </li>
             <li>
-                <img class="sidebar__users" src="https://unsplash.it/40/40" alt="">
+                <img
+                    class="sidebar__users"
+                    src="https://unsplash.it/40/40"
+                    alt=""
+                />
                 <p>Anna</p>
                 <p>Team lead</p>
             </li>

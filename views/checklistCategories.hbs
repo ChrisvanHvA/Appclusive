@@ -1,7 +1,6 @@
 <main class="layout layout__categories">
 
-    {{!-- #TODO: title based on pid --}}
-    {{>pageTitleHeader title="Project 1" subtitle="Project overview" backBtn=true}}
+    {{>pageTitleHeader title=project.title subtitle="Project overview" backBtn=true}}
 
     <section class="checklist__categories">
         <p>To make things easy, we've grouped the numerous checklist items into categories for you.</p>
@@ -9,12 +8,12 @@
         <ol class="categories">
             {{#each categories}}
 				<li class="category__item">
-					{{>categoryItem categoryData=this projectId=../projectId}}
+					{{>categoryItem categories=../categories projectId=../project.project_id}}
 				</li>
             {{/each}}
         </ol>
     </section>
 
-    {{>checklistSidebar}}
+    {{>checklistSidebar title="Project progress" project=project}}
 
 </main>
