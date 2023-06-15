@@ -8,7 +8,9 @@
 
         <ol class="categories">
             {{#each categories}}
-                {{>categoryItem this}}
+				<li class="category__item">
+					{{>categoryItem categoryData=this projectId=../projectId}}
+				</li>
             {{/each}}
         </ol>
     </section>

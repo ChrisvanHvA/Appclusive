@@ -1,33 +1,32 @@
-<li class="category__item">
-    <label aria-label="Info about category" class="category__item__info" for="{{this.title}}flip"><i class="icon fa-regular fa-circle-question"></i></label>
-    <input id="{{this.title}}flip" type="checkbox">
-    <a href="categories/{{this.title}}">
-        <div class="category__item__back">
-            <p>
-                {{#if this.short_description}}
-                    {{this.short_description}}
-                {{else}}
-                    {{this.description}}
-                {{/if}}
-            </p>
-        </div>  
-        <div class="category__item__front">
-            {{!-- <img src="/images/image.svg" alt="image icon"> --}}
-            <i class="icon icon--alt {{this.icon_class}}"></i>
-            <div class="category__item__content">
-                <div>
-                    <h2>{{this.title}}</h2>
-                    {{!-- <img src="/images/nextArrow.svg" alt="next arrow"> --}}
-                    <i class="icon fa-solid fa-chevron-right"></i>
-                </div>
-                
-                <progress class="progress" value="33" min="0" max="100"></progress>
+<label aria-label="Info about category" class="category__item__info" for="{{this.title}}flip"><i class="icon fa-regular fa-circle-question"></i></label>
+<input id="{{this.title}}flip" type="checkbox">
 
-                <div>
-                    <p class="category__acc">33% <span>accessible</span></p>
-                    <p>1/3</p>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
+<a href="/project/{{projectId}}?category={{toLowerCase this.title}}">
+	<div class="category__item__back">
+		<p>
+			{{#if this.short_description}}
+				{{this.short_description}}
+			{{else}}
+				{{this.description}}
+			{{/if}}
+		</p>
+	</div>  
+	<div class="category__item__front">
+		{{!-- <img src="/images/image.svg" alt="image icon"> --}}
+		<i class="icon icon--alt {{this.icon_class}}"></i>
+		<div class="category__item__content">
+			<div>
+				<h2>{{this.title}}</h2>
+				{{!-- <img src="/images/nextArrow.svg" alt="next arrow"> --}}
+				<i class="icon fa-solid fa-chevron-right"></i>
+			</div>
+			
+			<progress class="progress" value="33" min="0" max="100"></progress>
+
+			<div>
+				<p class="category__acc">33% <span>accessible</span></p>
+				<p>1/3</p>
+			</div>
+		</div>
+	</div>
+</a>
