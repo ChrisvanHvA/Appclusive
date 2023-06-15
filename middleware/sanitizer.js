@@ -36,7 +36,7 @@ const validationChecks = [
 const handleValidationErrors = (render) => (req, res, next) => {
   const errors = validationResult(req);
 
-  if (!errors.isEmpty()) {
+  if (!errors.array().length) {
 
     let errorFields = {};
 

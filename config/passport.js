@@ -28,6 +28,9 @@ export default (passport) => {
             },
             async (req, email_address, password, done) => {
                 try {
+
+                    console.log('hiii');
+
                     const user = await userModel.getUserByEmail(email_address);
 
                     if (user) {
