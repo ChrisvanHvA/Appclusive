@@ -61,7 +61,9 @@
 		}
 
 		.menu__item--profile {
-			gap: 1rem;
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
 		}
 
 			.nav--desktop .menu__item--profile a:last-of-type {
@@ -80,17 +82,10 @@
 			.nav--desktop .menu__item a {
 				display: flex;
 				align-items: center;
-
+				gap: 1rem;
+				padding: 1rem 0;
 				color: var(--light);
 				text-decoration: none;
-				
-				gap: 1rem;
-
-				padding: 1rem 0;
-
-				width: 100%;
-				/* width: fit-content; */
-				min-width: 5rem;
 			}
 
 				.nav--desktop .menu__item a svg {
@@ -113,13 +108,11 @@
 }
 
 	.nav--desktop .menu__item details summary {
-		--width: 3rem;
 		cursor: pointer;
 		text-align: right;
 		position: absolute;
 		top: 1rem;
 		right: 0;
-		width: var(--width);
 		
 		display: flex;
 		justify-content: center;
@@ -127,7 +120,7 @@
 	}
 
 		.menu__item details .menu__item a {
-			padding: .5rem 0;
+			padding: 0.5rem 0;
 		}
 
 	.nav--desktop .menu__item details summary::marker {
@@ -153,7 +146,7 @@
 .nav--desktop .menu__item details ol {
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	margin-bottom: 1rem;
 }
 
 /* ---------------------------------- */
@@ -200,7 +193,6 @@
 		right: -9rem;
 		width: 20rem;
 		bottom: -13rem;
-
 	}
 
 @media screen and (max-width: 950px) {
