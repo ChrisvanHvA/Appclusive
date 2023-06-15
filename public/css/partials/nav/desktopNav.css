@@ -15,6 +15,10 @@
 	padding: 1rem min(3rem, 2vw) 1rem min(3rem, 2vw);
 }
 
+.nav--desktop a {
+	z-index: 99;
+}
+
 	/* #LOGO IN NAV */
 	.nav--desktop .logo {
 		width: 60%;

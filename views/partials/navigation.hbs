@@ -18,7 +18,7 @@
 
 				{{#if this.recentProjectNames}}
                     <details>
-                        <summary>{{> icons/arrowup}}</summary>
+                        <summary><i class="icon icon--light fa-solid fa-chevron-up"></i></summary>
                         <ol>
                             {{#each this.recentProjectNames}}
                                 <li class="menu__item">
@@ -68,7 +68,7 @@
 	<div class="container__icon">
 		{{#if (ne title 'Dashboard')}}
 			<a href="#" class="icon-back" aria-label="back to previous page">
-				{{>icons/arrowleft}}
+				<i class="icon fa-solid fa-chevron-left"></i>
 				<p>back</p>
 			</a>
 		{{/if}}

@@ -16,22 +16,18 @@ hr {
 .btn {
 	appearance: none;
     cursor: pointer;
-    background-color: var(--light);
-    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
     padding: .625rem 1.25rem;
+	border: 2px solid var(--primary-color);
     border-radius: var(--card-border-radius-mobile);
 	transition: all .2s ease-in-out;
 	
+	font-family: inherit;
 	font-size: inherit;
 	font-weight: 700;
 	color: var(--light);
 	text-decoration: none;
 	text-align: center;
-	
-    color: var(--primary-color);
-	font-size: inherit;
-	font-family: inherit;
-	font-weight: 700;
 }
 @media screen and (min-width: 951px) {
     .btn {
@@ -43,6 +39,7 @@ hr {
 .btn:focus-visible {
 	background-color: var(--light);
 	color: var(--primary-color);
+    border: 2px solid var(--primary-color);
 }
 
 /* SECONDARY BUTTON */
