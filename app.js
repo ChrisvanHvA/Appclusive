@@ -15,6 +15,7 @@ import bodyParser from 'body-parser';
 import { setHeadData } from './middleware/setHeadData.js';
 import { getLoggedUser } from './middleware/getLoggedUser.js';
 import { checkAuth } from './middleware/checkAuth.js';
+import { setSidebarProjects } from './middleware/setSidebarProjects.js';
 
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
@@ -46,6 +47,7 @@ configurePassport(passport);
 
 app.use(setHeadData);
 app.use(getLoggedUser);
+app.use(setSidebarProjects);
 
 io.on('connection', (socket) => {
     // Do stuff§
