@@ -144,6 +144,7 @@
     .category__item__content > div {
         display: flex;
         justify-content: space-between;
+        white-space: nowrap;
     }
 
 .checklist__categories h2 {
@@ -153,6 +154,7 @@
 .checklist__categories > p {
     color: var(--primary-text);
     margin-bottom: 1rem;
+    max-width: calc(100% - 2.8rem);
 }
 
 ul.categoryContent > li:first-of-type .icon{

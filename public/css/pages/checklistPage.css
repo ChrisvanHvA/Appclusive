@@ -10,6 +10,7 @@
 	align-items: baseline;
     gap: .625rem;
 	text-transform: capitalize;
+    max-width: calc(100% - 2.625rem);
 	font-size: 1.3rem;
 }
 

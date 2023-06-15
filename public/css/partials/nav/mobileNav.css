@@ -91,10 +91,19 @@
 			margin-top: 0.125rem;
 		}
 
+.nav--mobile .content-header {
+	width: 100%;
+}
+		
 	.nav--mobile .content-header h1 {
 		background-color: var(--primary-color);
 		padding: var(--welcome-padding-vertical) 0;
 		width: fit-content;
+		max-width: calc(100vw - 3rem);
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		border-radius: 5px;
 	}
 
 	.nav--mobile .content-avatar {
