@@ -55,6 +55,7 @@
 
 	.nav--mobile .content-header p {
 		padding: 0.35rem var(--welcome-padding-vertical) 0.275rem var(--welcome-padding-vertical);
+		text-transform: uppercase;
 	}
 
 	.nav--mobile .content-header > p,
