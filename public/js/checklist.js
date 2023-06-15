@@ -3,6 +3,10 @@ const projectId = document.querySelector('.hidden-project-id').value;
 function submitHandler() {
 	console.log(projectId);
 
+    const dialog = document.querySelector('.dialog');
+
+    dialog.showModal();
+
     const checklistItemsCheckboxes = document.querySelectorAll(
         '.checklist__checkbox'
     );

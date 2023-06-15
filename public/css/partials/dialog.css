@@ -1,0 +1,15 @@
+.dialog {
+    width: 30rem;
+    background: var(--primary-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    border: none;
+    border-radius: var(--card-border-radius);
+}
+
+.dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
