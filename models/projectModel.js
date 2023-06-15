@@ -30,29 +30,27 @@ class projectModel {
         }
     }
 
-	/**
+    /**
      * Async function to retrieve singular project by id
      * @params projectId: id of the requested project
      * @returns project
      */
-	async getProject(projectId) {
-		if (!projectId || projectId == 0 ) return null;
-		
-			try {
-	
-				const [project] = await sql`
+    async getProject(projectId) {
+        if (!projectId || projectId == 0) return null;
+
+        try {
+            const [project] = await sql`
 					SELECT *
 					FROM projects
 					WHERE project_id = ${projectId}
 				`;
-	
-				return project;
-			} catch (error) {
-				console.log(error);
-				return null;
-			}
-		
-	}
+
+            return project;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
 
     /**
      * Async function to retrieve list of projects user is involved in
@@ -92,6 +90,24 @@ class projectModel {
 		  WHERE pu.user_id = ${userId}
 		  GROUP BY p.project_id, pu.user_id;
             `;
+
+            return projects;
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
+
+    async getRecentProjectNames(userId, limit = 3) {
+        try {
+            const projects = await sql`
+				SELECT p.title, p.project_id
+				FROM project_users AS pu
+				LEFT JOIN projects AS p ON p.project_id = pu.project_id
+				WHERE pu.user_id = ${userId}
+				ORDER BY p.project_id DESC
+				LIMIT ${limit}
+			`;
 
             return projects;
         } catch (error) {
