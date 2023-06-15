@@ -77,7 +77,7 @@
 		display: none;
 	}
 
-	.layout__dashboard > h3 + .cards.project-cards > .admin-card {
+	.layout__dashboard > div + .cards.project-cards > .admin-card {
 		display: block;
 	}
 
