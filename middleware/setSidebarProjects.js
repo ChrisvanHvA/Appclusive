@@ -7,7 +7,7 @@ const setSidebarProjects = async (req, res, next) => {
 	// todo: niet vergeten de || 1 weg te halen
 	const userId = res.locals.user?.user_id || 1;
 
-	if (!userId) return;
+	if (!userId) return next();
 
 	const projects = await ProjectModel.getRecentProjectNames(userId);
 
