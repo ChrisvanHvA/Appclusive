@@ -14,18 +14,10 @@ router.get('/', (req, res) => {
     });
 });
 
-// router.post(
-//     '/',
-//     validationChecks,
-//     handleValidationErrors('register'),
-//     passport.authenticate('local-signup', {
-//         successRedirect: '/',
-//         failureRedirect: '/register',
-//         failureFlash: true
-//     })
-// );
 router.post(
     '/',
+    validationChecks,
+    handleValidationErrors('register'),
     passport.authenticate('local-signup', {
         successRedirect: '/',
         failureRedirect: '/register',
