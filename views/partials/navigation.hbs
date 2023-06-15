@@ -13,7 +13,7 @@
 
     <nav>
 		<ul class="menu">
-			<li class="menu__item menu__item--all active">
+			<li class="menu__item menu__item--all {{#unless (eq title "Recent")}}{{#unless (eq title "Archive")}}{{#unless (eq title "Settings")}}active{{/unless}}{{/unless}}{{/unless}}">
 				<a href="/">{{>icons/tilesicon}}All projects</a>
 
 				{{#if this.recentProjectNames}}
@@ -29,9 +29,9 @@
                     </details>
                 {{/if}}
 			</li>
-			<li class="menu__item"><a href="#">{{> icons/recent}}Recent</a></li>
-			<li class="menu__item"><a href="#">{{> icons/archive}}Archive</a></li>
-			<li class="menu__item">
+			<li class="menu__item {{#if (eq title "Recent")}}active{{/if}}"><a href="#">{{> icons/recent}}Recent</a></li>
+			<li class="menu__item {{#if (eq title "Archive")}}active{{/if}}"><a href="#">{{> icons/archive}}Archive</a></li>
+			<li class="menu__item {{#if (eq title "Settings")}}active{{/if}}">
 				<a href="/settings">{{> icons/settings}}Settings</a>
 
 				<div class="menu__item--profile">
