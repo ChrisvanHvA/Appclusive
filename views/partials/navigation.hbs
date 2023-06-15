@@ -11,46 +11,70 @@
 			<li class="all-projects active">
 				<a href="/">{{>icons/tilesicon}}All projects</a>
 
-				<details>
-					<summary>{{> icons/arrowup}}</summary>
-					<ol>
-						<li class="active"><a href="#">Project 1</a></li>
-						<li><a href="#">Project 2</a></li>
-						<li><a href="#">Project 3</a></li>
-					</ol>
-				</details>
+				{{#if this.recentProjectNames}}
+                    <details>
+                        <summary>{{> icons/arrowup}}</summary>
+                        <ol>
+                            {{#each this.recentProjectNames}}
+                                <li>
+                                    <a href="/project/{{this.project_id}}/categories">{{this.title}}</a>
+                                </li>
+                            {{/each}}
+                        </ol>
+                    </details>
+                {{/if}}
 			</li>
-			<li><a href="#">{{> icons/recent}}Recent</a></li>
-			<li><a href="#">{{> icons/archive}}Archive</a></li>
+			<li><a href="#">{{>icons/recent}}Recent</a></li>
+			<li><a href="#">{{>icons/archive}}Archive</a></li>
 
-			<li><a href="/settings">{{> icons/settings}}Settings</a></li>
+			<li><a href="/settings">{{>icons/settings}}Settings</a></li>
 			<li>
 				<a href="/settings">
                     <img src="https://unsplash.it/40/40" />
                     <div>
-                    	<p>Sofia</p>
-                    	<p>sofia@gmail.com</p>
+                    	<p>{{user.first_name}}</p>
+                    	<p>{{user.email_address}}</p>
                     </div>
                 </a>
-				<a href="/logout">{{> icons/login}}</a>
+				<a href="/logout">{{>icons/login}}</a>
 			</li>
 		</ul>
     </nav>
 </aside>
 
 <header class="mobile-nav">
-    <div>
-    {{! todo: if icoontje rechtsboven laad dit in }}
-        {{#if true}}
-            <a href="/settings" aria-label="open settings">
-				{{> icons/settings}}
+	<div class="container__icon">
+		{{#if (ne title 'Dashboard')}}
+			<a href="#" class="icon-back" aria-label="back to previous page">
+				{{>icons/arrowleft}}
+				<p>back</p>
 			</a>
-        {{/if}}
-    </div>
+		{{/if}}
 
-    <div>
-        <p>Welcome, {{user.first_name}}</p>
-        <h1>{{title}}</h1>
+		{{#if (ne title 'Settings')}}
+			<a href="/settings" aria-label="open settings">
+				{{>icons/settings}}
+			</a>
+		{{/if}}
+	</div>
+
+    <div class="container__content">
+		<div class="content-header">
+			{{#if (eq title 'Dashboard')}}
+				<p>Welcome, {{user.first_name}}</p>
+			{{/if}}
+        	<h1>{{title}}</h1>
+		</div>
+
+		{{#if (eq title 'Settings')}}
+			<form class="content-avatar">
+				<img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
+				<label>
+					{{>icons/pen}}
+					<input type="file" name="avatar" />
+				</label>
+			</form>
+		{{/if}}
     </div>
 	
 	{{!-- decorative spans --}}

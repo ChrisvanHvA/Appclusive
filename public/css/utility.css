@@ -8,7 +8,7 @@
     background-color: var(--light);
     border: 2px solid var(--primary-color);
     padding: .625rem 1.25rem;
-    border-radius: 50rem;
+    border-radius: var(--card-border-radius-mobile);
 	transition: all .2s ease-in-out;
 	
 	text-decoration: none;
@@ -16,7 +16,13 @@
 	
     color: var(--primary-color);
 	font-size: inherit;
+	font-family: inherit;
 	font-weight: 700;
+}
+@media screen and (min-width: 951px) {
+    .btn {
+		border-radius: 50rem;
+	}
 }
 
 .btn:hover,
