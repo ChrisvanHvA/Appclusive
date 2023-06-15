@@ -11,14 +11,15 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', validationChecks, handleValidationErrors('register'), (req, res, next) => {
-        // If there are no validation errors, proceed to passport authentication
-        passport.authenticate('local-signup', {
-            successRedirect: '/',
-            failureRedirect: '/register',
-            failureFlash: true,
-        })(req, res, next);
-    }
+router.post(
+    '/',
+    validationChecks,
+    handleValidationErrors('register'),
+    passport.authenticate('local-signup', {
+        successRedirect: '/',
+        failureRedirect: '/register',
+        failureFlash: true
+    })
 );
 
 export default router;

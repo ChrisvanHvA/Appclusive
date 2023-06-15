@@ -36,7 +36,12 @@ const validationChecks = [
 const handleValidationErrors = (render) => (req, res, next) => {
   const errors = validationResult(req);
 
+  console.log(errors);
+
   if (!errors.isEmpty()) {
+
+    console.log('errors found');
+    console.log(errors);
 
     let errorFields = {};
 
@@ -46,6 +51,8 @@ const handleValidationErrors = (render) => (req, res, next) => {
 
     return res.render(render, errorFields);
   }
+
+  console.log('continue');
 
   next();
 };

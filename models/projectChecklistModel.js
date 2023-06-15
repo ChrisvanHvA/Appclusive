@@ -45,12 +45,13 @@ class projectChecklistModel {
 			if (wcag_item_id == 0 || project_id == 0 || bool == null) {
 				return false;
 			}
+            
 			try {
 				const [updated] = await sql`
 					UPDATE project_checklists
 					SET is_completed = ${bool}
-					WHERE wcag_item_id = ${wcag_item_id}
-					AND project_id = ${project_id}
+					WHERE wcag_item_id = ${parseInt(wcag_item_id)}
+					AND project_id = ${parseInt(project_id)}
 					RETURNING project_checklists_id;
 				`;
 	
