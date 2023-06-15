@@ -16,14 +16,18 @@
 			<li class="menu__item menu__item--all active">
 				<a href="/">{{>icons/tilesicon}}All projects</a>
 
-				<details>
-					<summary><i class="icon icon--light fa-solid fa-chevron-up"></i></summary>
-					<ol>
-						<li class="menu__item active"><a href="#">Project 1</a></li>
-						<li class="menu__item"><a href="#">Project 2</a></li>
-						<li class="menu__item"><a href="#">Project 3</a></li>
-					</ol>
-				</details>
+				{{#if this.recentProjectNames}}
+                    <details>
+                        <summary>{{> icons/arrowup}}</summary>
+                        <ol>
+                            {{#each this.recentProjectNames}}
+                                <li class="menu__item">
+                                    <a href="/project/{{this.project_id}}/categories">{{this.title}}</a>
+                                </li>
+                            {{/each}}
+                        </ol>
+                    </details>
+                {{/if}}
 			</li>
 			<li class="menu__item"><a href="#">{{> icons/recent}}Recent</a></li>
 			<li class="menu__item"><a href="#">{{> icons/archive}}Archive</a></li>
@@ -34,8 +38,8 @@
 					<a href="/settings">
 						<img src="https://unsplash.it/40/40" />
 						<div>
-							<p>Sofia</p>
-							<p>sofia@gmail.com</p>
+							<p>{{user.first_name}}</p>
+							<p>{{user.email_address}}</p>
 						</div>
 					</a>
 
@@ -46,7 +50,7 @@
     </nav>
 </aside>
 
-<header class="nav nav--mobile">
+{{!-- <header class="nav nav--mobile">
     {{! todo: if icoontje rechtsboven laad dit in }}
 	{{#if true}}
 		<a href="#" class="btn btn--nav" aria-label="open settings">
@@ -57,7 +61,43 @@
     <section class="nav__title">
         <p>Welcome, {{user.first_name}}</p>
         <h1>{{title}}</h1>
-    </section>
+    </section> --}}
+
+
+<header class="nav nav--mobile">
+	<div class="container__icon">
+		{{#if (ne title 'Dashboard')}}
+			<a href="#" class="icon-back" aria-label="back to previous page">
+				{{>icons/arrowleft}}
+				<p>back</p>
+			</a>
+		{{/if}}
+
+		{{#if (ne title 'Settings')}}
+			<a href="/settings" class="btn btn--nav" aria-label="open settings">
+				{{>icons/settings}}
+			</a>
+		{{/if}}
+	</div>
+
+    <div class="container__content">
+		<div class="content-header">
+			{{#if (eq title 'Dashboard')}}
+				<p>Welcome, {{user.first_name}}</p>
+			{{/if}}
+        	<h1>{{title}}</h1>
+		</div>
+
+		{{#if (eq title 'Settings')}}
+			<form class="content-avatar">
+				<img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
+				<label>
+					{{>icons/pen}}
+					<input type="file" name="avatar" />
+				</label>
+			</form>
+		{{/if}}
+    </div>
 	
 	{{!-- decorative spans --}}
 	<span class="bg-circle"></span>

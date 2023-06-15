@@ -12,12 +12,15 @@ hr {
     max-width: 70rem;
 }
 
-/* ---------------------------------- */
-/*            #BUTTON           	  */
-/* ---------------------------------- */
-.btn {    
+/* ------------- #BUTTON ------------ */
+.btn {
 	appearance: none;
-	padding: .625rem 1.25rem;
+    cursor: pointer;
+    background-color: var(--light);
+    border: 2px solid var(--primary-color);
+    padding: .625rem 1.25rem;
+    border-radius: var(--card-border-radius-mobile);
+	transition: all .2s ease-in-out;
 	
 	font-size: inherit;
 	font-weight: 700;
@@ -25,14 +28,15 @@ hr {
 	text-decoration: none;
 	text-align: center;
 	
-	border: 2px solid var(--primary-color);
-    border-radius: 50rem;
-	
-	transition: all .2s ease-in-out;
-	cursor: pointer;
-	
-	outline: none;
-	background-color: var(--primary-color);
+    color: var(--primary-color);
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: 700;
+}
+@media screen and (min-width: 951px) {
+    .btn {
+		border-radius: 50rem;
+	}
 }
 
 .btn:hover,
