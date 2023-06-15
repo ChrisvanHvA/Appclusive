@@ -17,10 +17,8 @@ router.get('/', async (req, res) => {
 
     const categoryId = findCategoryIdByName(category);
 
-    // todo: redirect to project category page when it exists
     if (!categoryId) {
-        return res.redirect(`/`);
-        // return res.redirect(`/projects/${projectId}`);
+        return res.redirect(`/project/${projectId}/categories`);
     }
 
     const WCAGModel = new wcagModel();
