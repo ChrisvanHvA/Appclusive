@@ -33,7 +33,7 @@
 
 .project-cards li.card__item a header {
 	display: flex;
-	gap: 1rem;
+	justify-content: space-between;
 	margin-bottom: 1rem;
 }
 
@@ -99,41 +99,9 @@
 				height: 1.125rem;
 			}
 
-
-/* ---------------------------------- */
-/*       section with extra info      */
-/* ---------------------------------- */
-.project-cards li.card__item a section.project-data {
-	display: none;
-}
-
-.project-cards li.card__item a section.project-data div {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-	.project-cards li.card__item a section.project-data div h4 {
-		font-weight: normal;
-		color: var(--tertiary-text);
+	.project-cards li.card__item a header > div.header__members {
+		display: none;
 	}
-
-
-	.project-cards li.card__item a section.project-data div.team-members span {
-		display: flex;
-		gap: .4rem;
-	}
-
-		.project-cards li.card__item a section.project-data div.team-members span div,
-		.project-cards li.card__item a section.project-data div.team-members span img {
-			border-radius: 50%;
-			height: 1.5rem;
-			aspect-ratio: 1;
-			border: 2px solid var(--primary-text);
-			font-size: .6rem;
-			text-align: center;
-		}
-
 
 .projectCard__progress {
 	color: var(--tertiary-text);
@@ -209,41 +177,6 @@
 		gap: 0.2rem;
 	}
 
-	.project-cards li.card__item a section.project-data {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-	}
-
-		.project-cards li.card__item a section.project-data div {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-		}
-		
-			.project-cards li.card__item a section.project-data div h4 {
-				font-weight: normal;
-				color: var(--tertiary-text);
-			}
-		
-		.project-cards li.card__item a section.project-data div.checklists {
-			justify-self: center;
-		}
-		
-		.project-cards li.card__item a section.project-data div.team-members {
-			justify-self: flex-end;
-		}
-		
-			.project-cards li.card__item a section.project-data div.team-members span {
-				display: flex;
-				gap: 0.4rem;
-			}
-		
-				.project-cards li.card__item a section.project-data div.team-members span img {
-					border-radius: 50%;
-					height: 1.5rem;
-					border: 2px solid var(--primary-text);
-				}	
-
 	.project-cards li.card__item.allprojects-card div.status {
 		padding: 0.25rem 0.5rem;
 	}
@@ -256,10 +189,6 @@
 		gap: 1rem;
 	}
 
-	.projectCard__progress div > p:last-of-type  {
-		display: none;
-	}
-
 	.project-cards li.card__item.allprojects-card a {
 		display: block;
 	}
@@ -268,9 +197,19 @@
 			margin-bottom: 1rem;
 		}
 	
-			.project-cards li.card__item.allprojects-card a header > div {
+			.project-cards li.card__item.allprojects-card a header .header__title {
 				flex-direction: column;
 				align-items: flex-start;
+			}
+
+			.project-cards li.card__item.allprojects-card a header .header__members {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 0.25rem;
+				height: fit-content;
+				font-weight: 700;
+				color: var(--primary-color);
 			}
 
 	.projectCard__progress {
@@ -286,7 +225,9 @@
 	}
 
 	.project-cards li.card__item.allprojects-card .projectCard__progress div > p:last-of-type {
-		display: none;
+		padding: 0;
+		color: var(--tertiary-text);
+		background-color: transparent;
 	}
 	.project-cards li.card__item.allprojects-card .projectCard__progress div > .icon {
 		display: none;

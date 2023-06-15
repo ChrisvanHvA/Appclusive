@@ -1,11 +1,7 @@
 {{#if (ne this null)}}
     <a href="/project/{{this.project_id}}?category=content" draggable="false">
         <header>
-            <img
-                src="https://fastly.picsum.photos/id/820/40/40.jpg?hmac=kZkyBeRLe53RBNNVxzfiC2csALM9zByR2aPHGRtIBpo"
-                alt="a"
-            />
-            <div>
+            <div class="header__title">
                 <h3>{{this.title}}</h3>
                 <div class="status {{toLowerCase this.status}}">
 
@@ -19,37 +15,12 @@
 					<p>{{this.status}}</p>
                 </div>
             </div>
+
+            <div class="header__members">
+                <p>7+</p>
+                <i class="icon fa-regular fa-user fa-lg"></i>
+            </div>
         </header>
-
-        <section class="project-data">
-            <div class="step">
-                <h4>Step</h4>
-                <p>{{this.step}}</p>
-            </div>
-            <div class="checklists">
-                <h4>Checklists</h4>
-                <p>{{this.completed_checklists}} / {{this.all_checklists}}</p>
-            </div>
-
-            <div class="team-members">
-                <h4>Members</h4>
-                <span>
-
-                    {{#each this.all_users}}
-						{{#if this.profile_pic}}
-                        <img
-                            src="{{this.profile_pic}}"
-                            title="{{this.full_name}}"
-                            alt="{{this.full_name}}"
-                        />
-
-						{{else}}
-						<div title="{{this.full_name}}">{{fullNameToInitials this.full_name}}</div>
-						{{/if}}
-                    {{/each}}
-                </span>
-            </div>
-        </section>
 
         <section class="projectCard__progress">
             <progress class="progress"
@@ -62,7 +33,7 @@
                 min="0"
                 max="100"
             ></progress>
-            {{! <3 handlebars }}
+
             <div>
                 <p>{{round
                     (multiply
