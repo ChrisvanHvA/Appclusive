@@ -4,12 +4,17 @@
 	<input type="hidden" name="parent_id" value="{{parent_id}}">
 	<input type="hidden" name="is_completed" value="{{is_completed}}">
 
-	<button type="submit" data-checklist-button>
+	<button tabindex="-1" type="submit" data-checklist-button>
 
-		<input class="checklist__checkbox" type="checkbox" id={{wcag_item_id}} name={{wcag_item_id}} 
-		value={{is_completed}} {{#if is_completed}}checked{{/if}} />
+		<input 
+		class="checklist__checkbox" 
+		type="checkbox" 
+		id="wcag_{{wcag_item_id}}" 
+		name="wcag_{{wcag_item_id}}"
+		value="{{is_completed}}" 
+		{{#if is_completed}}checked{{/if}} />
 
-		<label for={{wcag_item_id}}>
+		<label for="wcag_{{wcag_item_id}}">
 			<span></span>
 			<div class="checklist__content">
 				<h4>{{title}} <span>({{wcag_level}})</span></h4>
