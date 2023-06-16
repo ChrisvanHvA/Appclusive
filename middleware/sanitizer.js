@@ -21,15 +21,23 @@ const validationChecks = [
     body('password')
         .if(body('password').exists())
         .notEmpty()
-        .withMessage('Confirm password must not be empty')
+        .withMessage('Password must not be empty')
         .isLength({ min: 6 })
         .withMessage('Password must be at least 6 characters long'),
+    body('old_password')
+        .if(body('old_password').exists().notEmpty())
+        .isLength({ min: 6 })
+        .withMessage('Pass must be at least 6 characters long'),
+    body('new_password')
+        .if(body('new_password').exists().notEmpty())
+        .isLength({ min: 6 })
+        .withMessage('Pass must be at least 6 characters long'),
     body('confirm_password')
         .if(body('confirm_password').exists())
         .notEmpty()
         .withMessage('Confirm password must not be empty')
         .custom((value, { req }) => value === req.body.password)
-        .withMessage('Passwords do not match!!'),
+        .withMessage('Passwords do not match!!')
 ];
 
 // Define validation middleware function to handle errors

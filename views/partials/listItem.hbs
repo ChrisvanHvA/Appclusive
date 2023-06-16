@@ -6,10 +6,10 @@
 
 	<button type="submit" data-checklist-button>
 
-		<input class="checklist__checkbox" type="checkbox" id={{wcag_item_id}} name={{wcag_item_id}} 
+		<input class="checklist__checkbox" type="checkbox" id="wcag_item_id-{{wcag_item_id}}" name="wcag_item_id-{{wcag_item_id}}"
 		value={{is_completed}} {{#if is_completed}}checked{{/if}} />
 
-		<label for={{wcag_item_id}}>
+		<label for="wcag_item_id-{{wcag_item_id}}">
 			<span></span>
 			<div class="checklist__content">
 				<h4>{{title}} <span>({{wcag_level}})</span></h4>
