@@ -63,8 +63,6 @@ router.post('/submit', async (req, res) => {
     const categoryItem = await WCAGModel.getWCAGCategory(req.body.parent_id);
     let errorParam = '';
 
-    updateChecklist = false;
-
     // #TODO: pass custom message id
     if (!updateChecklist) {
         errorParam = '&error=1';
