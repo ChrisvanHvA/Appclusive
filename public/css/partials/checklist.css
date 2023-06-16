@@ -75,8 +75,6 @@
         animation: bounce-in .3s ease-in-out;
     }
 
-/* bounce background size */
-
 @keyframes bounce-in {
     0% {
         background-size: 0%;

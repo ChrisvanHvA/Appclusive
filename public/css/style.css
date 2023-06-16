@@ -21,7 +21,7 @@
     --create-project-card-bg: #E1ECFF; 
 
 	--icon: var(--primary-color);
-	--icon-alt: #3C5581;
+	--icon-alt: #002971;
 	
     --card-border-radius: 1.25rem;
     --card-border-radius-mobile: 0.5rem;
@@ -62,6 +62,7 @@
 } */
 
 body {
+	position: relative;
     font-family: 'Arial', sans-serif;
     font-weight: 400;
     line-height: 140%;

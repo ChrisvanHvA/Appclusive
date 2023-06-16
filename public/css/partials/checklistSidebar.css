@@ -12,15 +12,22 @@
     }
 
     .checklist__sidebar .progress {
-        --progress-bar-height: .5rem;
-        max-width: 16rem;
+        --progress-bar-height: 1rem;
     }
     .checklist__sidebar .sidebar__infoicon {
         display: none;
+        cursor: pointer;
     }
         .checklist__sidebar .sidebar__infoicon svg path{
             stroke: var(--primary-color);
         }
+
+.sidebar__progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
 
 .sidebar__users {
     border-radius: 50%;
@@ -74,11 +81,12 @@
     }
     .checklist__sidebar button.btn {
         margin-top: 0.75rem;
+        width: 100%;
+        max-width: 18.125rem;
     }
 
 @media screen and (max-width: 950px) {
     .checklist__sidebar {
-        transition: all 0.5s ease-in-out;
         position: fixed;
         top: 0;
         bottom: 0;
@@ -87,27 +95,25 @@
         z-index: 1;
 
         background-color: var(--light);
-        padding-top: 2.438rem;
-        padding-left: 1.563rem;
+        padding: 2.438rem 1.563rem;
         right: -85vw;
     }
         .checklist__sidebar-active {
-            transition: all 0.5s ease-in-out;
             right: 0;
         }
     .checklist__sidebar .sidebar__infoicon {
         position: absolute;
-        display: flex;
-        background-color: var(--light);
-        top: 4.4rem;
-        padding: 0.5rem;
-        padding-right: 2rem;
-        border-radius: 1.5rem 0 0 1.5rem;
-        border: 0;
+        top: 10.8rem;
         left: -3.7rem;
         display: flex;
         align-items: center;
-        transition: .5s;
+        padding: 0.5rem;
+        padding-right: 2rem;
+        background-color: var(--light);
+        border: 2px solid var(--primary-color);
+        border-right: none;
+        border-radius: 1.5rem 0 0 1.5rem;
+        outline: 2px solid var(--light);
     }   
         .checklist__sidebar .sidebar__infoicon > .icon {
             font-size: 1.5rem;
@@ -116,6 +122,8 @@
 
     .checklist__sidebar-active .sidebar__infoicon {
         left: -2.5rem;
+        border: none;
+        outline: transparent;
     }   
 
     .checklist__sidebar-active::before {
@@ -130,5 +138,19 @@
         height: 100dvh;
         background-color: rgba(0, 0, 0, 0.70);
         left: -100vw;
+    }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+    @media screen and (max-width: 950px) {
+        .checklist__sidebar {
+            transition: all 0.5s ease-in-out;
+        }
+            .checklist__sidebar-active {
+                transition: all 0.5s ease-in-out;
+            }
+        .checklist__sidebar .sidebar__infoicon {
+            transition: .5s;
+        }   
     }
 }

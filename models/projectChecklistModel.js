@@ -45,12 +45,13 @@ class projectChecklistModel {
 			if (wcag_item_id == 0 || project_id == 0 || bool == null) {
 				return false;
 			}
+            
 			try {
 				const [updated] = await sql`
 					UPDATE project_checklists
 					SET is_completed = ${bool}
-					WHERE wcag_item_id = ${wcag_item_id}
-					AND project_id = ${project_id}
+					WHERE wcag_item_id = ${parseInt(wcag_item_id)}
+					AND project_id = ${parseInt(project_id)}
 					RETURNING project_checklists_id;
 				`;
 	
@@ -58,6 +59,63 @@ class projectChecklistModel {
 			} catch (error) {
 				console.log(error);
 				return false;
+			}
+		}
+
+		async getProjectCategoryData(project_id) {
+			if (project_id == 0) {
+				return null;
+			}
+			try {
+				// const data = await sql`
+				// SELECT wc.*,
+				// (
+				// 	SELECT COUNT(wi.*) 
+				// 	FROM project_checklists AS pc
+				// 	LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+				// 	LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+				// 	WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
+				// ) AS all_checklists,
+				// (
+				// 	SELECT COUNT(wi.*) 
+				// 	FROM project_checklists AS pc
+				// 	LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+				// 	LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+				// 	WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
+				// ) AS completed_checklists,
+				// (
+				// 	SELECT wcag_level
+				// 	FROM projects
+				// 	WHERE project_id = ${project_id}
+				// ) AS project_level
+				// FROM wcag AS wc
+				// ORDER BY wc.wcag_id;
+				// `;
+
+				const data = await sql`
+				SELECT wc.*,
+				(
+					SELECT COUNT(wi.*) 
+					FROM project_checklists AS pc
+					LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+					LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+					WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
+				) AS all_checklists,
+				(
+					SELECT COUNT(wi.*) 
+					FROM project_checklists AS pc
+					LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+					LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+					WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
+				) AS completed_checklists
+				FROM wcag AS wc
+				ORDER BY wc.wcag_id;
+				`;
+	
+				return data;
+			} catch (error) {
+				console.log(error);
+				return null;
 			}
 		}
 }

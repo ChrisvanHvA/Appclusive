@@ -1,24 +1,25 @@
 <aside class="nav nav--desktop">
-	<div class="desktopCircles">
+	{{!-- <div class="desktopCircles">
 		<span class="bg-circle"></span>
 		<span class="bg-circle"></span>
 		<span class="bg-circle"></span>
-	</div>
-    <a class="logo" href="#">{{>icons/logo}}</a>
+	</div> --}}
+    <a class="logo" href="/" tabindex="-1">{{> icons/logo}}</a>
 
     <div class="searchbar">
         <button class="btn" type="submit"><i class="icon icon--dark fa-solid fa-magnifying-glass"></i></button>
-        <input type="text" placeholder="Zoeken" />
+		<label for="search-projects-desktop" class="label-hidden">Search for a project</label>
+        <input id="search-projects-desktop" type="text" name="search_projects" placeholder="Search projects" />
     </div>
 
     <nav>
 		<ul class="menu">
-			<li class="menu__item menu__item--all active">
-				<a href="/">{{>icons/tilesicon}}All projects</a>
+			<li class="menu__item menu__item--all {{#unless (eq title "Recent")}}{{#unless (eq title "Archive")}}{{#unless (eq title "Settings")}}active{{/unless}}{{/unless}}{{/unless}}">
+				<a href="/">{{> icons/tilesicon}}All projects</a>
 
 				{{#if this.recentProjectNames}}
                     <details>
-                        <summary>{{> icons/arrowup}}</summary>
+                        <summary><i class="icon icon--light fa-solid fa-chevron-up"></i></summary>
                         <ol>
                             {{#each this.recentProjectNames}}
                                 <li class="menu__item">
@@ -29,9 +30,9 @@
                     </details>
                 {{/if}}
 			</li>
-			<li class="menu__item"><a href="#">{{> icons/recent}}Recent</a></li>
-			<li class="menu__item"><a href="#">{{> icons/archive}}Archive</a></li>
-			<li class="menu__item">
+			<li class="menu__item {{#if (eq title "Recent")}}active{{/if}}"><a href="#">{{> icons/recent}}Recent</a></li>
+			<li class="menu__item {{#if (eq title "Archive")}}active{{/if}}"><a href="#">{{> icons/archive}}Archive</a></li>
+			<li class="menu__item {{#if (eq title "Settings")}}active{{/if}}">
 				<a href="/settings">{{> icons/settings}}Settings</a>
 
 				<div class="menu__item--profile">
@@ -43,32 +44,18 @@
 						</div>
 					</a>
 
-					<a href="/logout">{{> icons/login}}</a>
+					<a href="/logout"><i class="icon icon--light fa-solid fa-arrow-right-from-bracket"></i></a>
 				</div>
 			</li>
 		</ul>
     </nav>
 </aside>
 
-{{!-- <header class="nav nav--mobile">
-    {{! todo: if icoontje rechtsboven laad dit in }}
-	{{#if true}}
-		<a href="#" class="btn btn--nav" aria-label="open settings">
-			{{> icons/settings}}
-		</a>
-	{{/if}}
-
-    <section class="nav__title">
-        <p>Welcome, {{user.first_name}}</p>
-        <h1>{{title}}</h1>
-    </section> --}}
-
-
 <header class="nav nav--mobile">
 	<div class="container__icon">
 		{{#if (ne title 'Dashboard')}}
 			<a href="#" class="icon-back" aria-label="back to previous page">
-				{{>icons/arrowleft}}
+				<i class="icon fa-solid fa-chevron-left"></i>
 				<p>back</p>
 			</a>
 		{{/if}}
@@ -85,7 +72,7 @@
 			{{#if (eq title 'Dashboard')}}
 				<p>Welcome, {{user.first_name}}</p>
 			{{/if}}
-        	<h1>{{title}}</h1>
+        	<h1>{{#if title}}{{title}}{{else}}{{project.title}}{{/if}}</h1>
 		</div>
 
 		{{#if (eq title 'Settings')}}

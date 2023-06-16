@@ -78,6 +78,10 @@ main.layout__project-create {
 				display: none;
 			}
 
+			.project__level aside div a {
+				color: var(--light);
+			}
+
 			.layout__project-create .project__level input:first-of-type:checked ~ aside div:first-of-type,
 			.layout__project-create .project__level input:nth-of-type(2):checked ~ aside div:nth-of-type(2),
 			.layout__project-create .project__level input:last-of-type:checked ~ aside div:last-of-type {

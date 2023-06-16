@@ -1,3 +1,6 @@
+// prettier-ignore
+const illegalChars = [':','/','?','#','[',']','@','!','$','&',"'",'(',')','*','+',',',';','='];
+
 export default {
     divide: (a, b) => a / b,
     multiply: (a, b) => a * b,
@@ -9,9 +12,22 @@ export default {
 
     log: (value) => console.log(value),
 
+	length: (value) => value?.length,
+
     toUpperCase: (str) => str?.toUpperCase(),
     toLowerCase: (str) => str?.toLowerCase(),
+	capitalize: (str) => str?.charAt(0).toUpperCase() + str?.slice(1),
+
     spreadAttributes: (attributes) => attributes?.join(' '),
+
+	slugify: (str) => {
+		return str
+			.replace(/\s/g, '-')
+			.toLowerCase()
+			.split('')
+			.filter((char) => !illegalChars.includes(char))
+			.join('');
+	},
 
     concat: function (string, context) {
         const regex = /{{(.*?)}}/g; // Regular expression to match placeholders inside curly brackets

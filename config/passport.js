@@ -22,12 +22,13 @@ export default (passport) => {
         'local-signup',
         new LocalStrategy(
             {
-                usernameField: 'email',
+                usernameField: 'email_address',
                 passwordField: 'password',
                 passReqToCallback: true,
             },
             async (req, email_address, password, done) => {
                 try {
+                    console.log('hewoo');
                     const user = await userModel.getUserByEmail(email_address);
 
                     if (user) {

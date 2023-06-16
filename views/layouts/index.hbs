@@ -19,6 +19,11 @@
 
 	<body {{#unless noNav}}class="page-with-nav"{{/unless}}>
 		{{#unless noNav}}{{> navigation}}{{/unless}}
+
+		<div class="message message--system animate animate--slide {{#unless system_message}}hide{{/unless}}">
+			<p>{{system_message}}</p>
+		</div>
+
 		{{{body}}}
 	</body>
 </html>

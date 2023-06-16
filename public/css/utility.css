@@ -13,85 +13,86 @@ hr {
 }
 
 /* ---------------------------------- */
-/*            #BUTTON                 */
+/*            #BUTTON           	  */
 /* ---------------------------------- */
 
 button {
-	background-color: transparent;
-	border: none;
-	border-radius: 0;
-	padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.btn {    
+	appearance: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    padding: .625rem 1.25rem;
+	border: 2px solid var(--primary-color);
+    border-radius: var(--card-border-radius-mobile);
+	transition: all .2s ease-in-out;
+	
 	font-family: inherit;
 	font-size: inherit;
-	color: inherit;
-	cursor: pointer;
-	text-align: left;
-	width: 100%;
-  }
-  
-  .btn {    
-	  appearance: none;
-	  padding: .625rem 1.25rem;
-	  
-	  font-size: inherit;
-	  font-weight: 700;
-	  color: var(--light);
-	  text-decoration: none;
-	  text-align: center;
-	  
-	  border: 2px solid var(--primary-color);
-	  border-radius: 50rem;
-	  
-	  transition: all .2s ease-in-out;
-	  cursor: pointer;
-	  
-	  outline: none;
-	  background-color: var(--primary-color);
-  }
-  
-  .btn:hover,
-  .btn:focus-visible {
-	  background-color: var(--light);
-	  color: var(--primary-color);
-  }
-  
-  /* SECONDARY BUTTON */
-  .btn--secondary:hover,
-  .btn--secondary:focus-visible {
-	  background-color: var(--primary-color);
-	  color: var(--light);
-  }
-  
-  .btn--secondary:focus-visible {
-	  outline: solid 2px var(--primary-color);
-	  outline-offset: 1px;
-  }
-  
-  .btn--secondary {
-	  color: var(--primary-color);
-	  border-color: var(--primary-color);
-	  background-color: var(--light);
-  }
-  
-  /* NAV BUTTON */
-  .btn--nav {
-	  display: flex;
-			  
-	  height: 2.8rem;
-	  width: 2.8rem;
-	  
-	  padding: 3px;
-  
-	  background-color: var(--primary-color);
-	  border-radius: 50%;
-  }
-  
-	  .btn--nav svg {
-		  width: 100%;
-  
-		  stroke: var(--light);
-		  height: 100%;
-	  }
+	font-weight: 700;
+	color: var(--light);
+	text-decoration: none;
+	text-align: center;
+}
+@media screen and (min-width: 951px) {
+    .btn {
+		border-radius: 50rem;
+	}
+}
+
+.btn:hover,
+.btn:focus-visible {
+	background-color: var(--light);
+	color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+/* SECONDARY BUTTON */
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+	background-color: var(--primary-color);
+	color: var(--light);
+}
+
+.btn--secondary:focus-visible {
+	outline: solid 2px var(--primary-color);
+	outline-offset: 1px;
+}
+
+.btn--secondary {
+	color: var(--primary-color);
+	border-color: var(--primary-color);
+	background-color: var(--light);
+}
+
+/* NAV BUTTON */
+.btn--nav {
+	display: flex;
+			
+	height: 2.8rem;
+	width: 2.8rem;
+	
+	padding: 3px;
+
+	background-color: var(--primary-color);
+	border-radius: 50%;
+}
+
+	.btn--nav svg {
+		width: 100%;
+	}
+
 
 /* ---------------------------------- */
 /*            #LAYOUT           	  */
@@ -185,6 +186,16 @@ input[type="radio"]:checked::after {
 	content: '';
 }
 
+.label-hidden {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
 .required {
 	color: var(--primary-color);
 	font-weight: bold;
@@ -262,6 +273,19 @@ input[type="radio"]:checked::after {
 
 .progress[value]::-webkit-progress-value {
 	background-color: var(--primary-color);
+}
+
+/* if progress bar is 100% */
+.progress[value='100'] {
+	border: solid 2px var(--status-text-done);
+}
+
+.progress[value='100']::-moz-progress-bar {
+	background-color: var(--status-bg-done);
+}
+
+.progress[value='100']::-webkit-progress-value {
+	background-color: var(--status-bg-done);
 }
 
 /* ---------------------------------- */

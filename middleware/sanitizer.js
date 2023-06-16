@@ -33,10 +33,15 @@ const validationChecks = [
 ];
 
 // Define validation middleware function to handle errors
-const handleValidationErrors = (render) => (req, res, next) => {
+const handleValidationErrors = (render, extraParams) => (req, res, next) => {
   const errors = validationResult(req);
 
+  console.log(errors)
+
   if (!errors.isEmpty()) {
+
+    console.log('errors found');
+    console.log(errors);
 
     let errorFields = {};
 
@@ -44,8 +49,14 @@ const handleValidationErrors = (render) => (req, res, next) => {
         errorFields[`${error.path}-error`] = error.msg;
     });
 
+    if (extraParams) {
+      errorFields = {...errorFields, ...extraParams};
+    }
+    
     return res.render(render, errorFields);
   }
+
+  console.log('continue');
 
   next();
 };
