@@ -12,11 +12,11 @@
     }
 
     .checklist__sidebar .progress {
-        --progress-bar-height: .5rem;
-        max-width: 16rem;
+        --progress-bar-height: 1rem;
     }
     .checklist__sidebar .sidebar__infoicon {
         display: none;
+        cursor: pointer;
     }
         .checklist__sidebar .sidebar__infoicon svg path{
             stroke: var(--primary-color);
@@ -27,7 +27,6 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 16rem;
 }
 
 .sidebar__users {
@@ -82,6 +81,8 @@
     }
     .checklist__sidebar button.btn {
         margin-top: 0.75rem;
+        width: 100%;
+        max-width: 18.125rem;
     }
 
 @media screen and (max-width: 950px) {
@@ -94,8 +95,7 @@
         z-index: 1;
 
         background-color: var(--light);
-        padding-top: 2.438rem;
-        padding-left: 1.563rem;
+        padding: 2.438rem 1.563rem;
         right: -85vw;
     }
         .checklist__sidebar-active {
