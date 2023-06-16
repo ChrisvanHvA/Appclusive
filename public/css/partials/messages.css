@@ -1,0 +1,48 @@
+.message {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    background-color: pink;
+
+    padding: .75rem;
+
+    border-radius: .3rem;
+}
+
+.message.hide { display: none; }
+
+    .message p {
+        text-align: center;
+        margin: 0;
+    }
+
+.message--system {
+    position: absolute;
+    top: .75rem;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+
+    max-width: 50%;
+    width: auto;
+
+    z-index: 200;
+}
+
+.message.animate { transition: all 250ms ease-in-out; }
+
+.message.animate--slide {
+    /* play animation forwards, wait 2 seconds, play backwards */
+    animation: slideAnimation 500ms ease-in-out forwards, slideAnimation 250ms ease-in-out 2s reverse forwards;
+}
+
+@keyframes slideAnimation {
+    0% {
+        transform: translate(-50%, calc(-100% - .75rem));
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+    }
+}

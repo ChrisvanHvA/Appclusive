@@ -12,8 +12,24 @@ hr {
     max-width: 70rem;
 }
 
-/* ------------- #BUTTON ------------ */
-.btn {
+/* ---------------------------------- */
+/*            #BUTTON           	  */
+/* ---------------------------------- */
+
+button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.btn {    
 	appearance: none;
     cursor: pointer;
     background-color: var(--primary-color);

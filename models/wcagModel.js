@@ -7,6 +7,27 @@ class wcagModel {
      *
      * @returns list of WCAG categories
      */
+    async getWCAGCategory(wcag_id) {
+        try {
+            const [category] = await sql`
+                SELECT *
+                FROM wcag
+                WHERE wcag_id = ${wcag_id}
+            `;
+
+            return category || null;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
+
+    /**
+     *
+     * Async function to retrieve list of all WCAG categories
+     *
+     * @returns list of WCAG categories
+     */
     async listWCAGCategories() {
         try {
             const categories = await sql`

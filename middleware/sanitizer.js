@@ -38,6 +38,9 @@ const handleValidationErrors = (render) => (req, res, next) => {
 
   if (!errors.array().length) {
 
+    console.log('errors found');
+    console.log(errors);
+
     let errorFields = {};
 
     errors.array().forEach((error) => {
@@ -46,6 +49,8 @@ const handleValidationErrors = (render) => (req, res, next) => {
 
     return res.render(render, errorFields);
   }
+
+  console.log('continue');
 
   next();
 };
