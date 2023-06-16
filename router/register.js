@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 router.post(
     '/',
     validationChecks,
-    handleValidationErrors('register'),
+    handleValidationErrors('register',  {noNav: true}),
     passport.authenticate('local-signup', {
         successRedirect: '/',
         failureRedirect: '/register',
