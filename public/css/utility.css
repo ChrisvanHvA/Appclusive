@@ -128,9 +128,9 @@ textarea {
 	border: 2px solid var(--primary-text);
 	border-radius: 50rem;
 	
-	padding: .5rem .75rem;
+	padding: .75rem;
 	
-	font-size: 1.1rem;
+	font-size: 1rem;
 	font-family: inherit;
 	color: var(--primary-text);
 	

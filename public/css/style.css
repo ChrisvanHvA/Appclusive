@@ -81,3 +81,30 @@ body {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* ---------------------------------- */
+/*            #HEADING           	  */
+/* ---------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.1;
+
+  font-weight: 800;
+  color: var(--text-color);
+}
+
+p + p {
+  /* margin-top: 12px; */
+}
+
+h1 {
+	font-size: 1.75rem;
+}
+
+h2 {
+
+}
+
+h3 {
+	font-size: 1rem;
+}
