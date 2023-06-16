@@ -2,12 +2,12 @@ const projectId = document.querySelector('.hidden-project-id').value;
 const checkboxes = document.querySelectorAll('.checklist__checkbox');
 
 const init = () => {
-    const checklistItemsCheckboxes = document.querySelectorAll(
+    const checklistButtons = document.querySelectorAll(
         '[data-checklist-button]'
     );
 
-    checklistItemsCheckboxes.forEach((checkbox) => {
-        checkbox.addEventListener('click', submitHandler);
+    checklistButtons.forEach((button) => {
+        button.addEventListener('click', submitHandler);
     });
 };
 
