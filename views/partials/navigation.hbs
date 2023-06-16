@@ -4,11 +4,12 @@
 		<span class="bg-circle"></span>
 		<span class="bg-circle"></span>
 	</div> --}}
-    <a class="logo" href="#">{{> icons/logo}}</a>
+    <a class="logo" href="/" tabindex="-1">{{> icons/logo}}</a>
 
     <div class="searchbar">
         <button class="btn" type="submit"><i class="icon icon--dark fa-solid fa-magnifying-glass"></i></button>
-        <input type="text" placeholder="Search" />
+		<label for="search-projects-desktop" class="label-hidden">Search for a project</label>
+        <input id="search-projects-desktop" type="text" name="search_projects" placeholder="Search projects" />
     </div>
 
     <nav>
