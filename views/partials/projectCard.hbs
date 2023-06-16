@@ -5,7 +5,7 @@
                 <h3>{{this.title}}</h3>
                 <div class="status {{toLowerCase this.status}}">
 
-                    {{#if (eq this.completed_checklists 0)}}
+                    {{#if (eq (toLowerCase this.status) "new")}}
 						<i class="fa-solid fa-bolt"></i>
                     {{else if (eq (toLowerCase this.status) "wip")}}
 						<i class="fa-regular fa-hourglass-half"></i>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="header__members">
-                <p>7+</p>
+                <p>{{this.all_users.length}}</p>
                 <i class="icon fa-regular fa-user fa-lg"></i>
             </div>
         </header>
