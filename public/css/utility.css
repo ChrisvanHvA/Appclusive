@@ -251,6 +251,19 @@ input[type="radio"]:checked::after {
 	background-color: var(--primary-color);
 }
 
+/* if progress bar is 100% */
+.progress[value='100'] {
+	border: solid 2px var(--status-text-done);
+}
+
+.progress[value='100']::-moz-progress-bar {
+	background-color: var(--status-bg-done);
+}
+
+.progress[value='100']::-webkit-progress-value {
+	background-color: var(--status-bg-done);
+}
+
 /* ---------------------------------- */
 /*            #CIRCLES           	  */
 /* ---------------------------------- */
