@@ -46,6 +46,12 @@ export default {
 		return initials.toUpperCase();
 	},
 
+	calcProgress: (completed, total) => {
+		completed = Number(completed);
+		total = Number(total);
+		return Math.round((completed / total) * 100);
+	},
+
     // basically zorgt voor logical operator == !== || etc
     // <3 handlebars
     eq: function () {

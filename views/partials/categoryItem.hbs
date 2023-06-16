@@ -25,25 +25,13 @@
 
             <progress
                 class='progress'
-                value='{{round
-                    (multiply
-                        (divide completed_checklists all_checklists)
-                        100
-                    )
-                }}'
+                value='{{calcProgress completed_checklists all_checklists}}'
                 min='0'
                 max='100'
             ></progress>
 
             <div>
-                <p class='category__acc'>{{round
-                        (multiply
-                            (divide
-                                completed_checklists all_checklists
-                            )
-                            100
-                        )
-                    }}%<span>&nbsp;accessible</span></p>
+                <p class='category__acc'>{{calcProgress completed_checklists all_checklists}}%<span>&nbsp;accessible</span></p>
                 <p>{{completed_checklists}} / {{all_checklists}}</p>
             </div>
         </div>
