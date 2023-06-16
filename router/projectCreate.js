@@ -1,12 +1,12 @@
 import express from 'express';
 const router = express.Router();
 
-import ProjectController from '../controllers/projectController.js';
+import ProjectController from "../controllers/projectController.js";
 
 router.get('/', (req, res) => {
     res.render('projectCreate', {
         ...res.locals,
-        title: 'Create a new project'
+        title: 'Create a new project',
     });
 });
 
@@ -16,19 +16,13 @@ router.post('/', async (req, res) => {
     if (Object.keys(formErrors).length > 0) {
         return res.render('projectCreate', {
             ...res.locals,
-            formErrors
+            formErrors,
         });
     }
-
-    const { projectCreated, projectId } = await ProjectController.createProject(
-        req.body
-    );
+    
+    const projectCreated = await ProjectController.createProject(req.body);
     // TODO: render category page
-
-	if (projectCreated && projectId) {
-		return res.redirect(`/project/${projectId}/categories`);
-	}
-    return res.send('failed');
+    return projectCreated ? res.send('ok') : res.send('failed');
 });
 
 const validateForm = (formData) => {
