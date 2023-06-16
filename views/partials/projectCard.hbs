@@ -5,7 +5,7 @@
                 <h3>{{this.title}}</h3>
                 <div class="status {{toLowerCase this.status}}">
 
-                    {{#if (eq this.completed_checklists 0)}}
+                    {{#if (eq (toLowerCase this.status) "new")}}
 						<i class="fa-solid fa-bolt"></i>
                     {{else if (eq (toLowerCase this.status) "wip")}}
 						<i class="fa-regular fa-hourglass-half"></i>
