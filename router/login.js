@@ -2,11 +2,6 @@ import passport from 'passport';
 import express from 'express';
 const router = express.Router();
 
-import {
-    validationChecks,
-    handleValidationErrors
-} from '../middleware/sanitizer.js';
-
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
         return res.redirect('/settings');
