@@ -1,15 +1,40 @@
 .dialog {
-    width: 30rem;
-    background: var(--primary-bg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
+    width: clamp(5rem,100%,28rem);
     border: none;
     border-radius: var(--card-border-radius);
+    padding: 2rem;
 }
 
-.dialog::backdrop {
-    background: rgba(0, 0, 0, 0.5);
-}
+    .dialog > section {
+        width: 100%;
+        background: var(--primary-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+        .dialog > section > a {
+            align-self: start;
+        }
+
+    .dialog::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .dialog img {
+        width: clamp(5rem, 100%, 30rem);
+        max-height: 16rem;
+    }
+
+    .dialog .dialog__controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .dialog .dialog__controls button {
+        color: var(--tertiary-text);
+        font-weight: 700;
+    }

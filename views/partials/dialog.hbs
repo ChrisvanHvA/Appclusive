@@ -1,14 +1,26 @@
 <dialog class="dialog">
 
-    <h2>Title</h2>
+    {{!-- flex on the dialog itself breaks it, so we use an extra wrapper --}}
+    <section>
 
-    <img src="/images/illustration-wait.svg" alt="">
+        <h2>{{title}}</h2>
 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis veritatis enim, provident, nam cupiditate, dicta ipsam facilis commodi sint error nihil tenetur quidem sed ducimus aperiam odio molestiae voluptatum eos.</p>
+        {{#if image_url}}
+            <img src="{{image_url}}" alt="{{image_alt}}">
+        {{/if}}
 
-    <form method="dialog">
-        <button class="btn">OK</button>
-    </form>
+        {{{message}}}
+
+        <div class="dialog__controls">
+            <form method="dialog">
+                <button>Cancel</button>
+            </form>
+
+            <a href="{{button_href}}" class="btn">{{button}}</a>
+        </div>
+
+
+    </section>
 
 </dialog>
 

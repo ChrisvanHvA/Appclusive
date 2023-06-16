@@ -1,11 +1,16 @@
 const projectId = document.querySelector('.hidden-project-id').value;
 
 function submitHandler() {
-	console.log(projectId);
 
-    const dialog = document.querySelector('.dialog');
+    const levelDescriptionBtn = document.querySelector('.btn--acc');
 
-    dialog.showModal();
+    if (levelDescriptionBtn) {
+        levelDescriptionBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const dialog = document.querySelector('.dialog');
+            dialog.showModal();
+        });
+    }
 
     const checklistItemsCheckboxes = document.querySelectorAll(
         '[data-checklist-button]'
