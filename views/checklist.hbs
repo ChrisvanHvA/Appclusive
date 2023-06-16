@@ -9,7 +9,7 @@
         <ol>
             {{#each tasks}}
 				<li class="checklist__item">
-					{{> listItem pid=../projectInfo.project_id checklist=this}}
+					{{> listItem pid=../project.project_id checklist=this}}
 				</li>
             {{/each}}
         </ol>
