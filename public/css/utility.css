@@ -12,6 +12,10 @@ hr {
     max-width: 70rem;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* ---------------------------------- */
 /*            #BUTTON           	  */
 /* ---------------------------------- */
@@ -96,6 +100,10 @@ button {
 		height: 100%;
 	}
 
+.btn--login {
+	margin-top: 1.5rem;
+}
+
 /* ---------------------------------- */
 /*            #LAYOUT           	  */
 /* ---------------------------------- */
@@ -111,7 +119,7 @@ button {
         padding: 3.5rem 2.5rem;
     }
     
-        .layout h1 {
+        .layout:not(.layout__login) h1 {
             display: block;
             margin-bottom: 1rem;
         }
