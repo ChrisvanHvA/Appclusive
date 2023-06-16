@@ -48,11 +48,9 @@ router.get('/', async (req, res) => {
 
 router.post('/submit', async (req, res) => {
     
-    console.log(req.body);
     const jsonReturn = req.query.json;
 
     const updatedStatus = req.body.is_completed === 'true' ? false : true;   
-    console.log(updatedStatus);
     
     let updateChecklist = await ProjectChecklistModel.updateChecklistCompletion(
         req.body.wcag_item_id,
