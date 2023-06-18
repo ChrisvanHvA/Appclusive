@@ -1,6 +1,6 @@
 .nav--mobile {
 	width: 100%;
-	/* min-height: 10rem; */
+	min-height: 8rem;
 	padding: 2rem 1.5rem 1.5rem 1.5rem;
 	position: relative;
 	overflow: hidden;

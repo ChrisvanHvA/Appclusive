@@ -45,7 +45,7 @@
 		max-width: 13.25rem;
 	}
 	.project-cards li.card__item.allprojects-card a header h3 {
-		max-width: calc(100vw - 13.8rem);
+		max-width: calc(100vw - 12.8rem);
 	}
 
 	.project-cards li.card__item a header img {
@@ -65,7 +65,8 @@
 			justify-content: center;
 			gap: 0.4rem;
 			width: fit-content;
-			padding: 0.25rem .75rem;
+			padding: 0.2rem 0.7rem;
+			/* padding: 0.25rem .75rem; */
 			border-radius: 1.25rem;
 			font-weight: 700;
 			font-size: .85rem;
@@ -126,6 +127,9 @@
 		display: flex;
 		justify-content: space-between;
 		white-space: nowrap;
+
+		font-size: .9rem;
+		margin-top: .3rem;
 	}
 
 		.project-cards li.card__item.allprojects-card .projectCard__progress div > p:last-of-type {
@@ -133,6 +137,8 @@
 			color: var(--light);
 			background-color: var(--primary-color);
 			border-radius: 0.25rem;
+
+			font-size: .8rem;
 		}
 
 		.project-cards li.card__item.allprojects-card .projectCard__progress div > .icon {
@@ -156,6 +162,10 @@
 	font-weight: 700;
 	font-size: 1.125rem;
 	/* font-size: 1.25rem; */
+}
+
+.project-cards .card__item.admin-card .icon {
+	margin-right: .3rem;
 }
 
 @media screen and (min-width: 951px) {
