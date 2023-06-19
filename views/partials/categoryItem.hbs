@@ -1,21 +1,39 @@
-<li class="category__item">
-    <a href={{href}}>
-        <img src="/images/image.svg" alt="image icon">
-        <div class="category__item__content">
+<label
+    aria-label='Info about {{title}}'
+    class='category__item__info'
+    for='{{toLowerCase title}}flip'
+><i class='icon fa-regular fa-circle-question'></i></label>
+<input id='{{toLowerCase title}}flip' type='checkbox' />
+
+<a href='/project/{{projectId}}?category={{slugify title}}'>
+    <div class='category__item__back'>
+        <p>
+            {{#if short_description}}
+                {{short_description}}
+            {{else}}
+                {{description}}
+            {{/if}}
+        </p>
+    </div>
+    <div class='category__item__front'>
+        <i class='icon icon--alt {{icon_class}}'></i>
+        <div class='category__item__content'>
             <div>
-                <h2>Content</h2>
-                <img src="/images/nextArrow.svg" alt="next arrow">
+                <h2>{{title}}</h2>
+                <i class='icon fa-solid fa-chevron-right'></i>
             </div>
-            
-            <progress class="progress" value="33" min="0" max="100"></progress>
+
+            <progress
+                class='progress'
+                value='{{calcProgress completed_checklists all_checklists}}'
+                min='0'
+                max='100'
+            ></progress>
 
             <div>
-                <span>
-                    <p>33%</p>
-                    <p class="category__acc">accessible</p>
-                </span>
-                <p>1/3</p>
+                <p class='category__acc'>{{calcProgress completed_checklists all_checklists}}%<span>&nbsp;accessible</span></p>
+                <p>{{completed_checklists}} / {{all_checklists}}</p>
             </div>
         </div>
-    </a>
-</li>
+    </div>
+</a>

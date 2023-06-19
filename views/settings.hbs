@@ -1,0 +1,67 @@
+<main class="layout layout__settings">
+
+    {{>pageTitleHeader title=(concat "{{title}}") backBtn="/"}}
+    
+    <form class="settings" autocomplete="off">
+
+        <fieldset class="settings__item-email">
+            <legend>Email address</legend>
+
+            <div class="settings__item-input">
+                <input type="email" name="email_address" id="email_address" placeholder=" " value="{{user.email_address}}" />
+                <label for="email_address">Email address*</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="settings__item-name">
+            <legend>Full name</legend>
+
+            <div class="settings__item-input">
+                <input type="text" name="first_name" id="first_name" placeholder=" " value="{{user.first_name}}" />
+                <label for="first_name">First name*</label>
+            </div>
+
+            <div class="settings__item-input">
+                <input type="text" name="insertion" id="insertion" placeholder=" " value="{{user.insertion}}" />
+                <label for="insertion">Insertion</label>
+            </div>
+
+            <div class="settings__item-input">
+                <input type="text" name="surname" id="surname" placeholder=" " value="{{user.surname}}" />
+                <label for="surname">Surname*</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="settings__item-password">
+            <legend>Change password</legend>
+
+            <div class="settings__item-input">
+                <input type='password' name='oldpassword' id="oldpassword" placeholder=" " />
+                <label for="oldpassword">Current password</label>
+            </div>
+
+            <div class="settings__item-input">
+                <input type='password' name='newpassword' id="newpassword" placeholder=" " />
+                <label for="newpassword">New password</label>
+            </div>
+        </fieldset>
+
+        <fieldset class="settings__item-avatar">
+            <img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
+            <label>
+                {{>icons/pen}}
+                <input type="file" name="avatar" />
+            </label>
+        </fieldset>
+
+        <button type="submit" class="btn btn--alt">Save changes</button>
+
+    </form>
+
+</main>
+
+{{!-- <form action='/change-password' method='POST'>
+    <input type='password' placeholder='Current password' name='oldpassword' />
+    <input type='password' placeholder='New password' name='newpassword' />
+    <button type='submit'>Change Password</button>
+</form> --}}

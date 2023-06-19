@@ -15,35 +15,46 @@
         margin: 0 auto;
     }
         .layout__login form h2 {
-            font-size: 1.875rem;
-            margin-bottom: 3rem;
+            font-size: 1.5rem;
         }
         .form__section {
             display: flex;
             flex-direction: column;
         }
+        .form__section:first-of-type {
+            margin-top: 3rem;
+        }
         .form__section + .form__section {
             margin-top: 1.25rem;
         }
             .form__section label {
-                font-size: 1.125rem;
+                font-size: 1rem;
                 font-weight: 700;
             }
             .form__section label + input {
-                margin-top: 0.5rem;
+                margin-top: 0.25rem;
             }
             .form__section input {
                 font-size: 1rem;
                 padding: 0.75rem;
                 padding-left: 1.25rem;
-                border-radius: 6.25rem;
+                border-radius: var(--card-border-radius-mobile);
                 border: 0.125rem solid var(--dark);
+            }
+            @media screen and (min-width: 951px) {
+                .form__section input {
+                    border-radius: 6.25rem;
+                }
+            }
+            .form__section input::placeholder {
+                font-size: 0.875rem;
             }
         .login__forgot {
             text-decoration: none;
             text-align: right;
-            margin-top: 0.938rem;
+            margin-top: 2.5rem;
             font-weight: 700;
+            font-size: 0.875rem; 
             color: var(--primary-color);
         }
         .login__submit {
@@ -112,15 +123,17 @@
 
 
 
- @media screen and (min-width: 950px) {
+ @media screen and (min-width: 951px) {
     .layout__login{
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
+        padding: 0;
     }
         .login-aside{
             display: flex;
             justify-content: center;
+            align-items: center;
             height: 100%;
             background-color: var(--primary-color);
             position: relative;
@@ -162,13 +175,13 @@
                     top: -17.25rem;
                     left: 0;
                 }
-        .login__or{
+        .login__or {
             display: none;
         }
-        .login__signuptext{
-            margin-top: 1.125rem;
+        .login__signuptext {
+            margin-top: 0.25rem;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.875rem;
             display: block;
         }
 

@@ -2,22 +2,21 @@
 
     <section class="checklist">
         <div class="checklist__title">
-            <h3>Checklist</h3>
-            <p>0/4</p>
+			<h3>{{category}}</h3>
+            <p class="counter"><span class="completed-checks-counter">{{project.completed_checklists}}</span> / {{project.all_checklists}}</p>
         </div>
 
-
         <ol>
-            {{!-- for each task insert listItem and pass data --}}
             {{#each tasks}}
-                {{#each this.items}}
-                    {{> listItem this}}
-                {{/each}}
+				<li class="checklist__item">
+					{{> listItem pid=../project.project_id checklist=this}}
+				</li>
             {{/each}}
-
         </ol>
     </section>
 
-    {{>checklistSidebar}}
+    {{>checklistSidebar title=(concat "{{category}} progress") project=project}}
 
 </main>
+
+<input class="hidden-project-id" type="hidden" value="{{project.project_id}}">

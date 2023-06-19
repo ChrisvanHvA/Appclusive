@@ -10,6 +10,7 @@
 
 		<link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 		<link rel="stylesheet" href="/css/index.css">
+		<script src="https://kit.fontawesome.com/117f2851ed.js" crossorigin="anonymous"></script>
 
 		{{#each head.scripts}}
 			<script src="/js/{{this}}.js" type="module"></script>
@@ -18,6 +19,11 @@
 
 	<body {{#unless noNav}}class="page-with-nav"{{/unless}}>
 		{{#unless noNav}}{{> navigation}}{{/unless}}
+
+		<div class="message message--system animate animate--slide {{#unless system_message}}hide{{/unless}}">
+			<p>{{system_message}}</p>
+		</div>
+
 		{{{body}}}
 	</body>
 </html>

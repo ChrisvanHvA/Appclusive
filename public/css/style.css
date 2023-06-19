@@ -1,7 +1,9 @@
+/* ---------------------------------- */
+/*            #VARIABLES           	  */
+/* ---------------------------------- */
 :root {	
 	--light: #fff;
     --dark: #1e1e1e;
-	
 	
 	--primary-color: #044ECF;
 	
@@ -17,16 +19,29 @@
 	--nav-selected: #3393FF;
 	
     --create-project-card-bg: #E1ECFF; 
+
+	--icon: var(--primary-color);
+	--icon-alt: #002971;
 	
     --card-border-radius: 1.25rem;
+    --card-border-radius-mobile: 0.5rem;
     --card-border-color: #A1A1A1;
     --card-border-style: var(--card-border-color) solid 2px;
+	--card-border-color-style: var(--primary-color) solid 2px;
+	--card-border-style-alt: var(--primary-color) solid 2px;
+
+	--status-bg-new: #6FD3FE;
+	--status-bg-wip: #FFCA42;
+	--status-bg-done: #77E087;
+	--status-text-new: #002971;
+	--status-text-wip: #5B3100;
+	--status-text-done: #035C11;
+
+	--welcome-padding-vertical: 0.5rem;
 }
 
-/* dark mode variables */
-:root
-.dark 
-{
+/* ------------- #DARK MODE ------------ */
+:root .dark  {
 	--primary-color: #3393FF;
 	
 	--primary-bg: #040505;
@@ -37,9 +52,7 @@
 	--secondary-text: #989898;
 	--tertiary-text: var(--secondary-text);
 
-
     /* --create-project-card-bg: #001c4d;  */
-
 }
 
 /* turn on to debug weird margins and such */
@@ -49,10 +62,12 @@
 } */
 
 body {
-    font-family: 'Helvetica', 'Arial', sans-serif;
+	position: relative;
+    font-family: 'Arial', sans-serif;
     font-weight: 400;
     line-height: 140%;
 	color: var(--primary-text);
+
 	background-color: var(--primary-bg);
 }
 

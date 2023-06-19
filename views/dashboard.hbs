@@ -1,19 +1,60 @@
 
 <main class="layout layout__dashboard">
-	<h1>Hi, Anna!</h1>
+	{{>pageTitleHeader title=(concat "Hi, {{user.first_name}}!")}}
 
-	<ul class="cards project-cards">
-		{{!-- todo: check if user is admin (can create projects) --}}
-		{{#if true}}
-			<li class="card__item admin-card">
-				{{> projectCard null}}
-			</li>
-		{{/if}}
+	<section id="searchbar">
+		<form autocomplete="off">
+			<i class="icon fa-solid fa-magnifying-glass"></i>
+			<label for="search" class="label-hidden">Search for projects
+			</label>
+			<input
+				type="text"
+				placeholder="Search for projects..."
+				name="search_projects"
+				id="search"
+			/>
+		</form>
+	</section>
 
-		{{#each projects}}
-			<li class="card__item">
-				{{> projectCard this}}
-			{{/each}}
-			</li>
-	</ul>
+	{{#if true}}
+        {{!-- mobile create project card --}}
+        <ul class="cards project-cards">
+            <li class="card__item admin-card">
+                {{> projectCard null}}
+            </li>
+        </ul>
+    {{/if}}
+
+	<div>
+        <h3>Recently viewed</h3>
+        <label>
+            <input type="checkbox" name="overview" />
+            <p></p>
+        </label>
+    </div>
+    
+    <ul class="cards project-cards cards-category__recent">
+        {{#each projects}}
+            <li class="card__item">
+                {{> projectCard this}}
+            </li>
+        {{/each}}
+    </ul>
+
+    <div>
+        <h3>All projects</h3>
+    </div>
+
+    <ul class="cards project-cards">
+        {{!-- desktop create project card --}}
+		<li class="card__item admin-card">
+			{{> projectCard null}}
+		</li>
+
+        {{#each projects}}
+            <li class="card__item allprojects-card">
+                {{> projectCard this}}
+            </li>
+        {{/each}}
+    </ul>
 </main>

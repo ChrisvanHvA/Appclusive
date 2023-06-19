@@ -1,37 +1,89 @@
 main.layout__project-create {
 	width: min(90%, 25rem);
+	margin-top: 5rem;
 }
 
-.layout__project-create form {
-	display: flex;
-	flex-direction: column;
-}
+	main.layout__project-create h1 {
+		margin-bottom: 2rem;
+	}
 
-.layout__project-create form label {
-	font-size: 1.125rem;
-	font-weight: 700;
-	margin-bottom: 0.25rem;
-}
+	.layout__project-create form {
+		display: flex;
+		flex-direction: column;
+	}
 
-.layout__project-create form label + * {
-	margin-bottom: 1.25rem;
-}
+		.layout__project-create form .formerror {
+			display: block;
+		}
 
-.layout__project-create form div {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-}
+		.layout__project-create form label,
+		.layout__project-create form fieldset legend {
+			font-size: 1.125rem;
+			font-weight: 700;
+			margin-bottom: 0.25rem;
+		}
 
-.layout__project-create form div small {
-	position: absolute;
-	bottom: -.2rem;
-	right: 0;
-	color: var(--tertiary-text);
-}
+		.layout__project-create fieldset,
+		.layout__project-create label + input,
+		.layout__project-create label + textarea {
+			margin-bottom: 1.25rem;
+		}
 
-.layout__project-create form textarea {
-	resize: none;
-	height: 5rem;
-	border-radius: 0.8rem;
-}
+		.layout__project-create form > div {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+		}
+
+			.layout__project-create form div small {
+				position: absolute;
+				bottom: -.2rem;
+				right: 0;
+				color: var(--tertiary-text);
+			}
+
+		.layout__project-create form textarea {
+			resize: none;
+			height: 5rem;
+			border-radius: 0.8rem;
+		}
+
+		.project__level {
+			margin-top: 1rem;
+		}
+
+		.project__level section {
+			display: flex;
+			flex-wrap: wrap;
+			row-gap: 0.5rem;
+		}
+
+			.project__level section input {
+				margin: -.25rem .5rem 0 2rem;
+			}
+
+			.project__level section input:first-of-type {
+				margin: -.25rem 0.5rem 0 0;
+			}
+
+			.project__level section aside {
+				flex-basis: 100%;
+				background-color: var(--primary-color);
+				color: var(--light);
+				padding: 1.25rem;
+				border-radius: 0.625rem;
+			}
+
+			.project__level aside div {
+				display: none;
+			}
+
+			.project__level aside div a {
+				color: var(--light);
+			}
+
+			.layout__project-create .project__level input:first-of-type:checked ~ aside div:first-of-type,
+			.layout__project-create .project__level input:nth-of-type(2):checked ~ aside div:nth-of-type(2),
+			.layout__project-create .project__level input:last-of-type:checked ~ aside div:last-of-type {
+				display: block;
+			}

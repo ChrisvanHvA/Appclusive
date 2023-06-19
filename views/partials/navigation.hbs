@@ -1,56 +1,89 @@
-<aside class="desktop-nav">
-    <a class="logo" href="#">{{>icons/logo}}</a>
+<aside class="nav nav--desktop">
+	{{!-- <div class="desktopCircles">
+		<span class="bg-circle"></span>
+		<span class="bg-circle"></span>
+		<span class="bg-circle"></span>
+	</div> --}}
+    <a class="logo" href="/" tabindex="-1">{{> icons/logo}}</a>
 
     <div class="searchbar">
-        <button class="searchbar__button" type="submit">{{>icons/search}}</button>
-        <input class="searchbar__input" type="text" placeholder="Zoeken" />
+        <button class="btn" type="submit"><i class="icon icon--dark fa-solid fa-magnifying-glass"></i></button>
+		<label for="search-projects-desktop" class="label-hidden">Search for a project</label>
+        <input id="search-projects-desktop" type="text" name="search_projects" placeholder="Search projects" />
     </div>
 
     <nav>
-		<ul>
-			<li class="all-projects active">
-				<a href="/">{{>icons/tilesicon}}All projects</a>
+		<ul class="menu">
+			<li class="menu__item menu__item--all {{#unless (eq title "Recent")}}{{#unless (eq title "Archive")}}{{#unless (eq title "Settings")}}active{{/unless}}{{/unless}}{{/unless}}">
+				<a href="/">{{> icons/tilesicon}}All projects</a>
 
-				<details>
-					<summary>{{> icons/arrowup}}</summary>
-					<ol>
-						<li class="active"><a href="#">Project 1</a></li>
-						<li><a href="#">Project 2</a></li>
-						<li><a href="#">Project 3</a></li>
-					</ol>
-				</details>
+				{{#if this.recentProjectNames}}
+                    <details>
+                        <summary><i class="icon icon--light fa-solid fa-chevron-up"></i></summary>
+                        <ol>
+                            {{#each this.recentProjectNames}}
+                                <li class="menu__item">
+                                    <a href="/project/{{this.project_id}}/categories">{{this.title}}</a>
+                                </li>
+                            {{/each}}
+                        </ol>
+                    </details>
+                {{/if}}
 			</li>
-			<li><a href="#">{{> icons/recent}}Recent</a></li>
-			<li><a href="#">{{> icons/archive}}Archive</a></li>
+			<li class="menu__item {{#if (eq title "Recent")}}active{{/if}}"><a href="#">{{> icons/recent}}Recent</a></li>
+			<li class="menu__item {{#if (eq title "Archive")}}active{{/if}}"><a href="#">{{> icons/archive}}Archive</a></li>
+			<li class="menu__item {{#if (eq title "Settings")}}active{{/if}}">
+				<a href="/settings">{{> icons/settings}}Settings</a>
 
-			<li><a href="#">{{> icons/settings}}Settings</a></li>
-			<li>
-				<a href="#">
-                    <img src="https://unsplash.it/40/40" />
-                    <div>
-                    	<p>Sofia</p>
-                    	<p>sofia@gmail.com</p>
-                    </div>
-                </a>
-				<a href="/logout">{{> icons/login}}</a>
+				<div class="menu__item--profile">
+					<a href="/settings">
+						<img src="https://unsplash.it/40/40" />
+						<div>
+							<p>{{user.first_name}}</p>
+							<p>{{user.email_address}}</p>
+						</div>
+					</a>
+
+					<a href="/logout"><i class="icon icon--light fa-solid fa-arrow-right-from-bracket"></i></a>
+				</div>
 			</li>
 		</ul>
     </nav>
 </aside>
 
-<header class="mobile-nav">
-    <div>
-    {{! todo: if icoontje rechtsboven laad dit in }}
-        {{#if true}}
-            <a href="" aria-label="open settings">
-				{{> icons/settings}}
+<header class="nav nav--mobile">
+	<div class="container__icon">
+		{{#if (ne title 'Dashboard')}}
+			<a href="#" class="icon-back" aria-label="back to previous page">
+				<i class="icon fa-solid fa-chevron-left"></i>
+				<p>back</p>
 			</a>
-        {{/if}}
-    </div>
+		{{/if}}
 
-    <div>
-        <p>Welcome, Pis</p>
-        <h1>Dashboard</h1>
+		{{#if (ne title 'Settings')}}
+			<a href="/settings" class="btn btn--nav" aria-label="open settings">
+				{{>icons/settings}}
+			</a>
+		{{/if}}
+	</div>
+
+    <div class="container__content">
+		<div class="content-header">
+			{{#if (eq title 'Dashboard')}}
+				<p>Welcome, {{user.first_name}}</p>
+			{{/if}}
+        	<h1>{{#if title}}{{title}}{{else}}{{project.title}}{{/if}}</h1>
+		</div>
+
+		{{#if (eq title 'Settings')}}
+			<form class="content-avatar">
+				<img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
+				<label>
+					{{>icons/pen}}
+					<input type="file" name="avatar" />
+				</label>
+			</form>
+		{{/if}}
     </div>
 	
 	{{!-- decorative spans --}}

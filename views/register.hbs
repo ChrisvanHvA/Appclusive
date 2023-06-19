@@ -1,6 +1,6 @@
 <main>
     <h1>Register</h1>
-    <form action="/register" method="POST" id="registerForm">
+    <form method="POST" id="registerForm">
 
         <fieldset>
             <label for="first_name">First Name</label>
@@ -12,6 +12,7 @@
                 data-input-type="first_name"
                 required
             />
+            <label class="error {{#unless first_name-error.length}}hide{{/unless}}">{{first_name-error}}</label>
         </fieldset>
 
         <fieldset>
@@ -35,20 +36,22 @@
                 data-input-type="surname"
                 required
             />
+            <label class="error {{#unless surname-error.length}}hide{{/unless}}">{{surname-error}}</label>
         </fieldset>
 
         <fieldset>
-            <label for="email"></label>
+            <label for="email_address"></label>
             <input
                 type="email"
-                name="email"
-                id="email"
+                name="email_address"
+                id="email_address"
                 placeholder="Email"
                 autocapitalize="off"
                 pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                data-input-type="email"
+                data-input-type="email_address"
                 required
             />
+            <label class="error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
         </fieldset>
 
         <fieldset>
@@ -62,6 +65,7 @@
                 data-input-type="password"
                 required
             />
+            <label class="error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
         </fieldset>
 
         <fieldset>
@@ -75,13 +79,11 @@
                 data-input-type="confirm_password"
                 required
             />
+            <label class="error {{#unless confirm_password-error.length}}hide{{/unless}}">{{confirm_password-error}}</label>
         </fieldset>
 
         <input type="submit" value="Register" />
 
         <a href="/login">Login</a>
     </form>
-    {{#if message.length}}
-        <p>{{message}}</p>
-    {{/if}}
 </main>

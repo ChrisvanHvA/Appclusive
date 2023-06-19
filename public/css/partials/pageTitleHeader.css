@@ -1,0 +1,25 @@
+.page-title {
+    grid-column: 1 / -1;
+}
+
+    .page-title__subtitle {
+        padding: 0.3125rem var(--welcome-padding-vertical);
+        background-color: var(--primary-color);
+        width: fit-content;
+        border-radius: 5px;
+        text-transform: uppercase;
+        color: var(--light);
+        margin-bottom: 1rem;
+    }
+
+    .page-title svg {
+        color: var(--dark);
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+@media screen and (max-width: 950px) {
+    .page-title {
+        display: none;
+    }
+}

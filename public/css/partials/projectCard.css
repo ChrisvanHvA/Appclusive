@@ -3,95 +3,143 @@
 	--card-max-width: 31.25rem;
 }
 
+.project-cards li.card__item.allprojects-card a {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+	.project-cards li.card__item.allprojects-card a header {
+		margin-bottom: 0;
+	}
+
+		.project-cards li.card__item.allprojects-card a header > div {
+			flex-direction: row-reverse;
+			align-items: center;
+		}
+
 .project-cards li.card__item a {
 	display: block;
 	height: 100%;
 	width: 100%;
-	background-color: var(--secondary-bg);
+	min-width: 15.5rem;
+	background-color: var(--light);
 	color: inherit;
 	text-decoration: none;
-	padding: 1.55rem 1.875rem;
-	border-radius: var(--card-border-radius);
-	border: var(--card-border-style);
+	padding: 1rem;
+	border-radius: var(--card-border-radius-mobile);
+	border: var(--card-border-color-style);
 }
 
 .project-cards li.card__item a header {
 	display: flex;
-	gap: .5rem;
+	justify-content: space-between;
+	margin-bottom: 1rem;
 }
 
+	.project-cards li.card__item a header h3 {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		max-width: 13.25rem;
+	}
+	.project-cards li.card__item.allprojects-card a header h3 {
+		max-width: calc(100vw - 13.8rem);
+	}
+
 	.project-cards li.card__item a header img {
-		border-radius: 50%;
-		height: 3rem;
+		display: none;
 	}
 
 	.project-cards li.card__item a header > div {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		gap: .2rem;
+		gap: 0.4rem;
 	}
 
 		.project-cards li.card__item div.status {
 			display: flex;
 			align-items: center;
-			gap: .2rem;
-			color: var(--tertiary-text);
+			justify-content: center;
+			gap: 0.2rem;
+			width: fit-content;
+			padding: 0.25rem 0.5rem;
+			border-radius: 1.25rem;
+			font-weight: 700;
+		}
+		.project-cards li.card__item div.status.new {
+			color: var(--status-text-new);
+			background-color: var(--status-bg-new);
+		}
+		.project-cards li.card__item div.status.wip {
+			color: var(--status-text-wip);
+			background-color: var(--status-bg-wip);
+		}
+		.project-cards li.card__item div.status.done {
+			color: var(--status-text-done);
+			background-color: var(--status-bg-done);
 		}
 
-			.project-cards li.card__item div.status svg {
-				height: 1.125rem;
-				stroke: currentColor;
+		.project-cards li.card__item.allprojects-card div.status {
+			min-width: 1.625rem;
+			min-height: 1.625rem;
+			padding: 0.25rem;
+		}
+
+			.project-cards li.card__item.allprojects-card div.status p {
+				display: none;
 			}
 
-		.project-cards li.card__item div.status.new {
-			color: var(--primary-color);
-		}
+			.project-cards li.card__item div.status .icon {
+				margin: auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 1.125rem;
+			}
 
-/* ---------------------------------- */
-/*       section with extra info      */
-/* ---------------------------------- */
-.project-cards li.card__item a section.project-data {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	height: 3rem;
-	margin: 1rem 0;
-}
-
-.project-cards li.card__item a section.project-data div {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-	.project-cards li.card__item a section.project-data div h4 {
-		font-weight: normal;
-		color: var(--tertiary-text);
+	.project-cards li.card__item a header > div.header__members {
+		display: none;
 	}
-
-
-	.project-cards li.card__item a section.project-data div.team-members span {
-		display: flex;
-		gap: .4rem;
-	}
-
-		.project-cards li.card__item a section.project-data div.team-members span img {
-			border-radius: 50%;
-			height: 1.5rem;
-			border: 2px solid var(--primary-text);
-		}
-
 
 .projectCard__progress {
 	color: var(--tertiary-text);
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 0.2rem;
 }
 
-.projectCard__progress progress {
-	--progress-bar-height: 1.5rem;
-}
+	.projectCard__progress progress {
+		--progress-bar-height: 1.5rem;
+	}
+
+	.project-cards li.card__item.allprojects-card .projectCard__progress progress,
+	.project-cards li.card__item.allprojects-card .projectCard__progress div > p:first-of-type,
+	.project-cards li.card__item .projectCard__progress div > .icon {
+		display: none;
+	}
+
+	.projectCard__progress div {
+		display: flex;
+		justify-content: space-between;
+		white-space: nowrap;
+	}
+
+		.project-cards li.card__item.allprojects-card .projectCard__progress div > p:last-of-type {
+			padding: 0 0.375rem;
+			color: var(--light);
+			background-color: var(--primary-color);
+			border-radius: 0.25rem;
+		}
+
+		.project-cards li.card__item.allprojects-card .projectCard__progress div > .icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 1.25rem;
+			margin-left: 0.5rem;
+		}
 
 /* ---------------------------------- */
 /*   styles for create project card   */
@@ -103,6 +151,86 @@
 	justify-content: center;
 	align-items: center;
 	color: var(--primary-color);
-	font-weight: bold;
-	font-size: 1.5rem;
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+
+@media screen and (min-width: 951px) {
+	.project-cards li.card__item a {
+		padding: 1.55rem 1.875rem;
+		border-radius: var(--card-border-radius);
+	}
+	.project-cards li.card__item.admin-card a {
+		font-size: 1.5rem;
+	}
+	.project-cards li.card__item a header img {
+		display: inline-block;
+		border-radius: 50%;
+		height: 3.5rem;
+	}
+
+	.project-cards li.card__item.allprojects-card a header h3 {
+		max-width: 23.875rem;
+	}
+
+	.project-cards li.card__item a header > div {
+		gap: 0.2rem;
+	}
+
+	.project-cards li.card__item.allprojects-card div.status {
+		padding: 0.25rem 0.5rem;
+	}
+
+		.project-cards li.card__item.allprojects-card div.status p {
+			display: inline-block;
+		}
+
+	.projectCard__progress {
+		gap: 1rem;
+	}
+
+	.project-cards li.card__item.allprojects-card a {
+		display: block;
+	}
+	
+		.project-cards li.card__item.allprojects-card a header {
+			margin-bottom: 1rem;
+		}
+	
+			.project-cards li.card__item.allprojects-card a header .header__title {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.4rem;
+			}
+
+			.project-cards li.card__item.allprojects-card a header .header__members {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 0.25rem;
+				height: fit-content;
+				font-weight: 700;
+				color: var(--primary-color);
+			}
+
+	.projectCard__progress {
+		margin-top: 1rem;
+	}
+
+	.project-cards li.card__item.allprojects-card .projectCard__progress progress {
+		display: block;
+	}
+
+	.project-cards li.card__item.allprojects-card .projectCard__progress div > p:first-of-type {
+		display: inline;
+	}
+
+	.project-cards li.card__item.allprojects-card .projectCard__progress div > p:last-of-type {
+		padding: 0;
+		color: var(--tertiary-text);
+		background-color: transparent;
+	}
+	.project-cards li.card__item.allprojects-card .projectCard__progress div > .icon {
+		display: none;
+	}
 }

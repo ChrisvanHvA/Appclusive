@@ -1,0 +1,13 @@
+<header class="page-title">
+    
+    {{#if subtitle}}
+        <p class="page-title__subtitle">{{ subtitle }}</p>
+    {{/if}}
+
+    <h1>
+        {{#if backBtn}}
+            <a href="{{backBtn}}" aria-label="back">{{> icons/arrowleft}}</a>
+        {{/if}}
+        {{ title }}
+	</h1>
+</header>

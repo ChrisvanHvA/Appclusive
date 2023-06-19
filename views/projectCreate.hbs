@@ -1,31 +1,63 @@
 <main class="layout layout__project-create">
     <h1>New project</h1>
 
-    <form action="">
-        <label for="project_title">Project title</label>
+    <form action="/new-project" method="post" novalidate>
+        <label for="title">Project title <span class="required">*</span>
+		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
+		</label>
         <input
             class="textinput"
             type="text"
-            name="project_title"
-            id="project_title"
+            name="title"
+            id="title"
             placeholder="What is the project&#39;s title?"
+			required
         />
 
         <div>
 
-            <label for="project_description">Project description</label>
+            <label for="description">Project description</label>
             <textarea
                 class="textinput"
-                name="project_description"
-                id="project_description"
+                name="description"
+                id="description"
                 placeholder="What is the project about?"
-				maxlength="500"
+                maxlength="500"
             ></textarea>
             <small class="description-char-counter"></small>
         </div>
 
-        {{! <label for="project_assignees">Who will be working on this project?</label>
-        <input type="text" name="project_assignees" id="project_assignees" /> }}
+        <fieldset class="project__level">
+            <legend>What level of accessibility should be applied? <span class="required">*</span>
+			<span class="formerror">{{#if formErrors.level}}An accessibility level is required{{/if}}</span>
+			</legend>
+
+            <section>
+                <input type="radio" id="a" name="level" value="A" required />
+                <label for="a">A</label>
+
+                <input type="radio" id="aa" name="level" value="AA" checked required />
+                <label for="aa">AA</label>
+
+                <input type="radio" id="aaa" name="level" value="AAA" required />
+                <label for="aaa">AAA</label>
+
+                <aside>
+                    <div>
+                        <h3>Level A: Essential</h3>
+                        <p>If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</p>
+                    </div>
+                    <div>
+                        <h3>Level AA: Ideal Support</h3>
+                        <p>Required for <a href="https://www.w3.org/WAI/policies/">multiple government and public body websites</a>. 'Appclusive' strives for AA compliance.</p>
+                    </div>
+                    <div>
+                        <h3>Level AAA: Specialized Support</h3>
+                        <p>This is typically reserved for parts of websites and web apps that serve a specialized audience.</p>
+                    </div>
+                </aside>
+            </section>
+        </fieldset>
 
         <button class="btn">Create</button>
     </form>

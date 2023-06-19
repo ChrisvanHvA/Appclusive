@@ -1,4 +1,4 @@
-<main class="layout layout__login">
+<main class="layout__login">
 
     {{#if message.length}}
     <p>{{message}}</p>
@@ -8,22 +8,24 @@
         <h2>Welcome back!</h2>
 
         <fieldset class="form__section">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Enter your email" autocapitalize="off"
+            <label for="email_address">Email</label>
+            <input type="email" name="email_address" id="email_address" placeholder="Enter your email" autocapitalize="off"
                 pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required />
+            <label class="error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
         </fieldset>
 
         <fieldset class="form__section">
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="Enter your password" required />
+            <label class="error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
         </fieldset>
 
-        <a class="login__forgot" href="#">Forgot password?</a>
+        <a class="login__forgot" href="/forgot-password">Forgot password?</a>
 
-        <button class="btn btn--alt" type="submit">Login</button>
+        <button class="btn" type="submit">Login</button>
         <p class="login__or">or</p>
         <p class="login__signuptext">Don't have an account? <a href="/register">Register here</a></p>
-        <a href="/register" class="btn">Sign up</a>
+        <a href="/register" class="btn btn--secondary">Sign up</a>
     </form>
 
     <section class="login-aside">

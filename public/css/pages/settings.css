@@ -1,0 +1,125 @@
+.settings > * + * {
+    margin-top: 2.5rem;
+}
+
+.settings button[type="submit"] {
+    display: block;
+    margin: 2.5rem 0 0 auto;
+}
+
+.settings fieldset + fieldset {
+    margin-top: 2.5rem;
+}
+
+.settings legend {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--tertiary-text);
+}
+
+.settings .settings__item-avatar {
+    display: none;
+}
+
+.settings__item-input {
+    position: relative;
+}
+.settings__item-input + .settings__item-input {
+    margin-top: 0.75rem;
+}
+
+    .settings__item-input input {
+        width: 100%;
+        padding-top: 1.4rem;
+        padding-bottom: 0.35rem;
+        border-color: var(--primary-color);
+        border-radius: var(--card-border-radius-mobile);
+    }
+
+    .settings__item-input label {
+        position: absolute;
+        top: 50%;
+        left: calc(0.75rem + 2px); /* padding + border */
+        transform: translateY(-50%);
+    }
+
+    .settings__item-input input:focus ~ label,
+    .settings__item-input input:not(:placeholder-shown) ~ label {
+        top: 1rem;
+        font-size: 0.875rem;
+    }
+
+    .settings__item-input input[type="email"]:focus,
+    .settings__item-input input[type="email"]:not(:placeholder-shown) {
+        padding-top: 0.85rem ;
+        padding-bottom: 0.85rem;
+    }
+
+    .settings__item-input input[type="email"]:focus ~ label,
+    .settings__item-input input[type="email"]:not(:placeholder-shown) ~ label {
+        visibility: hidden;
+    }
+
+@media screen and (min-width: 951px) {
+    .layout__settings {
+        padding-top: 2.5rem;
+    }
+    
+    .settings {
+        display: grid;
+        grid-template-columns: 1fr auto;
+    }
+
+        .settings button[type="submit"] {
+            grid-column: 1 / 3;
+            margin: 2.5rem auto 0 0;
+        }
+
+        .settings .settings__item-email,
+        .settings .settings__item-name,
+        .settings .settings__item-password	{
+            grid-column: 1 / 2;
+        }
+
+        .settings .settings__item-avatar {
+            position: relative;
+            display: block;
+            grid-column: 2 / 3;
+            grid-row: -1 / 4;
+            align-self: flex-start;
+            margin: 0 0 0 8rem;
+        }       
+
+            .settings .settings__item-avatar img {
+                width: 12rem;
+                height: 12rem;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            
+            .settings .settings__item-avatar input[type="file"] {
+                display: none;
+            }
+
+            .settings .settings__item-avatar label {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 3rem;
+                height: 3rem;
+                padding: calc(1.25rem / 2);
+                background-color: var(--primary-color);
+                border-radius: 50%;
+                cursor: pointer;
+            }
+    
+                .settings .settings__item-avatar label svg {
+                    width: 1.75rem;
+                    height: 1.75rem;
+                    stroke: var(--light);
+                    stroke-width: 2;
+                }
+
+}
