@@ -119,10 +119,20 @@ button {
         padding: 3.5rem 2.5rem;
     }
     
-        .layout:not(.layout__login) h1 {
-            display: block;
-            margin-bottom: 1rem;
-        }
+	.layout:not(.layout__login) .page-title div {
+		display: flex;
+		align-items: center;
+		gap: .5rem;
+	}
+
+	.layout:not(.layout__login) .page-title p.page-title__subtitle {
+		margin: 0;
+	}
+
+	.layout:not(.layout__login) .page-title h1 {
+		display: inline-block;
+	}
+
 }
 
 /* ---------------------------------- */

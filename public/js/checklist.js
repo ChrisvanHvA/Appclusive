@@ -10,17 +10,17 @@ const init = () => {
         button.remove();
     });
 
-	checkboxes.forEach((checkbox) => {
-		checkbox.addEventListener('change', submitHandler);
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', submitHandler);
 
-		// zorgt ervoor dat enter keydown ook werkt op firefox
-		checkbox.addEventListener('keydown', (e) => {
-			if (e.key === 'Enter') {
-				e.preventDefault();
-				submitHandler(e);
-			}
-		});
-	});
+        // zorgt ervoor dat enter keydown ook werkt op firefox
+        checkbox.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                submitHandler(e);
+            }
+        });
+    });
 };
 
 const submitHandler = async (e) => {
@@ -28,9 +28,7 @@ const submitHandler = async (e) => {
 
     const formElement = e.currentTarget.closest('form');
 
-    const wcagItemId = formElement.querySelector(
-        'input[name="wcag_item_id"]'
-    );
+    const wcagItemId = formElement.querySelector('input[name="wcag_item_id"]');
     let isCompleted = formElement.querySelector('input[name="is_completed"]');
     const parentId = formElement.querySelector('input[name="parent_id"]');
 
@@ -74,8 +72,8 @@ const submitHandler = async (e) => {
 
 const progressBar = document.querySelector('.checklist__sidebar .progress');
 const percentageSpan = document.querySelector('.sidebar__progress > h3 > span');
-const completedChecksSpans = document.querySelectorAll(
-    '.completed-checks-counter'
+const completedChecksText = document.querySelectorAll(
+    '.completed-checks-counter, .page-title > div > p.page-title__subtitle'
 );
 
 const updateProgress = () => {
@@ -88,8 +86,8 @@ const updateProgress = () => {
     );
 
     percentageSpan.textContent = `${percentage}`;
-    completedChecksSpans.forEach((completedChecksSpan) => {
-        completedChecksSpan.textContent = `${checkedCheckboxes.length}`;
+    completedChecksText.forEach((completedChecksSpan) => {
+        completedChecksSpan.textContent = `${checkedCheckboxes.length} / ${checkboxes.length}`;
     });
     progressBar.setAttribute('value', percentage);
 };

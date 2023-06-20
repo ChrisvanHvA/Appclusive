@@ -4,10 +4,15 @@
         <p class="page-title__subtitle">{{ subtitle }}</p>
     {{/if}}
 
-    <h1>
-        {{#if backBtn}}
-            <a href="{{backBtn}}" aria-label="back">{{> icons/arrowleft}}</a>
-        {{/if}}
-        {{ title }}
-	</h1>
+	<div>
+		{{#if backBtn}}
+			<a href="{{backBtn}}" aria-label="back">{{> icons/arrowleft}}</a>
+		{{/if}}
+
+		<h1>{{ title }}</h1>
+
+		{{#if horizontalTitle}}
+			<p class="page-title__subtitle">{{horizontalTitle}}</p>
+		{{/if}}
+	</div>
 </header>

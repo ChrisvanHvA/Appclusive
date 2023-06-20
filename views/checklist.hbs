@@ -1,11 +1,8 @@
 <main class="layout layout__checklist">
 
-    <section class="checklist">
-        <div class="checklist__title">
-			<h3>{{category}}</h3>
-            <p class="counter"><span class="completed-checks-counter">{{project.completed_checklists}}</span> / {{project.all_checklists}}</p>
-        </div>
+	{{>pageTitleHeader title=category backBtn=(concat "/project/{{project.project_id}}/categories") horizontalTitle=(concat "{{project.completed_checklists}} / {{project.all_checklists}}") }}
 
+    <section class="checklist">
         <ol>
             {{#each tasks}}
 				<li class="checklist__item">
