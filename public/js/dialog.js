@@ -1,3 +1,11 @@
-const dialog = document.querySelector('.dialog');
+const levelDescriptionBtn = document.querySelector('.btn--acc');
 
-dialog.showModal();
+if (levelDescriptionBtn) {
+    levelDescriptionBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dialog = document.querySelector('.dialog');
+        dialog.showModal();
+    });
+}
+
+const dialogs = document.querySelectorAll('.dialog');

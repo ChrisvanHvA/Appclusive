@@ -2,16 +2,6 @@ const projectId = document.querySelector('.hidden-project-id').value;
 
 function submitHandler() {
 
-    const levelDescriptionBtn = document.querySelector('.btn--acc');
-
-    if (levelDescriptionBtn) {
-        levelDescriptionBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const dialog = document.querySelector('.dialog');
-            dialog.showModal();
-        });
-    }
-
     const checklistItemsCheckboxes = document.querySelectorAll(
         '[data-checklist-button]'
     );

@@ -22,12 +22,12 @@ const data = {
     '/project/:projectId': {
         title: 'Checklist',
         description: '',
-        scripts: ['checklist', 'projectinfo'],
+        scripts: ['checklist', 'projectinfo', 'dialog'],
     },
     '/project/:projectId/categories': {
 		title: 'Categories',
 		description: '',
-		scripts: ['categories', 'projectinfo']
+		scripts: ['categories', 'projectinfo', 'dialog']
 	},
     '/login': {
         title: 'Login',

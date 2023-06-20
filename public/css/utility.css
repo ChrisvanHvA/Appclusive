@@ -85,6 +85,12 @@ button {
 	background-color: var(--light);
 }
 
+
+.btn--cancel {
+	color: var(--tertiary-text);
+	font-weight: 700;
+}
+
 /* NAV BUTTON */
 .btn--nav {
 	display: flex;

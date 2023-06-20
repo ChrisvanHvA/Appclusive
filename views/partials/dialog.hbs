@@ -1,4 +1,4 @@
-<dialog class="dialog">
+<dialog class="dialog dialog-{{slug}}">
 
     {{!-- flex on the dialog itself breaks it, so we use an extra wrapper --}}
     <section>
@@ -12,11 +12,29 @@
         {{{message}}}
 
         <div class="dialog__controls">
-            <form method="dialog">
-                <button>Cancel</button>
-            </form>
+            {{#if (eq button_type "form")}}
 
-            <a href="{{button_href}}" class="btn">{{button}}</a>
+                <form method="dialog">
+                    <button class="btn">{{button}}</button>
+                </form>
+
+            {{else if (eq button_type "link")}}
+
+                <form method="dialog">
+                    <button class="btn--cancel">Cancel</button>
+                </form>
+
+                <a href="{{button_href}}" class="btn">{{button}}</a>
+
+            {{else}}
+
+                <form method="dialog">
+                    <button class="btn--cancel">Cancel</button>
+                </form>
+
+                <a href="{{button_href}}" class="btn">{{button}}</a>
+
+            {{/if}}
         </div>
 
 

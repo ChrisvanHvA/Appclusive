@@ -41,7 +41,15 @@ router.get('/', async (req, res) => {
 	projectInfo.all_checklists = all_checklists;
 	projectInfo.completed_checklists = completed_checklists;
 
-    const dialogMessage = DialogController.getMessage('category_finished');
+    // const dialogMessage = DialogController.getMessage('finish_project_incomplete');
+
+    // get multiple messages
+
+    const dialogMessage = [
+        DialogController.getMessage('finish_project_incomplete'),
+        DialogController.getMessage('category_finished'),
+        DialogController.getMessage('level')
+    ];
 
     res.render('checklist', {
         ...res.locals,

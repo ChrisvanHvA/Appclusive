@@ -149,6 +149,7 @@
 
 .checklist__categories h2 {
     color: var(--primary-text);
+    white-space: normal;
 }
 
 .checklist__categories > p {

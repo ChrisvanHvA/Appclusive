@@ -34,7 +34,6 @@
         width: 100%;
     }
 
-    .dialog .dialog__controls button {
-        color: var(--tertiary-text);
-        font-weight: 700;
+    .dialog__controls:has(> a:only-child), .dialog__controls:has(> form:only-child) {
+        justify-content: center;
     }
