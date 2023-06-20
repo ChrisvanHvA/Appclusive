@@ -22,6 +22,21 @@ class wcagModel {
         }
     }
 
+    async getWCAGCategoryIdBySlug(slug) {
+        try {
+            const [category] = await sql`
+                SELECT *
+                FROM wcag
+                WHERE slug = ${slug}
+            `;
+
+            return category || null;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
+
     /**
      *
      * Async function to retrieve list of all WCAG categories
