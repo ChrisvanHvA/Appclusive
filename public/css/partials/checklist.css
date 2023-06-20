@@ -4,11 +4,23 @@
 	max-width: 70rem;
 }
 
-    .checklist > ol {
+    .checklist ol,
+    .checklist ol ul  {
         display: flex;
         flex-direction: column;
-        gap: 1.25rem;
+        gap: 2.25rem;
     }
+
+    .checklist ol ul {
+        gap: 0.75rem;
+    }
+
+        .checklist ol li > h4 {
+            margin-bottom: 0.25rem;
+            color: var(--primary-color);
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
 
 .checklist__item {
     width: 100%;
