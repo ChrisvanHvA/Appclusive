@@ -1,89 +1,136 @@
-main.layout__project-create {
-	width: min(90%, 25rem);
-	margin-top: 5rem;
+main.layout__project-create h1 {
+	margin-bottom: 2rem;
 }
 
-	main.layout__project-create h1 {
-		margin-bottom: 2rem;
+main.layout__project-create input,
+main.layout__project-create textarea,
+main.layout__project-create .project__level section aside {
+	border-radius: var(--card-border-radius-mobile);
+}
+
+.layout__project-create form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+}
+
+	.layout__project-create form .formerror {
+		display: block;
 	}
 
-	.layout__project-create form {
+	.layout__project-create form label,
+	.layout__project-create form fieldset legend {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+	.layout__project-create form label {
+		cursor: pointer;
+	}
+	.layout__project-create form label[for="title"],
+	.layout__project-create form label[for="description"],
+	.layout__project-create form .project__level > legend {
+		font-size: 1.2rem;
+	}
+
+	label[for="title"],
+	label[for="description"],
+	.layout__project-create form fieldset legend {
+		margin-bottom: 0.5rem;
+	}
+
+	.layout__project-create fieldset,
+	.layout__project-create label + input,
+	.layout__project-create label + textarea {
+		margin-bottom: 2rem;
+	}
+	.layout__project-create input::placeholder,
+	.layout__project-create textarea::placeholder {
+		font-size: 0.875rem;
+	}
+
+	.layout__project-create form > div {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 	}
 
-		.layout__project-create form .formerror {
-			display: block;
+		.layout__project-create form div small {
+			position: absolute;
+			bottom: 0.5rem;
+			right: 0;
+			color: var(--tertiary-text);
 		}
 
-		.layout__project-create form label,
-		.layout__project-create form fieldset legend {
-			font-size: 1.125rem;
-			font-weight: 700;
-			margin-bottom: 0.25rem;
+	.layout__project-create form textarea {
+		resize: none;
+		height: 5rem;
+	}
+
+	.project__level section {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: 0.5rem;
+	}
+
+		.project__level section input {
+			width: 2rem;
+			height: 2rem;
+			margin: -.25rem .5rem 0 0;
 		}
 
-		.layout__project-create fieldset,
-		.layout__project-create label + input,
-		.layout__project-create label + textarea {
-			margin-bottom: 1.25rem;
+		.project__level section aside {
+			flex-basis: 100%;
 		}
 
-		.layout__project-create form > div {
-			position: relative;
-			display: flex;
-			flex-direction: column;
+		.project__level section aside {
+			display: grid;
+			grid-template-rows: repeat(3, 1fr);
+			gap: 1rem;
 		}
-
-			.layout__project-create form div small {
-				position: absolute;
-				bottom: -.2rem;
-				right: 0;
-				color: var(--tertiary-text);
-			}
-
-		.layout__project-create form textarea {
-			resize: none;
-			height: 5rem;
-			border-radius: 0.8rem;
-		}
-
-		.project__level {
-			margin-top: 1rem;
-		}
-
-		.project__level section {
-			display: flex;
-			flex-wrap: wrap;
-			row-gap: 0.5rem;
-		}
-
-			.project__level section input {
-				margin: -.25rem .5rem 0 2rem;
-			}
-
-			.project__level section input:first-of-type {
-				margin: -.25rem 0.5rem 0 0;
-			}
-
-			.project__level section aside {
-				flex-basis: 100%;
-				background-color: var(--primary-color);
-				color: var(--light);
-				padding: 1.25rem;
-				border-radius: 0.625rem;
-			}
-
-			.project__level aside div {
-				display: none;
-			}
-
-			.project__level aside div a {
-				color: var(--light);
-			}
-
-			.layout__project-create .project__level input:first-of-type:checked ~ aside div:first-of-type,
-			.layout__project-create .project__level input:nth-of-type(2):checked ~ aside div:nth-of-type(2),
-			.layout__project-create .project__level input:last-of-type:checked ~ aside div:last-of-type {
+		
+			.project__level section aside div[aria-labelledby="level-label"] label {
 				display: block;
+				height: 100%;
+				padding: 0.75rem;
+				background-color: var(--light);
+				border: 2px solid var(--primary-color);
+				border-radius: var(--card-border-radius-mobile);
 			}
+			.project__level section aside div[aria-labelledby="level-label"] label:hover {
+				color: var(--primary-color);
+			}
+			.project__level section aside div[aria-labelledby="level-label"] label:hover h3 {
+				text-decoration: underline;
+			}
+			.project__level section aside div[aria-labelledby="level-label"] input:checked + label {
+				color: var(--light);
+				background-color: var(--primary-color);
+			}
+			
+				.project__level section aside div[aria-labelledby="level-label"] input:checked + label {
+					color: var(--light);
+				}
+			
+				.project__level section aside div label p {
+					display: block;
+					font-weight: 400;
+				}
+		
+		.layout__project-create .project__level input {
+			display: none;
+		}
+
+		.project__level section h3 {
+			margin-bottom: 0.5rem;
+			padding-top: 0.1rem;
+		}
+
+@media screen and (min-width: 951px) {
+	.layout__project-create .btn {
+		max-width: 14rem;
+	}
+	.project__level section aside {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: none;
+	}
+}
