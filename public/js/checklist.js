@@ -7,17 +7,23 @@ const init = () => {
     );
 
     checklistButtons.forEach((button) => {
-        button.addEventListener('click', submitHandler);
+        button.remove();
     });
+
+	checkboxes.forEach((checkbox) => {
+		checkbox.addEventListener('change', submitHandler);
+
+		// zorgt ervoor dat enter keydown ook werkt op firefox
+		checkbox.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter') {
+				e.preventDefault();
+				submitHandler(e);
+			}
+		});
+	});
 };
 
 const submitHandler = async (e) => {
-	if (e.target.closest('details')) {
-		console.log('ja');
-		e.stopPropagation();
-		return;
-	}
-
     e.preventDefault();
 
     const formElement = e.currentTarget.closest('form');
