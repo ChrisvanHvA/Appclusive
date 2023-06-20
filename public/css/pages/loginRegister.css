@@ -15,7 +15,7 @@
         margin: 0 auto;
     }
         .layout__login form h2 {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
         }
         .form__section {
             display: flex;
@@ -41,21 +41,21 @@
                 border-radius: var(--card-border-radius-mobile);
                 border: 0.125rem solid var(--dark);
             }
-            @media screen and (min-width: 951px) {
-                .form__section input {
-                    border-radius: 6.25rem;
-                }
-            }
             .form__section input::placeholder {
                 font-size: 0.875rem;
             }
         .login__forgot {
+            margin-top: 0.5rem;
+            margin-left: auto;
             text-decoration: none;
             text-align: right;
-            margin-top: 2.5rem;
             font-weight: 700;
             font-size: 0.875rem; 
             color: var(--primary-color);
+        }
+        .login__forgot:hover,
+        .login__forgot:focus-visible {
+            text-decoration: underline;
         }
         .login__submit {
             text-decoration: none;
@@ -69,10 +69,13 @@
             color: var(--light);
         }
 
-        .login__signuptext{
+        .login__description {
+            margin-top: 0.5rem;
+        }
+        .login__signuptext {
             display: none;
         }
-        .login__or{
+        .login__or {
             margin-top: 1.688rem;
             margin-bottom: 1.688rem;
             text-align: center;
@@ -94,7 +97,7 @@
                 right: 0;
             }
 
-.login-aside{
+.login-aside {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -124,13 +127,13 @@
 
 
  @media screen and (min-width: 951px) {
-    .layout__login{
+    .layout__login {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
         padding: 0;
     }
-        .login-aside{
+        .login-aside {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -141,13 +144,13 @@
 			width: unset;
 			padding-left: 1.75rem;
         }
-            .login-aside svg{
+            .login-aside svg {
                 position: absolute;
                 bottom: 2.75rem;
                 left: 2.75rem;
 				margin: 0;
             }
-                .login-aside svg path{
+                .login-aside svg path {
                     fill: var(--light);
                 }
 			.login-aside h1 {
@@ -163,15 +166,15 @@
 				display: block;
 				z-index: 0;
             }
-               .login-aside span:first-of-type{
+               .login-aside span:first-of-type {
                     bottom: -5.25rem;
                     left: -6.25rem;
                 }
-                .login-aside span:nth-of-type(2){
+                .login-aside span:nth-of-type(2) {
                     bottom: 11.75rem;
                     right: -14.25rem;
                 }
-                .login-aside span:last-of-type{
+                .login-aside span:last-of-type {
                     top: -17.25rem;
                     left: 0;
                 }
@@ -179,22 +182,24 @@
             display: none;
         }
         .login__signuptext {
+            display: block;
+            width: fit-content;
             margin-top: 0.25rem;
             font-weight: 700;
             font-size: 0.875rem;
-            display: block;
         }
 
         .login__signuptext a {
-            text-decoration: none;
             color: var(--primary-color);
         }
 
-        a.btn[href="/register"] {
+        a.btn[href="/register"],
+        a.btn[href="/login"] {
             display: none;
         }
 
-        .login__signuptext a:hover, .login__signuptext a:focus-visible{
+        a.login__signuptext:hover,
+        a.login__signuptext:focus-visible {
             text-decoration: solid underline var(--primary-color);
         }
         .login__register {

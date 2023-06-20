@@ -24,22 +24,14 @@ export default (passport) => {
             {
                 usernameField: 'email_address',
                 passwordField: 'password',
-                passReqToCallback: true,
+                passReqToCallback: true
             },
             async (req, email_address, password, done) => {
                 try {
-                    console.log('hewoo');
                     const user = await userModel.getUserByEmail(email_address);
 
                     if (user) {
-                        return done(
-                            null,
-                            false,
-                            req.flash(
-                                'registerMsg',
-                                'This email address is already in use..'
-                            )
-                        );
+                        return done(null, false);
                     } else {
                         const hashedPassword = await generateHash(password);
 
@@ -48,7 +40,7 @@ export default (passport) => {
                             insertion: req.body.insertion,
                             surname: req.body.surname,
                             email_address: email_address,
-                            password: hashedPassword,
+                            password: hashedPassword
                         });
 
                         return done(null, userId);
@@ -66,28 +58,20 @@ export default (passport) => {
             {
                 usernameField: 'email_address',
                 passwordField: 'password',
-                passReqToCallback: true,
+                passReqToCallback: true
             },
             async (req, email_address, password, done) => {
                 try {
                     const user = await userModel.getUserByEmail(email_address);
                     if (!user) {
-                        return done(
-                            null,
-                            false,
-                            req.flash('loginMsg', 'User not found..')
-                        );
+                        return done(null, false);
                     }
                     const isValidPassword = await validPassword(
                         password,
                         user.password
                     );
                     if (!isValidPassword) {
-                        return done(
-                            null,
-                            false,
-                            req.flash('loginMsg', 'Oops! Wrong password..')
-                        );
+                        return done(null, false);
                     }
                     return done(null, user.user_id);
                 } catch (error) {

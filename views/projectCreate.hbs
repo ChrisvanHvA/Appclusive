@@ -1,5 +1,5 @@
 <main class="layout layout__project-create">
-    <h1>New project</h1>
+    <h1>Create a new project</h1>
 
     <form action="/new-project" method="post" novalidate>
         <label for="title">Project title <span class="required">*</span>
@@ -33,27 +33,29 @@
 			</legend>
 
             <section>
-                <input type="radio" id="a" name="level" value="A" required />
-                <label for="a">A</label>
-
-                <input type="radio" id="aa" name="level" value="AA" checked required />
-                <label for="aa">AA</label>
-
-                <input type="radio" id="aaa" name="level" value="AAA" required />
-                <label for="aaa">AAA</label>
-
                 <aside>
-                    <div>
-                        <h3>Level A: Essential</h3>
-                        <p>If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</p>
+                    <div role="radiogroup" aria-labelledby="level-label">
+                        <input type="radio" id="a" name="level" value="A" role="radio" required />
+                        <label for="a" id="level-label">
+                            <h3>Level A: Essential</h3>
+                            <p>If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</p>
+                        </label>
                     </div>
-                    <div>
-                        <h3>Level AA: Ideal Support</h3>
-                        <p>Required for <a href="https://www.w3.org/WAI/policies/">multiple government and public body websites</a>. 'Appclusive' strives for AA compliance.</p>
+
+                    <div role="radiogroup" aria-labelledby="level-label">
+                        <input type="radio" id="aa" name="level" value="AA" role="radio" required checked />
+                        <label for="aa" id="level-label">
+                            <h3>Level AA: Ideal Support</h3>
+                            <p>Required for multiple government and public body websites. 'Appclusive' strives for AA compliance.</p>
+                        </label>
                     </div>
-                    <div>
-                        <h3>Level AAA: Specialized Support</h3>
-                        <p>This is typically reserved for parts of websites and web apps that serve a specialized audience.</p>
+
+                    <div role="radiogroup" aria-labelledby="level-label">
+                        <input type="radio" id="aaa" name="level" value="AAA" role="radio" required />
+                        <label for="aaa" id="level-label">
+                            <h3>Level AAA: Specialized Support</h3>
+                            <p>This is typically reserved for parts of websites and web apps that serve a specialized audience.</p>
+                        </label>
                     </div>
                 </aside>
             </section>

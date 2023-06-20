@@ -9,19 +9,17 @@ import {
 
 router.get('/', (req, res) => {
     res.render('register', {
-        noNav: true,
-        message: req.flash('registerMsg')
+        noNav: true
     });
 });
 
 router.post(
     '/',
     validationChecks,
-    handleValidationErrors('register',  {noNav: true}),
+    handleValidationErrors('register', { noNav: true }),
     passport.authenticate('local-signup', {
         successRedirect: '/',
-        failureRedirect: '/register',
-        failureFlash: true
+        failureRedirect: '/register'
     })
 );
 
