@@ -7,11 +7,54 @@
         </div>
 
         <ol>
-            {{#each tasks}}
-				<li class="checklist__item">
-					{{> listItem pid=../project.project_id checklist=this}}
-				</li>
-            {{/each}}
+            <li>
+                <h4>Level A</h4>
+                <ul>
+                    {{#each (sortTasksByLevel tasks "A")}}
+                        <li class="checklist__item">
+                            {{> listItem pid=../project.project_id checklist=this}}
+                        </li>
+                    {{else}}
+                        <li>
+                            <p>No tasks found for Level A</p>
+                        </li>
+                    {{/each}}
+                </ul>
+            </li>
+            
+            {{#if (or (eq project.wcag_level "AA") (eq project.wcag_level "AAA"))}}
+                <li>
+                    <h4>Level AA</h4>
+                    <ul>
+                        {{#each (sortTasksByLevel tasks "AA")}}
+                            <li class="checklist__item">
+                                {{> listItem pid=../project.project_id checklist=this}}
+                            </li>
+                        {{else}}
+                            <li>
+                                <p>No tasks found for Level AA</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{/if}}
+
+            {{#if (eq project.wcag_level "AAA")}}
+                <li>
+                    <h4>Level AAA</h4>
+                    <ul>
+                        {{#each (sortTasksByLevel tasks "AAA")}}
+                            <li class="checklist__item">
+                                {{> listItem pid=../project.project_id checklist=this}}
+                            </li>
+                        {{else}}
+                            <li>
+                                <p>No tasks found for Level AAA</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{/if}}
         </ol>
     </section>
 

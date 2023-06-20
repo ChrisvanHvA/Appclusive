@@ -51,6 +51,9 @@ export default {
 		total = Number(total);
 		return Math.round((completed / total) * 100);
 	},
+    sortTasksByLevel: function (tasks, level) {
+        return tasks.filter(task => task.wcag_level === level);
+    },
 
     // basically zorgt voor logical operator == !== || etc
     // <3 handlebars
@@ -77,7 +80,7 @@ export default {
     },
     or: function () {
         return reduceOp(arguments, (a, b) => a || b);
-    },
+    }
 };
 
 // bron: https://gist.github.com/servel333/21e1eedbd70db5a7cfff327526c72bc5
