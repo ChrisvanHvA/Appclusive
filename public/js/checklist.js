@@ -9,12 +9,19 @@ const init = () => {
     checklistButtons.forEach((button) => {
         button.addEventListener('click', submitHandler);
     });
+
+    const checkboxDetails = document.querySelectorAll('summary');
+    checkboxDetails.forEach((detail) => {
+        detail.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
 };
 
 const submitHandler = async (e) => {
     e.preventDefault();
 
-	const parentElement = e.currentTarget.parentNode;
+    const parentElement = e.currentTarget.parentNode;
 
     const wcagItemId = parentElement.querySelector(
         'input[name="wcag_item_id"]'
@@ -68,8 +75,12 @@ const completedChecksSpans = document.querySelectorAll(
 
 const updateProgress = () => {
     if (!progressBar || !percentageSpan) return;
-	const checkedCheckboxes = Array.from(checkboxes).filter((checkbox) => checkbox.checked);
-	const percentage = Math.floor((checkedCheckboxes.length / checkboxes.length) * 100);
+    const checkedCheckboxes = Array.from(checkboxes).filter(
+        (checkbox) => checkbox.checked
+    );
+    const percentage = Math.floor(
+        (checkedCheckboxes.length / checkboxes.length) * 100
+    );
 
     percentageSpan.textContent = `${percentage}`;
     completedChecksSpans.forEach((completedChecksSpan) => {
