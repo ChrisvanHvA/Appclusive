@@ -209,12 +209,12 @@ input[type="radio"]:checked::after {
 }
 
     .searchbar input {
-        width: 80%;
+        width: 100%;
         height: 2rem;
 		
         padding-left: 2rem;
         
-		border-radius: 1.5rem;
+		border-radius: var(--card-border-radius-mobile);
         border: none;
         
 		font-size: 1rem;
@@ -277,15 +277,15 @@ input[type="radio"]:checked::after {
 
 /* if progress bar is 100% */
 .progress[value='100'] {
-	border: solid 2px var(--status-text-done);
+	border: none;
 }
 
 .progress[value='100']::-moz-progress-bar {
-	background-color: var(--status-bg-done);
+	background: #18b88f;
 }
 
 .progress[value='100']::-webkit-progress-value {
-	background-color: var(--status-bg-done);
+	background: #18b88f;
 }
 
 /* ---------------------------------- */

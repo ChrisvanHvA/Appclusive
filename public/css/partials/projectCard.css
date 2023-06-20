@@ -111,7 +111,7 @@
 }
 
 	.projectCard__progress progress {
-		--progress-bar-height: 1.5rem;
+		--progress-bar-height: 1rem;
 	}
 
 	.project-cards li.card__item.allprojects-card .projectCard__progress progress,
