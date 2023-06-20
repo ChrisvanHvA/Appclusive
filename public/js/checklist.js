@@ -9,28 +9,27 @@ const init = () => {
     checklistButtons.forEach((button) => {
         button.addEventListener('click', submitHandler);
     });
-
-    const checkboxDetails = document.querySelectorAll('summary');
-    checkboxDetails.forEach((detail) => {
-        detail.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    });
 };
 
 const submitHandler = async (e) => {
+	if (e.target.closest('details')) {
+		console.log('ja');
+		e.stopPropagation();
+		return;
+	}
+
     e.preventDefault();
 
-    const parentElement = e.currentTarget.parentNode;
+    const formElement = e.currentTarget.closest('form');
 
-    const wcagItemId = parentElement.querySelector(
+    const wcagItemId = formElement.querySelector(
         'input[name="wcag_item_id"]'
     );
-    let isCompleted = parentElement.querySelector('input[name="is_completed"]');
-    const parentId = parentElement.querySelector('input[name="parent_id"]');
+    let isCompleted = formElement.querySelector('input[name="is_completed"]');
+    const parentId = formElement.querySelector('input[name="parent_id"]');
 
     // Toggle checkbox
-    const checkedInput = e.currentTarget.querySelector('.checklist__checkbox');
+    const checkedInput = formElement.querySelector('.checklist__checkbox');
     checkedInput.checked = isCompleted.value === 'true' ? false : true;
 
     const url = new URL(window.location.href);

@@ -51,6 +51,8 @@
     background-color: var(--primary-bg);
 
 	cursor: pointer;
+	position: relative;
+	z-index: 1;
 }
 @media screen and (max-width: 950px) {
     .checklist__item label {
@@ -95,7 +97,16 @@
 .checklist__item input:checked + label .checklist__content .checklist__users, 
 .checklist__item input:checked + label .checklist__content > details {
     display: none;
-}   
+}
+
+/* ---------------------------------- */
+/*    button voor submit zonder js    */
+/* ---------------------------------- */
+[data-checklist-button] {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+}
 
 /* ---------------------------------- */
 /*               CONTENT              */
@@ -122,6 +133,7 @@
     flex-direction: column;
     gap: .625rem;
     width: fit-content;
+	cursor: default;
 }
 
     .checklist__content > details a {
