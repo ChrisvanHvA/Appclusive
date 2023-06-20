@@ -125,7 +125,7 @@ button {
 		gap: .5rem;
 	}
 
-	.layout:not(.layout__login) .page-title p.page-title__subtitle {
+	.layout:not(.layout__login) .page-title div p.page-title__subtitle {
 		margin: 0;
 	}
 
