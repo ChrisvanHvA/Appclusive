@@ -204,7 +204,9 @@
 }
 
 .checklist__content > details[open] > summary:focus-visible {
-    outline: 2px solid var(--light);
+    outline: 2px solid var(--primary-color);
+	padding: 0;
+	margin-bottom: .625rem;
 }
 
 .checklist__content > details > ul {
