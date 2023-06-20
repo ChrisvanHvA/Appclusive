@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     // const categoryId = findCategoryIdByName(category);
     const wcagCategory = await WCAGModel.getWCAGCategoryIdBySlug(category);
 
-    if (!wcagCategory.wcag_id) {
+    if (!wcagCategory) {
         return res.redirect(`/project/${projectId}/categories`);
     }
 
