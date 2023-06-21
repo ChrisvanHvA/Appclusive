@@ -29,6 +29,11 @@ const data = {
 		description: '',
 		scripts: ['projectinfo']
 	},
+    '/project/:projectId/settings': {
+		title: 'Project settings',
+		description: '',
+		scripts: ['createProject']
+	},
     '/login': {
         title: 'Login',
         description: '',
@@ -55,8 +60,8 @@ const data = {
         scripts: [],
     },
     fallback: {
-        title: 'Whoopsy',
-        description: 'whoops',
+        title: 'Appclusive',
+        description: '',
         scripts: [],
     },
 };

@@ -2,6 +2,7 @@ import home from './home.js';
 import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
 import projectCreate from './projectCreate.js';
+import projectSettings from './projectSettings.js';
 import login from './login.js';
 import register from './register.js';
 import settings from './settings.js';
@@ -24,8 +25,9 @@ const routes = [
     { path: '/project/:projectId', handler: checklist, auth: false },
     // { path: '/checklist', handler: checklist, auth: false },
     { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
+    { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
 
-    { path: '/', handler: home, auth: false },
+    { path: '/', handler: home, auth: false }
 ];
 
 export default routes;

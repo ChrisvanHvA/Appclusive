@@ -36,19 +36,14 @@
         </section>
     {{/if}}
 
-    {{! <section>
-        <h3>Audience</h3>
-        <p>The target audience is displayed here</p>
-    </section> }}
-
     <section>
-
         <h3>Level accessibility</h3>
         <button class='btn'>Level
             {{length project.wcag_level}}
             (WCAG level
             {{project.wcag_level}})</button>
     </section>
+
     {{!-- <section>
         <h3>Co-workers on this project</h3>
         <ul>
@@ -81,4 +76,8 @@
             </li>
         </ul>
     </section> --}}
+
+    <section class="sidebar__settings">
+        <a href="/project/{{project.project_id}}/settings"><h3>Project settings</h3>{{> icons/settings}}</a>
+    </section>
 </aside>

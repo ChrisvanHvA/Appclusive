@@ -85,6 +85,23 @@
         max-width: 18.125rem;
     }
 
+    .checklist__sidebar .sidebar__settings a {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 1rem 0;
+        color: inherit;
+        text-decoration: none;
+    }
+
+        .checklist__sidebar .sidebar__settings a svg {
+            height: 1.5rem;
+            stroke-width: 2;
+        }
+        .checklist__sidebar .sidebar__settings a h3 {
+            margin-bottom: 0;
+        }
+
 @media screen and (max-width: 950px) {
     .checklist__sidebar {
         position: fixed;
