@@ -27,7 +27,7 @@ const data = {
     '/project/:projectId/categories': {
 		title: 'Categories',
 		description: '',
-		scripts: ['projectinfo']
+		scripts: ['projectinfo', 'categories']
 	},
     '/login': {
         title: 'Login',

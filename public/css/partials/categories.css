@@ -66,19 +66,15 @@
     position: relative;
 }
 
-    .category__item > input {
-        appearance: none;
-        position: absolute;
-    }
+	.category__item input[id^="flip"] {
+		appearance: none;
+		position: absolute;
+		opacity: 0;
+	}
 
-    .category__item > input:checked ~ a {
+    .category__item input[id^="flip"]:checked ~ a {
         transform: rotateY(180deg);
         transition: transform .5s;
-    }
-
-    .category__item:has( > input:focus-visible) label {
-        outline: 2px solid var(--primary-color);
-        border-radius: 50%;
     }
 
 .category__item__front, .category__item__back {
@@ -116,8 +112,17 @@
     }
 
 
-.category__item__info {
-    display: flex;
+/* ---------------------------------- */
+/*       little flip icon thingy      */
+/* ---------------------------------- */
+input[id^="flip"]:focus-visible + label {
+	outline: 2px solid var(--primary-color);
+	border-radius: 50%;
+	outline-offset: 5px;
+}
+
+[for^="flip"] {
+	display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -127,11 +132,11 @@
     right: 1rem;
     cursor: pointer;
     z-index: 1;
-}
+  }
 
-    .category__item__info > svg {
-        color: var(--primary-text);
-    }
+	[for^="flip"] > svg {
+		color: var(--primary-text);
+	}
 
 .category__item__content {
     display: flex;
