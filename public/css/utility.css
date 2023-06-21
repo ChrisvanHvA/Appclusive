@@ -17,6 +17,15 @@ a {
 }
 
 /* ---------------------------------- */
+/*                #TEXT               */
+/* ---------------------------------- */
+
+.text--highlight {
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
+/* ---------------------------------- */
 /*            #BUTTON           	  */
 /* ---------------------------------- */
 
@@ -80,6 +89,12 @@ button {
 	background-color: var(--light);
 }
 
+
+.btn--cancel {
+	color: var(--tertiary-text);
+	font-weight: 700;
+}
+
 /* NAV BUTTON */
 .btn--nav {
 	display: flex;
@@ -95,9 +110,6 @@ button {
 
 	.btn--nav svg {
 		width: 100%;
-
-		stroke: var(--light);
-		height: 100%;
 	}
 
 .btn--login {

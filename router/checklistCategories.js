@@ -3,7 +3,11 @@ import express from 'express';
 import projectModel from '../models/projectModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
 
+import dialogController from '../controllers/dialogController.js';
+
 import { calcTotalProgressByCategory } from '../helpers/calcTotalProgress.js';
+
+const DialogController = new dialogController();
 
 const ProjectChecklistModel = new projectChecklistModel();
 const ProjectModel = new projectModel();
@@ -27,10 +31,15 @@ router.get('/', async (req, res) => {
 	project.all_checklists = all_checklists;
 	project.completed_checklists = completed_checklists;
 
+    const dialogMessages = [
+        DialogController.getMessage('level'),
+    ];
+
     res.render('checklistCategories', {
         ...res.locals,
         categories,
-        project
+        project,
+        dialog_messages: dialogMessages
     });
 });
 

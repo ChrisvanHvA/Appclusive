@@ -42,15 +42,15 @@ const data = {
     '/project/:projectId': {
         title: 'Checklist',
         description: '',
-        scripts: ['checklist', 'projectinfo'],
+        scripts: ['checklist', 'projectinfo', 'dialog'],
         backUrl: '/project/:projectId/categories'
     },
     '/project/:projectId/categories': {
-        title: 'Categories',
-        description: '',
-        scripts: ['projectinfo', 'categories'],
+		title: 'Categories',
+		description: '',
+		scripts: ['categories', 'projectinfo', 'dialog'],
         backUrl: '/'
-    },
+	},
     '/login': {
         title: 'Login',
         description: '',

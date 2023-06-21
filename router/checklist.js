@@ -4,6 +4,8 @@ import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
 import projectModel from '../models/projectModel.js';
 
+import dialogController from '../controllers/dialogController.js';
+
 import { calcTotalProgressByItems } from '../helpers/calcTotalProgress.js';
 import { findCategoryIdByName } from '../helpers/wcagCategoryFind.js';
 
@@ -11,6 +13,8 @@ const router = express.Router({ mergeParams: true });
 const ProjectModel = new projectModel();
 const ProjectChecklistModel = new projectChecklistModel();
 const WCAGModel = new wcagModel();
+
+const DialogController = new dialogController();
 
 router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
@@ -38,12 +42,22 @@ router.get('/', async (req, res) => {
 	projectInfo.all_checklists = all_checklists;
 	projectInfo.completed_checklists = completed_checklists;
 
+    // const dialogMessage = DialogController.getMessage('finish_project_incomplete');
+
+    // get multiple messages
+
+    const dialogMessages = [
+        DialogController.getMessage('category_finished'),
+        DialogController.getMessage('level')
+    ];
+
     res.render('checklist', {
         ...res.locals,
         tasks: wcagItems,
 		category: wcagCategory.title,
 		project: projectInfo,
-        system_message: errorParam ? 'Failed to update' : null
+        system_message: errorParam ? 'Failed to update' : null,
+        dialog_messages: dialogMessages
     });
 });
 
