@@ -9,10 +9,10 @@
     
 	background-color: var(--nav-bg);
     
-	height: 100dvh;
+	height: 25dvh;
     width: 100%;
 	
-	padding: 1rem min(3rem, 2vw) 1rem min(3rem, 2vw);
+	/* padding: 0.5rem min(1rem, 2vw) 1rem min(3rem, 2vw); */
 }
 
 .nav--desktop a {

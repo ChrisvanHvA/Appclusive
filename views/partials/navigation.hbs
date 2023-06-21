@@ -4,19 +4,19 @@
 		<span class="bg-circle"></span>
 		<span class="bg-circle"></span>
 	</div> --}}
-    <a class="logo" href="/" tabindex="-1">{{> icons/logo}}</a>
+    {{!-- <a class="logo" href="/" tabindex="-1">{{> icons/logo}}</a> --}}
 
     <div class="searchbar">
         <button class="btn" type="submit"><i class="icon icon--dark fa-solid fa-magnifying-glass"></i></button>
-		<label for="search-projects-desktop" class="label-hidden">Search for a project</label>
-        <input id="search-projects-desktop" type="text" name="search_projects" placeholder="Search projects" />
+		{{!-- <label for="search-projects-desktop" class="label-hidden">Search for a project</label>
+        <input id="search-projects-desktop" type="text" name="search_projects" placeholder="Search projects" /> --}}
     </div>
 
     <nav>
 		<ul class="menu">
 			<li class="menu__item menu__item--all {{#unless (eq title "Recent")}}{{#unless (eq title "Archive")}}{{#unless (eq title "Settings")}}active{{/unless}}{{/unless}}{{/unless}}">
-				<a href="/">{{> icons/tilesicon}}All projects</a>
-
+				<a href="/">{{> icons/tilesicon}}</a>
+{{!-- 
 				{{#if this.recentProjectNames}}
                     <details>
                         <summary><i class="icon icon--light fa-solid fa-chevron-up"></i></summary>
@@ -28,23 +28,23 @@
                             {{/each}}
                         </ol>
                     </details>
-                {{/if}}
+                {{/if}} --}}
 			</li>
-			<li class="menu__item {{#if (eq title "Recent")}}active{{/if}}"><a href="#">{{> icons/recent}}Recent</a></li>
-			<li class="menu__item {{#if (eq title "Archive")}}active{{/if}}"><a href="#">{{> icons/archive}}Archive</a></li>
+			{{!-- <li class="menu__item {{#if (eq title "Recent")}}active{{/if}}"><a href="#">{{> icons/recent}}Recent</a></li>
+			<li class="menu__item {{#if (eq title "Archive")}}active{{/if}}"><a href="#">{{> icons/archive}}Archive</a></li> --}}
 			<li class="menu__item {{#if (eq title "Settings")}}active{{/if}}">
-				<a href="/settings">{{> icons/settings}}Settings</a>
+				<a href="/settings">{{> icons/settings}}</a>
 
 				<div class="menu__item--profile">
 					<a href="/settings">
 						<img src="https://unsplash.it/40/40" />
-						<div>
+						{{!-- <div>
 							<p>{{user.first_name}}</p>
 							<p>{{user.email_address}}</p>
-						</div>
+						</div> --}}
 					</a>
 
-					<a href="/logout"><i class="icon icon--light fa-solid fa-arrow-right-from-bracket"></i></a>
+					{{!-- <a href="/logout"><i class="icon icon--light fa-solid fa-arrow-right-from-bracket"></i></a> --}}
 				</div>
 			</li>
 		</ul>
