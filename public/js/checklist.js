@@ -95,7 +95,10 @@ const updateProgress = () => {
     // open dialog if all items are checked
     if (checkedCheckboxes.length === checkboxes.length) {
         const dialog = document.querySelector('.dialog-category_finished');
-        dialog?.showModal();
+
+        dialog ? setTimeout(() => {
+            dialog.showModal();
+        }, 500) : null;
     }
 };
 

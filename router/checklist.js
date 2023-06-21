@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
     res.render('checklist', {
         ...res.locals,
         tasks: wcagItems,
-		category: wcagCategory.title,
+		category: wcagCategory,
 		project: projectInfo,
         system_message: errorParam ? 'Failed to update' : null,
         dialog_messages: dialogMessages

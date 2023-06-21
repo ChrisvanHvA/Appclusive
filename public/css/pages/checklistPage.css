@@ -1,7 +1,7 @@
 .layout__checklist {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     gap: 2.5rem;
 }
 

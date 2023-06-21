@@ -3,6 +3,21 @@
     border: none;
     border-radius: var(--card-border-radius);
     padding: 2rem;
+    scale: 1;
+    animation: scaleUp .25s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    @keyframes scaleUp {
+        0% {
+            scale: 0;
+        }
+        100% {
+            scale: 1;
+        }
+    }
+    
 }
 
     .dialog > section {

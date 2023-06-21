@@ -1,6 +1,8 @@
 <main class="layout layout__checklist">
 
-	{{>pageTitleHeader title=category horizontalTitle=(concat "{{project.completed_checklists}} / {{project.all_checklists}}") }}
+	{{>pageTitleHeader title=category.title horizontalTitle=(concat "{{project.completed_checklists}} / {{project.all_checklists}}") }}
+
+    <p class="checklist__description">{{category.description}}</p>
 
     <section class="checklist">
         <ol>
@@ -55,7 +57,7 @@
         </ol>
     </section>
 
-    {{>checklistSidebar title=(concat "{{category}} progress") project=project}}
+    {{>checklistSidebar title=(concat "{{category.title}} progress") project=project}}
 
 </main>
 

@@ -1,3 +1,6 @@
+.checklist__description {
+    grid-column: 1 / -1;
+}
 
 .checklist {
 	width: 100%;
