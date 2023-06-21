@@ -6,7 +6,7 @@ class projectModel {
     /**
      * Async function to insert a project into the db
      *
-     * @params insertData: todo
+     * @params insertData: object containing the fields to insert
      * @returns project_id
      */
     async insert(insertData) {
@@ -27,6 +27,34 @@ class projectModel {
         } catch (error) {
             console.log(error);
             return 0;
+        }
+    }
+
+    /**
+     * Async function to update project information
+     *
+     * @params projectId: id of the project to update
+     * @params updateData: object containing the fields to update
+     * @returns boolean indicating whether the update was successful
+     */
+    async update(projectId, updateData) {
+        try {
+            const { title, description, level } = updateData;
+
+            const result = await sql`
+        UPDATE projects
+        SET
+          title = ${title ?? sql`title`},
+          description = ${description ?? sql`description`},
+          wcag_level = ${level ?? sql`wcag_level`}
+        WHERE
+          project_id = ${projectId}
+      `;
+
+            return result.rowCount > 0;
+        } catch (error) {
+            console.log(error);
+            return false;
         }
     }
 

@@ -37,7 +37,20 @@ class UserModel {
         }
     }
 
-    async update(updateData) {}
+    async update(user_id, updateData) {
+        try {
+            await sql`
+                UPDATE users
+                SET ${sql(updateData)}
+                WHERE user_id = ${user_id}
+            `;
+
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
 
     async updatePassword(user_id, newPassword) {
         try {

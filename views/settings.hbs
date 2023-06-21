@@ -2,7 +2,7 @@
 
     {{>pageTitleHeader title="Settings"}}
     
-    <form class="settings" autocomplete="off">
+    <form class="settings" autocomplete="off" method="POST">
 
         <fieldset class="settings__item-email">
             <legend>Email address</legend>
@@ -11,6 +11,7 @@
                 <input type="email" name="email_address" id="email_address" placeholder=" " value="{{user.email_address}}" />
                 <label for="email_address">Email address*</label>
             </div>
+            <label class="error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
         </fieldset>
 
         <fieldset class="settings__item-name">
@@ -20,6 +21,7 @@
                 <input type="text" name="first_name" id="first_name" placeholder=" " value="{{user.first_name}}" />
                 <label for="first_name">First name*</label>
             </div>
+            <label class="error {{#unless first_name-error.length}}hide{{/unless}}">{{first_name-error}}</label>
 
             <div class="settings__item-input">
                 <input type="text" name="insertion" id="insertion" placeholder=" " value="{{user.insertion}}" />
@@ -30,20 +32,23 @@
                 <input type="text" name="surname" id="surname" placeholder=" " value="{{user.surname}}" />
                 <label for="surname">Surname*</label>
             </div>
+            <label class="error {{#unless surname-error.length}}hide{{/unless}}">{{surname-error}}</label>
         </fieldset>
 
-        <fieldset class="settings__item-password">
+       <fieldset class="settings__item-password">
             <legend>Change password</legend>
 
             <div class="settings__item-input">
-                <input type='password' name='oldpassword' id="oldpassword" placeholder=" " />
-                <label for="oldpassword">Current password</label>
+                <input type='password' name='old_password' id="old_password" placeholder=" " />
+                <label for="old_password">Current password</label>
             </div>
+            <label class="error {{#unless old_password-error.length}}hide{{/unless}}">{{old_password-error}}</label>
 
             <div class="settings__item-input">
-                <input type='password' name='newpassword' id="newpassword" placeholder=" " />
-                <label for="newpassword">New password</label>
+                <input type='password' name='new_password' id="new_password" placeholder=" " />
+                <label for="new_password">New password</label>
             </div>
+            <label class="error {{#unless new_password-error.length}}hide{{/unless}}">{{new_password-error}}</label>
         </fieldset>
 
         <fieldset class="settings__item-avatar">

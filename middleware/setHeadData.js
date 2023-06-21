@@ -51,6 +51,11 @@ const data = {
 		scripts: ['categories', 'projectinfo', 'dialog'],
         backUrl: '/'
 	},
+    '/project/:projectId/settings': {
+		title: 'Project settings',
+		description: '',
+		scripts: ['createProject']
+	},
     '/login': {
         title: 'Login',
         description: '',
@@ -80,11 +85,6 @@ const data = {
     '*': {
         title: 'Page not found',
         description: '',
-        scripts: []
-    },
-    fallback: {
-        title: 'Whoopsy',
-        description: 'whoops',
         scripts: []
     }
 };

@@ -37,10 +37,11 @@ router.get('/', async (req, res) => {
 
     const projectInfo = await ProjectModel.getProject(projectId);
 
-	const { all_checklists, completed_checklists } = calcTotalProgressByItems(wcagItems);
+    const { all_checklists, completed_checklists } =
+        calcTotalProgressByItems(wcagItems);
 
-	projectInfo.all_checklists = all_checklists;
-	projectInfo.completed_checklists = completed_checklists;
+    projectInfo.all_checklists = all_checklists;
+    projectInfo.completed_checklists = completed_checklists;
 
     // const dialogMessage = DialogController.getMessage('finish_project_incomplete');
 
@@ -62,11 +63,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/submit', async (req, res) => {
-    
     const jsonReturn = req.query.json;
 
-    const updatedStatus = req.body.is_completed === 'true' ? false : true;   
-    
+    const updatedStatus = req.body.is_completed === 'true' ? false : true;
+
     let updateChecklist = await ProjectChecklistModel.updateChecklistCompletion(
         req.body.wcag_item_id,
         req.params.projectId,
@@ -84,9 +84,12 @@ router.post('/submit', async (req, res) => {
     if (jsonReturn) {
         return res.json(true);
     } else {
-        return res.redirect(`/project/${req.params.projectId}?category=${categoryItem.title.toLowerCase()}${errorParam}`);
+        return res.redirect(
+            `/project/${
+                req.params.projectId
+            }?category=${categoryItem.title.toLowerCase()}${errorParam}`
+        );
     }
-
 });
 
 export default router;
