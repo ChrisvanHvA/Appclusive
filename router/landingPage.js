@@ -1,5 +1,4 @@
 import express from 'express';
-import WCAGModel from '../models/wcagModel.js';
 import wcagModel from '../models/wcagModel.js';
 const router = express.Router();
 

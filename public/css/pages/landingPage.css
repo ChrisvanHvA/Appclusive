@@ -1,4 +1,9 @@
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+}
 
 p {
     line-height: normal;
@@ -8,176 +13,197 @@ p {
     margin-bottom: 2rem;
 }
 
-.landingHeader{
-    box-shadow: 0px 10px 35px 10px rgba(0,0,0,0.17);
+.landingHeader {
+
+    border-radius: 0 0 1rem 1rem;
     position: relative;
     overflow: clip;
-display: block;
+    display: block;
     width: 100%;
-    background-color:var(--primary-color);
-    height: 40rem;
+    background-color: var(--primary-color);
+    height: 25rem;
     color: white;
     top: 0;
- padding-left: 3rem;
- padding-top: 3rem;
+    padding-left: 3rem;
+    padding-top: 3rem;
+    z-index: -2;
 }
+
 .dog {
     top: 100%;
     left: 100%;
     transform: translate(-100%, -100%);
-	overflow: clip;
+    overflow: clip;
     position: absolute;
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
     width: 30rem;
     aspect-ratio: 1/1;
     color: white;
     z-index: 10;
-    background-color: red;
+
+
+}
+.landingContent>li:first-of-type {
+    display: block;
+    max-width: 25rem;
+    margin: auto;
+    margin-top: -4rem;
 }
 .dog img {
-    position: absolute;
-    pointer-events: none;
-	border-radius: 50%;
-	aspect-ratio: 1;
-	border: solid 3px var(--light);
-	width: 10rem;
+    display: none;
 }
-.dog img:first-child{
- 
-    bottom: 0;
-    right: 0;
-}
-.dog img:last-child{
-    bottom: 0rem;
-    left: 0rem;
-}
+
 .landingHeader .landingCircles {
     top: 0;
     left: 0;
-	overflow: clip;
-	position:absolute;
-	display: flex;
-	flex-direction: column;
+    overflow: clip;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 40rem;
+    height: 30rem;
     color: white;
-    z-index: 10;
+    z-index: -1;
 }
+
 .landingCircles span.bg-circle {
 
-	pointer-events: none;
-	border-radius: 50%;
-	aspect-ratio: 1;
-	border: solid 3px var(--light);
-	width: 10rem;
-	margin: 5rem;
+    pointer-events: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    border: solid 3px var(--light);
+    width: 10rem;
+    margin: 5rem;
 }
 
-.landingCircles > span.bg-circle:nth-child(1) {
-		top: -15rem;
-	right: 50%;
+.landingCircles>span.bg-circle:nth-child(1) {
+    top: -15rem;
+    right: 50%;
     width: 15rem;
-	}
+}
 
-    .landingCircles > span.bg-circle:nth-child(2) {
-     bottom: -10rem;
-		left: -14rem;
-        width: 20rem;
-	}
+.landingCircles>span.bg-circle:nth-child(2) {
+    bottom: -10rem;
+    left: -18rem;
+    width: 20rem;
+}
 
-    .landingCircles > span.bg-circle:nth-child(3) {
-		right: -15rem;
-		width: 25rem;
-		bottom: -13rem;
+.landingCircles>span.bg-circle:nth-child(3) {
+    right: -20rem;
+    width: 25rem;
+    bottom: -13rem;
 
-	}
+}
 
 
-    .landingTopbar {
+.landingTopbar {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.landingTopbar  li:first-child{
-  display: block;
+.landingTopbar li:first-child {
+    display: block;
     width: 10rem;
- height: auto;
+    height: auto;
+    background-color: var(--primary-color);
+
 }
 
 .landingTopbar li:last-child {
     display: flex;
-    justify-content: center;    
-  
+    justify-content: center;
+
 
 }
-.landingTopbar  li:last-child span.topbarDivider {
+
+.landingTopbar li:last-child span.topbarDivider {
     display: block;
     width: 0.1rem;
     height: 2rem;
     background-color: white;
- 
+
 }
+
 .landingTopbar li:last-child a {
     color: white;
     text-decoration: none;
     font-size: 1.5rem;
-margin-right: 2rem;
-margin-left: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+
 }
 
 
 .landingHeader h1 {
-
-    font-size: 5rem;
+    background-color: var(--primary-color);
+    font-size: 3rem;
     font-weight: 700;
-    margin-top: 4rem;
-margin-bottom: 3rem;
-    width: 50%;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    width: 80%;
     line-height: normal;
 }
+
 .landingHeader h2 {
+    background-color: var(--primary-color);
     margin-bottom: 5rem;
-    width: 50%;
+    width: 70%;
 }
+
 .layout__landingpage {
-    width: 60%;
+    width: 80%;
     margin: auto;
-    
+
 }
+
 .landingSubheader {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     text-align: center;
     display: flex;
-   flex-direction: column;
-   justify-content: center;                                                           
-}                                                        
+    flex-direction: column;
+    justify-content: center;
+}
 
-.landingSubheader  h2,  .landingContent h2 {
+.landingSubheader h2,
+.landingContent h2 {
     line-height: normal;
     font-size: 2.3rem;
     font-weight: 700;
-    margin-top: 4rem;
+    padding-top: 4rem;
 
 }
-.landingSubheader > p  {
-  padding-top: 1rem;
+
+.landingSubheader>p {
+    padding-top: 4rem;
     font-size: 1.5rem;
-    width: 50%;
+
     margin: auto;
 
 }
 
-.landingContent  {
+.landingContent {
     display: flex;
-    flex-direction: row;
-    padding-top: 4rem;
+    flex-direction: column;
+  gap: 2vw;
+    flex-wrap: wrap-reverse;
+    margin-top: 5rem;
+    width: 100%;
+    padding-bottom: 10rem;
+
 }
-.landingContent  p:first-of-type {
+
+.landingContent p:first-of-type {
     padding-top: 1rem;
     font-size: 2rem;
     font-weight: 400;
- 
+    
+
+}
+hr:first-of-type {
+    display: none;
 }
 hr {
     background-color: var(--secondary-bg);
@@ -186,29 +212,59 @@ hr {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
-.landingContent > li {
- 
-    padding: 2rem;
+
+.landingContent>li {
+    width: 100%;
+
+    text-align: left;
+
 }
+
+
+
+
+.landingContent>li img {
+    width: 100%;
+    margin: auto;
+    max-width: 37rem;
+    padding-top: 3rem;
+
+
+
+}
+
+
+
+
+
+
+
+
 .landingBottom {
+    padding-top: 8rem;
     width: 100%;
     background-color: var(--secondary-bg);
-    height: 20rem;
+    height: 27rem;
     display: block;
-  margin:auto;
+    margin: auto;
+    line-height: normal;
+    text-align: center;
 
-text-align: center;
-    
+
 }
-.landingBottom > h2 {
+
+.landingBottom>h2 {
     font-size: 3rem;
     padding: 2rem;
-    padding-top: 4rem;
+
 }
-.landingBottom > p {
+
+.landingBottom>p {
     font-weight: bold;
-   margin-top: 2rem;
+    margin-top: 2rem;
+    
 }
+
 footer {
     width: 100%;
     height: 15rem;
@@ -216,3 +272,125 @@ footer {
     background-color: var(--secondary-text);
 }
 
+
+@media screen and (min-width: 950px) {
+
+    .layout__landingpage {
+        width: 60%;
+        margin: auto;
+     
+    
+    }
+    .landingHeader {
+        height: 40rem;
+        box-shadow: 0px 10px 35px 10px rgba(0, 0, 0, 0.17);
+        border-radius: 0;
+    }
+
+hr:first-of-type {
+    display: block;
+}
+    body {
+        background-color: white;
+    }
+
+    .landingHeader h1 {
+        width: 50%;
+        font-size: 5rem;
+        font-weight: 700;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+
+    }
+
+    .landingHeader h2 {
+        width: 50%;
+    }
+
+    .landingHeader .landingCircles {
+
+        height: 40rem;
+
+    }
+    .landingContent>li:first-of-type {
+        display: none;
+    }
+   
+    .dog img {
+        display: block;
+        position: absolute;
+        pointer-events: none;
+
+        width: 22rem;
+        height: auto;
+    }
+
+    .dog img:first-child {
+
+        bottom: -10rem;
+        right: 0;
+    }
+
+    .dog img:last-child {
+        bottom: 5rem;
+        right: 3rem;
+    }
+
+    .landingContent {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap-reverse;
+        padding-top: 4rem;
+        width: 100%;
+        padding-bottom: 10rem;
+    }
+
+    .landingContent p:first-of-type {
+        padding-top: 1rem;
+        font-size: 2rem;
+        font-weight: 400;
+        
+
+    }
+
+    .landingCircles>span.bg-circle:nth-child(2) {
+        bottom: -10rem;
+        left: -14rem;
+        width: 20rem;
+    }
+
+    .landingCircles>span.bg-circle:nth-child(3) {
+        right: -15rem;
+        width: 25rem;
+        bottom: -13rem;
+
+    }
+
+    hr {
+        background-color: var(--secondary-bg);
+        width: 100%;
+        border: 0.1rem solid var(--light);
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .landingContent>li {
+        width: 100%;
+
+
+        min-width: 25rem;
+        max-width: 25rem;
+
+    }
+   
+
+    .landingContent>li img {
+        display: block;
+  
+        margin: auto;
+
+      width: 30rem;
+
+    }
+}
