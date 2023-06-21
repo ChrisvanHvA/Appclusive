@@ -131,7 +131,7 @@
 }
 
     .checklist__content h4 {
-        color: var(--tertiary-text);
+        color: var(--primary-text);
     }
 
     .checklist__content h4 > span {
