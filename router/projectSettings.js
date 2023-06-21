@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
         });
     }
 
-    const updatedData = ProjectModel.update(projectId, submitData);
+    const updatedData = await ProjectModel.update(projectId, submitData);
 
     if (!updatedData) {
         console.log('failed');
