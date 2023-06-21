@@ -1,84 +1,52 @@
-<aside class='checklist__sidebar'>
-    <button class='sidebar__infoicon' aria-label='toggle sidebar'>
-        <i class='icon fa-regular fa-circle-question'></i>
-    </button>
-    <section>
-        <h2>{{capitalize title}}</h2>
-
-        <div class='sidebar__progress'>
-            <h3>
-                <span class='percentage-count'>{{calcProgress
-                        project.completed_checklists
-                        project.all_checklists
-                    }}</span>% accessible</h3>
-            <p class='completed-checks-counter'>
-				{{project.completed_checklists}} / {{project.all_checklists}}
-			</p>
-        </div>
-
-        <progress
-            class='progress'
-            value='{{calcProgress
-                project.completed_checklists
-                project.all_checklists
-            }}'
-            min='0'
-            max='100'
-        ></progress>
-
-        <button class='hide' class='sidebar__buttons'>Close project</button>
-    </section>
-
-    {{#if project.description}}
+<div class='checklist__sidebar'>
+    <input id='toggle-sidebar' type='checkbox' />
+    <label for='toggle-sidebar' aria-label='toggle sidebar'>
+		<i class='icon fa-regular fa-circle-question'></i>
+	</label>
+    <aside>
         <section>
-            <h3>Project description</h3>
-            <p>{{project.description}}</p>
+            <h2>{{capitalize title}}</h2>
+
+            <div class='sidebar__progress'>
+                <h3>
+                    <span class='percentage-count'>{{calcProgress
+                            project.completed_checklists
+                            project.all_checklists
+                        }}</span>% accessible</h3>
+                <p class='completed-checks-counter'>
+                    {{project.completed_checklists}}
+                    /
+                    {{project.all_checklists}}
+                </p>
+            </div>
+
+            <progress
+                class='progress'
+                value='{{calcProgress
+                    project.completed_checklists
+                    project.all_checklists
+                }}'
+                min='0'
+                max='100'
+            ></progress>
+
+            <button class='hide' class='sidebar__buttons'>Close project</button>
         </section>
-    {{/if}}
 
-    {{! <section>
-        <h3>Audience</h3>
-        <p>The target audience is displayed here</p>
-    </section> }}
+        {{#if project.description}}
+            <section>
+                <h3>Project description</h3>
+                <p>{{project.description}}</p>
+            </section>
+        {{/if}}
 
-    <section>
+        <section>
 
-        <h3>Level accessibility</h3>
-        <button class='btn btn--acc'>Level
-            {{length project.wcag_level}}
-            (WCAG level
-            {{project.wcag_level}})</button>
-    </section>
-    {{!-- <section>
-        <h3>Co-workers on this project</h3>
-        <ul>
-            <li>
-                <img
-                    class='sidebar__users'
-                    src='https://unsplash.it/40/40'
-                    alt=''
-                />
-                <p>Sofia</p>
-                <p>(You)</p>
-            </li>
-            <li>
-                <img
-                    class='sidebar__users'
-                    src='https://unsplash.it/40/40'
-                    alt=''
-                />
-                <p>Thomas</p>
-                <p>Researcher</p>
-            </li>
-            <li>
-                <img
-                    class='sidebar__users'
-                    src='https://unsplash.it/40/40'
-                    alt=''
-                />
-                <p>Anna</p>
-                <p>Team lead</p>
-            </li>
-        </ul>
-    </section> --}}
-</aside>
+            <h3>Level accessibility</h3>
+            <button class='btn btn--acc'>Level
+                {{length project.wcag_level}}
+                (WCAG level
+                {{project.wcag_level}})</button>
+        </section>
+    </aside>
+</div>
