@@ -19,10 +19,10 @@ class dialogController {
                 'slug': 'category_finished',
                 'image_url':'/images/illustration-celebrate.svg',
                 'image_alt': 'Illustration of a person celebrating',
-                'message': '<p>This project is now <span class="text--highlight">[[VALUE]] accessible</span>. <p>Keep it up!</p>',
+                'message': '<p>This project is now <span class="text--highlight">more accessible</span>. <p>Keep it up!</p>',
                 'button_type': 'link',
-                'button': 'Next category',
-                'button_href': '/',
+                'button': 'Back to categories',
+                'button_href': '?category=returntocategories',
             },
             'level': {
                 'title': 'What does level mean?',

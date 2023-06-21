@@ -90,6 +90,13 @@ const updateProgress = () => {
         completedChecksSpan.textContent = `${checkedCheckboxes.length} / ${checkboxes.length}`;
     });
     progressBar.setAttribute('value', percentage);
+
+
+    // open dialog if all items are checked
+    if (checkedCheckboxes.length === checkboxes.length) {
+        const dialog = document.querySelector('.dialog-category_finished');
+        dialog?.showModal();
+    }
 };
 
 init();

@@ -46,8 +46,7 @@ router.get('/', async (req, res) => {
 
     // get multiple messages
 
-    const dialogMessage = [
-        DialogController.getMessage('finish_project_incomplete'),
+    const dialogMessages = [
         DialogController.getMessage('category_finished'),
         DialogController.getMessage('level')
     ];
@@ -58,8 +57,7 @@ router.get('/', async (req, res) => {
 		category: wcagCategory.title,
 		project: projectInfo,
         system_message: errorParam ? 'Failed to update' : null,
-        dialog_message: dialogMessage,
-        dialog_trigger: false
+        dialog_messages: dialogMessages
     });
 });
 
