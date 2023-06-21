@@ -7,22 +7,39 @@
 	display: none;
 	position: absolute;
 	top: var(--toggle-button-top);
+	opacity: 0;
 }
 
 .checklist__sidebar > label {
 	display: none;
+	align-items: center;
+	justify-content: center;
 	position: fixed;
 	top: var(--toggle-button-top);
 	right: 0;
-	width: 2.5rem;
-	height: 2.5rem;
+	width: 3.5rem;
+	height: 3rem;
 	background-color: var(--primary-bg);
 	border-radius: 50% 0 0 50%;
 	cursor: pointer;
+	border: solid 2px var(--primary-color);
+	border-right: none;
+	z-index: 3;
 }
 
-.checklist__sidebar > label i {
-	color: var(--light);
+	.checklist__sidebar > label i {
+		font-size: 1.5rem;
+		color: var(--primary-color);
+	}
+
+.checklist__sidebar .backdrop {
+	display: none;
+	position: fixed;
+	inset: 0;
+	opacity: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	pointer-events: none;
 }
 
 .checklist__sidebar aside {
@@ -111,7 +128,10 @@
     }
 
 @media screen and (max-width: 950px) {
-	.checklist__sidebar > label,
+	.checklist__sidebar > label {
+		display: flex;
+	}
+
 	.checklist__sidebar > input {
 		display: block;
 	}
@@ -120,13 +140,22 @@
 		right: 85vw;
 	}
 
+	.checklist__sidebar .backdrop {
+		display: block;
+	}
+
+	.checklist__sidebar > input:checked ~ .backdrop {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
     .checklist__sidebar aside {
         position: fixed;
         top: 0;
         bottom: 0;
         width: 85%;
         /* max-width: 23rem; */
-        z-index: 1;
+        z-index: 2;
 
         background-color: var(--primary-bg);
         padding: 2.5rem 1.5rem;
@@ -150,30 +179,29 @@
         outline: 2px solid var(--primary-bg);
     }
 
-		.checklist__sidebar aside .sidebar__infoicon:focus-visible,
-		.checklist__sidebar aside .sidebar__infoicon:hover {
+		.checklist__sidebar > input:focus-visible + label,
+		.checklist__sidebar > input:hover + label {
 			background-color: var(--primary-color);
 		}
-		.checklist__sidebar aside .sidebar__infoicon:focus-visible i,
-		.checklist__sidebar aside .sidebar__infoicon:hover i {
+		.checklist__sidebar > input:focus-visible + label i,
+		.checklist__sidebar > input:hover + label i {
 			color: var(--light);
 		}
-        .checklist__sidebar aside .sidebar__infoicon > .icon {
-            font-size: 1.5rem;
-            aspect-ratio: 1;
-        }
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
     @media screen and (max-width: 950px) {
-		.checklist__sidebar > label,
-        .checklist__sidebar aside {
-            transition: all 0.5s ease-in-out;
-        }
+		.checklist__sidebar > label {
+			transition: background-color 0.2s ease-in-out, right 0.5s ease-in-out;
+		}
 
 		.checklist__sidebar aside .sidebar__infoicon i,
-        .checklist__sidebar aside .sidebar__infoicon {
-            transition: all .2s ease-in-out;
+		.checklist__sidebar aside .sidebar__infoicon {
+			transition: all .2s ease-in-out;
+		}
+
+        .checklist__sidebar aside {
+            transition: right 0.5s ease-in-out;
         }
     }
 }
