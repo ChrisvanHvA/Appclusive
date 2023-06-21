@@ -57,6 +57,52 @@
     .checklist__sidebar aside .progress {
         --progress-bar-height: 1rem;
     }
+
+    @media (prefers-reduced-motion: no-preference){
+        .checklist__sidebar .progress[value]::-webkit-progress-value {
+            transition: width .5s ease-in-out, background-color .5s ease-in-out, border-color .5s ease-in-out;
+        }
+    
+        /* if value is 100 */
+    
+        .checklist__sidebar .progress[value='100']::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            width: calc(100% + 2rem);
+            height: calc(100% + 2rem);
+    
+            border-radius: 3rem;
+    
+            animation: fadeIn 1s ease-in-out forwards;
+            animation-delay: .4s;
+        }
+    
+        @keyframes fadeIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+                background-color: rgba(24, 184, 144, 0.5);
+            }
+    
+            60% {
+                transform: translate(-50%, -50%) scale(1.05);
+                opacity: 1;
+                background-color: rgba(24, 184, 144, 0.5);
+            }
+    
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+                background-color: rgba(24, 184, 144, 0.5);
+            }
+        }
+    
+    }
+
     .checklist__sidebar aside .sidebar__infoicon {
         display: none;
     }

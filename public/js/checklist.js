@@ -98,7 +98,7 @@ const updateProgress = () => {
 
         dialog ? setTimeout(() => {
             dialog.showModal();
-        }, 500) : null;
+        }, 1000) : null;
     }
 };
 

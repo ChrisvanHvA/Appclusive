@@ -283,13 +283,13 @@ input[type="radio"]:checked::after {
 	--progress-bar-border-radius: calc(var(--progress-bar-height) / 2);
 	appearance: none;
 
+	position: relative;
+
 	width: 100%;
 	height: var(--progress-bar-height);
 	
 	border-radius: var(--progress-bar-border-radius);
 	border: solid 2px var(--primary-color);
-	
-	overflow: hidden;
 	
 	background-color: transparent;
 }
@@ -302,15 +302,17 @@ input[type="radio"]:checked::after {
 .progress[value]::-moz-progress-bar {
 	background-color: var(--primary-color);
 	border-radius: 0 var(--progress-bar-border-radius) var(--progress-bar-border-radius) 0;
+	transition: width 1s;
 }
 
 .progress[value]::-webkit-progress-value {
 	background-color: var(--primary-color);
+	border-radius: var(--progress-bar-border-radius);
 }
 
 /* if progress bar is 100% */
 .progress[value='100'] {
-	border: none;
+	border: 2px solid #18b88f;
 }
 
 .progress[value='100']::-moz-progress-bar {
