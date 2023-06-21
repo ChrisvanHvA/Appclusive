@@ -10,7 +10,7 @@
         </div>
     </header>
     
-    <form action="/new-project" method="post" novalidate>
+    <form method="POST" autocomplete="off" novalidate>
         <label for="title">Project title <span class="required">*</span>
 		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
 		</label>

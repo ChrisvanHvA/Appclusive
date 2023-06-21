@@ -37,25 +37,40 @@ class projectModel {
      * @params updateData: object containing the fields to update
      * @returns boolean indicating whether the update was successful
      */
-    async update(projectId, updateData) {
+    async update(project_id, updateData) {
         try {
             const { title, description, level } = updateData;
 
             const result = await sql`
-        UPDATE projects
-        SET
-          title = ${title ?? sql`title`},
-          description = ${description ?? sql`description`},
-          wcag_level = ${level ?? sql`wcag_level`}
-        WHERE
-          project_id = ${projectId}
-      `;
+                UPDATE projects
+                SET
+                title = ${title ?? sql`title`},
+                description = ${description ?? sql`description`},
+                wcag_level = ${level ?? sql`wcag_level`}
+                WHERE
+                project_id = ${project_id}
+
+                RETURNING *;
+            `;
 
             return result.rowCount > 0;
         } catch (error) {
             console.log(error);
             return false;
         }
+
+        // try {
+        //     await sql`
+        //         UPDATE projects
+        //         SET ${sql(updateData)}
+        //         WHERE project_id = ${project_id}
+        //     `;
+
+        //     return true;
+        // } catch (error) {
+        //     console.log(error);
+        //     return false;
+        // }
     }
 
     /**

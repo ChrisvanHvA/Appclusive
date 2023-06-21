@@ -46,7 +46,7 @@ router.post('/', async (req, res) => {
     }
 
     console.log('redirect');
-    return res.redirect('/');
+    return res.redirect(`/project/${projectId}/settings`);
 });
 
 const validateForm = (formData) => {
