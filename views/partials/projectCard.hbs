@@ -24,23 +24,13 @@
 
         <section class="projectCard__progress">
             <progress class="progress"
-                value="{{round
-                    (multiply
-                        (divide this.completed_checklists this.all_checklists)
-                        100
-                    )
-                }}"
+                value="{{calcProgress this.completed_checklists this.all_checklists}}"
                 min="0"
                 max="100"
             ></progress>
 
             <div>
-                <p>{{round
-                    (multiply
-                        (divide this.completed_checklists this.all_checklists)
-                        100
-                    )
-                }}% accessible</p>
+                <p>{{calcProgress this.completed_checklists this.all_checklists}}% accessible</p>
                 <p>{{this.completed_checklists}} / {{this.all_checklists}}</p>
                 <i class="icon fa-solid fa-chevron-right"></i>
             </div>

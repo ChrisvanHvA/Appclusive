@@ -22,6 +22,21 @@ class wcagModel {
         }
     }
 
+    async getWCAGCategoryIdBySlug(slug) {
+        try {
+            const [category] = await sql`
+                SELECT *
+                FROM wcag
+                WHERE slug = ${slug}
+            `;
+
+            return category || null;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    }
+
     /**
      *
      * Async function to retrieve list of all WCAG categories
@@ -67,6 +82,7 @@ class wcagModel {
 			LEFT JOIN project_checklists AS pc ON pc.wcag_item_id = wi.wcag_item_id
 			WHERE parent_id = ${parent_id}
 			AND pc.project_id = ${project_id}
+			ORDER BY is_completed, wcag_item_id
 		`;
 
             return wcagItem;

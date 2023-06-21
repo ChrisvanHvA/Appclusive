@@ -2,8 +2,12 @@
     grid-column: 1 / -1;
 }
 
+    .page-title a {
+        margin-top: 0.35rem;
+    }
+
     .page-title__subtitle {
-        padding: 0.3125rem var(--welcome-padding-vertical);
+        padding: 0.125rem var(--welcome-padding-vertical);
         background-color: var(--primary-color);
         width: fit-content;
         border-radius: 5px;

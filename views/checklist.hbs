@@ -1,17 +1,57 @@
 <main class="layout layout__checklist">
 
-    <section class="checklist">
-        <div class="checklist__title">
-			<h3>{{category}}</h3>
-            <p class="counter">{{project.completed_checklists}} / {{project.all_checklists}}</p>
-        </div>
+	{{>pageTitleHeader title=category backBtn=(concat "/project/{{project.project_id}}/categories") horizontalTitle=(concat "{{project.completed_checklists}} / {{project.all_checklists}}") }}
 
+    <section class="checklist">
         <ol>
-            {{#each tasks}}
-				<li class="checklist__item">
-					{{> listItem pid=../project.project_id checklist=this}}
-				</li>
-            {{/each}}
+            <li>
+                <h4>Level A</h4>
+                <ul>
+                    {{#each (sortTasksByLevel tasks "A")}}
+                        <li class="checklist__item">
+                            {{> listItem pid=../project.project_id checklist=this}}
+                        </li>
+                    {{else}}
+                        <li>
+                            <p>No tasks found for Level A</p>
+                        </li>
+                    {{/each}}
+                </ul>
+            </li>
+            
+            {{#if (ne project.wcag_level "A")}}
+                <li>
+                    <h4>Level AA</h4>
+                    <ul>
+                        {{#each (sortTasksByLevel tasks "AA")}}
+                            <li class="checklist__item">
+                                {{> listItem pid=../project.project_id checklist=this}}
+                            </li>
+                        {{else}}
+                            <li>
+                                <p>No tasks found for Level AA</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{/if}}
+
+            {{#if (eq project.wcag_level "AAA")}}
+                <li>
+                    <h4>Level AAA</h4>
+                    <ul>
+                        {{#each (sortTasksByLevel tasks "AAA")}}
+                            <li class="checklist__item">
+                                {{> listItem pid=../project.project_id checklist=this}}
+                            </li>
+                        {{else}}
+                            <li>
+                                <p>No tasks found for Level AAA</p>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{/if}}
         </ol>
     </section>
 

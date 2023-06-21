@@ -20,9 +20,10 @@
 	}
 
 	.layout__dashboard input[name="overview"] + p::before {
-		content: 'view all';
+		content: 'view as list';
 		color: var(--tertiary-text);
 		text-decoration: underline;
+		cursor: pointer;
 	}
 
 	.layout__dashboard input[name="overview"]:checked + p::before {

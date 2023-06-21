@@ -23,14 +23,15 @@ router.get('/', async (req, res) => {
     // #TODO: receive custom message based on param id
     const errorParam = req.query.error;
 
-    const categoryId = findCategoryIdByName(category);
+    // const categoryId = findCategoryIdByName(category);
+    const wcagCategory = await WCAGModel.getWCAGCategoryIdBySlug(category);
 
-    if (!categoryId) {
+    if (!wcagCategory) {
         return res.redirect(`/project/${projectId}/categories`);
     }
 
     const wcagItems = await WCAGModel.listWCAGItemsByParentId(
-        categoryId,
+        wcagCategory.wcag_id,
         projectId
     );
 
@@ -54,7 +55,7 @@ router.get('/', async (req, res) => {
     res.render('checklist', {
         ...res.locals,
         tasks: wcagItems,
-		category,
+		category: wcagCategory.title,
 		project: projectInfo,
         system_message: errorParam ? 'Failed to update' : null,
         dialog_message: dialogMessage,
@@ -64,11 +65,9 @@ router.get('/', async (req, res) => {
 
 router.post('/submit', async (req, res) => {
     
-    console.log(req.body);
     const jsonReturn = req.query.json;
 
     const updatedStatus = req.body.is_completed === 'true' ? false : true;   
-    console.log(updatedStatus);
     
     let updateChecklist = await ProjectChecklistModel.updateChecklistCompletion(
         req.body.wcag_item_id,
