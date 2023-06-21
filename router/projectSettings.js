@@ -4,6 +4,18 @@ import projectModel from '../models/projectModel.js';
 const router = express.Router({ mergeParams: true });
 const ProjectModel = new projectModel();
 
+const mapObject = (obj, callback) => {
+    return Object.keys(obj).reduce((result, key) => {
+        const value = obj[key];
+
+        if (value !== '') {
+            result[key] = callback(value);
+        }
+
+        return result;
+    }, {});
+};
+
 router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
     const project = await ProjectModel.getProject(projectId);
@@ -17,6 +29,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const formErrors = validateForm(req.body);
+    const submitData = mapObject(req.body, (value) => value);
+    const projectId = req.params.projectId;
 
     if (Object.keys(formErrors).length > 0) {
         return res.render('/', {
@@ -24,6 +38,15 @@ router.post('/', async (req, res) => {
             formErrors
         });
     }
+
+    const updatedData = ProjectModel.update(projectId, submitData);
+
+    if (!updatedData) {
+        console.log('failed');
+    }
+
+    console.log('redirect');
+    return res.redirect('/');
 });
 
 const validateForm = (formData) => {
