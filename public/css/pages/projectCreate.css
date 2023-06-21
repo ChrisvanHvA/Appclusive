@@ -1,4 +1,4 @@
-main.layout__project-create h1 {
+main.layout__project-create .page-title {
 	margin-bottom: 2rem;
 }
 
@@ -6,6 +6,12 @@ main.layout__project-create input,
 main.layout__project-create textarea,
 main.layout__project-create .project__level section aside {
 	border-radius: var(--card-border-radius-mobile);
+}
+
+.layout__project-create form > input,
+.layout__project-create form > div,
+.layout__project-create form > label {
+	max-width: 30rem;
 }
 
 .layout__project-create form {

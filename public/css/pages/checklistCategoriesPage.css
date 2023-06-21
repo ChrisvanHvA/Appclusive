@@ -5,7 +5,6 @@
 }
 
 .layout__categories > header {
-    /* span all columns */
     grid-column: 1 / -1;
 }
 

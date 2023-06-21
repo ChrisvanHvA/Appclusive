@@ -1,6 +1,15 @@
 <main class="layout layout__project-create">
-    <h1>Create a new project</h1>
-
+    <header class="page-title">
+        <div>
+            <a href="/" aria-label="back">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5l-7.5-7.5 7.5-7.5"></path>
+                </svg>
+            </a>
+            <h1>Create a new project</h1>
+        </div>
+    </header>
+    
     <form action="/new-project" method="post" novalidate>
         <label for="title">Project title <span class="required">*</span>
 		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
@@ -15,7 +24,6 @@
         />
 
         <div>
-
             <label for="description">Project description</label>
             <textarea
                 class="textinput"
