@@ -14,10 +14,12 @@ const findRoute = async (reqUrl) => {
 		if (urlPathSegments.length !== routeSegments.length) continue;
 
 		// loop to check which part of the route is a parameter
-		let param = '';
+		let paramNames = [];
+		let paramValues = [];
 		for (let i = 0; i < routeSegments.length; i++) {
 			if (routeSegments[i].startsWith(':')) {
-				param = urlPathSegments[i];
+				paramNames.push(routeSegments[i].slice(1));
+				paramValues.push(urlPathSegments[i]);
 			} else if (routeSegments[i] !== urlPathSegments[i]) {
 				// if the route does not match the url and no param has been found, this is not the right route
 				continue routeLoop;
@@ -25,10 +27,10 @@ const findRoute = async (reqUrl) => {
 		}
 
 		// this is the one :0
-		return { route: route, param: param };
+		return { route: route, paramValues: paramValues, paramNames: paramNames };
 	}
 	// return error route if no route is found
-	return { route: routes[routes.length - 1], param: undefined };
+	return { route: routes[routes.length - 1], paramValue: undefined, paramName: undefined };
 }
 
 export { findRoute };

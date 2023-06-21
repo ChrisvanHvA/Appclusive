@@ -1,8 +1,10 @@
 import express from 'express';
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('settings', {
+router.get('/', async (req, res) => {
+    res.render('404', {
+        ...res.locals,
+		noNav: true
     });
 });
 

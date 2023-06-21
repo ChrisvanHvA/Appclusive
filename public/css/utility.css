@@ -238,7 +238,7 @@ input[type="radio"]:checked::after {
         border: none;
         
 		font-size: 1rem;
-        color: #202020;
+        color: var(--primary-text);
     }
 
     .searchbar .btn {
@@ -260,8 +260,9 @@ input[type="radio"]:checked::after {
 		transform: translateY(-50%);
     }
 
-	.searchbar .btn svg {
+	.searchbar .btn i {
 		height: 1rem;
+		color: var(--secondary-text);
 	}
 /* ---------------------------------- */
 /*            #PROGRESS           	  */
