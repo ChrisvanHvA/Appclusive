@@ -16,7 +16,6 @@
     }
     .checklist__sidebar .sidebar__infoicon {
         display: none;
-        cursor: pointer;
     }
         .checklist__sidebar .sidebar__infoicon svg path{
             stroke: var(--primary-color);
@@ -94,7 +93,7 @@
         /* max-width: 23rem; */
         z-index: 1;
 
-        background-color: var(--light);
+        background-color: var(--primary-bg);
         padding: 2.438rem 1.563rem;
         right: -85vw;
     }
@@ -109,12 +108,21 @@
         align-items: center;
         padding: 0.5rem;
         padding-right: 2rem;
-        background-color: var(--light);
+        background-color: var(--primary-bg);
         border: 2px solid var(--primary-color);
         border-right: none;
         border-radius: 1.5rem 0 0 1.5rem;
-        outline: 2px solid var(--light);
-    }   
+        outline: 2px solid var(--primary-bg);
+    }
+
+		.checklist__sidebar .sidebar__infoicon:focus-visible,
+		.checklist__sidebar .sidebar__infoicon:hover {
+			background-color: var(--primary-color);
+		}
+		.checklist__sidebar .sidebar__infoicon:focus-visible i,
+		.checklist__sidebar .sidebar__infoicon:hover i {
+			color: var(--light);
+		}
         .checklist__sidebar .sidebar__infoicon > .icon {
             font-size: 1.5rem;
             aspect-ratio: 1;
@@ -149,8 +157,10 @@
             .checklist__sidebar-active {
                 transition: all 0.5s ease-in-out;
             }
+
+		.checklist__sidebar .sidebar__infoicon i,
         .checklist__sidebar .sidebar__infoicon {
-            transition: .5s;
-        }   
+            transition: all .2s ease-in-out;
+        }
     }
 }
