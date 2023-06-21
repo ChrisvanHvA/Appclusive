@@ -54,7 +54,8 @@ const data = {
     '/project/:projectId/settings': {
 		title: 'Project settings',
 		description: '',
-		scripts: ['createProject']
+		scripts: ['createProject'],
+        backUrl: '/project/:projectId/categories'
 	},
     '/login': {
         title: 'Login',
