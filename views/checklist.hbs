@@ -19,7 +19,7 @@
                 </ul>
             </li>
             
-            {{#if (or (eq project.wcag_level "AA") (eq project.wcag_level "AAA"))}}
+            {{#if (ne project.wcag_level "A")}}
                 <li>
                     <h4>Level AA</h4>
                     <ul>
