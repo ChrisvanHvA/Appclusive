@@ -6,13 +6,12 @@
     
 	display: flex;
     flex-direction: column;
-    
-	background-color: var(--nav-bg);
+	justify-content: center;
     
 	height: 100dvh;
     width: 100%;
 	
-	padding: 1rem min(3rem, 2vw) 1rem min(3rem, 2vw);
+	/* padding: 0.5rem min(1rem, 2vw) 1rem min(3rem, 2vw); */
 }
 
 .nav--desktop a {
@@ -20,7 +19,7 @@
 }
 
 	/* #LOGO IN NAV */
-	.nav--desktop .logo {
+	/* .nav--desktop .logo {
 		width: 60%;
 		margin: 1.25rem 0;
 	}
@@ -32,46 +31,36 @@
 
 		.nav--desktop .logo svg{
 			width: 100%;
-		}
+		} */
 
 /* ---------------------------------- */
 /*         		#MENU        		  */
 /* ---------------------------------- */
-.nav--desktop nav {
-    height: 100%;
-}
 
 	.nav--desktop .menu {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		color: var(--light);
+		background-color: var(--nav-bg);
 		/* gap: 1.4rem; */
 		height: 100%;
+		border-radius: 0 3.125rem 3.125rem 0;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
-
-		.nav--desktop .menu__item:last-of-type, 
-		.menu__item--profile {
+		.nav--desktop .menu__item {
 			display: flex;
-			align-items: flex-start;
-		}
-
-		.nav--desktop .menu__item:last-of-type {
 			flex-direction: column;
-			margin-top: auto;
-		}
-
-		.menu__item--profile {
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
+			align-content: center;
+			align-items: center;
 		}
 
 			.nav--desktop .menu__item--profile a:last-of-type {
 				display: flex;
 				justify-content: center;
 				height: 100%;
-				padding: 1rem;
-				margin-right: -1rem;
 			}
 
 				.nav--desktop .menu__item:last-of-type img {
@@ -91,21 +80,26 @@
 			}
 
 				.nav--desktop .menu__item a svg {
-					height: 1.5rem;
+					width: 1.5rem;
 				}
+				/* .fa-magnifying-glass {
+					height: 1.5rem;
+					color: var(--light);
+				} */
+		
 
 /* ---------------------------------- */
 /*    			#DETAILS   			  */
 /* ---------------------------------- */
-.nav--desktop .menu__item--all {
+/* .nav--desktop .menu__item--all {
 	position: relative;
-}
+} */
 
-.nav--desktop .menu > .menu__item:first-of-type a {
+/* .nav--desktop .menu > .menu__item:nth-of-type(2) a {
 	width: 80%;
-}
+} */
 
-.nav--desktop .menu__item details {
+/* .nav--desktop .menu__item details {
 	padding-left: 2.5rem;
 }
 
@@ -149,7 +143,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 1rem;
-}
+} */
 
 /* ---------------------------------- */
 /*            #ACTIVE                 */
@@ -157,7 +151,7 @@
 /* dat blauwe dingetje aan de rechterkant is echt kkkkkkkkkkkkringe om te maken dus :0 */
 .nav--desktop .menu__item.active > a {
 	color: var(--nav-selected);
-	font-weight: 800;
+	font-weight: 900;
 }
 
 .nav--desktop .desktopCircles {

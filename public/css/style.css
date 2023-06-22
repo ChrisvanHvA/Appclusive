@@ -75,7 +75,7 @@ body {
 
 .page-with-nav {
 	display: grid;
-	grid-template-columns: clamp(15rem, 100%, 18.75rem) 1fr;
+	grid-template-columns: 4rem 1fr;
 }
 
 @media screen and (max-width: 950px) {
