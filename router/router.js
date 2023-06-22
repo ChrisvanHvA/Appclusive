@@ -1,4 +1,4 @@
-import home from './home.js';
+import dashboard from './dashboard.js';
 import error404 from './404.js';
 import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
@@ -28,7 +28,7 @@ const routes = [
     { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
     { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
 
-    { path: '/', handler: home, auth: false },
+    { path: '/', handler: dashboard, auth: false },
     { path: '*', handler: error404, auth: false }
 ];
 

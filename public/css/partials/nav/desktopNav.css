@@ -49,7 +49,7 @@
 		.nav__desktop ul li a {
 			--icon-width: 1.5rem;
 			--link-margin: 0.2rem;
-			padding-left: 1rem;
+			padding-left: calc(1rem - var(--link-margin));
 			width: calc(100% - (var(--link-margin) * 2));
 			margin-left: var(--link-margin);
 			color: var(--light);
