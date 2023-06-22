@@ -53,8 +53,8 @@
 
         <fieldset class="settings__item-avatar">
             <img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
-            <label>
-                {{>icons/pen}}
+            <label aria-label="change profile picture">
+                <i class="fa-solid fa-pencil"></i>
                 <input type="file" name="avatar" />
             </label>
         </fieldset>
