@@ -6,47 +6,48 @@
 			<i class="icon fa-solid fa-magnifying-glass"></i>
 			<label for="search" class="label-hidden">Search for projects
 			</label>
-			<input
-				type="text"
-				placeholder="Search for projects..."
-				name="search_projects"
-				id="search"
-			/>
+			<input type="text" placeholder="Search for projects..." name="search_projects" id="search" />
 		</form>
 	</section>
 
 	{{!-- mobile create project card --}}
 	{{> projectCard 'create'}}
+	
+	{{#if projects}}
 
-	<section class="recent-projects dashboard-section">
-		<input type="checkbox" id="overview" name="overview" />
-		<label for="overview" aria-hidden="true">Toggle list view</label>
-		<h3>Recently viewed</h3>
-		
-		<ul class="cards project-cards cards-category__recent">
-			{{#each projects}}
+		<section class="recent-projects dashboard-section">
+			<input type="checkbox" id="overview" name="overview" />
+			<label for="overview" aria-hidden="true">Toggle list view</label>
+			<h3>Recently viewed</h3>
+
+			<ul class="cards project-cards cards-category__recent">
+				{{#each projects}}
 				<li class="card__item">
 					{{> projectCard this}}
 				</li>
-			{{/each}}
-		</ul>
-	</section>
+				{{/each}}
+			</ul>
+		</section>
 
-    <section class="dashboard-section">
-        <h3>All projects</h3>
+		<section class="dashboard-section">
+			<h3>All projects</h3>
 
-    <ul class="cards project-cards">
-        {{!-- desktop create project card --}}
-		<li class="card__item create-card-container">
-			{{> projectCard 'create'}}
-		</li>
+			<ul class="cards project-cards">
+				{{!-- desktop create project card --}}
+				<li class="card__item create-card-container">
+					{{> projectCard 'create'}}
+				</li>
+				{{#each projects}}
+				<li class="card__item allprojects-card">
+					{{> projectCard this}}
+				</li>
+				{{/each}}
 
-        {{#each projects}}
-            <li class="card__item allprojects-card">
-                {{> projectCard this}}
-            </li>
-        {{/each}}
-    </ul>
-	</section>
+			</ul>
+		</section>
+
+	{{else}}
+		<p>kaas</p>
+	{{/if}}
 
 </main>
