@@ -1,4 +1,8 @@
-{{#if (ne this null)}}
+{{#if (eq this 'create')}}
+	<a class="create-project-card" href="/new-project">+ New project</a>
+{{else if (eq this 'join')}}
+	<a class="create-project-card" href="/join-project">+ Join project</a>
+{{else}}
     <a href="/project/{{this.project_id}}/categories" draggable="false">
         <header>
             <div class="header__title">
@@ -36,7 +40,4 @@
             </div>
         </section>
     </a>
-
-{{else}}
-    <a href="/new-project">+ New project</a>
 {{/if}}

@@ -48,7 +48,7 @@ button {
     background-color: var(--primary-color);
     padding: .625rem 1.25rem;
 	border: 2px solid var(--primary-color);
-    border-radius: var(--card-border-radius-mobile);
+    border-radius: var(--card-border-radius);
 	transition: all .2s ease-in-out;
 	
 	font-family: inherit;
@@ -246,7 +246,7 @@ input[type="radio"]:checked::after {
 		
         padding-left: 2rem;
         
-		border-radius: var(--card-border-radius-mobile);
+		border-radius: var(--card-border-radius);
         border: none;
         
 		font-size: 1rem;

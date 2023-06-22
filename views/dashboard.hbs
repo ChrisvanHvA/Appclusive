@@ -16,11 +16,7 @@
 	</section>
 
 	{{!-- mobile create project card --}}
-	<ul class="cards project-cards">
-		<li class="card__item admin-card">
-			{{> projectCard null}}
-		</li>
-	</ul>
+	{{> projectCard 'create'}}
 
 	<section class="recent-projects dashboard-section">
 		<input type="checkbox" id="overview" name="overview" />
@@ -41,8 +37,8 @@
 
     <ul class="cards project-cards">
         {{!-- desktop create project card --}}
-		<li class="card__item admin-card">
-			{{> projectCard null}}
+		<li class="card__item create-card-container">
+			{{> projectCard 'create'}}
 		</li>
 
         {{#each projects}}

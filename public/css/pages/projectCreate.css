@@ -5,7 +5,7 @@ main.layout__project-create .page-title {
 main.layout__project-create input,
 main.layout__project-create textarea,
 main.layout__project-create .project__level section aside {
-	border-radius: var(--card-border-radius-mobile);
+	border-radius: var(--card-border-radius);
 }
 
 .layout__project-create form > input,
@@ -100,7 +100,7 @@ main.layout__project-create .project__level section aside {
 				padding: 0.75rem;
 				background-color: var(--light);
 				border: 2px solid var(--primary-color);
-				border-radius: var(--card-border-radius-mobile);
+				border-radius: var(--card-border-radius);
 			}
 			.project__level section aside div[aria-labelledby="level-label"] label:hover {
 				color: var(--primary-color);
