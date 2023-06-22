@@ -132,6 +132,12 @@ main.layout__project-create .project__level section aside {
 		}
 
 @media screen and (min-width: 951px) {
+
+	.layout__project-create {
+		width: clamp(10rem, 100%, 70rem);
+		justify-self: center;
+	}
+
 	.layout__project-create .btn {
 		max-width: 14rem;
 	}

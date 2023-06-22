@@ -3,6 +3,9 @@
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto 1fr;
     gap: 2.5rem;
+
+    width: clamp(10rem, 100%, 70rem);
+    justify-self: center;
 }
 
 @media screen and (max-width: 950px) {
