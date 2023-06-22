@@ -115,13 +115,14 @@
                 background-color: var(--primary-color);
                 border-radius: 50%;
                 cursor: pointer;
-            }
-    
-                .settings .settings__item-avatar label svg {
-                    width: 1.75rem;
-                    height: 1.75rem;
-                    stroke: var(--light);
-                    stroke-width: 2;
-                }
 
+				display: flex;
+				justify-content: center;
+				align-items: center;
+            }
+
+				.settings .settings__item-avatar label i {
+					font-size: 1rem;
+					color: var(--light);
+				}
 }
