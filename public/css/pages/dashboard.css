@@ -2,33 +2,57 @@
 	padding-top: 0;
 }
 
-.layout__dashboard input[name="overview"] {
-	display: none;
+.layout__dashboard > header {
+	margin-bottom: 4rem;
+}
+
+.layout__dashboard .dashboard-section > h3 {
+	margin: 1.75rem 0 0.25rem 0;
+	color: var(--tertiary-text);
+	text-transform: uppercase;
+	font-size: 1rem;
 }
 
 .layout__dashboard > div {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	margin: 1.75rem 0 0.25rem 0;
+	color: var(--tertiary-text);
+	text-transform: uppercase;
 }
 
-	.layout__dashboard > div > h3 {
-		color: var(--tertiary-text);
-		font-size: 1rem;
-		text-transform: uppercase;
-	}
+.layout__dashboard .recent-projects {
+	position: relative;
+}
 
-	.layout__dashboard input[name="overview"] + p::before {
-		content: 'view as list';
-		color: var(--tertiary-text);
-		text-decoration: underline;
-		cursor: pointer;
-	}
+.recent-projects > label {
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: var(--primary-bg);
+	cursor: pointer;
+}
 
-	.layout__dashboard input[name="overview"]:checked + p::before {
-		content: 'view less';
-	}
+.layout__dashboard .recent-projects > label::before {
+	content: 'view as list';
+	text-decoration: underline;
+	color: var(--tertiary-text);
+	position: absolute;
+	right: 0;
+	top: 0;
+	user-select: none;
+}
+
+.layout__dashboard .recent-projects > input[name="overview"]:checked + label::before {
+	content: 'view less';
+}
+
+.layout__dashboard .recent-projects > input[name="overview"]:focus-visible + label::before {
+	outline: 2px solid var(--primary-color);
+}
+
+.layout__dashboard input[name="overview"] {
+	appearance: none;
+	position: absolute;
+}
 
 .cards.project-cards {
 	display: grid;
@@ -51,17 +75,17 @@
 	max-width: calc(100vw - 1.5rem - 1.5rem);
 }
 
-.layout__dashboard:has(input[name="overview"]:checked) .cards-category__recent {
+.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent {
 	flex-wrap: wrap;
 	max-width: none;
 }
 
-	.layout__dashboard:has(input[name="overview"]:checked) .cards-category__recent .card__item {
+	.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent .card__item {
 		flex: 0 100%;
 	}
 
 @media screen and (min-width: 560px) {
-	.layout__dashboard:has(input[name="overview"]:checked) .cards-category__recent .card__item {
+	.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent .card__item {
 		flex: 1 calc(50% - 0.375rem);
 		max-width: calc(50% - 0.375rem);
 	}
@@ -72,7 +96,9 @@
 		padding-top: 3.5rem;
 	}
 
-	.layout__dashboard > div > h3,
+	.layout__dashboard .recent-projects > label,
+	.layout__dashboard .recent-projects > input[name="overview"],
+	.layout__dashboard .dashboard-section h3,
 	.layout__dashboard #searchbar + .cards.project-cards,
 	.layout__dashboard .cards-category__recent {
 		display: none;
