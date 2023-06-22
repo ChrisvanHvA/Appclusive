@@ -122,9 +122,6 @@ button {
 .layout {
     padding: 1.5rem;
 }
-    .layout h1 {
-        display: none;
-    }
 
 @media screen and (min-width: 951px) {
     .layout {

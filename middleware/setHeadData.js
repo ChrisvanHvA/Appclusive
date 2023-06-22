@@ -8,7 +8,7 @@ const setHeadData = async (req, res, next) => {
     const paramNames = match.paramNames;
     const paramValues = match.paramValues;
 
-    if (res.locals.head.backUrl !== undefined) {
+    if (res.locals.head?.backUrl !== undefined) {
         // if the backUrl is not set (empty string), the back button will go back to the previous page or to the homepage
         res.locals.head.backUrl =
             res.locals.head.backUrl || req.header('Referer') || '/';
@@ -86,7 +86,8 @@ const data = {
     '*': {
         title: 'Page not found',
         description: '',
-        scripts: []
+        scripts: [],
+        backUrl: '/'
     }
 };
 

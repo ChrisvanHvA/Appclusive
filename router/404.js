@@ -4,7 +4,8 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     res.render('404', {
         ...res.locals,
-		noNav: true
+		noNav: false,
+        title: 'Page not found',
     });
 });
 
