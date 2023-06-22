@@ -63,6 +63,11 @@ const data = {
         description: '',
         scripts: []
     },
+    '/home': {
+        title: 'home',
+        description: 'landing page for app',
+        scripts: ['landingPage'],
+    },
     '/register': {
         title: 'Register',
         description: '',

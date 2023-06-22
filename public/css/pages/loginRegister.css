@@ -193,8 +193,8 @@
             color: var(--primary-color);
         }
 
-        a.btn[href="/register"],
-        a.btn[href="/login"] {
+        .layout__login .btn[href="/register"],
+        .layout__login .btn[href="/login"] {
             display: none;
         }
 
