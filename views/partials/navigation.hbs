@@ -1,58 +1,35 @@
 <aside class="nav nav--desktop">
-	{{!-- <div class="desktopCircles">
-		<span class="bg-circle"></span>
-		<span class="bg-circle"></span>
-		<span class="bg-circle"></span>
-	</div> --}}
-    {{!-- <a class="logo" href="/" tabindex="-1">{{> icons/logo}}</a> --}}
-
-    {{!-- <div class="searchbar">
-        <button class="btn" type="submit"><i class="icon icon--dark fa-solid fa-magnifying-glass"></i></button> --}}
-		{{!-- <label for="search-projects-desktop" class="label-hidden">Search for a project</label>
-        <input id="search-projects-desktop" type="text" name="search_projects" placeholder="Search projects" /> --}}
-    {{!-- </div> --}}
-
     <nav>
 		<ul class="menu">
 			<li class="menu__item">
-				<a href="/project/create">{{> icons/search}}</a>
+				<a href="/project/create">
+					{{> icons/search}}
+					<p>Search</p>
+				</a>
 			</li>
 			<li class="menu__item menu__item--all {{#unless (eq title "Recent")}}{{#unless (eq title "Archive")}}{{#unless (eq title "Settings")}}active{{/unless}}{{/unless}}{{/unless}}">
-				<a href="/">{{> icons/tilesicon}}</a>
-{{!-- 
-				{{#if this.recentProjectNames}}
-                    <details>
-                        <summary><i class="icon icon--light fa-solid fa-chevron-up"></i></summary>
-                        <ol>
-                            {{#each this.recentProjectNames}}
-                                <li class="menu__item">
-                                    <a href="/project/{{this.project_id}}/categories">{{this.title}}</a>
-                                </li>
-                            {{/each}}
-                        </ol>
-                    </details>
-                {{/if}} --}}
+				<a href="/">
+					{{> icons/tilesicon}}
+					<p>Dashboard</p>
+				</a>
 			</li>
-			{{!-- <li class="menu__item {{#if (eq title "Recent")}}active{{/if}}"><a href="#">{{> icons/recent}}Recent</a></li>
-			<li class="menu__item {{#if (eq title "Archive")}}active{{/if}}"><a href="#">{{> icons/archive}}Archive</a></li> --}}
 			<li class="menu__item {{#if (eq title "Settings")}}active{{/if}}">
-				<a href="/settings">{{> icons/settings}}</a>
-
-				<div class="menu__item--profile">
-					<a href="/settings">
-						<img src="https://unsplash.it/40/40" />
-						{{!-- <div>
-							<p>{{user.first_name}}</p>
-							<p>{{user.email_address}}</p>
-						</div> --}}
-					</a>
-
-					{{!-- <a href="/logout"><i class="icon icon--light fa-solid fa-arrow-right-from-bracket"></i></a> --}}
-				</div>
+				<a href="/settings">
+					{{> icons/settings}}
+					<p>Settings</p>
+				</a>
+			</li>
+			<li class=" menu__item menu__item--profile">
+				<a href="/account">
+					<img src="https://unsplash.it/40/40" />
+					<p>Account</p>
+				</a>
 			</li>
 		</ul>
     </nav>
 </aside>
+
+{{!-- MOBILE NAV --}}
 
 <header class="nav nav--mobile">
 	<div class="container__icon">
