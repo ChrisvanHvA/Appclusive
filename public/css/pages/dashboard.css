@@ -108,7 +108,7 @@
 	.layout__dashboard .recent-projects > label,
 	.layout__dashboard .recent-projects > input[name="overview"],
 	.layout__dashboard .dashboard-section > h3,
-	.layout__dashboard #searchbar + .cards.project-cards,
+	.layout__dashboard > a.create-project-card,
 	.layout__dashboard .cards-category__recent {
 		display: none;
 	}
