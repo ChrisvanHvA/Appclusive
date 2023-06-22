@@ -35,7 +35,7 @@
         padding-top: 1.4rem;
         padding-bottom: 0.35rem;
         border-color: var(--primary-color);
-        border-radius: var(--card-border-radius-mobile);
+        border-radius: var(--card-border-radius);
     }
 
     .settings__item-input label {
@@ -65,6 +65,8 @@
 @media screen and (min-width: 951px) {
     .layout__settings {
         padding-top: 2.5rem;
+        width: clamp(10rem, 100%, 70rem);
+        justify-self: center;
     }
     
     .settings {
@@ -113,13 +115,14 @@
                 background-color: var(--primary-color);
                 border-radius: 50%;
                 cursor: pointer;
-            }
-    
-                .settings .settings__item-avatar label svg {
-                    width: 1.75rem;
-                    height: 1.75rem;
-                    stroke: var(--light);
-                    stroke-width: 2;
-                }
 
+				display: flex;
+				justify-content: center;
+				align-items: center;
+            }
+
+				.settings .settings__item-avatar label i {
+					font-size: 1rem;
+					color: var(--light);
+				}
 }

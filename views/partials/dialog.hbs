@@ -1,0 +1,43 @@
+<dialog class="dialog dialog-{{slug}}">
+
+    {{!-- flex on the dialog itself breaks it, so we use an extra wrapper --}}
+    <section>
+
+        <h2>{{title}}</h2>
+
+        {{#if image_url}}
+            <img src="{{image_url}}" alt="{{image_alt}}">
+        {{/if}}
+
+        {{{message}}}
+
+        <div class="dialog__controls">
+            {{#if (eq button_type "form")}}
+
+                <form method="dialog">
+                    <button class="btn">{{button}}</button>
+                </form>
+
+            {{else if (eq button_type "link")}}
+
+                <form method="dialog">
+                    <button class="btn--cancel">Cancel</button>
+                </form>
+
+                <a href="{{button_href}}" class="btn">{{button}}</a>
+
+            {{else}}
+
+                <form method="dialog">
+                    <button class="btn--cancel">Cancel</button>
+                </form>
+
+                <a href="{{button_href}}" class="btn">{{button}}</a>
+
+            {{/if}}
+        </div>
+
+
+    </section>
+
+</dialog>

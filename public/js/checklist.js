@@ -1,3 +1,6 @@
+import noTransitionOnResize from './informationSidebar.js';
+
+
 const projectId = document.querySelector('.hidden-project-id').value;
 const checkboxes = document.querySelectorAll('.checklist__checkbox');
 
@@ -7,23 +10,33 @@ const init = () => {
     );
 
     checklistButtons.forEach((button) => {
-        button.addEventListener('click', submitHandler);
+        button.remove();
+    });
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', submitHandler);
+
+        // zorgt ervoor dat enter keydown ook werkt op firefox
+        checkbox.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                submitHandler(e);
+            }
+        });
     });
 };
 
 const submitHandler = async (e) => {
     e.preventDefault();
 
-	const parentElement = e.currentTarget.parentNode;
+    const formElement = e.currentTarget.closest('form');
 
-    const wcagItemId = parentElement.querySelector(
-        'input[name="wcag_item_id"]'
-    );
-    let isCompleted = parentElement.querySelector('input[name="is_completed"]');
-    const parentId = parentElement.querySelector('input[name="parent_id"]');
+    const wcagItemId = formElement.querySelector('input[name="wcag_item_id"]');
+    let isCompleted = formElement.querySelector('input[name="is_completed"]');
+    const parentId = formElement.querySelector('input[name="parent_id"]');
 
     // Toggle checkbox
-    const checkedInput = e.currentTarget.querySelector('.checklist__checkbox');
+    const checkedInput = formElement.querySelector('.checklist__checkbox');
     checkedInput.checked = isCompleted.value === 'true' ? false : true;
 
     const url = new URL(window.location.href);
@@ -62,20 +75,34 @@ const submitHandler = async (e) => {
 
 const progressBar = document.querySelector('.checklist__sidebar .progress');
 const percentageSpan = document.querySelector('.sidebar__progress > h3 > span');
-const completedChecksSpans = document.querySelectorAll(
-    '.completed-checks-counter'
+const completedChecksText = document.querySelectorAll(
+    '.completed-checks-counter, .page-title > div > p.page-title__subtitle'
 );
 
 const updateProgress = () => {
     if (!progressBar || !percentageSpan) return;
-	const checkedCheckboxes = Array.from(checkboxes).filter((checkbox) => checkbox.checked);
-	const percentage = Math.floor((checkedCheckboxes.length / checkboxes.length) * 100);
+    const checkedCheckboxes = Array.from(checkboxes).filter(
+        (checkbox) => checkbox.checked
+    );
+    const percentage = Math.floor(
+        (checkedCheckboxes.length / checkboxes.length) * 100
+    );
 
     percentageSpan.textContent = `${percentage}`;
-    completedChecksSpans.forEach((completedChecksSpan) => {
-        completedChecksSpan.textContent = `${checkedCheckboxes.length}`;
+    completedChecksText.forEach((completedChecksSpan) => {
+        completedChecksSpan.textContent = `${checkedCheckboxes.length} / ${checkboxes.length}`;
     });
     progressBar.setAttribute('value', percentage);
+
+
+    // open dialog if all items are checked
+    if (checkedCheckboxes.length === checkboxes.length) {
+        const dialog = document.querySelector('.dialog-category_finished');
+
+        dialog ? setTimeout(() => {
+            dialog.showModal();
+        }, 1000) : null;
+    }
 };
 
 init();

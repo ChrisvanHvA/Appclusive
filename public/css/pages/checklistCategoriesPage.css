@@ -2,10 +2,12 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2.5rem;
+	grid-auto-flow: dense;
+    width: clamp(10rem, 100%, 70rem);
+    justify-self: center;
 }
 
 .layout__categories > header {
-    /* span all columns */
     grid-column: 1 / -1;
 }
 

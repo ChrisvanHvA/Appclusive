@@ -12,6 +12,19 @@ hr {
     max-width: 70rem;
 }
 
+a {
+	text-decoration: none;
+}
+
+/* ---------------------------------- */
+/*                #TEXT               */
+/* ---------------------------------- */
+
+.text--highlight {
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
 /* ---------------------------------- */
 /*            #BUTTON           	  */
 /* ---------------------------------- */
@@ -35,7 +48,7 @@ button {
     background-color: var(--primary-color);
     padding: .625rem 1.25rem;
 	border: 2px solid var(--primary-color);
-    border-radius: var(--card-border-radius-mobile);
+    border-radius: var(--card-border-radius);
 	transition: all .2s ease-in-out;
 	
 	font-family: inherit;
@@ -76,6 +89,12 @@ button {
 	background-color: var(--light);
 }
 
+
+.btn--cancel {
+	color: var(--tertiary-text);
+	font-weight: 700;
+}
+
 /* NAV BUTTON */
 .btn--nav {
 	display: flex;
@@ -91,10 +110,11 @@ button {
 
 	.btn--nav svg {
 		width: 100%;
-
-		stroke: var(--light);
-		height: 100%;
 	}
+
+.btn--login {
+	margin-top: 1.5rem;
+}
 
 /* ---------------------------------- */
 /*            #LAYOUT           	  */
@@ -102,19 +122,26 @@ button {
 .layout {
     padding: 1.5rem;
 }
-    .layout h1 {
-        display: none;
-    }
 
 @media screen and (min-width: 951px) {
     .layout {
         padding: 3.5rem 2.5rem;
     }
     
-        .layout h1 {
-            display: block;
-            margin-bottom: 1rem;
-        }
+	.layout:not(.layout__login) .page-title div {
+		display: flex;
+		align-items: center;
+		gap: .5rem;
+	}
+
+	.layout:not(.layout__login) .page-title div p.page-title__subtitle {
+		margin: 0;
+	}
+
+	.layout:not(.layout__login) .page-title h1 {
+		display: inline-block;
+	}
+
 }
 
 /* ---------------------------------- */
@@ -211,16 +238,16 @@ input[type="radio"]:checked::after {
 }
 
     .searchbar input {
-        width: 80%;
+        width: 100%;
         height: 2rem;
 		
         padding-left: 2rem;
         
-		border-radius: 1.5rem;
+		border-radius: var(--card-border-radius);
         border: none;
         
 		font-size: 1rem;
-        color: #202020;
+        color: var(--primary-text);
     }
 
     .searchbar .btn {
@@ -242,8 +269,9 @@ input[type="radio"]:checked::after {
 		transform: translateY(-50%);
     }
 
-	.searchbar .btn svg {
+	.searchbar .btn i {
 		height: 1rem;
+		color: var(--secondary-text);
 	}
 /* ---------------------------------- */
 /*            #PROGRESS           	  */
@@ -252,13 +280,13 @@ input[type="radio"]:checked::after {
 	--progress-bar-border-radius: calc(var(--progress-bar-height) / 2);
 	appearance: none;
 
+	position: relative;
+
 	width: 100%;
 	height: var(--progress-bar-height);
 	
 	border-radius: var(--progress-bar-border-radius);
 	border: solid 2px var(--primary-color);
-	
-	overflow: hidden;
 	
 	background-color: transparent;
 }
@@ -271,23 +299,25 @@ input[type="radio"]:checked::after {
 .progress[value]::-moz-progress-bar {
 	background-color: var(--primary-color);
 	border-radius: 0 var(--progress-bar-border-radius) var(--progress-bar-border-radius) 0;
+	transition: width 1s;
 }
 
 .progress[value]::-webkit-progress-value {
 	background-color: var(--primary-color);
+	border-radius: var(--progress-bar-border-radius);
 }
 
 /* if progress bar is 100% */
 .progress[value='100'] {
-	border: solid 2px var(--status-text-done);
+	border: 2px solid #18b88f;
 }
 
 .progress[value='100']::-moz-progress-bar {
-	background-color: var(--status-bg-done);
+	background: #18b88f;
 }
 
 .progress[value='100']::-webkit-progress-value {
-	background-color: var(--status-bg-done);
+	background: #18b88f;
 }
 
 /* ---------------------------------- */

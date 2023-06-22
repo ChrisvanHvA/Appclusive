@@ -1,13 +1,17 @@
-{{#if (ne this null)}}
+{{#if (eq this 'create')}}
+	<a class="create-project-card" href="/new-project">+ New project</a>
+{{else if (eq this 'join')}}
+	<a class="create-project-card" href="/join-project">+ Join project</a>
+{{else}}
     <a href="/project/{{this.project_id}}/categories" draggable="false">
         <header>
             <div class="header__title">
                 <h3>{{this.title}}</h3>
-                <div class="status {{toLowerCase this.status}}">
+                <div class="status {{slugify this.status}}">
 
                     {{#if (eq (toLowerCase this.status) "new")}}
 						<i class="fa-solid fa-bolt"></i>
-                    {{else if (eq (toLowerCase this.status) "wip")}}
+                    {{else if (eq (toLowerCase this.status) "in progress")}}
 						<i class="fa-regular fa-hourglass-half"></i>
                     {{else}}
 						<i class="fa-regular fa-circle-check"></i>
@@ -36,7 +40,4 @@
             </div>
         </section>
     </a>
-
-{{else}}
-    <a href="/new-project">+ New project</a>
 {{/if}}

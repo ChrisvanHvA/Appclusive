@@ -1,9 +1,8 @@
+<input id='flip-{{slug}}' type='checkbox' />
 <label
-    aria-label='Info about {{title}}'
-    class='category__item__info'
-    for='{{toLowerCase title}}flip'
+    aria-label='show info about {{title}}'
+    for='flip-{{slug}}'
 ><i class='icon fa-regular fa-xl fa-circle-question'></i></label>
-<input id='{{toLowerCase title}}flip' type='checkbox' />
 
 <a href='/project/{{projectId}}?category={{slugify title}}'>
     <div class='category__item__back'>
@@ -16,7 +15,7 @@
         </p>
     </div>
     <div class='category__item__front'>
-        <i class='icon icon--alt {{icon_class}}'></i>
+        <i class='icon icon--alt {{#if (ne completed_checklists all_checklists)}} {{icon_class}} {{else}} fa-regular fa-circle-check {{/if}} '></i>
         <div class='category__item__content'>
             <div>
                 <h2>{{title}}</h2>

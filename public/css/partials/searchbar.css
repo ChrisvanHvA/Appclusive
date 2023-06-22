@@ -13,7 +13,7 @@
     bottom: 0;
     width: 1.85rem;
     height: 2rem;
-    background-color: var(--light);
+    background-color: var(--primary-bg);
     z-index: -1;
 }
 #searchbar::before {
@@ -46,7 +46,7 @@
         #searchbar input {
             width: 100%;
             padding-left: calc(var(--icon-width) +  0.25rem);
-			background-color: var(--light);
+			background-color: var(--primary-bg);
 			border: 2px solid var(--primary-color);
 			border-radius: 2rem;
         }
@@ -55,8 +55,7 @@
         }
 
 		#searchbar input:focus {
-			/* todo: kleurtj */
-			outline: solid 2px var(--status-bg-wip);
+			outline: solid 2px var(--primary-text);
 		}
 
 @media screen and (max-width: 950px) {

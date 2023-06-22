@@ -1,25 +1,12 @@
 .layout__checklist {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto 1fr;
     gap: 2.5rem;
+	grid-auto-flow: dense;
+    width: clamp(10rem, 100%, 70rem);
+    justify-self: center;
 }
-
-.checklist__title {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-    max-width: calc(100% - 2.625rem);
-	font-size: 1.3rem;
-	text-transform: capitalize;
-}
-
-    .checklist__title .counter {
-        padding: 0 0.375rem;
-        font-size: 1rem;
-        color: var(--light);
-        background-color: var(--primary-color);
-        border-radius: 0.25rem;
-    }
 
 @media screen and (max-width: 950px) {
     .layout__checklist {

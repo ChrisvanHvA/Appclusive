@@ -8,8 +8,7 @@ router.get('/', (req, res) => {
     }
 
     res.render('login', {
-        noNav: true,
-        message: req.flash('loginMsg')
+        noNav: true
     });
 });
 
@@ -17,8 +16,7 @@ router.post(
     '/',
     passport.authenticate('local-login', {
         successRedirect: '/',
-        failureRedirect: '/login',
-        failureFlash: true
+        failureRedirect: '/login'
     })
 );
 

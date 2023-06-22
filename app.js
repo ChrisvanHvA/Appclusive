@@ -7,14 +7,16 @@ import hbsHelpers from './helpers/hbsHelpers.js';
 import configurePassport from './config/passport.js';
 
 import passport from 'passport';
-import flash from 'connect-flash';
+// import flash from 'connect-flash';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
+// custom middleware
 import { setHeadData } from './middleware/setHeadData.js';
 import { getLoggedUser } from './middleware/getLoggedUser.js';
 import { checkAuth } from './middleware/checkAuth.js';
+import { hasAccessToProject } from './middleware/hasAccessToProject.js';
 import { setSidebarProjects } from './middleware/setSidebarProjects.js';
 
 const __dirname = path.resolve();
@@ -42,12 +44,11 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 configurePassport(passport);
 
-app.use(setHeadData);
 app.use(getLoggedUser);
-app.use(setSidebarProjects);
+app.use(hasAccessToProject);
+app.use(setHeadData);
 
 io.on('connection', (socket) => {
     // Do stuff§

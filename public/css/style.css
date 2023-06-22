@@ -23,8 +23,7 @@
 	--icon: var(--primary-color);
 	--icon-alt: #002971;
 	
-    --card-border-radius: 1.25rem;
-    --card-border-radius-mobile: 0.5rem;
+    --card-border-radius: min(1.25rem, 10vw);
     --card-border-color: #A1A1A1;
     --card-border-style: var(--card-border-color) solid 2px;
 	--card-border-color-style: var(--primary-color) solid 2px;
@@ -41,7 +40,9 @@
 }
 
 /* ------------- #DARK MODE ------------ */
-:root .dark  {
+:root 
+.dark  
+{
 	--primary-color: #3393FF;
 	
 	--primary-bg: #040505;
@@ -58,7 +59,7 @@
 /* turn on to debug weird margins and such */
 
 /* * {
-	border: 1px solid red !important;
+	outline: 1px solid red !important;
 } */
 
 body {
@@ -73,7 +74,7 @@ body {
 
 .page-with-nav {
 	display: grid;
-	grid-template-columns: clamp(15rem, 100%, 18.75rem) 1fr;
+	grid-template-columns: 10rem 1fr;
 }
 
 @media screen and (max-width: 950px) {

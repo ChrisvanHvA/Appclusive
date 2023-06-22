@@ -21,44 +21,51 @@ const validationChecks = [
     body('password')
         .if(body('password').exists())
         .notEmpty()
-        .withMessage('Confirm password must not be empty')
+        .withMessage('Password must not be empty')
         .isLength({ min: 6 })
         .withMessage('Password must be at least 6 characters long'),
+    body('old_password')
+        .if(body('old_password').exists().notEmpty())
+        .isLength({ min: 6 })
+        .withMessage('Pass must be at least 6 characters long'),
+    body('new_password')
+        .if(body('new_password').exists().notEmpty())
+        .isLength({ min: 6 })
+        .withMessage('Pass must be at least 6 characters long'),
     body('confirm_password')
         .if(body('confirm_password').exists())
         .notEmpty()
         .withMessage('Confirm password must not be empty')
         .custom((value, { req }) => value === req.body.password)
-        .withMessage('Passwords do not match!!'),
+        .withMessage('Passwords do not match!!')
 ];
 
 // Define validation middleware function to handle errors
 const handleValidationErrors = (render, extraParams) => (req, res, next) => {
-  const errors = validationResult(req);
+    const errors = validationResult(req);
 
-  console.log(errors)
-
-  if (!errors.isEmpty()) {
-
-    console.log('errors found');
     console.log(errors);
 
-    let errorFields = {};
+    if (!errors.isEmpty()) {
+        console.log('errors found');
+        console.log(errors);
 
-    errors.array().forEach((error) => {
-        errorFields[`${error.path}-error`] = error.msg;
-    });
+        let errorFields = {};
 
-    if (extraParams) {
-      errorFields = {...errorFields, ...extraParams};
+        errors.array().forEach((error) => {
+            errorFields[`${error.path}-error`] = error.msg;
+        });
+
+        if (extraParams) {
+            errorFields = { ...errorFields, ...extraParams };
+        }
+
+        return res.render(render, errorFields);
     }
-    
-    return res.render(render, errorFields);
-  }
 
-  console.log('continue');
+    console.log('continue');
 
-  next();
+    next();
 };
 
 export { validationChecks, handleValidationErrors };
