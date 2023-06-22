@@ -10,7 +10,7 @@ p {
     font-size: 1.5rem;
     font-weight: 300;
 
-    margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 .landingHeader {
@@ -26,7 +26,7 @@ p {
     top: 0;
     padding-left: 3rem;
     padding-top: 3rem;
-    z-index: -2;
+ 
 }
 
 .dog {
@@ -53,6 +53,22 @@ p {
 .dog img {
     display: none;
 }
+#dognod {
+    animation: dogbounce 0.5s infinite;
+}
+
+@keyframes dogbounce {
+    0% {
+        transform: rotate(0deg) scale(1.0);
+    }
+    50% {
+transform: scale(1.05, 0.9) rotate(-2deg);
+
+    }
+    100% {
+        transform: rotate(0deg) scale(1.0);
+    }
+}
 
 .landingHeader .landingCircles {
     top: 0;
@@ -64,7 +80,7 @@ p {
     width: 100%;
     height: 30rem;
     color: white;
-    z-index: -1;
+    z-index: 0;
 }
 
 .landingCircles span.bg-circle {
@@ -210,7 +226,7 @@ hr {
     width: 100%;
     border: 0.1rem solid var(--light);
     margin-top: 3rem;
-    margin-bottom: 3rem;
+ margin-bottom: 3rem;
 }
 
 .landingContent>li {
@@ -222,29 +238,19 @@ hr {
 
 
 
-
 .landingContent>li img {
     width: 100%;
     margin: auto;
     max-width: 37rem;
     padding-top: 3rem;
 
-
-
 }
-
-
-
-
-
-
 
 
 .landingBottom {
     padding-top: 8rem;
     width: 100%;
     background-color: var(--secondary-bg);
-    height: 27rem;
     display: block;
     margin: auto;
     line-height: normal;
@@ -253,15 +259,17 @@ hr {
 
 }
 
-.landingBottom>h2 {
+.landingBottom > h2 {
     font-size: 3rem;
+
     padding: 2rem;
 
 }
 
-.landingBottom>p {
+.landingBottom > p {
     font-weight: bold;
-    margin-top: 2rem;
+   padding-top: 2rem;
+    padding-bottom: 8rem;
     
 }
 
@@ -297,8 +305,11 @@ height: auto;
 ol.links {
     display: flex;
     flex-direction: row;
-width: 80%;
+    max-width: 100%;
+        flex-wrap: wrap;
 margin: auto;
+justify-content: center;
+min-width: 25rem;
  
 }
 ol.links li {
@@ -308,6 +319,7 @@ ol.links li {
     padding: 1rem;
     padding-top: 0rem;
     white-space: nowrap;
+    
 }
 ol.links li:hover {
     transform: scale(1.05);
@@ -335,7 +347,7 @@ ol.links li:hover {
         display: flex;
         flex-direction: row;
     
-     
+     flex-wrap: nowrap;
     }
     ol.links li {
         display: flex;
@@ -344,6 +356,7 @@ ol.links li:hover {
         padding: 1rem;
         padding-top: 0rem;
         white-space: nowrap;
+    
     }
     ol.links li:hover {
         transform: scale(1.05);
