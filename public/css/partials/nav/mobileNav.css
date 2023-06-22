@@ -78,18 +78,32 @@
 		color: var(--primary-color);
 		background-color: var(--light);
 		outline: 5px solid var(--primary-color);
+		border: solid 2px var(--primary-color);
+		transition: all 0.2s ease-in-out;
 	}
 
-		.nav--mobile a.icon-back svg {
-			display: block;
-			height: 1.375rem;
-			margin: auto;
-			stroke-width: 2;
-		}
+	.nav--mobile a.icon-back:hover,
+	.nav--mobile a.icon-back:focus-visible {
+		background-color: var(--primary-color);
+		color: var(--light);
+		border-color: var(--light);
+	}
 
-		.nav--mobile a.icon-back p {
-			margin-top: 0.125rem;
-		}
+	.nav--mobile a.icon-back:focus-visible {
+		text-decoration: underline;
+		text-decoration-thickness: 2px;
+		text-underline-offset: 2px;
+	}
+
+	.nav--mobile a.icon-back i {
+		color: var(--primary-color);
+		transition: color 0.2s ease-in-out;
+	}
+
+	.nav--mobile a.icon-back:hover i,
+	.nav--mobile a.icon-back:focus-visible i {
+		color: var(--light);
+	}
 
 .nav--mobile .content-header {
 	width: 100%;

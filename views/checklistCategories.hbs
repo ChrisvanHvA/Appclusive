@@ -2,6 +2,8 @@
 
     {{>pageTitleHeader title=project.title subtitle="Project overview"}}
 
+	{{>checklistSidebar title="Project progress" project=project}}
+
     <section class="checklist__categories">
         <p>To make things easy, we've grouped the numerous checklist items into categories for you.</p>
 
@@ -13,7 +15,5 @@
             {{/each}}
         </ol>
     </section>
-
-    {{>checklistSidebar title="Project progress" project=project}}
 
 </main>

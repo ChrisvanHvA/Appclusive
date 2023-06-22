@@ -4,6 +4,8 @@
 
     <p class="checklist__description">{{category.description}}</p>
 
+	{{>checklistSidebar title=(concat "{{category.title}} progress") project=project}}
+
     <section class="checklist">
         <ol>
             <li>
@@ -56,9 +58,6 @@
             {{/if}}
         </ol>
     </section>
-
-    {{>checklistSidebar title=(concat "{{category.title}} progress") project=project}}
-
 </main>
 
 <input class="hidden-project-id" type="hidden" value="{{project.project_id}}">
