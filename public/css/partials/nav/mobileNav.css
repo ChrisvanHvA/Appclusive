@@ -1,4 +1,4 @@
-.nav--mobile {
+.nav__mobile {
 	width: 100%;
 	min-height: 10rem;
 	padding: 1.5rem;
@@ -14,11 +14,11 @@
 	/* grid-template-rows: auto 1fr; */
 }
 
-.nav--mobile a {
+.nav__mobile a {
 	z-index: 99;
 }
 
-.nav--mobile .container__icon {
+.nav__mobile .container__icon {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -27,24 +27,27 @@
     grid-column: -1 / 4;
 }
 
-	.nav--mobile .container__icon a {
-		display: block;
+	.nav__mobile .container__icon a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
 		width: 2.5rem;
 		height: 2.5rem;
 		padding: 0.25rem;
 		background-color: var(--light);
 		border-radius: 50%;
 	}
-	.nav--mobile .container__icon a[href="/settings"] {
+	.nav__mobile .container__icon a[href="/settings"] {
 		margin-left: auto;
 	}
 
-		.nav--mobile .container__icon a svg {
-			height: 100%;
-			stroke: var(--primary-color);
+		.nav__mobile .container__icon a i {
+			font-size: 1.2rem;
+			color: var(--primary-color);
 		}
 
-.nav--mobile .container__content {
+.nav__mobile .container__content {
 	--welcome-padding-vertical: 0.5rem;
 	display: flex;
 	justify-content: space-between;
@@ -53,20 +56,20 @@
     grid-column: -1 / 4;
 }
 
-	.nav--mobile .content-header p {
+	.nav__mobile .content-header p {
 		padding: 0.35rem var(--welcome-padding-vertical) 0.275rem var(--welcome-padding-vertical);
 		text-transform: uppercase;
 	}
 
-	.nav--mobile .content-header > p,
-	.nav--mobile a.icon-back {
+	.nav__mobile .content-header > p,
+	.nav__mobile a.icon-back {
 		width: fit-content;
 		color: var(--light);
 		background-color: var(--status-text-new);
 		border-radius: 5px;
 	}
 
-	.nav--mobile a.icon-back {
+	.nav__mobile a.icon-back {
 		display: flex;
 		align-items: center;
 		gap: 0.25rem;
@@ -82,34 +85,34 @@
 		transition: all 0.2s ease-in-out;
 	}
 
-	.nav--mobile a.icon-back:hover,
-	.nav--mobile a.icon-back:focus-visible {
+	.nav__mobile a.icon-back:hover,
+	.nav__mobile a.icon-back:focus-visible {
 		background-color: var(--primary-color);
 		color: var(--light);
 		border-color: var(--light);
 	}
 
-	.nav--mobile a.icon-back:focus-visible {
+	.nav__mobile a.icon-back:focus-visible {
 		text-decoration: underline;
 		text-decoration-thickness: 2px;
 		text-underline-offset: 2px;
 	}
 
-	.nav--mobile a.icon-back i {
+	.nav__mobile a.icon-back i {
 		color: var(--primary-color);
 		transition: color 0.2s ease-in-out;
 	}
 
-	.nav--mobile a.icon-back:hover i,
-	.nav--mobile a.icon-back:focus-visible i {
+	.nav__mobile a.icon-back:hover i,
+	.nav__mobile a.icon-back:focus-visible i {
 		color: var(--light);
 	}
 
-.nav--mobile .content-header {
+.nav__mobile .content-header {
 	width: 100%;
 }
 		
-	.nav--mobile .content-header h1 {
+	.nav__mobile .content-header h1 {
 		background-color: var(--primary-color);
 		padding: var(--welcome-padding-vertical) 0;
 		width: fit-content;
@@ -120,23 +123,23 @@
 		border-radius: 5px;
 	}
 
-	.nav--mobile .content-avatar {
+	.nav__mobile .content-avatar {
 		position: relative;
 		width: fit-content;
 	}
 
-		.nav--mobile .content-avatar img {
+		.nav__mobile .content-avatar img {
 			width: 6.5rem;
 			height: 6.5rem;
 			border-radius: 50%;
 			object-fit: cover;
 		}
 
-		.nav--mobile .content-avatar input[type="file"] {
+		.nav__mobile .content-avatar input[type="file"] {
 			display: none;
 		}
 
-		.nav--mobile .content-avatar label {
+		.nav__mobile .content-avatar label {
 			position: absolute;
 			bottom: 0;
 			right: 0;
@@ -146,33 +149,35 @@
 			background-color: var(--light);
 			border-radius: 50%;
 			cursor: pointer;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
-			.nav--mobile .content-avatar label svg {
-				width: 1.25rem;
-				height: 1.25rem;
-				stroke: var(--primary-color);
-				stroke-width: 2;
+			.nav__mobile .content-avatar label i {
+				font-size: .9rem;
+				color: var(--primary-color);
 			}
 
-.nav--mobile .bg-circle {
+.nav__mobile .bg-circle {
 	height: 90%;
 }
-.nav--mobile .bg-circle:first-of-type {
+.nav__mobile .bg-circle:first-of-type {
 	left: -2.75rem;
 	bottom: -0.5rem;
 }
-.nav--mobile .bg-circle:nth-of-type(2) {
+.nav__mobile .bg-circle:nth-of-type(2) {
 	right: 5rem;
 	top: -55%;
 }
-.nav--mobile .bg-circle:nth-of-type(3) {
+.nav__mobile .bg-circle:nth-of-type(3) {
 	right: -2.5rem;
 	bottom: -50%;
 }
 
 @media screen and (min-width: 951px) {
-	.nav--mobile {
+	.nav__mobile {
 		display: none;
 	}
 }

@@ -1,5 +1,4 @@
-.nav--desktop {
-	overflow: clip;
+.nav__desktop {
     position: sticky;
     top: 0;
     left: 0;
@@ -14,187 +13,81 @@
 	/* padding: 0.5rem min(1rem, 2vw) 1rem min(3rem, 2vw); */
 }
 
-.nav--desktop a {
+.nav__desktop a {
 	z-index: 99;
 }
-
-	/* #LOGO IN NAV */
-	/* .nav--desktop .logo {
-		width: 60%;
-		margin: 1.25rem 0;
-	}
-
-		.nav--desktop .logo h1 {
-			display: block;
-			width: 100%;
-		}
-
-		.nav--desktop .logo svg{
-			width: 100%;
-		} */
 
 /* ---------------------------------- */
 /*         		#MENU        		  */
 /* ---------------------------------- */
 
-	.nav--desktop .menu {
+	.nav__desktop ul {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		color: var(--light);
 		background-color: var(--nav-bg);
-		/* gap: 1.4rem; */
 		height: 100%;
 		border-radius: 0 3.125rem 3.125rem 0;
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 	}
-		.nav--desktop .menu__item {
-			display: flex;
-			flex-direction: column;
-			align-content: center;
-			align-items: center;
+		.nav__desktop ul li {
+			width: 100%;
 		}
 
-			.nav--desktop .menu__item--profile a:last-of-type {
-				display: flex;
-				justify-content: center;
-				height: 100%;
-			}
-
-				.nav--desktop .menu__item:last-of-type img {
-					border-radius: 50%;
-					width: 2rem;
-					height: 2rem;
-					object-fit: cover;
-				}
-
-			.nav--desktop .menu__item a {
-				display: flex;
-				align-items: center;
-				gap: 1rem;
-				padding: 1rem 0;
+			.nav__desktop ul li a {
 				color: var(--light);
-				text-decoration: none;
+				display: flex;
+				height: 4rem;
+				justify-content: center;
+				align-items: center;
+				transition: color .2s ease-in-out;
 			}
 
-				.nav--desktop .menu__item a svg {
+			.nav__desktop ul li a:hover,
+			.nav__desktop ul li a:focus-visible {
+				color: var(--nav-selected);
+			}
+
+			.nav__desktop ul li a:focus-visible {
+				outline-offset: -.5rem;
+			}
+
+				.nav__desktop ul li a svg {
 					width: 1.5rem;
 				}
-				/* .fa-magnifying-glass {
-					height: 1.5rem;
-					color: var(--light);
-				} */
+
+				.nav__desktop ul li a span {
+					margin-left: 1rem;
+				}
+
+				.nav__desktop ul li a i {
+					font-size: 1.3rem;
+				}
+
+				.nav__desktop li.profile-icon img {
+					border-radius: 50%;
+					width: 50%;
+					height: 50%;
+					object-fit: cover;
+				}
 		
-
-/* ---------------------------------- */
-/*    			#DETAILS   			  */
-/* ---------------------------------- */
-/* .nav--desktop .menu__item--all {
-	position: relative;
-} */
-
-/* .nav--desktop .menu > .menu__item:nth-of-type(2) a {
-	width: 80%;
-} */
-
-/* .nav--desktop .menu__item details {
-	padding-left: 2.5rem;
-}
-
-	.nav--desktop .menu__item details summary {
-		cursor: pointer;
-		text-align: right;
-		position: absolute;
-		top: 1rem;
-		right: 0;
-		
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-		.menu__item details .menu__item a {
-			padding: 0.5rem 0;
-		}
-
-	.nav--desktop .menu__item details summary::marker {
-		content: none;
-	}
-
-		.nav--desktop .menu__item details summary .icon {
-			height: 1.5rem;
-			display: flex;
-			align-items: center;
-		}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-	.nav--desktop .menu__item details summary .icon {
-		transition: transform 0.4s cubic-bezier(0.5, -0.56, 0.46, 1.34);
-	}
-}
-
-.nav--desktop .menu__item details[open] summary .icon {
-	transform: rotate(180deg);
-}
-
-.nav--desktop .menu__item details ol {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 1rem;
-} */
 
 /* ---------------------------------- */
 /*            #ACTIVE                 */
 /* ---------------------------------- */
 /* dat blauwe dingetje aan de rechterkant is echt kkkkkkkkkkkkringe om te maken dus :0 */
-.nav--desktop .menu__item.active > a {
+.nav__desktop ul li.active > a {
 	color: var(--nav-selected);
 	font-weight: 900;
 }
 
-.nav--desktop .desktopCircles {
-    top: 0;
-    left: 0;
-	width: 100%;
-    height: 100%;
-	overflow: clip;
-	position:absolute;
-	display: flex;
-	flex-direction: column;
-}
-.desktopCircles span.bg-circle {
-
-	pointer-events: none;
-	border-radius: 50%;
-	aspect-ratio: 1;
-	border: solid 3px var(--light);
-	width: 10rem;
-	margin: 5rem;
-}
-
-	.desktopCircles> span.bg-circle:nth-child(1) {
-		top: -10rem;
-		right: -8rem;
-	}
-
-	.desktopCircles> span.bg-circle:nth-child(2) {
-		top: 6rem;
-		left: -14rem;
-		width: 15rem;
-	}
-
-	.desktopCircles> span.bg-circle:nth-child(3) {
-		right: -9rem;
-		width: 20rem;
-		bottom: -13rem;
-	}
 
 @media screen and (max-width: 950px) {
-	.nav--desktop {
+	.nav__desktop {
 		display: none;
 	}
-
 }
 
