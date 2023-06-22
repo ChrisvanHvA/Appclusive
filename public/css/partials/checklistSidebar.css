@@ -1,5 +1,5 @@
 .checklist__sidebar {
-	--toggle-button-top: 10rem;
+	--toggle-button-top: 10.5rem;
 	--mobile-sidebar-width: 85vw;
 	grid-column: 2 / -1;
 }

@@ -4,24 +4,30 @@
 			<li {{#if (eq head.originalUrl '/')}}class="active"{{/if}}>
 				<a href="/" aria-label="home">
 					<i class="fa-solid fa-house"></i>
+					<p>Home</p>
 				</a>
 			</li>
 
 			<li {{#if (eq head.originalUrl '/new-project')}}class="active"{{/if}}>
 				<a href="/new-project">
 					<i class="fa-solid fa-magnifying-glass"></i>
+					<p>Search</p>
 				</a>
 			</li>
 
 			<li {{#if (eq head.originalUrl '/settings')}}class="active"{{/if}}>
 				<a href="/settings">
 					<i class="fa-solid fa-gear"></i>
+					<p>Settings</p>
 				</a>
 			</li>
 
 			<li class="profile-icon">
 				<a href="/settings">
-					<img src="https://unsplash.it/40/40" alt="" />
+					<div>
+						<img src="https://unsplash.it/40/40" alt="" />
+					</div>
+					<p>Account</p>
 				</a>
 			</li>
 		</ul>

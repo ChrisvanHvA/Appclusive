@@ -65,6 +65,8 @@
 @media screen and (min-width: 951px) {
     .layout__settings {
         padding-top: 2.5rem;
+        width: clamp(10rem, 100%, 70rem);
+        justify-self: center;
     }
     
     .settings {

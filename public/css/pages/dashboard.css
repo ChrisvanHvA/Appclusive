@@ -1,5 +1,8 @@
 .layout__dashboard {
 	padding-top: 0;
+
+	width: clamp(10rem, 100%, 70rem);
+    justify-self: center;
 }
 
 .layout__dashboard > header {
@@ -32,7 +35,7 @@
 }
 
 .layout__dashboard .recent-projects > label::before {
-	content: 'view as list';
+	content: 'Vertical view';
 	text-decoration: underline;
 	color: var(--tertiary-text);
 	position: absolute;
@@ -42,7 +45,7 @@
 }
 
 .layout__dashboard .recent-projects > input[name="overview"]:checked + label::before {
-	content: 'view less';
+	content: 'Horizontal view';
 }
 
 .layout__dashboard .recent-projects > input[name="overview"]:focus-visible + label::before {
