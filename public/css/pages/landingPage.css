@@ -267,14 +267,87 @@ hr {
 
 footer {
     width: 100%;
-    height: 15rem;
+  
     display: flex;
+    flex-wrap: wrap;
     background-color: var(--secondary-text);
 }
 
+.footerContent {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: var(--light);
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+
+}
+.footerContent li {
+padding: 3rem;
+    flex: 1 1 0px
+}
+.footerContent li.logo svg{
+max-width: 15rem;
+min-width: 15rem;
+height: auto;
+
+} 
+ol.links {
+    display: flex;
+    flex-direction: row;
+width: 80%;
+margin: auto;
+ 
+}
+ol.links li {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    padding-top: 0rem;
+    white-space: nowrap;
+}
+ol.links li:hover {
+    transform: scale(1.05);
+}
+.footerContent ol li a {
+    color: white;
+    text-decoration: none;
+   
+}
+
+.rights {
+    text-align: right;
+    line-height: normal;
+}
+.rights h3 {
+
+    font-size: 2rem;
+}
+.rights p {
+    line-height: normal;
+}
 
 @media screen and (min-width: 950px) {
-
+    ol.links {
+        display: flex;
+        flex-direction: row;
+    
+     
+    }
+    ol.links li {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        padding-top: 0rem;
+        white-space: nowrap;
+    }
+    ol.links li:hover {
+        transform: scale(1.05);
+    }
     .layout__landingpage {
         width: 60%;
         margin: auto;
