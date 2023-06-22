@@ -130,7 +130,7 @@ class projectModel {
 		  FROM project_users AS pu
 		  LEFT JOIN projects AS p ON p.project_id = pu.project_id
 		  LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
-		  WHERE pu.user_id = ${userId}
+		  WHERE pu.user_id = ${userId} AND p.project_id IS NOT NULL
 		  GROUP BY p.project_id, pu.user_id;
             `;
 
