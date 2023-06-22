@@ -35,7 +35,7 @@
         padding-top: 1.4rem;
         padding-bottom: 0.35rem;
         border-color: var(--primary-color);
-        border-radius: var(--card-border-radius-mobile);
+        border-radius: var(--card-border-radius);
     }
 
     .settings__item-input label {

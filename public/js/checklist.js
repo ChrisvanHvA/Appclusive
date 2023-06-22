@@ -1,3 +1,6 @@
+import noTransitionOnResize from './informationSidebar.js';
+
+
 const projectId = document.querySelector('.hidden-project-id').value;
 const checkboxes = document.querySelectorAll('.checklist__checkbox');
 

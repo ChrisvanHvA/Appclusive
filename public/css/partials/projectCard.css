@@ -1,3 +1,5 @@
+/* inshallah niemand hoeft hier ooit nog wat in te doen */
+
 .project-cards li.card__item {
 	--card-min-width: 25rem;
 	--card-max-width: 31.25rem;
@@ -27,7 +29,7 @@
 	color: inherit;
 	text-decoration: none;
 	padding: 1rem;
-	border-radius: var(--card-border-radius-mobile);
+	border-radius: var(--card-border-radius);
 	border: var(--card-border-color-style);
 }
 
@@ -72,7 +74,7 @@
 			color: var(--status-text-new);
 			background-color: var(--status-bg-new);
 		}
-		.project-cards li.card__item div.status.wip {
+		.project-cards li.card__item div.status.in-progress {
 			color: var(--status-text-wip);
 			background-color: var(--status-bg-wip);
 		}
@@ -82,9 +84,9 @@
 		}
 
 		.project-cards li.card__item.allprojects-card div.status {
-			min-width: 1.625rem;
 			min-height: 1.625rem;
 			padding: 0.25rem;
+			aspect-ratio: 1;
 		}
 
 			.project-cards li.card__item.allprojects-card div.status p {
@@ -144,8 +146,10 @@
 /* ---------------------------------- */
 /*   styles for create project card   */
 /* ---------------------------------- */
-.project-cards li.card__item.admin-card a {
-	border-color: var(--primary-color);
+
+.create-project-card,
+.project-cards li.card__item a.create-project-card {
+	border: solid 2px var(--primary-color);
 	background-color: var(--create-project-card-bg);
 	display: flex;
 	justify-content: center;
@@ -153,16 +157,20 @@
 	color: var(--primary-color);
 	font-weight: 700;
 	font-size: 1.25rem;
+	min-height: 5rem;
+	border-radius: var(--card-border-radius);
 }
 
 @media screen and (min-width: 951px) {
 	.project-cards li.card__item a {
 		padding: 1.55rem 1.875rem;
-		border-radius: var(--card-border-radius);
 	}
-	.project-cards li.card__item.admin-card a {
+
+	.project-cards li.card__item a.create-project-card,
+	.create-project-card {
 		font-size: 1.5rem;
 	}
+
 	.project-cards li.card__item a header img {
 		display: inline-block;
 		border-radius: 50%;
@@ -179,6 +187,7 @@
 
 	.project-cards li.card__item.allprojects-card div.status {
 		padding: 0.25rem 0.5rem;
+		aspect-ratio: unset;
 	}
 
 		.project-cards li.card__item.allprojects-card div.status p {

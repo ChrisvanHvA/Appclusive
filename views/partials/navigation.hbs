@@ -1,73 +1,53 @@
-<aside class="nav nav--desktop">
-	{{!-- <div class="desktopCircles">
-		<span class="bg-circle"></span>
-		<span class="bg-circle"></span>
-		<span class="bg-circle"></span>
-	</div> --}}
-    {{!-- <a class="logo" href="/" tabindex="-1">{{> icons/logo}}</a> --}}
-
-    {{!-- <div class="searchbar">
-        <button class="btn" type="submit"><i class="icon icon--dark fa-solid fa-magnifying-glass"></i></button> --}}
-		{{!-- <label for="search-projects-desktop" class="label-hidden">Search for a project</label>
-        <input id="search-projects-desktop" type="text" name="search_projects" placeholder="Search projects" /> --}}
-    {{!-- </div> --}}
-
+<aside class="nav nav__desktop">
     <nav>
-		<ul class="menu">
-			<li class="menu__item">
-				<a href="/project/create">{{> icons/search}}</a>
+		<ul>
+			<li {{#if (eq head.originalUrl '/')}}class="active"{{/if}}>
+				<a href="/" aria-label="home">
+					<i class="fa-solid fa-house"></i>
+					<p>Home</p>
+				</a>
 			</li>
-			<li class="menu__item menu__item--all {{#unless (eq title "Recent")}}{{#unless (eq title "Archive")}}{{#unless (eq title "Settings")}}active{{/unless}}{{/unless}}{{/unless}}">
-				<a href="/">{{> icons/tilesicon}}</a>
-{{!-- 
-				{{#if this.recentProjectNames}}
-                    <details>
-                        <summary><i class="icon icon--light fa-solid fa-chevron-up"></i></summary>
-                        <ol>
-                            {{#each this.recentProjectNames}}
-                                <li class="menu__item">
-                                    <a href="/project/{{this.project_id}}/categories">{{this.title}}</a>
-                                </li>
-                            {{/each}}
-                        </ol>
-                    </details>
-                {{/if}} --}}
+
+			<li {{#if (eq head.originalUrl '/new-project')}}class="active"{{/if}}>
+				<a href="/new-project">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<p>Search</p>
+				</a>
 			</li>
-			{{!-- <li class="menu__item {{#if (eq title "Recent")}}active{{/if}}"><a href="#">{{> icons/recent}}Recent</a></li>
-			<li class="menu__item {{#if (eq title "Archive")}}active{{/if}}"><a href="#">{{> icons/archive}}Archive</a></li> --}}
-			<li class="menu__item {{#if (eq title "Settings")}}active{{/if}}">
-				<a href="/settings">{{> icons/settings}}</a>
 
-				<div class="menu__item--profile">
-					<a href="/settings">
-						<img src="https://unsplash.it/40/40" />
-						{{!-- <div>
-							<p>{{user.first_name}}</p>
-							<p>{{user.email_address}}</p>
-						</div> --}}
-					</a>
+			<li {{#if (eq head.originalUrl '/settings')}}class="active"{{/if}}>
+				<a href="/settings">
+					<i class="fa-solid fa-gear"></i>
+					<p>Settings</p>
+				</a>
+			</li>
 
-					{{!-- <a href="/logout"><i class="icon icon--light fa-solid fa-arrow-right-from-bracket"></i></a> --}}
-				</div>
+			<li class="profile-icon">
+				<a href="/settings">
+					<div>
+						<img src="https://unsplash.it/40/40" alt="" />
+					</div>
+					<p>Account</p>
+				</a>
 			</li>
 		</ul>
     </nav>
 </aside>
 
-<header class="nav nav--mobile">
+<header class="nav nav__mobile">
 	<div class="container__icon">
 		{{#if head.backUrl}}
 			<a href="{{head.backUrl}}" class="icon-back" aria-label="back to previous page">
 				<i class="icon fa-solid fa-chevron-left"></i>
-				<p>back</p>
+				back
 			</a>
 		{{/if}}
 
-		{{#if (ne title 'Settings')}}
+		{{#unless (eq head.originalUrl '/settings')}}
 			<a href="/settings" class="btn btn--nav" aria-label="open settings">
-				{{>icons/settings}}
+				<i class="fa-solid fa-gear"></i>
 			</a>
-		{{/if}}
+		{{/unless}}
 	</div>
 
     <div class="container__content">
@@ -81,8 +61,8 @@
 		{{#if (eq title 'Settings')}}
 			<form class="content-avatar">
 				<img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
-				<label>
-					{{>icons/pen}}
+				<label aria-label="edit profile picture">
+					<i class="fa-solid fa-pencil"></i>
 					<input type="file" name="avatar" />
 				</label>
 			</form>

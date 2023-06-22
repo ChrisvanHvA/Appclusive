@@ -38,7 +38,7 @@
                 font-size: 1rem;
                 padding: 0.75rem;
                 padding-left: 1.25rem;
-                border-radius: var(--card-border-radius-mobile);
+                border-radius: var(--card-border-radius);
                 border: 0.125rem solid var(--dark);
             }
             .form__section input::placeholder {

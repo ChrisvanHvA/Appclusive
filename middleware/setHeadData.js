@@ -4,6 +4,7 @@ const setHeadData = async (req, res, next) => {
     const match = await findRoute(req.originalUrl);
 
     res.locals.head = data[match.route.path] ?? data.fallback;
+	res.locals.head.originalUrl = req.originalUrl;
 
     const paramNames = match.paramNames;
     const paramValues = match.paramValues;

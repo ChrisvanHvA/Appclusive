@@ -69,11 +69,6 @@
 	position: relative;
 	z-index: 1;
 }
-@media screen and (max-width: 950px) {
-    .checklist__item label {
-        border-radius: var(--card-border-radius-mobile);
-    }
-}
 
     .checklist__item label > span {
         display: inline-block;

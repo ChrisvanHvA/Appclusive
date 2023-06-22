@@ -30,12 +30,12 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	color: var(--primary-bg);
+	opacity: 0;
 	cursor: pointer;
 }
 
 .layout__dashboard .recent-projects > label::before {
-	content: 'view as list';
+	content: 'Vertical view';
 	text-decoration: underline;
 	color: var(--tertiary-text);
 	position: absolute;
@@ -45,7 +45,7 @@
 }
 
 .layout__dashboard .recent-projects > input[name="overview"]:checked + label::before {
-	content: 'view less';
+	content: 'Horizontal view';
 }
 
 .layout__dashboard .recent-projects > input[name="overview"]:focus-visible + label::before {
@@ -67,9 +67,15 @@
 		height: 100%;
 	}
 
-.layout__dashboard > div + .cards.project-cards > .admin-card {
+/* dit is echt de meest messy code ooit inshallah */
+.layout__dashboard > a.create-project-card {
+	display: flex;
+}
+
+.layout__dashboard .create-card-container {
 	display: none;
 }
+
 
 .cards-category__recent {
 	display: flex !important;
@@ -107,8 +113,8 @@
 		display: none;
 	}
 
-	.layout__dashboard > div + .cards.project-cards > .admin-card {
-		display: block;
+	.layout__dashboard .create-card-container {
+		display: flex;
 	}
 
 	.cards.project-cards {

@@ -1,3 +1,7 @@
+/* ---------------------------------- */
+/*          currently unused          */
+/* ---------------------------------- */
+
 import projectModel from '../models/projectModel.js';
 
 const ProjectModel = new projectModel();

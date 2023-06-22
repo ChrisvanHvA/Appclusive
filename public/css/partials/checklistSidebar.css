@@ -1,5 +1,7 @@
 .checklist__sidebar {
-	--toggle-button-top: 10rem;
+	--toggle-button-top: 10.5rem;
+	--mobile-sidebar-width: 85vw;
+	grid-column: 2 / -1;
 }
 
 .checklist__sidebar > input {
@@ -38,7 +40,7 @@
 	inset: 0;
 	opacity: 0;
 	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 1;
+	z-index: 2;
 	pointer-events: none;
 }
 
@@ -194,6 +196,10 @@
         }
 
 @media screen and (max-width: 950px) {
+	.checklist__sidebar {
+		position: absolute;
+	}
+
 	.checklist__sidebar > label {
 		display: flex;
 	}
@@ -203,7 +209,7 @@
 	}
 
 	.checklist__sidebar > input:checked + label {
-		right: 85vw;
+		right: var(--mobile-sidebar-width);
 	}
 
 	.checklist__sidebar .backdrop {
@@ -219,17 +225,21 @@
         position: fixed;
         top: 0;
         bottom: 0;
-        width: 85%;
-        /* max-width: 23rem; */
+        width: var(--mobile-sidebar-width);
         z-index: 2;
 
         background-color: var(--primary-bg);
         padding: 2.5rem 1.5rem;
-        right: -85vw;
+        right: calc(-1 * var(--mobile-sidebar-width));
     }
         .checklist__sidebar > input:checked ~ aside {
             right: 0;
         }
+
+		.checklist__sidebar > input:not(:checked) ~ aside * {
+			display: none;
+		}
+
     .checklist__sidebar aside .sidebar__infoicon {
         position: absolute;
         top: 10.8rem;
@@ -257,16 +267,11 @@
 
 @media screen and (prefers-reduced-motion: no-preference) {
     @media screen and (max-width: 950px) {
-		.checklist__sidebar > label {
+		.checklist__sidebar:not(.no-transition) > label {
 			transition: background-color 0.2s ease-in-out, right 0.5s ease-in-out;
 		}
 
-		.checklist__sidebar aside .sidebar__infoicon i,
-		.checklist__sidebar aside .sidebar__infoicon {
-			transition: all .2s ease-in-out;
-		}
-
-        .checklist__sidebar aside {
+        .checklist__sidebar:not(.no-transition) aside {
             transition: right 0.5s ease-in-out;
         }
     }

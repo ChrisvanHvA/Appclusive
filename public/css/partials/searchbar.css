@@ -55,8 +55,7 @@
         }
 
 		#searchbar input:focus {
-			/* todo: kleurtj */
-			outline: solid 2px var(--status-bg-wip);
+			outline: solid 2px var(--primary-text);
 		}
 
 @media screen and (max-width: 950px) {

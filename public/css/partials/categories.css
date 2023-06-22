@@ -128,8 +128,8 @@ input[id^="flip"]:focus-visible + label {
     position: absolute;
     width: 1.25rem;
     height: 1.25rem;
-    top: 1rem;
-    right: 1rem;
+    top: 1.4rem;
+    right: 1.5rem;
     cursor: pointer;
     z-index: 1;
   }
