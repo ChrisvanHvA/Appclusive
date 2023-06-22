@@ -3,11 +3,11 @@
         <header>
             <div class="header__title">
                 <h3>{{this.title}}</h3>
-                <div class="status {{toLowerCase this.status}}">
+                <div class="status {{slugify this.status}}">
 
                     {{#if (eq (toLowerCase this.status) "new")}}
 						<i class="fa-solid fa-bolt"></i>
-                    {{else if (eq (toLowerCase this.status) "wip")}}
+                    {{else if (eq (toLowerCase this.status) "in progress")}}
 						<i class="fa-regular fa-hourglass-half"></i>
                     {{else}}
 						<i class="fa-regular fa-circle-check"></i>

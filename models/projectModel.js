@@ -125,7 +125,7 @@ class projectModel {
 			(CASE
 				WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = 0 THEN 'New'
 				WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) THEN 'Done'
-				ELSE 'WIP'
+				ELSE 'In Progress'
 			  END) AS status
 		  FROM project_users AS pu
 		  LEFT JOIN projects AS p ON p.project_id = pu.project_id

@@ -72,7 +72,7 @@
 			color: var(--status-text-new);
 			background-color: var(--status-bg-new);
 		}
-		.project-cards li.card__item div.status.wip {
+		.project-cards li.card__item div.status.in-progress {
 			color: var(--status-text-wip);
 			background-color: var(--status-bg-wip);
 		}
