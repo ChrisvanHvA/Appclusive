@@ -55,6 +55,10 @@
 		height: 100%;
 	}
 
+.card.project-cards--header {
+	margin-bottom: 1.5rem;
+}
+
 /* dit is echt de meest messy code ooit inshallah */
 .layout__dashboard > a.create-project-card {
 	display: flex;
@@ -96,7 +100,6 @@
 	.layout__dashboard .recent-projects > label,
 	.layout__dashboard .recent-projects > input[name="overview"],
 	.layout__dashboard .dashboard-section > h3,
-	.layout__dashboard > a.create-project-card,
 	.layout__dashboard .cards-category__recent {
 		display: none;
 	}
