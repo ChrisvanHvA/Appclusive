@@ -58,19 +58,6 @@ class projectModel {
             console.log(error);
             return false;
         }
-
-        // try {
-        //     await sql`
-        //         UPDATE projects
-        //         SET ${sql(updateData)}
-        //         WHERE project_id = ${project_id}
-        //     `;
-
-        //     return true;
-        // } catch (error) {
-        //     console.log(error);
-        //     return false;
-        // }
     }
 
     /**
