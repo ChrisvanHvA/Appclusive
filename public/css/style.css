@@ -23,7 +23,8 @@
 	--icon: var(--primary-color);
 	--icon-alt: #002971;
 	
-    --card-border-radius: min(1.25rem, 10vw);
+    --card-border-radius: 0.5rem;
+    --card-border-radius-dashboard: 1rem;
     --card-border-color: #A1A1A1;
     --card-border-style: var(--card-border-color) solid 2px;
 	--card-border-color-style: var(--primary-color) solid 2px;
