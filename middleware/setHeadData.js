@@ -94,6 +94,11 @@ const data = {
         description: '',
         scripts: [],
         backUrl: '/'
+    },
+    fallback: {
+        title: 'Appclusive',
+        description: '',
+        scripts: []
     }
 };
 
