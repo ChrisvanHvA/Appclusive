@@ -2,16 +2,20 @@ main.layout__project-create .page-title {
 	margin-bottom: 2rem;
 }
 
-main.layout__project-create .delete button {
-	font-weight: 700;
-	text-transform: uppercase;
-	text-align: center;
-	color: #e01010;
+main.layout__project-create .delete {
+	margin-top: 1rem;
 }
-main.layout__project-create .delete button:hover,
-main.layout__project-create .delete button:focus-visible {
-	text-decoration: underline;
-}
+
+	main.layout__project-create .delete button {
+		font-weight: 700;
+		text-transform: uppercase;
+		text-align: center;
+		color: #e01010;
+	}
+	main.layout__project-create .delete button:hover,
+	main.layout__project-create .delete button:focus-visible {
+		text-decoration: underline;
+	}
 
 main.layout__project-create input,
 main.layout__project-create textarea,
