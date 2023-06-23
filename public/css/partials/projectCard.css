@@ -212,6 +212,10 @@
 				gap: 0.4rem;
 			}
 
+				.project-cards li.card__item.allprojects-card a header .header__title span {
+					color: var(--primary-color);
+				}
+
 			.project-cards li.card__item.allprojects-card a header .header__members {
 				display: flex;
 				flex-direction: row;
