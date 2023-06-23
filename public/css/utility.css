@@ -68,7 +68,6 @@ button {
 .btn:focus-visible {
     background-color: var(--light);
     color: var(--primary-color);
-    border: 2px solid var(--light);
 }
 
 /* SECONDARY BUTTON */

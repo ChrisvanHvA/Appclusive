@@ -68,6 +68,10 @@
         width: clamp(10rem, 100%, 70rem);
         justify-self: center;
     }
+
+    .layout__settings .btn {
+        max-width: 14rem;
+    }
     
     .settings {
         display: grid;
