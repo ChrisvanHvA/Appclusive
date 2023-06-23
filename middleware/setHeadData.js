@@ -3,19 +3,16 @@ import { findRoute } from '../helpers/findRoute.js';
 const setHeadData = async (req, res, next) => {
     const match = await findRoute(req.originalUrl);
 
-    res.locals.head = data[match.route.path] ?? data.fallback;
-	res.locals.head.originalUrl = req.originalUrl;
+	res.locals.head = { ...data[match.route.path] } ?? { ...data.fallback };
 
-    const paramNames = match.paramNames;
-    const paramValues = match.paramValues;
+    res.locals.head.currentPath = req.originalUrl.split('?')[0];
 
-    if (res.locals.head?.backUrl !== undefined) {
-        // if the backUrl is not set (empty string), the back button will go back to the previous page or to the homepage
-        res.locals.head.backUrl =
-            res.locals.head.backUrl || req.header('Referer') || '/';
+    if (res.locals.head?.backUrl) {
+        const paramNames = match.paramNames;
+        const paramValues = match.paramValues;
 
         // replace the params in the backUrl with the values of the params in the current url (cool swag) B)
-        if (paramNames !== undefined) {
+        if (paramNames?.length > 0 && paramValues?.length > 0) {
             for (let i = 0; i < paramNames.length; i++) {
                 res.locals.head.backUrl = res.locals.head.backUrl.replace(
                     ':' + paramNames[i],
@@ -47,17 +44,17 @@ const data = {
         backUrl: '/project/:projectId/categories'
     },
     '/project/:projectId/categories': {
-		title: 'Categories',
-		description: '',
-		scripts: ['categories', 'projectinfo', 'dialog'],
+        title: 'Categories',
+        description: '',
+        scripts: ['categories', 'projectinfo', 'dialog'],
         backUrl: '/'
-	},
+    },
     '/project/:projectId/settings': {
-		title: 'Project settings',
-		description: '',
-		scripts: ['createProject'],
+        title: 'Project settings',
+        description: '',
+        scripts: ['createProject'],
         backUrl: '/project/:projectId/categories'
-	},
+    },
     '/login': {
         title: 'Login',
         description: '',
@@ -66,7 +63,7 @@ const data = {
     '/onboarding': {
         title: 'Appclusive | Onboarding',
         description: '',
-        scripts: ['landingPage'],
+        scripts: ['landingPage']
     },
     '/register': {
         title: 'Register',

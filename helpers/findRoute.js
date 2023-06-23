@@ -30,7 +30,7 @@ const findRoute = async (reqUrl) => {
 		return { route: route, paramValues: paramValues, paramNames: paramNames };
 	}
 	// return error route if no route is found
-	return { route: routes[routes.length - 1], paramValue: undefined, paramName: undefined };
+	return { route: routes[routes.length - 1], paramValues: [], paramNames: [] };
 }
 
 export { findRoute };

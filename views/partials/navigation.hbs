@@ -1,21 +1,21 @@
 <aside class="nav nav__desktop">
     <nav>
 		<ul>
-			<li {{#if (eq head.originalUrl '/')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/')}}class="active"{{/if}}>
 				<a href="/" aria-label="home">
 					<i class="fa-solid fa-house"></i>
 					<p>Home</p>
 				</a>
 			</li>
 
-			<li {{#if (eq head.originalUrl '/new-project')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/new-project')}}class="active"{{/if}}>
 				<a href="/new-project">
 					<i class="fa-solid fa-magnifying-glass"></i>
 					<p>Search</p>
 				</a>
 			</li>
 
-			<li {{#if (eq head.originalUrl '/settings')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/settings')}}class="active"{{/if}}>
 				<a href="/settings">
 					<i class="fa-solid fa-gear"></i>
 					<p>Settings</p>
@@ -43,7 +43,7 @@
 			</a>
 		{{/if}}
 
-		{{#unless (eq head.originalUrl '/settings')}}
+		{{#unless (eq head.currentPath '/settings')}}
 			<a href="/settings" class="btn btn--nav" aria-label="open settings">
 				<i class="fa-solid fa-gear"></i>
 			</a>
