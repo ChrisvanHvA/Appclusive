@@ -2,7 +2,7 @@ import dashboard from './dashboard.js';
 import error404 from './404.js';
 import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
-import onboarding from './onboarding.js';
+import landing from './landing.js';
 import projectCreate from './projectCreate.js';
 import projectSettings from './projectSettings.js';
 import login from './login.js';
@@ -28,7 +28,7 @@ const routes = [
     { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
     { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
 	
-    { path: '/onboarding', handler: onboarding, auth: false },
+    { path: '/landing', handler: landing, auth: false },
 
     { path: '/', handler: dashboard, auth: false },
     { path: '*', handler: error404, auth: false }
@@ -47,7 +47,7 @@ const routes = [
     // { path: '/project/:projectId/categories', handler: checklistCategories, auth: true },
     // { path: '/project/:projectId/settings', handler: projectSettings, auth: true },
 	
-    // { path: '/onboarding', handler: onboarding, auth: false },
+    // { path: '/landing', handler: landing, auth: false },
 
     // { path: '/', handler: dashboard, auth: true },
     // { path: '*', handler: error404, auth: false }

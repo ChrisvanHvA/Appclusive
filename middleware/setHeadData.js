@@ -60,8 +60,8 @@ const data = {
         description: '',
         scripts: []
     },
-    '/onboarding': {
-        title: 'Appclusive | Onboarding',
+    '/landing': {
+        title: 'Appclusive | Landing',
         description: '',
         scripts: ['landingPage']
     },
