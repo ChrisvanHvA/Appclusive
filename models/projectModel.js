@@ -61,6 +61,38 @@ class projectModel {
     }
 
     /**
+     * Async function to update project information
+     *
+     * @params projectId: id of the project to update
+     * @returns boolean indicating whether the deletion was successful
+     */
+    async deleteProject(projectId) {
+        try {
+            await sql.begin(async (sql) => {
+                await sql`
+                    DELETE FROM project_users
+                    WHERE project_id = ${projectId}
+                `;
+
+                await sql`
+                    DELETE FROM project_checklists
+                    WHERE project_id = ${projectId}
+                `;
+
+                const result = await sql`
+                    DELETE FROM projects
+                    WHERE project_id = ${projectId}
+                `;
+
+                return result.rowCount > 0;
+            });
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    /**
      * Async function to retrieve singular project by id
      * @params projectId: id of the requested project
      * @returns project
