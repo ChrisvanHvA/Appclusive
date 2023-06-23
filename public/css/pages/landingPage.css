@@ -14,7 +14,6 @@ p {
 } */
 
 .landingHeader {
-
     border-radius: 0 0 1rem 1rem;
     position: relative;
     overflow: clip;
@@ -24,9 +23,7 @@ p {
     height: 25rem;
     color: white;
     top: 0;
-    padding-left: 3rem;
-    padding-top: 3rem;
- 
+    padding: 3rem 3rem 0 3rem;
 }
 
 .dog {
@@ -41,8 +38,6 @@ p {
     aspect-ratio: 1/1;
     color: white;
     z-index: 10;
-
-
 }
 .landingContent>li:first-of-type {
     display: block;
@@ -84,7 +79,6 @@ transform: scale(1.05, 0.9) rotate(-2deg);
 }
 
 .landingCircles span.bg-circle {
-
     pointer-events: none;
     border-radius: 50%;
     aspect-ratio: 1;
@@ -140,7 +134,6 @@ transform: scale(1.05, 0.9) rotate(-2deg);
     width: 0.1rem;
     height: 2rem;
     background-color: white;
-
 }
 
 
@@ -184,7 +177,6 @@ transform: scale(1.05, 0.9) rotate(-2deg);
         font-size: 2.3rem;
         font-weight: 700;
         padding-top: 4rem;
-
     }
 
     .landingSubheader > p {
@@ -192,7 +184,6 @@ transform: scale(1.05, 0.9) rotate(-2deg);
         font-size: 1.5rem;
         line-height: normal;
         margin: auto;
-
     }
 
 .landingContent {
@@ -228,9 +219,7 @@ transform: scale(1.05, 0.9) rotate(-2deg);
 
 .landingContent>li {
     width: 100%;
-
     text-align: left;
-
 }
 
 
@@ -240,7 +229,6 @@ transform: scale(1.05, 0.9) rotate(-2deg);
     margin: auto;
     max-width: 37rem;
     padding-top: 3rem;
-
 }
 
 
@@ -252,22 +240,17 @@ transform: scale(1.05, 0.9) rotate(-2deg);
     margin: auto;
     line-height: normal;
     text-align: center;
-
-
 }
 
 .landingBottom > h2 {
     font-size: 3rem;
-
     padding: 2rem;
-
 }
 
 .landingBottom > p {
     font-weight: bold;
-   padding-top: 2rem;
+    padding-top: 2rem;
     padding-bottom: 8rem;
-    
 }
 
 footer {
@@ -286,28 +269,25 @@ footer {
     color: var(--light);
     justify-content: space-around;
     flex-wrap: wrap;
-
-
 }
 .footerContent li {
-padding: 3rem;
+    padding: 3rem;
     flex: 1 1 0px
 }
 .footerContent li.logo svg{
-max-width: 15rem;
-min-width: 15rem;
-height: auto;
-
+    max-width: 15rem;
+    min-width: 15rem;
+    height: auto;
 } 
 
 ol.links {
     display: flex;
     flex-direction: row;
     max-width: 100%;
-        flex-wrap: wrap;
-margin: auto;
-justify-content: center;
-min-width: 25rem;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    min-width: 25rem;
  
 }
 
@@ -345,8 +325,7 @@ ol.links li:hover {
     ol.links {
         display: flex;
         flex-direction: row;
-    
-     flex-wrap: nowrap;
+        flex-wrap: nowrap;
     }
     ol.links li {
         display: flex;
@@ -386,9 +365,7 @@ ol.links li:hover {
     }
 
     .landingHeader .landingCircles {
-
         height: 40rem;
-
     }
     .landingContent>li:first-of-type {
         display: none;
@@ -407,7 +384,6 @@ ol.links li:hover {
     }
 
     .dog img:first-child {
-
         bottom: -10rem;
         right: 0;
     }
@@ -465,20 +441,14 @@ ol.links li:hover {
 
     .landingContent>li {
         width: 100%;
-
-
         min-width: 25rem;
         max-width: 25rem;
-
     }
    
 
     .landingContent>li img {
         display: block;
-  
         margin: auto;
-
-      width: 30rem;
-
+        width: 30rem;
     }
 }
