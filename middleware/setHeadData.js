@@ -63,9 +63,9 @@ const data = {
         description: '',
         scripts: []
     },
-    '/home': {
-        title: 'home',
-        description: 'landing page for app',
+    '/onboarding': {
+        title: 'Appclusive | Onboarding',
+        description: '',
         scripts: ['landingPage'],
     },
     '/register': {

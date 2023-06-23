@@ -2,7 +2,7 @@ import dashboard from './dashboard.js';
 import error404 from './404.js';
 import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
-import home from './home.js';
+import onboarding from './onboarding.js';
 import projectCreate from './projectCreate.js';
 import projectSettings from './projectSettings.js';
 import login from './login.js';
@@ -23,14 +23,15 @@ const routes = [
     { path: '/login', handler: login, auth: false },
     { path: '/logout', handler: logout, auth: false },
     { path: '/register', handler: register, auth: false },
-    { path: '/dashboard', handler: dashboard, auth: false },
-
+	
     { path: '/project/:projectId', handler: checklist, auth: false },
     // { path: '/checklist', handler: checklist, auth: false },
     { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
     { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
+	
+    { path: '/onboarding', handler: onboarding, auth: false },
 
-    { path: '/', handler: home, auth: false },
+    { path: '/', handler: dashboard, auth: false },
     { path: '*', handler: error404, auth: false }
 ];
 
