@@ -12,6 +12,7 @@
 
 	{{!-- mobile create project card --}}
 	{{> projectCard 'create'}}
+	{{> projectCard 'join'}}
 
 	{{#if projects}}
 
@@ -36,6 +37,9 @@
 				{{!-- desktop create project card --}}
 				<li class="card__item create-card-container">
 					{{> projectCard 'create'}}
+				</li>
+				<li>
+					{{> projectCard 'join'}}
 				</li>
 				{{#each projects}}
 				<li class="card__item allprojects-card">
