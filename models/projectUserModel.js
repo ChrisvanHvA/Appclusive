@@ -29,6 +29,23 @@ class projectUserModel {
             return 0;
         }
     }
+
+    async hasAccessToProject(projectId, userId) {
+        try {
+            const [{ result }] = await sql`
+			SELECT EXISTS (
+				SELECT 1 FROM project_users
+				WHERE project_id = ${projectId}
+				AND user_id = ${userId}
+			) AS result
+		  `;
+
+            return result;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
 }
 
 export default projectUserModel;
