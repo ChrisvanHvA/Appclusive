@@ -17,6 +17,7 @@ main.layout__project-create .project__level section aside {
 .layout__project-create form {
 	display: flex;
 	flex-direction: column;
+	max-width: 62.5rem;
 	margin-top: 2rem;
 }
 
