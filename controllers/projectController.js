@@ -45,6 +45,7 @@ const createProject = async (projectData, user_id) => {
         const insertData = {
             project_id: projectId,
             wcag_item_id: item.wcag_item_id,
+            wcag_level: item.wcag_level,
             is_completed: false
         };
 

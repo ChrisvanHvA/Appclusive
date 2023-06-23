@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
         const updatedData = await ProjectModel.update(projectId, submitData);
     
         if (!updatedData) {
-            console.log('failed');
+            console.log('failed to update');
         }
 
         return res.redirect(`/project/${projectId}/settings`);
@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
         const deletedData = await ProjectModel.deleteProject(projectId);
 
         if (!deletedData) {
-            console.log('failed');
+            console.log('failed to delete');
         }
 
         return res.redirect(`/`);
