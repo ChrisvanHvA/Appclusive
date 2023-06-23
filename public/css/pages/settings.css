@@ -4,8 +4,25 @@
 
 .settings button[type="submit"] {
     display: block;
-    margin: 2.5rem 0 0 auto;
 }
+
+a[href="/logout"] {
+    margin-left: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+    a[href="/logout"] p {
+        display: inline-block;
+    }
+    a[href="/logout"]:hover p,
+    a[href="/logout"]:focus-visible p {
+        text-decoration: underline;
+    }
+
+    a[href="/logout"] i {
+        color: var(--primary-color);
+    }
 
 .settings fieldset + fieldset {
     margin-top: 2.5rem;
@@ -78,10 +95,17 @@
         grid-template-columns: 1fr auto;
     }
 
-        .settings button[type="submit"] {
-            grid-column: 1 / 3;
-            margin: 2.5rem auto 0 0;
+        .settings > div:last-of-type {
+            grid-column: 1 / 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
+
+            .settings > div:last-of-type button[type="submit"] {
+                display: inline-block;
+            }
 
         .settings .settings__item-email,
         .settings .settings__item-name,
@@ -93,7 +117,7 @@
             position: relative;
             display: block;
             grid-column: 2 / 3;
-            grid-row: -1 / 4;
+            grid-row: -1 / 3;
             align-self: flex-start;
             margin: 0 0 0 8rem;
         }       
