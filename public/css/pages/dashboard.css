@@ -30,25 +30,13 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	opacity: 0;
 	cursor: pointer;
-}
-
-.layout__dashboard .recent-projects > label::before {
-	content: 'Vertical view';
-	text-decoration: underline;
-	color: var(--tertiary-text);
-	position: absolute;
-	right: 0;
-	top: 0;
 	user-select: none;
+	color: var(--tertiary-text);
+	text-decoration: underline;
 }
 
-.layout__dashboard .recent-projects > input[name="overview"]:checked + label::before {
-	content: 'Horizontal view';
-}
-
-.layout__dashboard .recent-projects > input[name="overview"]:focus-visible + label::before {
+.layout__dashboard .recent-projects > input[name="overview"]:focus-visible + label {
 	outline: 2px solid var(--primary-color);
 }
 
