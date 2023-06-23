@@ -309,15 +309,15 @@ input[type="radio"]:checked::after {
 
 /* if progress bar is 100% */
 .progress[value='100'] {
-    border: 2px solid #18b88f;
+    border: 2px solid #16A783;
 }
 
 .progress[value='100']::-moz-progress-bar {
-    background: #18b88f;
+    background: #16A783;
 }
 
 .progress[value='100']::-webkit-progress-value {
-    background: #18b88f;
+    background: #16A783;
 }
 
 /* ---------------------------------- */
