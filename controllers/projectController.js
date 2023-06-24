@@ -61,6 +61,13 @@ const createProject = async (projectData, user_id) => {
     return { completedInsert: completedInsert, projectId: projectId };
 };
 
+/**
+ * Updates a project by adding WCAG items of the specified level that are not already present in the existing WCAG items.
+ * @param {Array} existingWCAGItems - An array of existing WCAG items.
+ * @param {string} level - The WCAG level to filter the WCAG items.
+ * @param {string} project_id - The ID of the project to update.
+ * @returns {Promise<void>} - A promise that resolves when the update is complete.
+ */
 const updateProject = async (existingWCAGItems, level, project_id) => {
     const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(level);
 
