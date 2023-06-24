@@ -42,20 +42,23 @@ router.post('/', async (req, res) => {
             });
         }
 
-        const updatedData = await ProjectModel.update(projectId, submitData);
+        const { result, existingWCAGItems, level } = await ProjectModel.update(
+            projectId,
+            submitData
+        );
 
-        if (!updatedData.result) {
+        if (!result) {
             console.log('failed to update');
         }
 
         await ProjectController.updateProject(
-            updatedData.existingWCAGItems,
-            updatedData.level,
+            existingWCAGItems,
+            level,
             projectId
         );
 
         return res.redirect(`/project/${projectId}/settings`);
-
+        
     } else if (type === 'delete') {
         const deletedData = await ProjectModel.deleteProject(projectId);
 
