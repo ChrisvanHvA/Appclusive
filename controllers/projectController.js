@@ -17,10 +17,10 @@ const checklistModel = new projectChecklistModel();
  * @returns { boolean, number }
  */
 const createProject = async (projectData, user_id) => {
-	// todo: remove this default user_id
-	if (!user_id) {
-		user_id = 1;
-	}
+    // todo: remove this default user_id
+    if (!user_id) {
+        user_id = 1;
+    }
 
     let completedInsert = true;
     const projectId = await ProjectModel.insert(projectData);
@@ -57,10 +57,36 @@ const createProject = async (projectData, user_id) => {
             break;
         }
     }
-	
+
     return { completedInsert: completedInsert, projectId: projectId };
 };
 
+const updateProject = async (existingWCAGItems, level, project_id) => {
+    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(level);
+
+    const wcagItemsToInsert = allMatchingWCAGItems.filter(
+        (item) =>
+            !existingWCAGItems.some(
+                (existingItem) =>
+                    existingItem.wcag_item_id === item.wcag_item_id
+            )
+    );
+
+    for (let i = 0; i < wcagItemsToInsert.length; i++) {
+        const item = wcagItemsToInsert[i];
+
+        const insertData = {
+            project_id: project_id,
+            wcag_item_id: item.wcag_item_id,
+            wcag_level: item.wcag_level,
+            is_completed: false
+        };
+
+        await checklistModel.insert(insertData);
+    }
+};
+
 export default {
-    createProject
+    createProject,
+    updateProject
 };

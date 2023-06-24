@@ -1,4 +1,5 @@
 import express from 'express';
+import ProjectController from '../controllers/projectController.js';
 import projectModel from '../models/projectModel.js';
 
 const router = express.Router({ mergeParams: true });
@@ -40,12 +41,18 @@ router.post('/', async (req, res) => {
                 formErrors
             });
         }
-    
+
         const updatedData = await ProjectModel.update(projectId, submitData);
-    
-        if (!updatedData) {
+
+        if (!updatedData.result) {
             console.log('failed to update');
         }
+
+        await ProjectController.updateProject(
+            updatedData.existingWCAGItems,
+            updatedData.level,
+            projectId
+        );
 
         return res.redirect(`/project/${projectId}/settings`);
 
