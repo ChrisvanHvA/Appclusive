@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
     } else if (type === 'delete') {
         const deletedData = await ProjectModel.deleteProject(projectId);
 
-        if (!deletedData) {
+        if (deletedData && deletedData.length === 0) {
             console.log('failed to delete');
         }
 

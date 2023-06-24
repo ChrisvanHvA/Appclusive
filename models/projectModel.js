@@ -49,7 +49,7 @@ class projectModel {
                 wcag_level = ${level ?? sql`wcag_level`}
                 WHERE
                 project_id = ${project_id}
-                
+
                 RETURNING *;
             `;
 
@@ -67,7 +67,7 @@ class projectModel {
                 `;
             }
 
-            return result.rowCount > 0;
+            return result;
         } catch (error) {
             console.log(error);
             return false;
@@ -98,7 +98,7 @@ class projectModel {
                     WHERE project_id = ${projectId}
                 `;
 
-                return result.rowCount > 0;
+                return result;
             });
         } catch (error) {
             console.log(error);
