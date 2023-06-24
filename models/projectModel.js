@@ -49,9 +49,23 @@ class projectModel {
                 wcag_level = ${level ?? sql`wcag_level`}
                 WHERE
                 project_id = ${project_id}
-
+                
                 RETURNING *;
             `;
+
+            if (level === 'A') {
+                await sql`
+                    DELETE FROM project_checklists
+                    WHERE wcag_level IN ('AA', 'AAA') AND project_id = ${project_id}
+                `;
+            }
+
+            if (level === 'AA') {
+                await sql`
+                    DELETE FROM project_checklists
+                    WHERE wcag_level = 'AAA' AND project_id = ${project_id}
+                `;
+            }
 
             return result.rowCount > 0;
         } catch (error) {
