@@ -1,4 +1,9 @@
 import sql from '../config/db.js';
+import wcagModel from '../models/wcagModel.js';
+import projectChecklistModel from '../models/projectChecklistModel.js';
+
+const WCAGModel = new wcagModel();
+const checklistModel = new projectChecklistModel();
 
 class projectModel {
     constructor() {}
@@ -65,6 +70,37 @@ class projectModel {
                     DELETE FROM project_checklists
                     WHERE wcag_level = 'AAA' AND project_id = ${project_id}
                 `;
+            }
+
+            const existingWCAGItems = await sql`
+                SELECT wcag_item_id
+                FROM project_checklists
+                WHERE project_id = ${project_id}
+            `;
+
+            const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(
+                level
+            );
+
+            const wcagItemsToInsert = allMatchingWCAGItems.filter(
+                (item) =>
+                    !existingWCAGItems.some(
+                        (existingItem) =>
+                            existingItem.wcag_item_id === item.wcag_item_id
+                    )
+            );
+
+            for (let i = 0; i < wcagItemsToInsert.length; i++) {
+                const item = wcagItemsToInsert[i];
+
+                const insertData = {
+                    project_id: project_id,
+                    wcag_item_id: item.wcag_item_id,
+                    wcag_level: item.wcag_level,
+                    is_completed: false
+                };
+
+                await checklistModel.insert(insertData);
             }
 
             return result;
