@@ -14,7 +14,7 @@ class UserModel {
                 insertion,
                 surname,
                 password,
-                profile_pic,
+                profile_pic
             } = insertData;
 
             const [insertedRow] = await sql`
@@ -45,6 +45,20 @@ class UserModel {
                 WHERE user_id = ${user_id}
             `;
 
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    async updateProfilePic(user_id, profile_pic) {
+        try {
+            await sql`
+                UPDATE users
+                SET profile_pic = ${profile_pic}
+                WHERE user_id = ${user_id}
+            `;
             return true;
         } catch (error) {
             console.log(error);

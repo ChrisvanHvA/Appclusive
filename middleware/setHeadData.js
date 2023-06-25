@@ -73,7 +73,7 @@ const data = {
     '/settings': {
         title: 'Settings',
         description: '',
-        scripts: [],
+        scripts: ['avatar'],
         backUrl: '/'
     },
     '/forgot-password': {

@@ -59,12 +59,13 @@
 		</div>
 
 		{{#if (eq title 'Settings')}}
-			<form class="content-avatar">
-				<img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
+			<form method="POST" action="/upload" enctype="multipart/form-data" class="content-avatar">
+				<img src="{{avatar}}" alt="profile picture of {{user.first_name}}" id="avatar" />
 				<label aria-label="edit profile picture">
 					<i class="fa-solid fa-pencil"></i>
 					<input type="file" name="avatar" />
 				</label>
+				<button type="submit">Upload</button>
 			</form>
 		{{/if}}
     </div>

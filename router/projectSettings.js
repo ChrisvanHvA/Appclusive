@@ -66,7 +66,7 @@ router.post('/', async (req, res) => {
             console.log('failed to delete');
         }
 
-        return res.redirect(`/`);
+        return res.redirect('/');
     }
 });
 

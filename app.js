@@ -7,7 +7,6 @@ import hbsHelpers from './helpers/hbsHelpers.js';
 import configurePassport from './config/passport.js';
 
 import passport from 'passport';
-// import flash from 'connect-flash';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';

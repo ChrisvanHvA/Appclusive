@@ -160,6 +160,21 @@
 				color: var(--primary-color);
 			}
 
+		.nav__mobile .content-avatar.removeUpload button[type="submit"] {
+			display: none;
+		}
+		.nav__mobile .content-avatar button[type="submit"] {
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: 4px;
+			width: fit-content;
+			padding: 0.1rem 0.2rem;
+			color: var(--primary-color);
+			background-color: var(--light);
+			border-radius: 5px;
+		}
+
 .nav__mobile .bg-circle {
 	height: 90%;
 }
