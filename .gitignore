@@ -109,5 +109,5 @@ dist
 index.css
 
 # uploads file contents
-uploads/*
-!uploads/.gitkeep
+# uploads/*
+# !uploads/.gitkeep

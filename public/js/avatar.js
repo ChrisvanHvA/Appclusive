@@ -1,17 +1,21 @@
-const avatar = document.querySelector('#avatar');
-let avatarForm = document.querySelector('.content-avatar');
-avatarForm.classList.add('removeUpload');
-avatarForm.addEventListener('change', previewImage);
+const avatars = document.querySelectorAll('.avatar');
+const avatarForms = document.querySelectorAll('.content-avatar');
+
+avatarForms.forEach((avatarForm) => {
+    avatarForm.classList.add('removeUpload');
+    avatarForm.addEventListener('change', previewImage);
+});
 
 function previewImage(e) {
-    avatarForm.classList.remove('removeUpload');
-    avatarForm = e.target;
+    e.target.parentNode.parentNode.classList.remove('removeUpload');
+    const currentAvatarForm = e.target.parentNode;
 
     const fileReader = new FileReader();
     fileReader.addEventListener('load', (e) => {
-        avatar.src = e.target.result;
+        const currentAvatar = currentAvatarForm.previousElementSibling;
+        currentAvatar.src = e.target.result;
     });
 
-    const file = avatarForm.files[0];
+    const file = e.target.files[0];
     fileReader.readAsDataURL(file);
 }

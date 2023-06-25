@@ -1,9 +1,20 @@
 import bcrypt from 'bcrypt';
 import express from 'express';
-const router = express.Router();
-
+import multer from 'multer';
 import UserModel from '../models/userModel.js';
+
+const router = express.Router();
 const userModel = new UserModel();
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
 
 import {
     validationChecks,
@@ -49,6 +60,7 @@ router.get('/', (req, res) => {
 
 router.post(
     '/',
+    upload.single('avatar'),
     validationChecks,
     handleValidationErrors('settings'),
     async (req, res) => {
@@ -84,6 +96,15 @@ router.post(
             console.log('failed');
             extraParam = '?message=0';
         }
+
+        if (!req.file) {
+            // TODO: handle error
+            console.log('No file uploaded');
+            return res.redirect('/settings');
+        }
+
+        const avatar = req.file.path;
+        await userModel.updateProfilePic(user.user_id, avatar);
 
         // #TOFIX: after redirect with a message, on new submit it doesnt refresh correctly?
         console.log('redirect');
