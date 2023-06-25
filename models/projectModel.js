@@ -1,9 +1,4 @@
 import sql from '../config/db.js';
-import wcagModel from '../models/wcagModel.js';
-import projectChecklistModel from '../models/projectChecklistModel.js';
-
-const WCAGModel = new wcagModel();
-const checklistModel = new projectChecklistModel();
 
 class projectModel {
     constructor() {}
