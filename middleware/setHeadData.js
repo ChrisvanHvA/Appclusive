@@ -37,6 +37,12 @@ const data = {
         scripts: ['createProject'],
         backUrl: '/'
     },
+    '/join-project': {
+        title: 'Join Project | Appclusive',
+        description: '',
+        scripts: [],
+        backUrl: '/'
+    },
     '/project/:projectId': {
         title: 'Checklist',
         description: '',
