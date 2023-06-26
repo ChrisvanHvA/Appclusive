@@ -107,3 +107,7 @@ dist
 
 # built css file
 index.css
+
+# uploads file contents
+# uploads/*
+# !uploads/.gitkeep

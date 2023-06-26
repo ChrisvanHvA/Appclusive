@@ -174,7 +174,7 @@ ul.categoryContent > li:first-of-type .icon{
     display: none;
 }
 
-/* When the screen size gets too small, "accessible" causes word wrap */
+/* When the screen size gets too small, "completed" causes word wrap */
 @media screen and (min-width: 1400px) {
     .category__acc > span {
         display: inline-block;

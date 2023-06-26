@@ -1,0 +1,11 @@
+<main class='layout layout__join'>
+
+	{{>pageTitleHeader title=title}}
+	
+	<form action="/join-project" method="post">
+		<label for="code">Invite code</label>
+		<input name="code" type="text" maxlength="6" id="code">
+
+		<button type="submit">Join</button>
+	</form>
+</main>

@@ -17,10 +17,10 @@ const checklistModel = new projectChecklistModel();
  * @returns { boolean, number }
  */
 const createProject = async (projectData, user_id) => {
-	// todo: remove this default user_id
-	if (!user_id) {
-		user_id = 1;
-	}
+    // todo: remove this default user_id
+    if (!user_id) {
+        user_id = 1;
+    }
 
     let completedInsert = true;
     const projectId = await ProjectModel.insert(projectData);
@@ -45,6 +45,7 @@ const createProject = async (projectData, user_id) => {
         const insertData = {
             project_id: projectId,
             wcag_item_id: item.wcag_item_id,
+            wcag_level: item.wcag_level,
             is_completed: false
         };
 
@@ -56,10 +57,43 @@ const createProject = async (projectData, user_id) => {
             break;
         }
     }
-	
+
     return { completedInsert: completedInsert, projectId: projectId };
 };
 
+/**
+ * Updates a project by adding WCAG items of the specified level that are not already present in the existing WCAG items.
+ * @param {Array} existingWCAGItems - An array of existing WCAG items.
+ * @param {string} level - The WCAG level to filter the WCAG items.
+ * @param {string} project_id - The ID of the project to update.
+ * @returns {Promise<void>} - A promise that resolves when the update is complete.
+ */
+const updateProject = async (existingWCAGItems, level, project_id) => {
+    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(level);
+
+    const wcagItemsToInsert = allMatchingWCAGItems.filter(
+        (item) =>
+            !existingWCAGItems.some(
+                (existingItem) =>
+                    existingItem.wcag_item_id === item.wcag_item_id
+            )
+    );
+
+    for (let i = 0; i < wcagItemsToInsert.length; i++) {
+        const item = wcagItemsToInsert[i];
+
+        const insertData = {
+            project_id: project_id,
+            wcag_item_id: item.wcag_item_id,
+            wcag_level: item.wcag_level,
+            is_completed: false
+        };
+
+        await checklistModel.insert(insertData);
+    }
+};
+
 export default {
-    createProject
+    createProject,
+    updateProject
 };

@@ -1,7 +1,12 @@
 <main class="layout layout__project-create">
+
     {{>pageTitleHeader title='Project settings' }}
     
     <form method="POST" autocomplete="off" novalidate>
+        <input type="hidden" name="type" value="update">
+
+        <h2>Project invite code: <span class="code">{{project.project_invite_code}}</span></h2>
+
         <label for="title">Project title <span class="required">*</span>
 		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
 		</label>
@@ -62,5 +67,10 @@
         </fieldset>
 
         <button class="btn">Save changes</button>
+    </form>
+
+    <form class="delete" method="POST">
+        <input type="hidden" name="type" value="delete">
+        <button>Delete project</button>
     </form>
 </main>

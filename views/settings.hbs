@@ -2,7 +2,7 @@
 
     {{>pageTitleHeader title="Settings"}}
     
-    <form class="settings" autocomplete="off" method="POST">
+    <form class="settings" autocomplete="off" method="POST" enctype="multipart/form-data">
 
         <fieldset class="settings__item-email">
             <legend>Email address*</legend>
@@ -51,9 +51,9 @@
             <label class="error {{#unless new_password-error.length}}hide{{/unless}}">{{new_password-error}}</label>
         </fieldset>
 
-        <fieldset class="settings__item-avatar">
-            <img src="https://source.unsplash.com/random/?profile,picture" alt="profile picture of {{user.first_name}}" />
-            <label aria-label="change profile picture">
+        <fieldset class="settings__item-avatar content-avatar">
+            <img src="{{avatar}}" alt="profile picture of {{user.first_name}}" class="avatar" />
+            <label aria-label="edit profile picture">
                 <i class="fa-solid fa-pencil"></i>
                 <input type="file" name="avatar" />
             </label>

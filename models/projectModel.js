@@ -53,24 +53,67 @@ class projectModel {
                 RETURNING *;
             `;
 
-            return result.rowCount > 0;
+            if (level === 'A') {
+                await sql`
+                    DELETE FROM project_checklists
+                    WHERE wcag_level IN ('AA', 'AAA') AND project_id = ${project_id}
+                `;
+            }
+
+            if (level === 'AA') {
+                await sql`
+                    DELETE FROM project_checklists
+                    WHERE wcag_level = 'AAA' AND project_id = ${project_id}
+                `;
+            }
+
+            const existingWCAGItems = await sql`
+                SELECT wcag_item_id
+                FROM project_checklists
+                WHERE project_id = ${project_id}
+            `;
+
+            return {
+                result,
+                existingWCAGItems,
+                level
+            };
         } catch (error) {
             console.log(error);
             return false;
         }
+    }
 
-        // try {
-        //     await sql`
-        //         UPDATE projects
-        //         SET ${sql(updateData)}
-        //         WHERE project_id = ${project_id}
-        //     `;
+    /**
+     * Async function to update project information
+     *
+     * @params projectId: id of the project to update
+     * @returns boolean indicating whether the deletion was successful
+     */
+    async deleteProject(projectId) {
+        try {
+            await sql.begin(async (sql) => {
+                await sql`
+                    DELETE FROM project_users
+                    WHERE project_id = ${projectId}
+                `;
 
-        //     return true;
-        // } catch (error) {
-        //     console.log(error);
-        //     return false;
-        // }
+                await sql`
+                    DELETE FROM project_checklists
+                    WHERE project_id = ${projectId}
+                `;
+
+                const result = await sql`
+                    DELETE FROM projects
+                    WHERE project_id = ${projectId}
+                `;
+
+                return result;
+            });
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
     }
 
     /**
@@ -94,6 +137,25 @@ class projectModel {
             return null;
         }
     }
+
+	async getProjectByCode(projectCode) {
+        try {
+			if (!projectCode) {
+				throw new Error('No project code provided');
+			}
+			
+            const [project] = await sql`
+					SELECT *
+					FROM projects
+					WHERE project_invite_code = ${projectCode}
+				`;
+
+            return project;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+	}
 
     /**
      * Async function to retrieve list of projects user is involved in

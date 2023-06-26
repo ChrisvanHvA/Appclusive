@@ -13,7 +13,7 @@
                     <span class='percentage-count'>{{calcProgress
                             project.completed_checklists
                             project.all_checklists
-                        }}</span>% accessible</h3>
+                        }}</span>% completed</h3>
                 <p class='completed-checks-counter'>
                     {{project.completed_checklists}}
                     /
@@ -42,12 +42,15 @@
         {{/if}}
 
         <section>
-
             <h3>Level accessibility</h3>
             <button class='btn btn--acc'>Level
                 {{length project.wcag_level}}
                 (WCAG level
                 {{project.wcag_level}})</button>
+        </section>
+
+        <section>
+            <h3>Project invite code: <span class="code">{{project.project_invite_code}}</span></h3>
         </section>
 
         <section class="sidebar__settings">

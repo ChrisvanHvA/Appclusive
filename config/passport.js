@@ -28,6 +28,7 @@ export default (passport) => {
             },
             async (req, email_address, password, done) => {
                 try {
+                    email_address = email_address.toLowerCase();
                     const user = await userModel.getUserByEmail(email_address);
 
                     if (user) {
@@ -62,6 +63,7 @@ export default (passport) => {
             },
             async (req, email_address, password, done) => {
                 try {
+                    email_address = email_address.toLowerCase();
                     const user = await userModel.getUserByEmail(email_address);
                     if (!user) {
                         return done(null, false);

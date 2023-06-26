@@ -37,6 +37,12 @@ const data = {
         scripts: ['createProject'],
         backUrl: '/'
     },
+    '/join-project': {
+        title: 'Join Project | Appclusive',
+        description: '',
+        scripts: [],
+        backUrl: '/'
+    },
     '/project/:projectId': {
         title: 'Checklist',
         description: '',
@@ -60,8 +66,8 @@ const data = {
         description: '',
         scripts: []
     },
-    '/onboarding': {
-        title: 'Appclusive | Onboarding',
+    '/landing': {
+        title: 'Appclusive | Landing',
         description: '',
         scripts: ['landingPage']
     },
@@ -73,7 +79,7 @@ const data = {
     '/settings': {
         title: 'Settings',
         description: '',
-        scripts: [],
+        scripts: ['avatar'],
         backUrl: '/'
     },
     '/forgot-password': {

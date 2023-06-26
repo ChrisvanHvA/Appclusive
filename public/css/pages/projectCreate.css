@@ -2,6 +2,21 @@ main.layout__project-create .page-title {
 	margin-bottom: 2rem;
 }
 
+main.layout__project-create .delete {
+	margin-top: 1rem;
+}
+
+	main.layout__project-create .delete button {
+		font-weight: 700;
+		text-transform: uppercase;
+		text-align: center;
+		color: #e01010;
+	}
+	main.layout__project-create .delete button:hover,
+	main.layout__project-create .delete button:focus-visible {
+		text-decoration: underline;
+	}
+
 main.layout__project-create input,
 main.layout__project-create textarea,
 main.layout__project-create .project__level section aside {
@@ -25,6 +40,7 @@ main.layout__project-create .project__level section aside {
 		display: block;
 	}
 
+	.layout__project-create form h2,
 	.layout__project-create form label,
 	.layout__project-create form fieldset legend {
 		font-size: 1rem;
@@ -33,6 +49,7 @@ main.layout__project-create .project__level section aside {
 	.layout__project-create form label {
 		cursor: pointer;
 	}
+	.layout__project-create form h2,
 	.layout__project-create form label[for="title"],
 	.layout__project-create form label[for="description"],
 	.layout__project-create form .project__level > legend {
@@ -45,6 +62,7 @@ main.layout__project-create .project__level section aside {
 		margin-bottom: 0.5rem;
 	}
 
+	.layout__project-create form h2,
 	.layout__project-create fieldset,
 	.layout__project-create label + input,
 	.layout__project-create label + textarea {
@@ -146,4 +164,13 @@ main.layout__project-create .project__level section aside {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: none;
 	}
+
+	main.layout__project-create .delete {
+		margin-top: -29.5px;
+    	margin-left: 16rem;
+	}
+
+		main.layout__project-create .delete button {
+			text-align: left;
+		}
 }
