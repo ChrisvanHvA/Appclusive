@@ -2,6 +2,8 @@ import projectModel from '../models/projectModel.js';
 import projectUserModel from '../models/projectUserModel.js';
 import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
+import { calcTotalProgressByItems } from '../helpers/calcTotalProgress.js';
+
 
 const WCAGModel = new wcagModel();
 const ProjectModel = new projectModel();
@@ -94,7 +96,31 @@ const insertWcagItemsForProject = async (level, project_id) => {
 
 };
 
+
+const createFullProjectOverview = async (wcagCategory, projectId) => {
+    const wcagItems = await WCAGModel.listWCAGItemsByParentId(
+        wcagCategory.wcag_id,
+        projectId
+    );
+
+    const projectInfo = await ProjectModel.getProject(projectId);
+
+    const { all_checklists, completed_checklists } =
+        calcTotalProgressByItems(wcagItems);
+
+    projectInfo.all_checklists = all_checklists;
+    projectInfo.completed_checklists = completed_checklists;
+    
+    const allProjectUsers = await ProjectUserModel.listProjectUsers(projectId);
+    
+    projectInfo.all_users = allProjectUsers;
+    projectInfo.checklist_data = wcagItems;
+
+    return projectInfo;
+};
+
 export default {
     createProject,
-    insertWcagItemsForProject
+    insertWcagItemsForProject,
+    createFullProjectOverview
 };

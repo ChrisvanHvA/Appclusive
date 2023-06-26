@@ -46,6 +46,26 @@ class projectUserModel {
             return false;
         }
     }
+
+    async listProjectUsers(projectId) {
+        try {
+            const result = await sql`
+                SELECT u.*, CONCAT_WS(' ',
+				  u.first_name,
+				  NULLIF(u.insertion, ''),
+				  u.surname
+				) AS "full_name", pc.is_admin
+                FROM project_users AS pc
+                LEFT JOIN users AS u ON u.user_id = pc.user_id
+                WHERE project_id = ${projectId}
+		  `;
+
+            return result;
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
 }
 
 export default projectUserModel;

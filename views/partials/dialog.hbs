@@ -11,29 +11,23 @@
 
         {{{message}}}
 
-        {{#if (eq slug "assign_users")}}
+        {{#if (and (eq slug "assign_users") (ne projectUsers undefined))}}
+            {{ log projectUsers }}
+
             <ul class="dialog__user-list">
-                <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
-                </li>
-                <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
-                </li>
-                <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
-                </li>
-                <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
-                </li>
+
+                {{#each projectUsers }}
+                    <li>
+                        <img src="https://unsplash.it/40/40" alt="Profile picture of {{ this.full_name }}">
+                        <span>{{ this.full_name}}</span>
+                        <i class="icon fa-solid fa-check-circle"></i>
+                    </li>
+                {{/each}}
+
+                
             </ul>
+
+            
         {{/if}}
 
         <div class="dialog__controls">
