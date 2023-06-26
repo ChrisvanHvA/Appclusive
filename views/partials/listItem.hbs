@@ -1,8 +1,9 @@
-<form action="/project/{{pid}}/submit" method="post">
+<form action="/project/{{pid}}/submit" method="post" data-checklist-id="{{wcag_item_id}}">
 
 	<input type="hidden" name="wcag_item_id" value="{{wcag_item_id}}">
 	<input type="hidden" name="parent_id" value="{{parent_id}}">
 	<input type="hidden" name="is_completed" value="{{is_completed}}">
+	<input type="hidden" name="checklist_assignees" value="{{userArrToIdString assignees}}">
 
 	<input 
 	class="checklist__checkbox" 
@@ -13,7 +14,7 @@
 	value="{{is_completed}}" 
 	/>
 
-	<label for="wcag_{{wcag_item_id}}" data-checklist-id="{{wcag_item_id}}">
+	<label for="wcag_{{wcag_item_id}}">
 		<span></span>
 		<div class="checklist__content">
 			<h4>{{title}} <span>({{wcag_level}})</span></h4>
@@ -37,28 +38,26 @@
 			</div>
 
 
-			{{#if assignees}}
-				<div class="checklist__users">
+			<div class="checklist__users">
 
-					{{#if (gt assignees.length 2)}}
-						{{#each assignees}}
-							{{#if (lt @index 2)}}
-								<figure>
-									<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}" />
-								</figure>
-							{{/if}}
-						{{/each}}
-						<span>+{{subtract assignees.length 3}}</span>
-					{{else}}
-						{{#each assignees}}
+				{{#if (gt assignees.length 2)}}
+					{{#each assignees}}
+						{{#if (lt @index 2)}}
 							<figure>
-								<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}"/>
+								<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}" />
 							</figure>
-						{{/each}}
-					{{/if}}
+						{{/if}}
+					{{/each}}
+					<span>+{{subtract assignees.length 3}}</span>
+				{{else}}
+					{{#each assignees}}
+						<figure>
+							<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}"/>
+						</figure>
+					{{/each}}
+				{{/if}}
 
-				</div>
-			{{/if}}
+			</div>
 		</div>
 	<button tabindex="-1" type="submit" data-checklist-button></button>
 	</label>

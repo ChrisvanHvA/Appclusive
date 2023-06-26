@@ -9,7 +9,20 @@ const toggleAssignDialog = (e) => {
 
 	assignDialog?.showModal();
 
-	const id = e.currentTarget.closest('label')?.getAttribute('data-checklist-id');
+    const form = e.currentTarget.closest('form');
+    const checklistAssignees = form.querySelector('input[name="checklist_assignees"]').value;
+
+    const checklistAssigneesArr = checklistAssignees.split(';');
+
+    const checkboxes = assignDialog.querySelectorAll(
+        'input[name="user_ids[]"]'
+    );
+
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = checklistAssigneesArr.includes(checkbox.value);
+    })
+
+	const id = form.getAttribute('data-checklist-id');
 	checklistIdInput.value = id;
 };
 

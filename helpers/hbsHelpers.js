@@ -40,6 +40,13 @@ export default {
         });
     },
 
+    userArrToIdString: (arr) => {
+        if(!arr) return ''
+        return arr.map((user) => {
+            return user.user_id;
+        }).join(';');
+    },
+
 	fullNameToInitials: (fullName) => {
 		const nameArray = fullName.split(' ');
 		const initials = nameArray[0][0] + nameArray[nameArray.length - 1][0];

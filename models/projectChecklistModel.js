@@ -159,6 +159,7 @@ class projectChecklistModel {
 							NULLIF(u.insertion, ''),
 							u.surname
 							),
+                            'user_id', u.user_id,
 							'profile_pic', u.profile_pic
 				))
 				FROM unnest(pc.assignees) AS a
