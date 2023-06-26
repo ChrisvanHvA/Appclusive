@@ -1,0 +1,52 @@
+.layout__join {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+}
+
+.layout__join > svg {
+    width: 12.5rem;
+    margin-bottom: 2rem;
+}
+
+.layout__join form {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding: 1rem;
+    background-color: var(--light);
+    border-radius: var(--card-border-radius);
+}
+
+    .layout__join label {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .layout__join input {
+        border-radius: var(--card-border-radius);
+    }
+
+    .layout__join input::placeholder {
+        font-size: 0.875rem;
+    }
+
+    .layout__join button[type="submit"],
+    .layout__join form a {
+        margin-top: 1rem;
+    }
+
+    .layout__join form a {
+        font-weight: 700;
+        color: var(--primary-color);
+        text-align: center;
+    }
+    .layout__join form a:hover,
+    .layout__join form a:focus-visible {
+        text-decoration: underline;
+    }

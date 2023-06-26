@@ -1,11 +1,20 @@
 <main class='layout layout__join'>
 
-	{{>pageTitleHeader title=title}}
-	
-	<form action="/join-project" method="post">
-		<label for="code">Invite code</label>
-		<input name="code" type="text" maxlength="6" id="code">
+	{{>icons/logo}}
+	<form action="/join-project" method="POST" autocomplete="off" autocapitalize="on">
+		<label for="code">Invite code <span class="required">*</span> <span class="formerror">{{#if formErrors.title}}Incorrect invite code{{/if}}</span>
+		</label>
+        <input 
+			name="code" 
+			type="text" 
+			maxlength="6" 
+			id="code" 
+			placeholder="e.g. ABC123"
+			required
+		/>
 
-		<button type="submit">Join</button>
+		<button type="submit" class="btn">Join</button>
+
+		<a href="{{head.backUrl}}">Cancel</a>
 	</form>
 </main>

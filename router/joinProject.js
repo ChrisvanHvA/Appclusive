@@ -7,7 +7,7 @@ import projectUserModel from '../models/projectUserModel.js';
 router.get('/', async (req, res) => {
     res.render('joinProject', {
         ...res.locals,
-        title: 'Join a project'
+        noNav: true
     });
 });
 

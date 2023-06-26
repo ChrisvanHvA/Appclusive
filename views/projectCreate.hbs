@@ -2,7 +2,7 @@
 
     {{>pageTitleHeader title=title}}
     
-    <form action="/new-project" method="post" novalidate>
+    <form action="/new-project" method="POST" novalidate>
         <label for="title">Project title <span class="required">*</span>
 		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
 		</label>
