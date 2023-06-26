@@ -24,6 +24,10 @@
 			{{>dialog this}}
 		{{/each}}
 
+		{{#if loading}}
+			{{>loading}}
+		{{/if}}
+
 		<div class="message message--system animate animate--slide {{#unless system_message}}hide{{/unless}}">
 			<p>{{system_message}}</p>
 		</div>

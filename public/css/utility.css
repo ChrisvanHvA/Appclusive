@@ -1,7 +1,7 @@
 /* ---------------------------------- */
 /*            #GENERAL                */
 /* ---------------------------------- */
-.hide { display: none; }
+.hide { display: none !important; }
 
 hr { 
     height: 0.1875rem;
