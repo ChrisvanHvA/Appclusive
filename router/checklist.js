@@ -5,7 +5,6 @@ import projectChecklistModel from '../models/projectChecklistModel.js';
 
 import dialogController from '../controllers/dialogController.js';
 
-import { findCategoryIdByName } from '../helpers/wcagCategoryFind.js';
 import projectController from '../controllers/projectController.js';
 
 const router = express.Router({ mergeParams: true });
@@ -21,7 +20,6 @@ router.get('/', async (req, res) => {
     // #TODO: receive custom message based on param id
     const errorParam = req.query.error;
 
-    // const categoryId = findCategoryIdByName(category);
     const wcagCategory = await WCAGModel.getWCAGCategoryIdBySlug(category);
 
     if (!wcagCategory) {
