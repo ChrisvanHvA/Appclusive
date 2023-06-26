@@ -11,15 +11,14 @@ class projectChecklistModel {
      */
     async insert(insertData) {
         try {
-            const { project_id, wcag_item_id, is_completed, wcag_level, assignees } =
+            const { project_id, wcag_item_id, is_completed, assignees } =
                 insertData;
 
             const [insertedRow] = await sql`
-                INSERT INTO project_checklists (project_id, wcag_item_id, wcag_level, is_completed, assignees)
+                INSERT INTO project_checklists (project_id, wcag_item_id, is_completed, assignees)
                 VALUES (
 					${parseInt(project_id) ?? null},
 					${parseInt(wcag_item_id) ?? null},
-					${wcag_level ?? null},	
 					${is_completed ?? false},	
 					${assignees ?? []}		
                 )

@@ -78,7 +78,6 @@ const insertWcagItemsForProject = async (level, project_id) => {
         const insertData = {
             project_id: project_id,
             wcag_item_id: item.wcag_item_id,
-            wcag_level: item.wcag_level,
             is_completed: false
         };
 
