@@ -52,3 +52,7 @@
     .dialog__controls:has(> a:only-child), .dialog__controls:has(> form:only-child) {
         justify-content: center;
     }
+
+    .dialog__user-list {
+        display: flex;
+    }
