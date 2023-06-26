@@ -38,6 +38,8 @@ p {
     aspect-ratio: 1/1;
     color: white;
     z-index: 10;
+    user-select: none;
+    cursor: pointer;
 }
 .landingContent>li:first-of-type {
     display: block;

@@ -40,7 +40,7 @@ const data = {
     '/join-project': {
         title: 'Join Project | Appclusive',
         description: '',
-        scripts: [],
+        scripts: ['landingPage'],
         backUrl: '/'
     },
     '/project/:projectId': {

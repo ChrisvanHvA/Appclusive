@@ -1,6 +1,6 @@
 
 const dog = document.querySelector('.mobileDog');
-dog.addEventListener('click', () => { 
+dog?.addEventListener('click', () => { 
     dog.src = 'images/hulphond_closed.svg';
     setTimeout(resetMobile, 500);
     dog.setAttribute("id", "dognod");
@@ -15,7 +15,7 @@ function resetMobile() {
 
 const dogDesktop = document.querySelector('.dog');
 const desktopDog = document.querySelector('.desktopDog');
-dogDesktop.addEventListener('click', () => { 
+dogDesktop?.addEventListener('click', () => { 
     desktopDog.src = 'images/hulphond_closed.svg';
     setTimeout(resetDesktop, 500);
     desktopDog.setAttribute("id", "dognod");

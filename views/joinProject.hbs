@@ -1,6 +1,7 @@
 <main class='layout layout__join'>
 
 	{{>icons/logo}}
+
 	<form action="/join-project" method="POST" autocomplete="off" autocapitalize="on">
 		<label for="code">Invite code <span class="required">*</span> <span class="formerror">{{#if formErrors.title}}Incorrect invite code{{/if}}</span>
 		</label>
@@ -17,4 +18,8 @@
 
 		<a href="{{head.backUrl}}">Cancel</a>
 	</form>
+	<div class="dog">
+        <img src="images/hulphond_body.svg">
+        <img class="desktopDog" src="images/hulphond.svg">
+    </div>
 </main>
