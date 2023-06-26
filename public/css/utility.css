@@ -41,9 +41,11 @@ span.code::before {
     top: -1.25rem;
     left: 50%;
     transform: translateX(-50%);
+    min-width: 10.625rem;
     font-size: 0.875rem;
     line-height: 1rem;
     white-space: nowrap;
+    text-align: center;
     text-transform: uppercase;
     color: var(--status-text-wip);
     background-color: var(--status-bg-wip);
