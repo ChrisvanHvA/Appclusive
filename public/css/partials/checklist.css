@@ -132,7 +132,6 @@
 
     .checklist__content h4 {
         color: var(--primary-text);
-        margin-bottom: 1.25rem;
     }
 
     .checklist__content h4 > span {
