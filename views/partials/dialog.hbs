@@ -12,27 +12,40 @@
         {{{message}}}
 
         {{#if (eq slug "assign_users")}}
+            {{!-- needed: users on project, id of user for input id? user image component? --}}
             <ul class="dialog__user-list">
                 <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
+                    <input type="checkbox" id="1">
+                    <label for="1">
+                        <img src="https://unsplash.it/40/40" alt="">
+                        <p>John Doe</p>
+                        <i class="icon user-check fa-solid fa-check-circle"></i>
+                    </label>
                 </li>
                 <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
+                    <input type="checkbox" id="1">
+                    <label for="1">
+                        <img src="https://unsplash.it/40/40" alt="">
+                        <p>John Doe</p>
+                        <i class="icon user-check fa-solid fa-check-circle"></i>
+                    </label>
                 </li>
                 <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
+                    <input type="checkbox" id="1">
+                    <label for="1">
+                        <img src="https://unsplash.it/40/40" alt="">
+                        <p>John Doe</p>
+                        <i class="icon user-check fa-solid fa-check-circle"></i>
+                    </label>
                 </li>
-                <li>
-                    <img src="https://unsplash.it/40/40" alt="">
-                    <span>John Doe</span>
-                    <i class="icon fa-solid fa-check-circle"></i>
-                </li>
+                 <li>
+                    <input type="checkbox" id="1">
+                    <label for="1">
+                        <img src="https://unsplash.it/40/40" alt="">
+                        <p>John Doe</p>
+                        <i class="icon user-check fa-solid fa-check-circle"></i>
+                    </label>
+                </li>               
             </ul>
         {{/if}}
 
@@ -50,6 +63,16 @@
                 </form>
 
                 <a href="{{button_href}}" class="btn">{{button}}</a>
+
+            {{else if (eq button_type "assign")}}
+
+                <form method="dialog">
+                    <button class="btn--cancel">Cancel</button>
+                </form>
+
+                <form method="dialog">
+                    <button class="btn">{{button}}</button>
+                </form>
 
             {{else}}
 
