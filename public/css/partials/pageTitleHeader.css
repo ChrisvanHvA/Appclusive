@@ -16,10 +16,9 @@
         margin-bottom: 1rem;
     }
 
-    .page-title svg {
+    .page-title i {
         color: var(--primary-text);
-        width: 1.5rem;
-        height: 1.5rem;
+		font-size: 1.4rem;
     }
 
 @media screen and (max-width: 950px) {

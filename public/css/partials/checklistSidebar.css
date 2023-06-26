@@ -187,10 +187,6 @@
         text-decoration: underline;
     }
 
-        .checklist__sidebar .sidebar__settings a svg {
-            height: 1.5rem;
-            stroke-width: 2;
-        }
         .checklist__sidebar .sidebar__settings a h3 {
             margin-bottom: 0;
         }
