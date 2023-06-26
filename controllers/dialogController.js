@@ -33,6 +33,16 @@ class dialogController {
                 'button_type': 'form',
                 'button': 'I understand',
                 'button_href': null,
+            },
+            'assign_users': {
+                'title': 'Assign users',
+                'slug': 'assign_users',
+                'image_url': null,
+                'image_alt': null,
+                'message': '<p>Assign users to this project.</p>',
+                'button_type': 'form',
+                'button': 'Assign users',
+                'button_href': null,
             }
         }
     }
