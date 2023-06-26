@@ -20,12 +20,6 @@
 			align-items: center;
 		}
 
-		.project-cards li.card__item.allprojects-card a header > div.header__extra-info {
-			flex-direction: column;
-			justify-content: flex-start;
-			align-items: flex-end;
-		}
-
 .project-cards li.card__item a {
 	display: block;
 	height: 100%;
@@ -71,6 +65,10 @@
 		gap: 0.4rem;
 	}
 
+	.project-cards li.card__item a header > div.header__extra-info {
+		display: none;
+	}
+
 		.project-cards li.card__item div.status {
 			display: flex;
 			align-items: center;
@@ -111,10 +109,6 @@
 				align-items: center;
 				height: 1.125rem;
 			}
-
-	.project-cards li.card__item a header > div.header__members {
-		display: none;
-	}
 
 .projectCard__progress {
 	color: var(--tertiary-text);
@@ -223,15 +217,22 @@
 				gap: 0.4rem;
 			}
 
-			.project-cards li.card__item.allprojects-card a header .header__members {
+			.project-cards li.card__item a header > div.header__extra-info {
 				display: flex;
-				flex-direction: row;
-				align-items: center;
-				gap: 0.25rem;
-				height: fit-content;
-				font-weight: 700;
-				color: var(--primary-color);
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-end;
 			}
+
+				.project-cards li.card__item.allprojects-card a header .header__members {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					gap: 0.25rem;
+					height: fit-content;
+					font-weight: 700;
+					color: var(--primary-color);
+				}
 
 	.projectCard__progress {
 		margin-top: 1rem;
