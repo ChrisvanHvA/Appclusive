@@ -11,6 +11,31 @@
 
         {{{message}}}
 
+        {{#if (eq slug "assign_users")}}
+            <ul class="dialog__user-list">
+                <li>
+                    <img src="https://unsplash.it/40/40" alt="">
+                    <span>John Doe</span>
+                    <i class="icon fa-solid fa-check-circle"></i>
+                </li>
+                <li>
+                    <img src="https://unsplash.it/40/40" alt="">
+                    <span>John Doe</span>
+                    <i class="icon fa-solid fa-check-circle"></i>
+                </li>
+                <li>
+                    <img src="https://unsplash.it/40/40" alt="">
+                    <span>John Doe</span>
+                    <i class="icon fa-solid fa-check-circle"></i>
+                </li>
+                <li>
+                    <img src="https://unsplash.it/40/40" alt="">
+                    <span>John Doe</span>
+                    <i class="icon fa-solid fa-check-circle"></i>
+                </li>
+            </ul>
+        {{/if}}
+
         <div class="dialog__controls">
             {{#if (eq button_type "form")}}
 

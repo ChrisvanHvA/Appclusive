@@ -49,7 +49,8 @@ router.get('/', async (req, res) => {
 
     const dialogMessages = [
         DialogController.getMessage('category_finished'),
-        DialogController.getMessage('level')
+        DialogController.getMessage('level'),
+        DialogController.getMessage('assign_users'),
     ];
 
     res.render('checklist', {

@@ -1,6 +1,16 @@
 import noTransitionOnResize from './informationSidebar.js';
 
 
+const assignUsers = document.querySelector('.btn--user');
+
+assignUsers?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    
+    const dialog = document.querySelector('.dialog-assign_users');
+    dialog.showModal();
+});
+
+
 const projectId = document.querySelector('.hidden-project-id').value;
 const checkboxes = document.querySelectorAll('.checklist__checkbox');
 

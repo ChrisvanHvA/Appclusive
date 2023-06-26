@@ -52,3 +52,23 @@
     .dialog__controls:has(> a:only-child), .dialog__controls:has(> form:only-child) {
         justify-content: center;
     }
+
+    .dialog__user-list {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dialog__user-list > li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .dialog__user-list > li > img {
+        height: 1rem;
+        width: 1rem;
+    }
