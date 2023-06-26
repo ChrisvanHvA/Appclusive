@@ -29,7 +29,7 @@ const data = {
     '/': {
         title: 'Dashboard',
         description: '',
-        scripts: []
+        scripts: ['copyOnClick']
     },
     '/new-project': {
         title: 'New Project | Appclusive',
@@ -52,13 +52,13 @@ const data = {
     '/project/:projectId/categories': {
         title: 'Categories',
         description: '',
-        scripts: ['categories', 'projectinfo', 'dialog'],
+        scripts: ['categories', 'projectinfo', 'dialog', 'copyOnClick'],
         backUrl: '/'
     },
     '/project/:projectId/settings': {
         title: 'Project settings',
         description: '',
-        scripts: ['createProject'],
+        scripts: ['createProject', 'copyOnClick'],
         backUrl: '/project/:projectId/categories'
     },
     '/login': {

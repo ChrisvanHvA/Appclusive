@@ -5,7 +5,7 @@
     <form method="POST" autocomplete="off" novalidate>
         <input type="hidden" name="type" value="update">
 
-        <h2>Project invite code: <span class="code">{{project.project_invite_code}}</span></h2>
+        <h2>Project invite code: <span class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</span></h2>
 
         <label for="title">Project title <span class="required">*</span>
 		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>

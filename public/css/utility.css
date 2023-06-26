@@ -24,8 +24,36 @@ a {
     color: var(--primary-color);
     font-weight: 700;
 }
+
+
 span.code {
+    position: relative;
+    padding: 0.1rem 0.25rem;
     color: var(--primary-color);
+    border-radius: 3px;
+    transition: 250ms color ease-in-out, 250ms background-color ease-in-out;
+    cursor: pointer;
+}
+
+span.code::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.875rem;
+    line-height: 1rem;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: var(--status-text-wip);
+    background-color: var(--status-bg-wip);
+    border-radius: 3px;
+}
+
+span.code:hover,
+span.code:focus-visible {
+    color: var(--light);
+    background-color: var(--primary-color);
 }
 
 /* ---------------------------------- */

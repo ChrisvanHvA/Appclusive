@@ -20,6 +20,11 @@
 			align-items: center;
 		}
 
+		.project-cards li.card__item.allprojects-card a header > div.header__extra-info {
+			flex-direction: column;
+			align-items: flex-end;
+		}
+
 .project-cards li.card__item a {
 	display: block;
 	height: 100%;
