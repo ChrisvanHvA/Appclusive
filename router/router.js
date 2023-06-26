@@ -41,6 +41,7 @@ const routes = [
     { path: '*', handler: error404, auth: false }
 
 	// { path: '/new-project', handler: projectCreate, auth: true },
+	// { path: '/join-project', handler: joinProject, auth: true },
 
     // { path: '/change-password', handler: changePassword, auth: true },
     // { path: '/forgot-password', handler: forgotPassword, auth: true },
