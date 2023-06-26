@@ -30,6 +30,8 @@ router.get('/', async (req, res) => {
 
     const projectInfo = await projectController.createFullProjectOverview(wcagCategory, projectId);
 
+    console.log(projectInfo);
+
     const dialogMessages = [
         DialogController.getMessage('category_finished'),
         DialogController.getMessage('level'),

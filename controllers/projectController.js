@@ -98,7 +98,7 @@ const insertWcagItemsForProject = async (level, project_id) => {
 
 
 const createFullProjectOverview = async (wcagCategory, projectId) => {
-    const wcagItems = await WCAGModel.listWCAGItemsByParentId(
+    const wcagItems = await checklistModel.listChecklistItems(
         wcagCategory.wcag_id,
         projectId
     );
