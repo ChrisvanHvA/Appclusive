@@ -23,6 +23,8 @@ router.post('/', async (req, res) => {
         is_admin: false
     });
 
+    //TODO: add error message
+
     return res.redirect('/');
 });
 
