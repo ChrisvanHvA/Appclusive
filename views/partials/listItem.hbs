@@ -19,6 +19,7 @@
 			<h4>{{title}} <span>({{wcag_level}})</span></h4>
 			<p>{{{description}}}</p>
 
+			<div class="checklist__details">
 				<details>
 					<summary>
 						<p>
@@ -29,6 +30,12 @@
 					<p>{{{tip_description}}}</p>
 					<a class="checklist__source" target="_blank" href={{ref_link}}>Official WCAG website</a>
 				</details>
+				
+				<button class="btn--user" type="button">
+					<i class="icon fa-solid fa-user-plus"></i>
+				</button>
+			</div>
+
 
 			{{#if users}}
 				<div class="checklist__users">

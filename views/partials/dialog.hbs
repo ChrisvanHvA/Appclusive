@@ -14,9 +14,26 @@
         <div class="dialog__controls">
             {{#if (eq button_type "form")}}
 
-                <form method="dialog">
-                    <button class="btn">{{button}}</button>
-                </form>
+                {{#if (eq slug "assign_users")}}
+
+                    <ul>
+                        <li>
+                            <img src="splash.it/40/40" alt="">
+                            <span>John Doe</span>
+                            <i class="icon fa-solid fa-check-circle"></i>
+                        </li>
+                    </ul>
+
+                    <form method="dialog">
+                        <button class="btn--cancel">Cancel</button>
+                    </form>
+
+                    <a href="{{button_href}}" class="btn">{{button}}</a>
+                {{else}}
+                    <form method="dialog">
+                        <button class="btn">{{button}}</button>
+                    </form>
+                {{/if}}
 
             {{else if (eq button_type "link")}}
 
@@ -25,6 +42,7 @@
                 </form>
 
                 <a href="{{button_href}}" class="btn">{{button}}</a>
+
 
             {{else}}
 

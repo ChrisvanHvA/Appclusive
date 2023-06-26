@@ -138,7 +138,7 @@
 
 /* --------- DETAILS ELEMENT -------- */
 
-.checklist__content > details {
+.checklist__content details {
     display: flex;
     flex-direction: column;
     gap: .625rem;
@@ -146,7 +146,7 @@
 	cursor: default;
 }
 
-    .checklist__content > details a {
+    .checklist__content details a {
         color: var(--primary-color);
         font-style: italic;
         word-break: break-all;
@@ -180,7 +180,7 @@
     }
 	
 	/* if details open */
-	.checklist__content > details > summary > p .icon {
+	.checklist__content details > summary > p .icon {
 		width: 1.25rem;
 		height: 1.25rem;
 		position: absolute;
@@ -189,40 +189,61 @@
         left: 0;
 	}
 
-	.checklist__content > details[open] > summary > p .icon:first-of-type,
-	.checklist__content > details:not([open]) > summary > p .icon:last-of-type {
+	.checklist__content details[open] > summary > p .icon:first-of-type,
+	.checklist__content details:not([open]) > summary > p .icon:last-of-type {
 		display: none;
 	}
 
-.checklist__content > details img {
-	width: 1.25rem;
-    height: 1.25rem;
-}
+    .checklist__content details img {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
 
 
-.checklist__content > details[open] {
-    border-radius: .9375rem;
-    padding: .625rem 1.25rem 1.25rem 1.25rem;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: var(--card-border-radius);
+    .checklist__content details[open] {
+        border-radius: .9375rem;
+        padding: .625rem 1.25rem 1.25rem 1.25rem;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: var(--card-border-radius);
+    }
+
+        .checklist__content details[open] > summary {
+            padding: 0 0 .625rem 0;
+            border: none;
+        }
+
+        .checklist__content details[open] > summary:focus-visible {
+            outline: 2px solid var(--primary-color);
+            padding: 0;
+            margin-bottom: .625rem;
+        }
+
+    .checklist__content details > ul {
+        list-style:  disc;
+        margin: .625rem 0 0 1rem;
+    }
+
+    .checklist__content:has(details[open]) .checklist__details {
+        flex-direction: column;
+        align-items: start;
+    }
+
+.checklist__details {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
-.checklist__content > details[open] > summary {
-    padding: 0 0 .625rem 0;
-    border: none;
-}
-
-.checklist__content > details[open] > summary:focus-visible {
-    outline: 2px solid var(--primary-color);
-	padding: 0;
-	margin-bottom: .625rem;
-}
-
-.checklist__content > details > ul {
-    list-style:  disc;
-    margin: .625rem 0 0 1rem;
-}
+    .checklist__details .btn--user {
+        border-radius: 50%;
+        border: 2px solid var(--primary-color);
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 /* ---------------------------------- */
 /*                USERS               */
