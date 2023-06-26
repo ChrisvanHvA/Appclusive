@@ -13,7 +13,7 @@
 	value="{{is_completed}}" 
 	/>
 
-	<label for="wcag_{{wcag_item_id}}">
+	<label for="wcag_{{wcag_item_id}}" data-checklist-id="{{wcag_item_id}}">
 		<span></span>
 		<div class="checklist__content">
 			<h4>{{title}} <span>({{wcag_level}})</span></h4>
@@ -31,7 +31,7 @@
 					<a class="checklist__source" target="_blank" href={{ref_link}}>Official WCAG website</a>
 				</details>
 				
-				<button class="btn--user" type="button">
+				<button class="btn--user hide" type="button">
 					<i class="icon fa-solid fa-user-plus"></i>
 				</button>
 			</div>

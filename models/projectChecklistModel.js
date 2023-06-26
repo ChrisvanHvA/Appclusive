@@ -33,6 +33,21 @@ class projectChecklistModel {
         }
     }
 
+	async updateAssignees(assignees, projectId, wcagItemId) {
+        try {
+            await sql`
+                UPDATE project_checklists
+                SET assignees = ${assignees}
+                WHERE wcag_item_id = ${wcagItemId} AND project_id = ${projectId}
+            `;
+
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
 	    /**
      * Async function to update the completion status of a specific checklist item within a project
      *

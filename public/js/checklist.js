@@ -1,20 +1,29 @@
+// import does not need to be called, it will run automatically
 import noTransitionOnResize from './informationSidebar.js';
 
+const checklistIdInput = document.querySelector('input[name="wcag_item_id"][type="hidden"]');
+const assignDialog = document.querySelector('.dialog-assign_users');
 
-const assignUsers = document.querySelector('.btn--user');
+const toggleAssignDialog = (e) => {
+	e.stopPropagation();
 
-assignUsers?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    
-    const dialog = document.querySelector('.dialog-assign_users');
-    dialog.showModal();
-});
+	assignDialog?.showModal();
 
+	const id = e.currentTarget.closest('label')?.getAttribute('data-checklist-id');
+	checklistIdInput.value = id;
+};
 
 const projectId = document.querySelector('.hidden-project-id').value;
 const checkboxes = document.querySelectorAll('.checklist__checkbox');
 
 const init = () => {
+	const addUserButtons = document.querySelectorAll('.btn--user');
+	// init assign users dialog so it's only shown with js enabled
+	addUserButtons.forEach((button) => {
+		button.classList.remove('hide');
+		button.addEventListener('click', toggleAssignDialog);
+	});
+
     const checklistButtons = document.querySelectorAll(
         '[data-checklist-button]'
     );
@@ -104,14 +113,15 @@ const updateProgress = () => {
     });
     progressBar.setAttribute('value', percentage);
 
-
     // open dialog if all items are checked
     if (checkedCheckboxes.length === checkboxes.length) {
         const dialog = document.querySelector('.dialog-category_finished');
 
-        dialog ? setTimeout(() => {
-            dialog.showModal();
-        }, 1000) : null;
+        dialog
+            ? setTimeout(() => {
+                  dialog.showModal();
+              }, 1000)
+            : null;
     }
 };
 

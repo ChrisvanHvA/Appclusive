@@ -1,5 +1,4 @@
 <dialog class="dialog dialog-{{slug}}">
-
     {{!-- flex on the dialog itself breaks it, so we use an extra wrapper --}}
     <section>
 
@@ -12,24 +11,29 @@
         {{{message}}}
 
         {{#if (and (eq slug "assign_users") (ne projectUsers undefined))}}
-            {{ log projectUsers }}
+			<form id="assign_users" method="POST" action="/project/{{projectId}}/assign">
+				<input type="hidden" name="wcag_item_id" value="0">
 
-            <ul class="dialog__user-list">
+				<ul class="dialog__user-list">
+					{{#each projectUsers }}
+						<li>
+							<input 
+							name="user_ids[]" 
+							type="checkbox" 
+							id="user_ids-{{ this.user_id }}" 
+							value="{{this.user_id}}">
 
-                {{#each projectUsers }}
-                    <li>
-                        <input type="checkbox" id="user_id-{{ this.user_id }}">
-                        <label for="user_id-{{ this.user_id }}">
-                            <img src="https://unsplash.it/40/40" alt="Profile picture of {{this.full_name}}">
-                            <p>{{ this.full_name}}</p>
-                            <i class="icon user-check fa-solid fa-check-circle"></i>
-                        </label>
-                    </li>
-                   
-                {{/each}}
+							<label for="user_ids-{{ this.user_id }}">
+								<img src="https://unsplash.it/40/40" alt="Profile picture of {{this.full_name}}">
+								<p>{{ this.full_name}}</p>
+								<i class="icon user-check fa-solid fa-check-circle"></i>
+							</label>
+						</li>
+					{{/each}}
+            	</ul>
+			</form>
 
                 
-            </ul>
 
             
         {{/if}}
@@ -55,10 +59,9 @@
                     <button class="btn--cancel">Cancel</button>
                 </form>
 
-                <form method="dialog">
-                    <button class="btn">{{button}}</button>
-                </form>
-
+				<form>
+                	<button class="btn" form="assign_users" type="submit">{{button}}</button>
+				</form>
             {{else}}
 
                 <form method="dialog">

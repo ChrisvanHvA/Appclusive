@@ -76,4 +76,20 @@ router.post('/submit', async (req, res) => {
     }
 });
 
+router.post('/assign', async (req, res) => {
+	const projectId = req.params.projectId;
+
+	if (!projectId) return false;
+
+	console.log(req.body);
+
+	const assignees = (req.body.user_ids || []).map((id) => parseInt(id));
+	const checklistId = req.body.wcag_item_id;
+
+	console.log(assignees, checklistId, projectId);
+	const insertResult = await ProjectChecklistModel.updateAssignees(assignees, projectId, checklistId);
+
+	return res.send('ok');
+});
+
 export default router;
