@@ -1,7 +1,10 @@
-<main class="layout__login">
+<main class="layout__register">
+
+          
+
 
     <form method="POST">
-        <h2>Hi there!</h2>
+      <h3 class="subtext">Tell us about yourself</h3>
 
         <fieldset class="form__section">
             <label for="first_name">First Name</label>
@@ -15,8 +18,8 @@
             />
             <label class="error {{#unless first_name-error.length}}hide{{/unless}}">{{first_name-error}}</label>
         </fieldset>
-
-        <fieldset class="form__section">
+<section class="surname">
+        <fieldset class="form__section" id="insertion">
             <label for="insertion">Insertion</label>
             <input
                 type="name"
@@ -27,7 +30,7 @@
             />
         </fieldset>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section" id="surname">
             <label for="surname">Surname</label>
             <input
                 type="name"
@@ -39,6 +42,8 @@
             />
             <label class="error {{#unless surname-error.length}}hide{{/unless}}">{{surname-error}}</label>
         </fieldset>
+        </section>
+        <hr class="registerHr">
 
         <fieldset class="form__section">
             <label for="email_address">Email</label>
@@ -54,7 +59,7 @@
             />
             <label class="error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
         </fieldset>
-
+<section class="passwords">
         <fieldset class="form__section">
             <label for="password">Password</label>
             <input
@@ -82,21 +87,16 @@
             />
             <label class="error {{#unless confirm_password-error.length}}hide{{/unless}}">{{confirm_password-error}}</label>
         </fieldset>
-
+</section>
         <button class="btn btn--login" type="submit">Register</button>
         <p class="login__or">or</p>
         <p class="login__signuptext">Already have an account? <a href="/login" class="login__forgot">Login here</a></p>
         <a href="/login" class="btn btn--secondary">Login</a>
     </form>
-
-    <section class="login-aside">
-        <h1>Digital accessibility made easy with
-            Appclusive</h1>
-        <div class="login__checklistitem"></div>
-        {{>icons/logo}}
-
+<section class="background-decoration">
         <span class="bg-circle"></span>
         <span class="bg-circle"></span>
         <span class="bg-circle"></span>
+          {{>icons/logo}}
     </section>
 </main>
