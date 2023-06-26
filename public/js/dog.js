@@ -1,24 +1,29 @@
-const dogMobile = document.querySelector('.mobileDog');
-dogMobile?.addEventListener('click', () => {
-    dogMobile.src = 'images/hulphond_closed.svg';
+if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
 
-    setTimeout(() => {
-        dogMobile.src = 'images/hulphond.svg';
-        dogMobile.removeAttribute('id');
-    }, 500);
+    const dogMobile = document.querySelector('.mobileDog');
+    
+    dogMobile?.addEventListener('click', () => {
+        dogMobile.src = 'images/hulphond_closed.svg';
 
-    dogMobile.setAttribute('id', 'dognod');
-});
+        setTimeout(() => {
+            dogMobile.src = 'images/hulphond.svg';
+            dogMobile.removeAttribute('id');
+        }, 500);
 
-const dogContainer = document.querySelector('.dog');
-const dogDesktop = document.querySelector('.desktopDog');
-dogContainer?.addEventListener('click', () => {
-    dogDesktop.src = 'images/hulphond_closed.svg';
+        dogMobile.setAttribute('id', 'dognod');
+    });
 
-    setTimeout(() => {
-        dogDesktop.src = 'images/hulphond.svg';
-        dogDesktop.removeAttribute('id');
-    }, 500);
+    const dogContainer = document.querySelector('.dog');
+    const dogDesktop = document.querySelector('.desktopDog');
 
-    dogDesktop.setAttribute('id', 'dognod');
-});
+    dogContainer?.addEventListener('click', () => {
+        dogDesktop.src = 'images/hulphond_closed.svg';
+
+        setTimeout(() => {
+            dogDesktop.src = 'images/hulphond.svg';
+            dogDesktop.removeAttribute('id');
+        }, 500);
+
+        dogDesktop.setAttribute('id', 'dognod');
+    });
+}
