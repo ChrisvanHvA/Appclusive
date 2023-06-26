@@ -40,10 +40,6 @@ main.layout__project-create .project__level section aside {
 		display: block;
 	}
 
-	.layout__project-create form h2 span {
-		color: var(--primary-color);
-	}
-
 	.layout__project-create form h2,
 	.layout__project-create form label,
 	.layout__project-create form fieldset legend {

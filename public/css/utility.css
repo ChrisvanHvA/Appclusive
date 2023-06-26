@@ -24,6 +24,9 @@ a {
     color: var(--primary-color);
     font-weight: 700;
 }
+span.code {
+    color: var(--primary-color);
+}
 
 /* ---------------------------------- */
 /*            #BUTTON                 */

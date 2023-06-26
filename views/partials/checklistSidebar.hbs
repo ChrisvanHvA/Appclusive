@@ -8,8 +8,6 @@
         <section>
             <h2>{{capitalize title}}</h2>
 
-			<p>Project invite code: {{project.project_invite_code}}</p>
-
             <div class='sidebar__progress'>
                 <h3>
                     <span class='percentage-count'>{{calcProgress
@@ -44,12 +42,15 @@
         {{/if}}
 
         <section>
-
             <h3>Level accessibility</h3>
             <button class='btn btn--acc'>Level
                 {{length project.wcag_level}}
                 (WCAG level
                 {{project.wcag_level}})</button>
+        </section>
+
+        <section>
+            <h3>Project invite code: <span class="code">{{project.project_invite_code}}</span></h3>
         </section>
 
         <section class="sidebar__settings">
