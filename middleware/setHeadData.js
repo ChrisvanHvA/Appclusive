@@ -92,6 +92,11 @@ const data = {
         description: '',
         scripts: []
     },
+    '/validator': {
+        title: 'Validator',
+        description: '',
+        scripts: ['validatorTool']
+    },
     '*': {
         title: 'Page not found',
         description: '',
