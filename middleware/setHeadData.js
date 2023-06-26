@@ -40,7 +40,7 @@ const data = {
     '/join-project': {
         title: 'Join Project | Appclusive',
         description: '',
-        scripts: ['landingPage'],
+        scripts: ['dog'],
         backUrl: '/'
     },
     '/project/:projectId': {
@@ -69,7 +69,7 @@ const data = {
     '/landing': {
         title: 'Appclusive | Landing',
         description: '',
-        scripts: ['landingPage']
+        scripts: ['dog']
     },
     '/register': {
         title: 'Register',
