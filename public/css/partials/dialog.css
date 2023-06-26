@@ -57,7 +57,9 @@
         display: flex;
         width: 100%;
         flex-direction: column;
+        max-height: 20rem;
         gap: 1rem;
+        overflow-y: scroll;
     }
 
         .dialog__user-list input {
