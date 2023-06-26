@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
     const errorParam = req.query.message;
     const avatar = req.user?.profile_pic || 'public/images/no_img.png';
 
-    res.render('settings', {
+    res.render('userSettings', {
         title: 'Settings',
         avatar,
         system_message: errorParam
