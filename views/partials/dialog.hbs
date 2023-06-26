@@ -18,10 +18,14 @@
 
                 {{#each projectUsers }}
                     <li>
-                        <img src="https://unsplash.it/40/40" alt="Profile picture of {{ this.full_name }}">
-                        <span>{{ this.full_name}}</span>
-                        <i class="icon fa-solid fa-check-circle"></i>
+                        <input type="checkbox" id="user_id-{{ this.user_id }}">
+                        <label for="user_id-{{ this.user_id }}">
+                            <img src="https://unsplash.it/40/40" alt="Profile picture of {{this.full_name}}">
+                            <p>{{ this.full_name}}</p>
+                            <i class="icon user-check fa-solid fa-check-circle"></i>
+                        </label>
                     </li>
+                   
                 {{/each}}
 
                 
@@ -44,6 +48,16 @@
                 </form>
 
                 <a href="{{button_href}}" class="btn">{{button}}</a>
+
+            {{else if (eq button_type "assign")}}
+
+                <form method="dialog">
+                    <button class="btn--cancel">Cancel</button>
+                </form>
+
+                <form method="dialog">
+                    <button class="btn">{{button}}</button>
+                </form>
 
             {{else}}
 

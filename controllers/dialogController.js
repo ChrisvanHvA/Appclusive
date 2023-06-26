@@ -40,7 +40,7 @@ class dialogController {
                 'image_url': null,
                 'image_alt': null,
                 'message': '<p>Assign users to this project.</p>',
-                'button_type': 'form',
+                'button_type': 'assign',
                 'button': 'Assign users',
                 'button_href': null,
             }

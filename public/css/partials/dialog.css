@@ -57,18 +57,48 @@
         display: flex;
         width: 100%;
         flex-direction: column;
+        max-height: 20rem;
         gap: 1rem;
+        overflow-y: scroll;
     }
 
-    .dialog__user-list > li {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        gap: 1rem;
-    }
+        .dialog__user-list input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
 
-    .dialog__user-list > li > img {
-        height: 1rem;
-        width: 1rem;
-    }
+        .dialog__user-list .user-check {
+            opacity: 0;
+        }
+
+        .dialog__user-list input:checked + label .user-check {
+            opacity: 1;
+        }
+
+        .dialog__user-list input:checked + label {
+            border: 2px solid var(--primary-color);
+        }
+
+        .dialog__user-list label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 1rem;
+            padding: 1rem;
+            border: 2px solid var(--card-border-color);
+            border-radius: var(--card-border-radius);
+        }
+
+            .dialog__user-list label img {
+                height: 1rem;
+                width: 1rem;
+            }
+        
+        .dialog__user-list label p {
+            flex: 1;
+        }
