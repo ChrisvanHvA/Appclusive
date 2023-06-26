@@ -184,7 +184,8 @@ class projectModel {
 		  LEFT JOIN projects AS p ON p.project_id = pu.project_id
 		  LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
 		  WHERE pu.user_id = ${userId} AND p.project_id IS NOT NULL
-		  GROUP BY p.project_id, pu.user_id;
+		  GROUP BY p.project_id, pu.user_id
+		  ORDER BY p.updated_at DESC NULLS LAST, p.project_id DESC;
             `;
 
             return projects;
