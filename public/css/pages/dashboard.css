@@ -85,6 +85,21 @@
 		flex: 0 100%;
 	}
 
+.layout__dashboard .dashboard__empty {
+	width: 100%;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.layout__dashboard .dashboard__empty > h3 {
+	color: var(--primary-color);
+}
+
 @media screen and (min-width: 560px) {
 	.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent .card__item {
 		flex: 1 calc(50% - 0.375rem);
@@ -95,6 +110,8 @@
 @media screen and (min-width: 951px) {
 	.layout__dashboard {
 		padding-top: 3.5rem;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.layout__dashboard .recent-projects > label,
@@ -118,6 +135,10 @@
 
 	.layout__dashboard h3 + label {
 		display: none;
+	}
+
+	.layout__dashboard .dashboard__empty {
+		margin-top: 0rem;
 	}
 }
 
