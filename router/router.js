@@ -4,11 +4,14 @@ import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
 import landing from './landing.js';
 import projectCreate from './projectCreate.js';
+
 import projectSettings from './projectSettings.js';
+import settings from './settings.js';
+
 import login from './login.js';
 import register from './register.js';
-import settings from './settings.js';
 import logout from './logout.js';
+
 import changePassword from './changePassword.js';
 import forgotPassword from './forgotPassword.js';
 import resetPassword from './resetPassword.js';
@@ -16,6 +19,7 @@ import upload from './upload.js';
 
 const routes = [
     { path: '/new-project', handler: projectCreate, auth: false },
+	{ path: '/join-project', handler: joinProject, auth: false },
 
     { path: '/change-password', handler: changePassword, auth: false },
     { path: '/forgot-password', handler: forgotPassword, auth: false },

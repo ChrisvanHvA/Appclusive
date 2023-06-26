@@ -138,6 +138,25 @@ class projectModel {
         }
     }
 
+	async getProjectByCode(projectCode) {
+        try {
+			if (!projectCode) {
+				throw new Error('No project code provided');
+			}
+			
+            const [project] = await sql`
+					SELECT *
+					FROM projects
+					WHERE project_invite_code = ${projectCode}
+				`;
+
+            return project;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+	}
+
     /**
      * Async function to retrieve list of projects user is involved in
      * @params userId: id of the user account
