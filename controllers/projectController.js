@@ -68,16 +68,9 @@ const createProject = async (projectData, user_id) => {
  * @param {string} project_id - The ID of the project to update.
  * @returns {Promise<void>} - A promise that resolves when the update is complete.
  */
-const updateProject = async (existingWCAGItems, level, project_id) => {
-    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(level);
-
-    const wcagItemsToInsert = allMatchingWCAGItems.filter(
-        (item) =>
-            !existingWCAGItems.some(
-                (existingItem) =>
-                    existingItem.wcag_item_id === item.wcag_item_id
-            )
-    );
+const insertWcagItemsForProject = async (level, project_id) => {
+    const wcagItemsToInsert = await WCAGModel.listWCAGItemsByLevel(level);
+    let completedInsert = true;
 
     for (let i = 0; i < wcagItemsToInsert.length; i++) {
         const item = wcagItemsToInsert[i];
@@ -89,11 +82,20 @@ const updateProject = async (existingWCAGItems, level, project_id) => {
             is_completed: false
         };
 
-        await checklistModel.insert(insertData);
+        const insertId = await checklistModel.insert(insertData);
+
+		// If the insert went wrong, it will return 0, so end the loop!
+        if (insertId == 0) {
+            completedInsert = false;
+            break;
+        }
     }
+
+	return { completedInsert: completedInsert, projectId: project_id };
+
 };
 
 export default {
     createProject,
-    updateProject
+    insertWcagItemsForProject
 };
