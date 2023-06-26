@@ -29,7 +29,7 @@
 
     visibility: visible;
     transform-style: preserve-3d;
-    transition: transform .5s;
+    transition: transform .7s;
 }
 
     .categories li > a:focus-visible {
@@ -64,6 +64,10 @@
 
 .category__item {
     position: relative;
+    transition: 0.2s ease-in-out;
+}
+.category__item:hover {
+    transform: scale(1.05);
 }
 
 	.category__item input[id^="flip"] {
@@ -134,6 +138,12 @@ input[id^="flip"]:focus-visible + label {
     z-index: 1;
   }
 
+  [for^="flip"]:hover i{
+    transition: 0.5s;
+    color: var(--primary-color);
+    font-weight: 800;
+  }
+
 	[for^="flip"] > svg {
 		color: var(--primary-text);
 	}
@@ -201,3 +211,13 @@ ul.categoryContent > li:first-of-type .icon{
     } */
     
 }
+
+@media (prefers-reduced-motion) {
+    .category__item input[id^="flip"]:checked ~ a {
+        transform: rotateY(180deg);
+        transition: none;
+    }
+    .categories li>a {
+        transition: none;
+    }
+  }

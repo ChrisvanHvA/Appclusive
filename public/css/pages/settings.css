@@ -1,19 +1,25 @@
 .settings > * + * {
     margin-top: 2.5rem;
 }
+.settings, .settings button[type="submit"] {
+    max-width: 50rem;
+}
 
 .settings button[type="submit"] {
     display: block;
     margin: 2.5rem 0 0 auto;
 }
 
-.settings fieldset + fieldset {
-    margin-top: 2.5rem;
+.settings fieldset {
+    margin-top: 1.69rem;
+}
+.settings fieldset div:not(:first-of-type) {
+    margin-top: 1rem;
 }
 
 .settings legend {
     margin-bottom: 0.25rem;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--tertiary-text);
@@ -75,7 +81,7 @@
     }
 
         .settings button[type="submit"] {
-            grid-column: 1 / 3;
+            grid-column: 1 / 2;
             margin: 2.5rem auto 0 0;
         }
 
