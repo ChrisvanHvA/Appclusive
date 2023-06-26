@@ -1,15 +1,19 @@
 .settings > * + * {
     margin-top: 2.5rem;
 }
+.settings, .settings button[type="submit"] {
+    max-width: 50rem;
+}
 
 .settings button[type="submit"] {
     display: block;
 }
 
 a[href="/logout"] {
-    margin-left: 2rem;
     font-weight: 700;
     color: var(--primary-color);
+    display: flex;
+    gap: 1rem;
 }
 
     a[href="/logout"] p {
@@ -24,13 +28,17 @@ a[href="/logout"] {
         color: var(--primary-color);
     }
 
-.settings fieldset + fieldset {
-    margin-top: 2.5rem;
+.settings fieldset {
+    margin-top: 1.69rem;
+}
+
+.settings fieldset div:not(:first-of-type) {
+    margin-top: 1rem;
 }
 
 .settings legend {
     margin-bottom: 0.25rem;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--tertiary-text);
@@ -79,6 +87,16 @@ a[href="/logout"] {
         visibility: hidden;
     }
 
+.settings > div:last-of-type {
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
 @media screen and (min-width: 951px) {
     .layout__settings {
         padding-top: 2.5rem;
@@ -96,11 +114,13 @@ a[href="/logout"] {
     }
 
         .settings > div:last-of-type {
+            flex-direction: row;
+            align-items: baseline;
+        }
+
+        .settings button[type="submit"] {
             grid-column: 1 / 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+            /* margin: 2.5rem auto 0 0; */
         }
 
             .settings > div:last-of-type button[type="submit"] {

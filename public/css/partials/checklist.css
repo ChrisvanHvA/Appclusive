@@ -19,10 +19,11 @@
     }
 
         .checklist ol li > h4 {
-            margin-bottom: 0.25rem;
+            margin-bottom: 1.25rem;
             color: var(--primary-color);
-            font-size: 1rem;
+            font-size: 1.125rem;
             text-transform: uppercase;
+            margin-top: -0.1rem;
         }
 
 .checklist__item {
@@ -99,9 +100,10 @@
     }
 }
 
-.checklist__item input:checked + label .checklist__content {
-    text-decoration: line-through;
+.checklist__item input:checked + label {
     color: var(--secondary-text);
+    background: rgba(4, 78, 207, 0.15);
+    border-color: var(--primary-color);
 }
 
 .checklist__item input:checked + label .checklist__content .checklist__users, 
@@ -130,6 +132,7 @@
 
     .checklist__content h4 {
         color: var(--primary-text);
+        margin-bottom: 1.25rem;
     }
 
     .checklist__content h4 > span {

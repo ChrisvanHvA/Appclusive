@@ -1,9 +1,13 @@
 .page-title {
     grid-column: 1 / -1;
+    margin-left: -0.45rem;
 }
 
     .page-title a {
         margin-top: 0.35rem;
+    }
+    .page-title a:hover svg{
+        color: var(--primary-color);
     }
 
     .page-title__subtitle {
@@ -25,5 +29,9 @@
 @media screen and (max-width: 950px) {
     .page-title {
         display: none;
+    }
+    h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
     }
 }

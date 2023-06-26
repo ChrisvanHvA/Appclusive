@@ -31,6 +31,13 @@
 
         .dialog > section > a {
             align-self: start;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: underline var(--primary-color);
+        }
+        .dialog > section > a:hover {
+            color: var(--primary-text);
+            text-decoration: underline var(--primary-color);
         }
 
     .dialog::backdrop {
