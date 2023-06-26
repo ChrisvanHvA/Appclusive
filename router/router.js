@@ -4,6 +4,7 @@ import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
 import landing from './landing.js';
 import projectCreate from './projectCreate.js';
+import joinProject from './joinProject.js';
 
 import projectSettings from './projectSettings.js';
 import settings from './settings.js';
