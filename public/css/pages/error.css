@@ -28,7 +28,6 @@
 
     .error__content > .btn {
         margin-top: 1rem;
-        max-width: fit-content;
     }
 
 
@@ -36,5 +35,9 @@
     .layout__error {
         flex-direction: row;
         align-items: center;
+    }
+
+    .error__content > .btn {
+        max-width: fit-content;
     }
 }
