@@ -46,17 +46,20 @@
 		
 		.nav__desktop ul li a {
 			--icon-width: 1.5rem;
-			--link-margin: 0.2rem;
-			padding-left: calc(1rem - var(--link-margin));
-			width: calc(100% - (var(--link-margin) * 2));
-			margin-left: var(--link-margin);
-			color: var(--light);
+			--link-margin: 0.5rem;
+
 			display: flex;
 			gap: 1.06rem;
-			height: 4rem;
 			align-items: center;
+
+			width: calc(100% - (var(--link-margin) * 2));
+			height: 3rem;
+			margin: 0.5rem auto 0.5rem var(--link-margin);
+			padding-left: calc(1rem - var(--link-margin));
+
+			color: var(--light);
 			transition: color .2s ease-in-out;
-			border-radius: 1.2rem;
+			border-radius: var(--card-border-radius);
 		}
 			.nav__desktop ul li a:focus-visible,
 			.nav__desktop ul li a:hover {
