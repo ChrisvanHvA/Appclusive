@@ -2,6 +2,8 @@ import projectModel from '../models/projectModel.js';
 import projectUserModel from '../models/projectUserModel.js';
 import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
+import { calcTotalProgressByItems } from '../helpers/calcTotalProgress.js';
+
 
 const WCAGModel = new wcagModel();
 const ProjectModel = new projectModel();
@@ -68,16 +70,9 @@ const createProject = async (projectData, user_id) => {
  * @param {string} project_id - The ID of the project to update.
  * @returns {Promise<void>} - A promise that resolves when the update is complete.
  */
-const updateProject = async (existingWCAGItems, level, project_id) => {
-    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(level);
-
-    const wcagItemsToInsert = allMatchingWCAGItems.filter(
-        (item) =>
-            !existingWCAGItems.some(
-                (existingItem) =>
-                    existingItem.wcag_item_id === item.wcag_item_id
-            )
-    );
+const insertWcagItemsForProject = async (level, project_id) => {
+    const wcagItemsToInsert = await WCAGModel.listWCAGItemsByLevel(level);
+    let completedInsert = true;
 
     for (let i = 0; i < wcagItemsToInsert.length; i++) {
         const item = wcagItemsToInsert[i];
@@ -85,15 +80,47 @@ const updateProject = async (existingWCAGItems, level, project_id) => {
         const insertData = {
             project_id: project_id,
             wcag_item_id: item.wcag_item_id,
-            wcag_level: item.wcag_level,
             is_completed: false
         };
 
-        await checklistModel.insert(insertData);
+        const insertId = await checklistModel.insert(insertData);
+
+		// If the insert went wrong, it will return 0, so end the loop!
+        if (insertId == 0) {
+            completedInsert = false;
+            break;
+        }
     }
+
+	return { completedInsert: completedInsert, projectId: project_id };
+
+};
+
+
+const createFullProjectOverview = async (wcagCategory, projectId) => {
+    const wcagItems = await checklistModel.listChecklistItems(
+        wcagCategory.wcag_id,
+        projectId
+    );
+
+    const projectInfo = await ProjectModel.getProject(projectId);
+
+    const { all_checklists, completed_checklists } =
+        calcTotalProgressByItems(wcagItems);
+
+    projectInfo.all_checklists = all_checklists;
+    projectInfo.completed_checklists = completed_checklists;
+    
+    const allProjectUsers = await ProjectUserModel.listProjectUsers(projectId);
+    
+    projectInfo.all_users = allProjectUsers;
+    projectInfo.checklist_data = wcagItems;
+
+    return projectInfo;
 };
 
 export default {
     createProject,
-    updateProject
+    insertWcagItemsForProject,
+    createFullProjectOverview
 };

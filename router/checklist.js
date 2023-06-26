@@ -2,15 +2,13 @@ import express from 'express';
 
 import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
-import projectModel from '../models/projectModel.js';
 
 import dialogController from '../controllers/dialogController.js';
 
-import { calcTotalProgressByItems } from '../helpers/calcTotalProgress.js';
 import { findCategoryIdByName } from '../helpers/wcagCategoryFind.js';
+import projectController from '../controllers/projectController.js';
 
 const router = express.Router({ mergeParams: true });
-const ProjectModel = new projectModel();
 const ProjectChecklistModel = new projectChecklistModel();
 const WCAGModel = new wcagModel();
 
@@ -30,33 +28,21 @@ router.get('/', async (req, res) => {
         return res.redirect(`/project/${projectId}/categories`);
     }
 
-    const wcagItems = await WCAGModel.listWCAGItemsByParentId(
-        wcagCategory.wcag_id,
-        projectId
-    );
+    const projectInfo = await projectController.createFullProjectOverview(wcagCategory, projectId);
 
-    const projectInfo = await ProjectModel.getProject(projectId);
-
-    const { all_checklists, completed_checklists } =
-        calcTotalProgressByItems(wcagItems);
-
-    projectInfo.all_checklists = all_checklists;
-    projectInfo.completed_checklists = completed_checklists;
-
-    // const dialogMessage = DialogController.getMessage('finish_project_incomplete');
-
-    // get multiple messages
+    console.log(projectInfo);
 
     const dialogMessages = [
         DialogController.getMessage('category_finished'),
-        DialogController.getMessage('level')
+        DialogController.getMessage('level'),
+        DialogController.getMessage('assign_users'),
     ];
 
     res.render('checklist', {
         ...res.locals,
-        tasks: wcagItems,
-		category: wcagCategory,
-		project: projectInfo,
+        tasks: projectInfo.checklist_data,
+        category: wcagCategory,
+        project: projectInfo,
         system_message: errorParam ? 'Failed to update' : null,
         dialog_messages: dialogMessages
     });
@@ -90,6 +76,22 @@ router.post('/submit', async (req, res) => {
             }?category=${categoryItem.title.toLowerCase()}${errorParam}`
         );
     }
+});
+
+router.post('/assign', async (req, res) => {
+	const projectId = req.params.projectId;
+
+	if (!projectId) return false;
+
+	console.log(req.body);
+
+	const assignees = (req.body.user_ids || []).map((id) => parseInt(id));
+	const checklistId = req.body.wcag_item_id;
+
+	console.log(assignees, checklistId, projectId);
+	const insertResult = await ProjectChecklistModel.updateAssignees(assignees, projectId, checklistId);
+
+	return res.send('ok');
 });
 
 export default router;

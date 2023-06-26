@@ -39,45 +39,36 @@ class projectModel {
      */
     async update(project_id, updateData) {
         try {
-            const { title, description, level } = updateData;
+            const oldProject = await this.getProject(project_id);
+            if (!oldProject) {
+                return false;
+            }
 
-            const result = await sql`
+            const { wcag_level: oldWcagLevel } = oldProject;
+            const { title, description, wcag_level: newWcagLevel } = updateData;
+
+            await sql`
                 UPDATE projects
-                SET
-                title = ${title ?? sql`title`},
+                SET title = ${title ?? sql`title`},
                 description = ${description ?? sql`description`},
-                wcag_level = ${level ?? sql`wcag_level`}
-                WHERE
-                project_id = ${project_id}
-
-                RETURNING *;
-            `;
-
-            if (level === 'A') {
-                await sql`
-                    DELETE FROM project_checklists
-                    WHERE wcag_level IN ('AA', 'AAA') AND project_id = ${project_id}
-                `;
-            }
-
-            if (level === 'AA') {
-                await sql`
-                    DELETE FROM project_checklists
-                    WHERE wcag_level = 'AAA' AND project_id = ${project_id}
-                `;
-            }
-
-            const existingWCAGItems = await sql`
-                SELECT wcag_item_id
-                FROM project_checklists
+                wcag_level = ${newWcagLevel ?? sql`wcag_level`}
                 WHERE project_id = ${project_id}
             `;
 
-            return {
-                result,
-                existingWCAGItems,
-                level
-            };
+			if (newWcagLevel.length < oldWcagLevel.length) {
+				// delete checklist items of higher level from project_checklist
+				await sql`
+				DELETE FROM project_checklists
+					WHERE project_id = ${project_id} 
+					AND wcag_item_id IN (
+						SELECT wi.wcag_item_id
+						FROM wcag_item AS wi
+						WHERE LENGTH(wi.wcag_level) > ${newWcagLevel.length}
+					);`
+			}
+
+
+            return true;
         } catch (error) {
             console.log(error);
             return false;
@@ -138,12 +129,12 @@ class projectModel {
         }
     }
 
-	async getProjectByCode(projectCode) {
+    async getProjectByCode(projectCode) {
         try {
-			if (!projectCode) {
-				throw new Error('No project code provided');
-			}
-			
+            if (!projectCode) {
+                throw new Error('No project code provided');
+            }
+
             const [project] = await sql`
 					SELECT *
 					FROM projects
@@ -155,7 +146,7 @@ class projectModel {
             console.log(error);
             return null;
         }
-	}
+    }
 
     /**
      * Async function to retrieve list of projects user is involved in
@@ -193,7 +184,8 @@ class projectModel {
 		  LEFT JOIN projects AS p ON p.project_id = pu.project_id
 		  LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
 		  WHERE pu.user_id = ${userId} AND p.project_id IS NOT NULL
-		  GROUP BY p.project_id, pu.user_id;
+		  GROUP BY p.project_id, pu.user_id
+		  ORDER BY p.updated_at DESC NULLS LAST, p.project_id DESC;
             `;
 
             return projects;

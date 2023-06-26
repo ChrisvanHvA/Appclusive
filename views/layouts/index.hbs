@@ -21,7 +21,7 @@
 		{{#unless noNav}}{{> navigation}}{{/unless}}
 
 		{{#each dialog_messages}}
-			{{>dialog this}}
+			{{>dialog this projectUsers=../project.all_users projectId=../this.project.project_id}}
 		{{/each}}
 
 		<div class="message message--system animate animate--slide {{#unless system_message}}hide{{/unless}}">

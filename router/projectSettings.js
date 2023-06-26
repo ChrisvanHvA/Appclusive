@@ -36,28 +36,35 @@ router.post('/', async (req, res) => {
 
     if (type === 'update') {
         if (Object.keys(formErrors).length > 0) {
-            return res.render('/', {
+            return res.render(`/settings/${projectId}`, {
                 ...res.locals,
                 formErrors
             });
         }
 
-        const { result, existingWCAGItems, level } = await ProjectModel.update(
+		// update project item
+        const updatedProject = await ProjectModel.update(
             projectId,
             submitData
         );
 
-        if (!result) {
+        if (!updatedProject) {
             console.log('failed to update');
         }
 
-        await ProjectController.updateProject(
-            existingWCAGItems,
-            level,
+        const { completedInsert } = await ProjectController.insertWcagItemsForProject(
+            submitData.wcag_level,
             projectId
         );
 
-        return res.redirect(`/project/${projectId}/settings`);
+		if (completedInsert) {
+			console.log('project and its checklists were successfully updated');
+			return res.redirect(`/project/${projectId}/settings`);
+		} else {
+			console.log('failed to update project and its checklists');
+			return res.redirect(`/project/${projectId}/settings?error=1`);
+		}
+
         
     } else if (type === 'delete') {
         const deletedData = await ProjectModel.deleteProject(projectId);
@@ -71,14 +78,14 @@ router.post('/', async (req, res) => {
 });
 
 const validateForm = (formData) => {
-    const { title, level } = formData;
+    const { title, wcag_level } = formData;
     const errors = {};
 
     if (!title) {
         errors.title = 'Title is required';
     }
 
-    if (!level) {
+    if (!wcag_level) {
         errors.level = 'An accessibility level is required';
     }
 
