@@ -1,41 +1,41 @@
 class messageController {
 
-    constructor() {
-        this.messageClass = 'message--';
+    constructor(localSystemMessage = null) {
+        this.localSystemMessage = localSystemMessage;
 
+        this.messageClass = 'message--';
         this.messageObjects = {
             '1': {
-                'message': "Successfully updated",
-                'message_class': `${this.messageClass}success`
-            },
-            '2': {
                 'message': "Successfully saved",
                 'message_class': `${this.messageClass}success`
             },
-            '3': {
-                'message': "Successfully created",
-                'message_class': `${this.messageClass}success`
-            },
-            '4': {
-                'message': "Failed to save",
-                'message_class': `${this.messageClass}error`
-            },
-            '5': {
-                'message': "Failed to update",
-                'message_class': `${this.messageClass}error`
-            },
-            '6': {
-                'message': "Failed to load",
-                'message_class': `${this.messageClass}error`
-            },
-            '7': {
+            '2': {
                 'message': "Something went wrong",
                 'message_class': `${this.messageClass}error`
-            },
+            }
         };
     }
 
+    // creating custom message
+    setMessage(message, message_class) {
+
+        const customMessageObject = {
+            'message': 'Custom message',
+            'message_class': ''
+        };
+
+        customMessageObject.message = message;
+        customMessageObject.message_class = message_class;
+
+        return customMessageObject;
+    }
+
     getMessage(key) {
+
+        if (this.localSystemMessage) {
+            return this.localSystemMessage;
+        }
+
         return this.messageObjects[key];
     }
 }
