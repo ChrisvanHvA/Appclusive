@@ -1,0 +1,50 @@
+<main class="layout layout__dashboard">
+	{{>pageTitleHeader title=title}}
+
+	<section id="searchbar">
+		<form action="/search" method="POST" autocomplete="off" id="searchForm">
+			<i class="icon fa-solid fa-magnifying-glass"></i>
+			<label for="search" class="label-hidden">Search for projects</label>
+			<input type="text" placeholder="Search for projects..." value="{{search}}" name="search_projects" id="search" />
+		</form>
+	</section>
+
+	{{#if projects}}
+
+		<section class="dashboard-section">
+			<h3>Search result</h3>
+			{{#if search}}
+				{{#if searchedProjects}}
+					<ul class="cards project-cards">
+						{{#each searchedProjects}}
+							<li class="card__item">
+								{{> projectCard this}}
+							</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<p>No projects found</p>
+				{{/if}}
+			{{else}}
+				<p>Try searching for a project!</p>
+			{{/if}}	
+		</section>
+
+		<section class="dashboard-section">
+			<h3>All projects</h3>
+
+			<ul class="cards project-cards">
+				{{#each projects}}
+                    <li class="card__item allprojects-card">
+                        {{> projectCard this}}
+                    </li>
+				{{/each}}
+
+			</ul>
+		</section>
+
+	{{else}}
+		<p>It looks like you don't have any projects yet. Try creating one on your dashboard!</p>
+	{{/if}}
+
+</main>
