@@ -11,14 +11,14 @@ class projectModel {
      */
     async insert(insertData) {
         try {
-            const { title, description, level } = insertData;
+            const { title, description, wcag_level } = insertData;
 
             const [insertedRow] = await sql`
 				INSERT INTO projects (title, description, wcag_level)
 				VALUES (
 					${title ?? null},
 					${description ?? null},
-					${level ?? null}
+					${wcag_level ?? null}
 				)
 	
 				RETURNING project_id;
@@ -48,7 +48,6 @@ class projectModel {
                 }
             }
 
-            const { wcag_level: oldWcagLevel } = oldProject;
             const { title, description, wcag_level: newWcagLevel } = updateData;
 
             await sql`
@@ -169,24 +168,6 @@ class projectModel {
 		  GROUP BY p.project_id, pu.user_id
 		  ORDER BY p.updated_at DESC NULLS LAST, p.project_id DESC;
             `;
-
-            return projects;
-        } catch (error) {
-            console.log(error);
-            return [];
-        }
-    }
-
-    async getRecentProjectNames(userId, limit = 3) {
-        try {
-            const projects = await sql`
-				SELECT p.title, p.project_id
-				FROM project_users AS pu
-				LEFT JOIN projects AS p ON p.project_id = pu.project_id
-				WHERE pu.user_id = ${userId}
-				ORDER BY p.project_id DESC
-				LIMIT ${limit}
-			`;
 
             return projects;
         } catch (error) {

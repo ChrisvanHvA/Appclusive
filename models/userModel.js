@@ -87,6 +87,7 @@ class UserModel {
      * @param user_id
      * @returns user object
      */
+	// todo: check if this is needed
     async getCurrentLoggedUser() {
         try {
             if (this.user_id == 0) return {};
@@ -158,6 +159,7 @@ class UserModel {
      *
      * @returns list of users
      */
+	// todo: check if this is needed
     async listUsers() {
         try {
             const users = await sql`

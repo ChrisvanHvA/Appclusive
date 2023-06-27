@@ -3,48 +3,6 @@ import sql from '../config/db.js';
 class projectChecklistModel {
     constructor() {}
 
-    /**
-     * Async function to insert checklists into db
-     *
-     * @params insertData: todo
-     * @returns inserted row id
-     */
-    async insert(insertData) {
-        try {
-            const { project_id, wcag_item_id, is_completed, assignees } =
-                insertData;
-
-            const [insertedRow] = await sql`
-                INSERT INTO project_checklists (project_id, wcag_item_id, is_completed, assignees)
-                VALUES (
-					${parseInt(project_id) ?? null},
-					${parseInt(wcag_item_id) ?? null},
-					${is_completed ?? false},	
-					${assignees ?? []}		
-                )
-
-                RETURNING project_checklists_id;
-            `;
-
-            return insertedRow.project_checklists_id ?? 0;
-        } catch (error) {
-            console.log(error);
-            return 0;
-        }
-    }
-
-    async delete(projectId, wcagItemId) {
-        try {
-            await sql`
-				DELETE FROM project_checklists
-				WHERE project_id = ${projectId} AND wcag_item_id = ${wcagItemId}
-			`;
-            return true;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     async updateAssignees(assignees, projectId, wcagItemId) {
         try {
             await sql`
@@ -121,38 +79,6 @@ class projectChecklistModel {
         }
     }
 
-    async getProjectCategoryData(project_id) {
-        if (project_id == 0) {
-            return null;
-        }
-        try {
-            const data = await sql`
-			SELECT wc.*,
-			(
-				SELECT COUNT(wi.*) 
-				FROM project_checklists AS pc
-				LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
-				LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
-				WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
-			) AS all_checklists,
-			(
-				SELECT COUNT(wi.*) 
-				FROM project_checklists AS pc
-				LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
-				LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
-				WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
-			) AS completed_checklists
-			FROM wcag AS wc
-			ORDER BY wc.wcag_id;
-			`;
-
-            return data;
-        } catch (error) {
-            console.log(error);
-            return null;
-        }
-    }
-
     async listChecklistItems(parentId, projectId) {
         if (projectId == 0) {
             return null;
@@ -189,22 +115,54 @@ class projectChecklistModel {
         }
     }
 
-	async getChecklistItem(projectId, wcagItemId) {
-		if (projectId == 0) {
-            return null;
-        }
-
+	/**
+     * Async function to add new project checklists based on the WCAG level of the project
+     * @params projectId
+     * @returns void
+     */
+    async addNewProjectChecklists(projectId) {
         try {
-            const [data] = await sql`
-			SELECT * FROM project_checklists
-			WHERE project_id = ${projectId} AND wcag_item_id = ${wcagItemId};
+            await sql`
+				INSERT INTO project_checklists (project_id, wcag_item_id, is_completed, assignees)
+				SELECT projects.project_id, wcag_item.wcag_item_id, false, array[]::integer[]
+				FROM projects
+				JOIN wcag_item ON LENGTH(projects.wcag_level) >= LENGTH(wcag_item.wcag_level)
+				WHERE projects.project_id = ${projectId}
+				AND NOT EXISTS (
+				SELECT 1
+				FROM project_checklists
+				WHERE project_checklists.project_id = projects.project_id
+				AND project_checklists.wcag_item_id = wcag_item.wcag_item_id
+				)
 			`;
-
-            return data;
         } catch (error) {
             console.log(error);
-            return null;
         }
+    }
+
+	/**
+	 * Async function to delete all project checklists above the project level
+	 * @params projectId
+	 * @returns void
+	 */
+	async deleteProjectChecklists(projectId) {
+		try {
+			await sql`
+				DELETE FROM project_checklists
+				WHERE project_id = ${projectId}
+				AND wcag_item_id IN (
+					SELECT wcag_item_id
+					FROM wcag_item
+					WHERE LENGTH(wcag_item.wcag_level) > (
+						SELECT LENGTH(projects.wcag_level)
+						FROM projects
+						WHERE projects.project_id = ${projectId}
+					)
+				)
+			`;
+		} catch (error) {
+			console.log(error);
+		}
 	}
 }
 

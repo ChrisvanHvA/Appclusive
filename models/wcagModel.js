@@ -99,6 +99,7 @@ class wcagModel {
      *
      * @returns list of WCAG categories
      */
+	// todo: check if needed
     async listWCAGItemsByLevel(wcag_level) {
         try {
             if (!wcag_level || wcag_level == '') return [];
@@ -122,6 +123,7 @@ class wcagModel {
      *
      * @returns get specific WCAG item {}
      */
+	// todo: check if needed
     async getWCAGItemById(wcag_item_id) {
         try {
             if (wcag_item_id == 0) return {};
