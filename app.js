@@ -24,9 +24,6 @@ const port = process.env.PORT || 5500;
 const app = express();
 const server = http.createServer(app);
 
-import { Server } from 'socket.io';
-const io = new Server(server);
-
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 app.use('/', express.static(__dirname + '/'));
@@ -48,10 +45,6 @@ configurePassport(passport);
 app.use(getLoggedUser);
 app.use(hasAccessToProject);
 app.use(setHeadData);
-
-io.on('connection', (socket) => {
-    // Do stuff§
-});
 
 // routes
 routes.forEach((route) => {
