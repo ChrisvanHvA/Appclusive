@@ -16,7 +16,8 @@ import { setHeadData } from './middleware/setHeadData.js';
 import { getLoggedUser } from './middleware/getLoggedUser.js';
 import { checkAuth } from './middleware/checkAuth.js';
 import { hasAccessToProject } from './middleware/hasAccessToProject.js';
-import { setSidebarProjects } from './middleware/setSidebarProjects.js';
+import { getSystemMessage } from './middleware/systemMessage.js';
+// import { setSidebarProjects } from './middleware/setSidebarProjects.js';
 
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
@@ -48,6 +49,7 @@ configurePassport(passport);
 app.use(getLoggedUser);
 app.use(hasAccessToProject);
 app.use(setHeadData);
+app.use(getSystemMessage);
 
 io.on('connection', (socket) => {
     // Do stuff§

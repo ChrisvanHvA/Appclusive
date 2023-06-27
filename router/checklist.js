@@ -39,7 +39,6 @@ router.get('/', async (req, res) => {
         tasks: projectInfo.checklist_data,
         category: wcagCategory,
         project: projectInfo,
-        system_message: errorParam ? 'Failed to update' : null,
         dialog_messages: dialogMessages
     });
 });
