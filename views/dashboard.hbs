@@ -2,10 +2,9 @@
 	{{>pageTitleHeader title=(concat "Hi, {{user.first_name}}!")}}
 
 	<section id="searchbar">
-		<form autocomplete="off">
+		<form action="/search" method="POST" autocomplete="off">
 			<i class="icon fa-solid fa-magnifying-glass"></i>
-			<label for="search" class="label-hidden">Search for projects
-			</label>
+			<label for="search" class="label-hidden">Search for projects</label>
 			<input type="text" placeholder="Search for projects..." name="search_projects" id="search" />
 		</form>
 	</section>

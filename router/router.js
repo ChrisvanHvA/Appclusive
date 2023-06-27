@@ -1,5 +1,6 @@
 import dashboard from './dashboard.js';
 import error404 from './404.js';
+import search from './search.js';
 import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
 import landing from './landing.js';
@@ -36,6 +37,7 @@ const routes = [
     { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
     { path: '/upload', handler: upload, auth: false },
 	
+    { path: '/search', handler: search, auth: false },
     { path: '/landing', handler: landing, auth: false },
 
     { path: '/', handler: dashboard, auth: false },
@@ -57,6 +59,7 @@ const routes = [
     // { path: '/project/:projectId/settings', handler: projectSettings, auth: true },
     // { path: '/upload', handler: upload, auth: true },
 	
+    // { path: '/search', handler: search, auth: true },
     // { path: '/landing', handler: landing, auth: false },
 
     // { path: '/', handler: dashboard, auth: true },
