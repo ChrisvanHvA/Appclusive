@@ -33,6 +33,18 @@ class projectChecklistModel {
         }
     }
 
+    async delete(projectId, wcagItemId) {
+        try {
+            await sql`
+				DELETE FROM project_checklists
+				WHERE project_id = ${projectId} AND wcag_item_id = ${wcagItemId}
+			`;
+            return true;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async updateAssignees(assignees, projectId, wcagItemId) {
         try {
             await sql`
@@ -176,6 +188,24 @@ class projectChecklistModel {
             return null;
         }
     }
+
+	async getChecklistItem(projectId, wcagItemId) {
+		if (projectId == 0) {
+            return null;
+        }
+
+        try {
+            const [data] = await sql`
+			SELECT * FROM project_checklists
+			WHERE project_id = ${projectId} AND wcag_item_id = ${wcagItemId};
+			`;
+
+            return data;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+	}
 }
 
 export default projectChecklistModel;

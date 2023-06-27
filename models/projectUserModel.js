@@ -71,13 +71,13 @@ class projectUserModel {
 		if (!projectId || !userId) return false;
 		
         try {
-			const [{ is_admin: isAdmin }] = await sql`
+			const [{ is_admin }] = await sql`
 				SELECT is_admin
 					FROM project_users
 					WHERE project_id = ${projectId}
 					AND user_id = ${userId}
 			`;
-			return isAdmin;
+			return is_admin ?? false;
         } catch (error) {
             console.log(error);
 			return false;
