@@ -1,46 +1,40 @@
-{{#if (eq this 'create')}}
-	<a class="create-project-card" href="/new-project">+ New project</a>
-{{else if (eq this 'join')}}
-	<a class="create-project-card" href="/join-project">+ Join project</a>
-{{else}}
-    <a href="/project/{{this.project_id}}/categories" draggable="false">
-        <header>
-            <div class="header__title">
-                <h3>{{this.title}} <span>({{this.wcag_level}})</span></h3>
-                <div class="status {{slugify this.status}}">
+<a href="/project/{{this.project_id}}/categories" draggable="false">
+	<header>
+		<div class="header__title">
+			<h3>{{this.title}} <span>({{this.wcag_level}})</span></h3>
+			<div class="status {{slugify this.status}}">
 
-                    {{#if (eq (toLowerCase this.status) "new")}}
-						<i class="fa-solid fa-bolt"></i>
-                    {{else if (eq (toLowerCase this.status) "in progress")}}
-						<i class="fa-regular fa-hourglass-half"></i>
-                    {{else}}
-						<i class="fa-regular fa-circle-check"></i>
-                    {{/if}}
-					<p>{{this.status}}</p>
-                </div>
-            </div>
+				{{#if (eq (toLowerCase this.status) "new")}}
+					<i class="fa-solid fa-bolt"></i>
+				{{else if (eq (toLowerCase this.status) "in progress")}}
+					<i class="fa-regular fa-hourglass-half"></i>
+				{{else}}
+					<i class="fa-regular fa-circle-check"></i>
+				{{/if}}
+				<p>{{this.status}}</p>
+			</div>
+		</div>
 
-            <div class="header__extra-info">
-                <h4><span class="code" data-text-to-copy data-tooltip="" tabindex="0">{{this.project_invite_code}}</span></h4>
-                <div class="header__members">
-                    <p>{{this.all_users.length}}</p>
-                    <i class="icon fa-regular fa-user fa-lg"></i>
-                </div>
-            </div>
-        </header>
+		<div class="header__extra-info">
+			<h4><span class="code" data-text-to-copy data-tooltip="" tabindex="0">{{this.project_invite_code}}</span></h4>
+			<div class="header__members">
+				<p>{{this.all_users.length}}</p>
+				<i class="icon fa-regular fa-user fa-lg"></i>
+			</div>
+		</div>
+	</header>
 
-        <section class="projectCard__progress">
-            <progress class="progress"
-                value="{{calcProgress this.completed_checklists this.all_checklists}}"
-                min="0"
-                max="100"
-            ></progress>
+	<section class="projectCard__progress">
+		<progress class="progress"
+			value="{{calcProgress this.completed_checklists this.all_checklists}}"
+			min="0"
+			max="100"
+		></progress>
 
-            <div>
-                <p>{{calcProgress this.completed_checklists this.all_checklists}}% completed</p>
-                <p>{{this.completed_checklists}} / {{this.all_checklists}}</p>
-                <i class="icon fa-solid fa-chevron-right"></i>
-            </div>
-        </section>
-    </a>
-{{/if}}
+		<div>
+			<p>{{calcProgress this.completed_checklists this.all_checklists}}% completed</p>
+			<p>{{this.completed_checklists}} / {{this.all_checklists}}</p>
+			<i class="icon fa-solid fa-chevron-right"></i>
+		</div>
+	</section>
+</a>
