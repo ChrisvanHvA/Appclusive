@@ -2,21 +2,25 @@
 
     {{>pageTitleHeader title="Validator" subtitle="Validate your HTML so it's ready for the web"}}
 
-    <form class="validator__form" action="" method="">
+    <form class="validator__form" action="validator/result" method="POST">
         <textarea class="textinput validator__text" id="html" name="html" placeholder="Paste your HTML here"></textarea>
         <button class="btn" type="submit">Submit</button>
     </form>
-    
+
+
+{{#if validatorMessages}}
     <ul class="validator__results">
-        <li>
-            <p class="validator__results__status"><i class="fa-solid fa-triangle-exclamation"></i>Warning</p>
-            <p>Consider adding a lang attribute to the html start tag to declare the language of this document.</p>
-            <p>From line 1, column 1; to line 1, column 39</p>
-            <pre>
+        {{#each validatorMessages.messages}}
+            <li>
+                <p class="validator__results__status"><i class="fa-solid fa-triangle-exclamation"></i>{{this.type}}</p>
+                <p>{{this.message}}</p>
+                <p>From line 1, column 1; to line 1, column 39</p>
+                <pre>
 extract here
-{{!-- this is difficult to do, something with reserved tags and having to convert them to entities --}}
-            </pre>
-        </li>
+                </pre>
+            </li>
+        {{/each}}
     </ul>
+{{/if}}
 
 </main>
