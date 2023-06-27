@@ -18,6 +18,7 @@
 		<span>
 			<i class="fa-solid fa-check"></i>
 		</span>
+
 		<div class="checklist__content">
 			<h4>{{title}} <span>({{wcag_level}})</span></h4>
 			<p>{{{description}}}</p>
@@ -30,6 +31,7 @@
 							<i class="icon fa-solid fa-minus"></i>
 							Tips & Tricks</p>
 					</summary>
+
 					<p>{{{tip_description}}}</p>
 					<a class="checklist__source" target="_blank" href={{ref_link}}>Official WCAG website</a>
 				</details>
@@ -51,7 +53,6 @@
 							{{>user this}}
 						{{/each}}
 					{{/if}}
-
 				</div>
 				
 				{{#if isAdmin}}
@@ -60,8 +61,7 @@
 					</button>
 				{{/if}}
 			</div>
-
 		</div>
-	<button tabindex="-1" type="submit" data-checklist-button></button>
+		<button tabindex="-1" type="submit" data-checklist-button></button>
 	</label>
 </form>

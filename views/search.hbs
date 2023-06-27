@@ -13,7 +13,9 @@
 
 		<section class="dashboard-section">
 			<h3>Search result</h3>
+
 			{{#if search}}
+
 				{{#if searchedProjects}}
 					<ul class="cards project-cards">
 						{{#each searchedProjects}}
@@ -25,6 +27,7 @@
 				{{else}}
 					<p>No projects found</p>
 				{{/if}}
+
 			{{else}}
 				<p>Try searching for a project!</p>
 			{{/if}}	
@@ -39,7 +42,6 @@
                         {{> projectCard this}}
                     </li>
 				{{/each}}
-
 			</ul>
 		</section>
 

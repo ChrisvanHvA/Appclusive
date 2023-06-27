@@ -32,29 +32,20 @@
 					{{/each}}
             	</ul>
 			</form>
-
-                
-
-            
         {{/if}}
 
         <div class="dialog__controls">
             {{#if (eq button_type "form")}}
-
                 <form method="dialog">
                     <button class="btn">{{button}}</button>
                 </form>
-
             {{else if (eq button_type "link")}}
-
                 <form method="dialog">
                     <button class="btn--cancel">Cancel</button>
                 </form>
 
                 <a href="{{button_href}}" class="btn">{{button}}</a>
-
             {{else if (eq button_type "assign")}}
-
                 <form method="dialog">
                     <button class="btn--cancel">Cancel</button>
                 </form>
@@ -63,17 +54,12 @@
                 	<button class="btn" form="assign_users" type="submit">{{button}}</button>
 				</form>
             {{else}}
-
                 <form method="dialog">
                     <button class="btn--cancel">Cancel</button>
                 </form>
 
                 <a href="{{button_href}}" class="btn">{{button}}</a>
-
             {{/if}}
         </div>
-
-
     </section>
-
 </dialog>
