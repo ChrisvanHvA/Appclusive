@@ -49,6 +49,10 @@
         max-height: 16rem;
     }
 
+    .dialog section > form {
+        width: 100%;
+    }
+
     .dialog .dialog__controls {
         display: flex;
         justify-content: space-between;
@@ -66,7 +70,7 @@
         flex-direction: column;
         max-height: 20rem;
         gap: 1rem;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
         .dialog__user-list input {

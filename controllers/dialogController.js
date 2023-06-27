@@ -43,6 +43,16 @@ class dialogController {
                 'button_type': 'assign',
                 'button': 'Assign users',
                 'button_href': null,
+            },
+            'project_finished': {
+                'title': 'Project completed!',
+                'slug': 'project_finished',
+                'image_url':'/images/illustration-celebrate.svg',
+                'image_alt': 'Illustration of a person celebrating',
+                'message': '<p>You completed all categories!</p>',
+                'button_type': 'link',
+                'button': 'Return to dashboard',
+                'button_href': '/',
             }
         }
     }
