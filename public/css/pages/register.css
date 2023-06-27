@@ -1,0 +1,303 @@
+.layout__register {
+    --mobile-form-width: min(22.5rem, 95%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 8rem;
+}
+
+
+.layout__register form {
+    display: flex;
+    flex-direction: column;
+    width: 22.5rem;
+    max-width: 95%;
+    margin: 0 auto;
+}
+
+.layout__register form h2 {
+    font-size: 2.5rem;
+}
+
+.form__section {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__section+.form__section {
+    margin-top: 1.25rem;
+}
+
+.form__section label {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.form__section label+input {
+    margin-top: 0.25rem;
+}
+
+.layout__register .form__section {
+    margin-top: 0rem;
+}
+
+.form__section input {
+    font-size: 1rem;
+    padding: 0.75rem;
+    padding-left: 1.25rem;
+    border-radius: var(--card-border-radius);
+    border: 0.125rem solid var(--dark);
+}
+
+.form__section input::placeholder {
+    font-size: 0.875rem;
+}
+
+.login__forgot {
+    margin-top: 0.5rem;
+    margin-left: auto;
+    text-decoration: none;
+    text-align: right;
+    font-weight: 700;
+    font-size: 0.875rem;
+
+}
+
+.login__forgot:hover,
+.login__forgot:focus-visible {
+    text-decoration: underline;
+}
+
+.login__submit {
+    text-decoration: none;
+    margin-top: 2.25rem;
+    padding: 0.75rem;
+    border-radius: 6.25rem;
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    border: 0.125rem solid var(--primary-color);
+    color: var(--light);
+}
+
+.login__description {
+    margin-top: 0.5rem;
+}
+
+.login__signuptext {
+    display: none;
+}
+
+.login__or {
+    margin-top: 1.688rem;
+    margin-bottom: 1.688rem;
+    text-align: center;
+    position: relative;
+    color: var(--tertiary-text);
+}
+
+.login__or::before,
+.login__or::after {
+    content: '';
+    display: block;
+    width: 9.875rem;
+    max-width: calc(50% - 2ch);
+    height: 1px;
+    background-color: var(--tertiary-text);
+    position: absolute;
+    top: 50%;
+}
+
+.login__or::after {
+    right: 0;
+}
+
+.background-decoration {
+    top: 0;
+    left: 0;
+display: none;
+    position: absolute;
+
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+}
+
+.background-decoration svg {
+
+    position: absolute;
+    width: 10rem;
+    bottom: 2rem;
+    left: 2rem;
+}
+
+.background-decoration svg path {
+    fill: var(--primary-color);
+}
+
+.background-decoration span.bg-circle {
+    pointer-events: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    border: solid 3px var(--secondary-bg);
+
+
+}
+
+.background-decoration span.bg-circle:nth-child(1) {
+    top: -5rem;
+    left: -5rem;
+    width: 10rem;
+}
+
+.background-decoration span.bg-circle:nth-child(2) {
+    bottom: -8rem;
+    left: -5rem;
+    width: 20rem;
+}
+
+.background-decoration span.bg-circle:nth-child(3) {
+    right: -10rem;
+    width: 15rem;
+    top: 10rem;
+
+}
+.surname .form__section {
+    margin-top: 1.25rem;
+}
+
+
+hr.registerHr {
+    width: 100%;
+    margin: 3rem 0rem 3rem 0rem;
+}
+.passwords {
+    margin-bottom: 2rem;
+}
+.passwords .form__section {
+
+    margin-top: 1.25rem;
+}
+
+.subtext {
+    font-size: 2rem;
+    margin: 0;
+    padding-bottom: 2rem;
+    line-height: normal;
+
+}
+
+.subtext:first-of-type {
+    margin-top: 3rem;
+
+}
+
+@media screen and (min-width: 951px) {
+    .layout__register {
+
+        padding-top: 0rem;
+    }
+
+    .layout__register form {
+        display: flex;
+        flex-direction: column;
+        width: 32.5rem;
+        max-width: 95%;
+        margin: 0 auto;
+    }
+
+
+
+
+    .login__or {
+        display: none;
+    }
+
+    .login__signuptext {
+        display: block;
+        width: fit-content;
+        margin-top: 0.25rem;
+        font-weight: 700;
+        font-size: 0.875rem;
+    }
+
+    .login__signuptext a {
+        color: var(--primary-color);
+    }
+
+    .layout__register .btn[href="/register"],
+    .layout__register .btn[href="/login"] {
+        display: none;
+    }
+
+    a.login__signuptext:hover,
+    a.login__signuptext:focus-visible {
+        text-decoration: solid underline var(--primary-color);
+    }
+
+    .login__register {
+        position: relative;
+    }
+
+    .surname {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1rem 0rem 1rem 0rem;
+
+    }
+
+    .surname #insertion {
+        width: 11rem;
+        margin-top: 0.25rem;
+        padding-right: 1rem;
+        margin-bottom: .25rem;
+
+    }
+
+    .surname #surname {
+        width: 20rem;
+        margin-top: .25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .passwords {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+
+    .passwords .form__section {
+        margin-top: 1.25rem;
+        width: 15.5rem;
+    }
+.background-decoration {
+    display: flex;
+}
+    .background-decoration span.bg-circle:nth-child(1) {
+        top: -12rem;
+        left: 8rem;
+        width: 25rem;
+    }
+
+    .background-decoration span.bg-circle:nth-child(2) {
+        bottom: -12rem;
+        left: -10rem;
+        width: 30rem;
+    }
+
+    .background-decoration span.bg-circle:nth-child(3) {
+        right: -18rem;
+        width: 30rem;
+        top: 15rem;
+
+    }
+
+}
