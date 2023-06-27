@@ -122,10 +122,6 @@
     border-color: var(--primary-color);
 }
 
-.checklist__item input:checked + label .checklist__content .checklist__users, 
-.checklist__item input:checked + label .checklist__content > details {
-    display: none;
-}
 
 /* ---------------------------------- */
 /*    button voor submit zonder js    */
@@ -272,16 +268,3 @@
     gap: .625rem;
     align-items: center;
 }
-
-    .checklist__users figure {
-        width: 1.875rem;
-        height: 1.875rem;
-        border-radius: 50%;
-        border: 1.5px solid var(--primary-color);
-    }
-
-        .checklist__users figure img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }

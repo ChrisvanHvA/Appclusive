@@ -33,6 +33,7 @@ router.get('/', async (req, res) => {
 
     const dialogMessages = [
         DialogController.getMessage('level'),
+        DialogController.getMessage('project_finished'),
     ];
 
     res.render('checklistCategories', {

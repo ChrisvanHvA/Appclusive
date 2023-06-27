@@ -51,8 +51,7 @@
     "nodemailer": "^6.9.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "postgres": "^3.3.5",
-    "socket.io": "^4.6.1"
+    "postgres": "^3.3.5"
   },
   "devDependencies": {
     "del": "^7.0.0",

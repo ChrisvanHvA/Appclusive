@@ -11,3 +11,16 @@ flipCardCheckboxes.forEach((checkbox) => {
 		}
 	});
 });
+
+const progressBar = document.querySelector('.checklist__sidebar .progress');
+
+const dialog = document.querySelector('.dialog-project_finished');
+
+if( progressBar.value === progressBar.max ) {
+
+	dialog ? setTimeout(() => {
+		dialog.showModal();
+	}, 1000): null;
+
+}
+

@@ -130,11 +130,9 @@ const updateProgress = () => {
     if (checkedCheckboxes.length === checkboxes.length) {
         const dialog = document.querySelector('.dialog-category_finished');
 
-        dialog
-            ? setTimeout(() => {
-                  dialog.showModal();
-              }, 1000)
-            : null;
+        dialog ? setTimeout(() => {
+            dialog.showModal();
+        }, 1000): null;
     }
 };
 

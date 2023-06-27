@@ -33,33 +33,30 @@
 					<p>{{{tip_description}}}</p>
 					<a class="checklist__source" target="_blank" href={{ref_link}}>Official WCAG website</a>
 				</details>
+
+				<div class="checklist__users">
+					<button class="btn--user hide" type="button">
+						<i class="icon fa-solid fa-user-plus"></i>
+					</button>
+
+					{{#if (gt assignees.length 2)}}
+						{{#each assignees}}
+							{{#if (lt @index 2)}}
+								{{>user this}}
+							{{/if}}
+						{{/each}}
+						<span class="user__profile user__counter">+{{subtract assignees.length 2}}</span>
+					{{else}}
+						{{#each assignees}}
+							{{>user this}}
+						{{/each}}
+					{{/if}}
+
+				</div>
 				
-				<button class="btn--user hide" type="button">
-					<i class="icon fa-solid fa-user-plus"></i>
-				</button>
 			</div>
 
 
-			<div class="checklist__users">
-
-				{{#if (gt assignees.length 2)}}
-					{{#each assignees}}
-						{{#if (lt @index 2)}}
-							<figure>
-								<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}" />
-							</figure>
-						{{/if}}
-					{{/each}}
-					<span>+{{subtract assignees.length 3}}</span>
-				{{else}}
-					{{#each assignees}}
-						<figure>
-							<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}"/>
-						</figure>
-					{{/each}}
-				{{/if}}
-
-			</div>
 		</div>
 	<button tabindex="-1" type="submit" data-checklist-button></button>
 	</label>
