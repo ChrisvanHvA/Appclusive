@@ -26,16 +26,17 @@ a {
 }
 
 
-span.code {
+button.code {
     position: relative;
     padding: 0.1rem 0.25rem;
     color: var(--primary-color);
     border-radius: 3px;
     transition: 250ms color ease-in-out, 250ms background-color ease-in-out;
     cursor: pointer;
+	font-weight: 700;
 }
 
-span.code::before {
+button.code::before {
     content: attr(data-tooltip);
     position: absolute;
     top: -1.25rem;
@@ -52,8 +53,8 @@ span.code::before {
     border-radius: 3px;
 }
 
-span.code:hover,
-span.code:focus-visible {
+button.code:hover,
+button.code:focus-visible {
     color: var(--light);
     background-color: var(--primary-color);
 }

@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="header__extra-info">
-			<h4><span class="code" data-text-to-copy data-tooltip="" tabindex="0">{{this.project_invite_code}}</span></h4>
+			<h4><button class="code" data-tooltip="" tabindex="0">{{this.project_invite_code}}</button></h4>
 			<div class="header__members">
 				<p>{{this.all_users.length}}</p>
 				<i class="icon fa-regular fa-user fa-lg"></i>
@@ -26,9 +26,9 @@
 
 	<section class="projectCard__progress">
 		<progress class="progress"
-			value="{{calcProgress this.completed_checklists this.all_checklists}}"
 			min="0"
 			max="100"
+			value="{{calcProgress this.completed_checklists this.all_checklists}}"
 		></progress>
 
 		<div>
