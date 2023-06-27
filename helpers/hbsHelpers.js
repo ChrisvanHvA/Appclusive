@@ -58,7 +58,7 @@ export default {
 		total = Number(total);
 		return Math.round((completed / total) * 100);
 	},
-    sortTasksByLevel: function (tasks, level) {
+    filterTasksByLevel: function (tasks, level) {
         return tasks.filter(task => task.wcag_level === level);
     },
 
