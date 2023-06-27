@@ -7,6 +7,7 @@ const descriptionInput = document.querySelector(
 const descriptionCharCount = document.querySelector(
     '.description-char-counter'
 );
+const loadingState = document.querySelector('.loading')
 
 const titleError = document.querySelector('label[for="title"] span.formerror');
 const levelError = document.querySelector('label[for="level"] span.formerror');
@@ -42,6 +43,15 @@ const validateForm = (e) => {
 			levelError.textContent = 'An accessibility level is required';
 		}
 	}
+
+	// while loading, show loading state
+
+
+	if(titleInput?.value && levelInput?.value) {
+		console.log("removing hide")
+		loadingState?.classList.remove('hide');
+	}
+
 };
 
 form?.addEventListener('submit', validateForm);

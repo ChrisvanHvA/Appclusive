@@ -37,14 +37,72 @@
 		height: 100%;
 	}
 
+.card.project-cards--header {
+	margin-bottom: 1.5rem;
+}
+
+/* dit is echt de meest messy code ooit inshallah */
+.layout__dashboard > a.create-project-card {
+	display: flex;
+}
+
+.layout__dashboard .create-card-container {
+	display: none;
+}
+
+
+.cards-category__recent {
+	display: flex !important;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	max-width: calc(100vw - 1.5rem - 1.5rem);
+}
+
+.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent {
+	flex-wrap: wrap;
+	max-width: none;
+}
+
+	.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent .card__item {
+		flex: 0 100%;
+	}
+
+.layout__dashboard .dashboard__empty {
+	width: 100%;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.layout__dashboard .dashboard__empty > h3 {
+	color: var(--primary-color);
+}
+
+@media screen and (min-width: 560px) {
+	.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent .card__item {
+		flex: 1 calc(50% - 0.375rem);
+		max-width: calc(50% - 0.375rem);
+	}
+}
+
 @media screen and (min-width: 951px) {
 	.layout__dashboard {
 		--card-gap: 1.5rem;
 		padding-top: 3.5rem;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.layout__dashboard .action-cards {
 		grid-template-columns: 1fr 1fr;
+	}
+
+	.layout__dashboard .dashboard__empty {
+		margin-top: 0rem;
 	}
 }
 
