@@ -175,7 +175,7 @@
 
 	.project-cards li.card__item a.create-project-card,
 	.create-project-card {
-		font-size: 1.5rem;
+		font-weight: 700;
 	}
 
 	.project-cards li.card__item a header img {
@@ -204,7 +204,7 @@
 	.projectCard__progress {
 		gap: 1rem;
 	}
-
+	
 	.project-cards li.card__item.allprojects-card a {
 		display: block;
 	}
