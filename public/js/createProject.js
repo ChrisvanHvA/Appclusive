@@ -45,7 +45,10 @@ const validateForm = (e) => {
 	}
 
 	// while loading, show loading state
-	if(!levelError && !titleError) {
+
+
+	if(titleInput?.value && levelInput?.value) {
+		console.log("removing hide")
 		loadingState?.classList.remove('hide');
 	}
 
