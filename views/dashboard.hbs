@@ -10,43 +10,21 @@
 		</form>
 	</section>
 
-	{{!-- mobile create project card --}}
-	{{> projectCard 'create'}}
-	{{> projectCard 'join'}}
+	<section class="action-cards">
+		<a class="create-project-card" href="/new-project">+ New project</a>
+		<a class="create-project-card" href="/join-project">+ Join project</a>
+	</section>
 
 	{{#if projects}}
-
-		<section class="recent-projects dashboard-section">
-			<input type="checkbox" id="overview" name="overview" />
-			<label for="overview">toggle list view</label>
-			<h3>Recently viewed</h3>
-
-			<ul class="cards project-cards cards-category__recent">
-				{{#each projects}}
-				<li class="card__item">
-					{{> projectCard this}}
-				</li>
-				{{/each}}
-			</ul>
-		</section>
-
 		<section class="dashboard-section">
 			<h3>All projects</h3>
 
 			<ul class="cards project-cards">
-				{{!-- desktop create project card --}}
-				<li class="card__item create-card-container">
-					{{> projectCard 'create'}}
-				</li>
-				<li>
-					{{> projectCard 'join'}}
-				</li>
 				{{#each projects}}
-				<li class="card__item allprojects-card">
-					{{> projectCard this}}
-				</li>
+					<li class="card__item allprojects-card">
+						{{> projectCard this}}
+					</li>
 				{{/each}}
-
 			</ul>
 		</section>
 
