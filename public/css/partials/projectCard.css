@@ -226,6 +226,7 @@
 				align-items: flex-end;
 			}
 
+				.project-cards li.card__item a header .header__members,
 				.project-cards li.card__item.allprojects-card a header .header__members {
 					display: flex;
 					flex-direction: row;

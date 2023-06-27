@@ -33,10 +33,6 @@ router.post('/', async (req, res) => {
         matchingItems = await allProjects.filter((project) =>
             project.title.toLowerCase().includes(searchLowercase)
         );
-
-        if (matchingItems.length > 0) {
-            console.log('Matching items:', matchingItems);
-        }
     }
     res.render('search', {
         ...res.locals,
