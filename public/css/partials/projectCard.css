@@ -44,6 +44,7 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		max-width: 13.25rem;
+		font-size: 1rem;
 	}
 
 		.project-cards li.card__item a header .header__title h3 > span {
@@ -160,9 +161,10 @@
 	justify-content: center;
 	align-items: center;
 	color: var(--primary-color);
-	font-weight: 700;
+	font-weight: 800;
 	font-size: 1.25rem;
-	min-height: 5rem;
+	padding: 1rem;
+	font-size: 1rem;
 	border-radius: var(--card-border-radius-dashboard);
 }
 
@@ -173,7 +175,7 @@
 
 	.project-cards li.card__item a.create-project-card,
 	.create-project-card {
-		font-size: 1.5rem;
+		font-weight: 700;
 	}
 
 	.project-cards li.card__item a header img {
@@ -202,7 +204,7 @@
 	.projectCard__progress {
 		gap: 1rem;
 	}
-
+	
 	.project-cards li.card__item.allprojects-card a {
 		display: block;
 	}
@@ -224,6 +226,7 @@
 				align-items: flex-end;
 			}
 
+				.project-cards li.card__item a header .header__members,
 				.project-cards li.card__item.allprojects-card a header .header__members {
 					display: flex;
 					flex-direction: row;

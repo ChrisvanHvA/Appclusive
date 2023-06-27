@@ -29,7 +29,13 @@ const data = {
     '/': {
         title: 'Dashboard',
         description: '',
-        scripts: ['copyOnClick']
+        scripts: ['copyOnClick', 'autocomplete']
+    },
+    '/search': {
+        title: 'Search',
+        description: '',
+        scripts: ['copyOnClick', 'autocomplete'],
+        backUrl: '/'
     },
     '/new-project': {
         title: 'New Project | Appclusive',
