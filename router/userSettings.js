@@ -5,23 +5,17 @@ import UserModel from '../models/userModel.js';
 
 import messageController from '../controllers/messageController.js';
 
-const router = express.Router();
-const userModel = new UserModel();
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
-});
-
-const upload = multer({ storage: storage });
-
 import {
     validationChecks,
     handleValidationErrors
 } from '../middleware/sanitizer.js';
+import saveFileToBucket from '../helpers/saveFileToBucket.js';
+
+const router = express.Router();
+const userModel = new UserModel();
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 const generateHash = async (password) => {
     const saltRounds = 10;
@@ -105,10 +99,17 @@ router.post(
             return res.redirect(`/settings?m=${messageKey}`);            
         }
 
-        const avatar = req.file.path;
+		// todo: dit wat netter maken, misschien aparte functie voor maken
+		const imgUrl = await saveFileToBucket(req.file, user.profile_pic?.split('/').pop());
+
+		if (!imgUrl) {
+			messageKey = MessageController.getMessageKeyByType('file_save', 'fail');
+			return res.redirect(`/settings?m=${messageKey}`);            
+		}
+
         const avatarUpdated = await userModel.updateProfilePic(
             user.user_id,
-            avatar
+            imgUrl
         );
 
         if (!avatarUpdated) {
