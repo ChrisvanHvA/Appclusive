@@ -37,18 +37,28 @@ const validationChecks = [
         .notEmpty()
         .withMessage('Confirm password must not be empty')
         .custom((value, { req }) => value === req.body.password)
-        .withMessage('Passwords do not match!!')
+        .withMessage('Passwords do not match'),
+    body('title')
+        .if(body('title').exists())
+        .trim()
+        .notEmpty()
+        .withMessage('Please fill in a project title'),
+    body('wcag_level')
+        .if(body('wcag_level').exists())
+        .notEmpty()
+        .withMessage('Please select a WCAG level for your project'),
+    body('code')
+        .if(body('code').exists().notEmpty())
+        .isLength({ min: 6, max: 6 })
+        .withMessage('Invite code must 6 characters long')
 ];
 
 // Define validation middleware function to handle errors
 const handleValidationErrors = (render, extraParams) => (req, res, next) => {
     const errors = validationResult(req);
 
-    console.log(errors);
-
     if (!errors.isEmpty()) {
         console.log('errors found');
-        console.log(errors);
 
         let errorFields = {};
 
@@ -59,6 +69,8 @@ const handleValidationErrors = (render, extraParams) => (req, res, next) => {
         if (extraParams) {
             errorFields = { ...errorFields, ...extraParams };
         }
+
+        console.log(errorFields);
 
         return res.render(render, errorFields);
     }

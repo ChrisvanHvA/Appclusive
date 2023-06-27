@@ -3,16 +3,18 @@
 	{{>icons/logo}}
 
 	<form action="/join-project" method="POST" autocomplete="off" autocapitalize="on">
-		<label for="code">Invite code <span class="required">*</span> <span class="formerror">{{#if formErrors.title}}Incorrect invite code{{/if}}</span>
-		</label>
-        <input 
-			name="code" 
-			type="text" 
-			maxlength="6" 
-			id="code" 
-			placeholder="e.g. ABC123"
-			required
-		/>
+		 <fieldset class="form__section {{#if code-error.length}} form__error {{/if}}">
+            <label for="title">Invite code <span class="required">*</span></label>
+            <input 
+				name="code" 
+				type="text" 
+				maxlength="6" 
+				id="code" 
+				placeholder="e.g. ABC123"
+				required
+			/>
+            <label class="message message--error {{#unless code-error.length}}hide{{/unless}}">{{code-error}}</label>
+        </fieldset>
 
 		<button type="submit" class="btn">Join</button>
 

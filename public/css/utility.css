@@ -435,3 +435,18 @@ hr {
     padding: .2rem;
     border-radius: 2rem;
 }
+
+/* ---------------------------------- */
+/*               #ERROR               */
+/* ---------------------------------- */
+
+.form__error input {
+    border: 2px solid var(--error) !important;
+}
+
+form .message--error {
+    background: none;
+    color: var(--error);
+    font-size: 14px !important;
+    padding: .2rem 0 0 0;
+}
