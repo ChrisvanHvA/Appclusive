@@ -280,6 +280,7 @@ hr.registerHr {
     }
 .background-decoration {
     display: flex;
+    overflow: clip;
 }
     .background-decoration span.bg-circle:nth-child(1) {
         top: -12rem;
