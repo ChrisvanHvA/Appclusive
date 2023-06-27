@@ -21,21 +21,21 @@
     font-size: 2.5rem;
 }
 
-.form__section {
+.layout__register .form__section {
     display: flex;
     flex-direction: column;
 }
 
-.form__section+.form__section {
+.layout__register .form__section+.form__section {
     margin-top: 1.25rem;
 }
 
-.form__section label {
+.layout__register .form__section label {
     font-size: 1rem;
     font-weight: 700;
 }
 
-.form__section label+input {
+.layout__register .form__section label+input {
     margin-top: 0.25rem;
 }
 
@@ -43,7 +43,7 @@
     margin-top: 0rem;
 }
 
-.form__section input {
+.layout__register .form__section input {
     font-size: 1rem;
     padding: 0.75rem;
     padding-left: 1.25rem;
@@ -51,7 +51,7 @@
     border: 0.125rem solid var(--dark);
 }
 
-.form__section input::placeholder {
+.layout__register .form__section input::placeholder {
     font-size: 0.875rem;
 }
 
@@ -115,9 +115,9 @@
 }
 
 .background-decoration {
+    display: none;
     top: 0;
     left: 0;
-display: none;
     position: absolute;
 
     flex-direction: column;
@@ -128,7 +128,6 @@ display: none;
 }
 
 .background-decoration svg {
-
     position: absolute;
     width: 10rem;
     bottom: 2rem;
@@ -144,8 +143,6 @@ display: none;
     border-radius: 50%;
     aspect-ratio: 1;
     border: solid 3px var(--secondary-bg);
-
-
 }
 
 .background-decoration span.bg-circle:nth-child(1) {
@@ -164,8 +161,8 @@ display: none;
     right: -10rem;
     width: 15rem;
     top: 10rem;
-
 }
+
 .surname .form__section {
     margin-top: 1.25rem;
 }
@@ -175,25 +172,24 @@ hr.registerHr {
     width: 100%;
     margin: 3rem 0rem 3rem 0rem;
 }
+
 .passwords {
     margin-bottom: 2rem;
 }
-.passwords .form__section {
 
-    margin-top: 1.25rem;
-}
+    .passwords .form__section {
+        margin-top: 1.25rem;
+    }
 
 .subtext {
     font-size: 2rem;
     margin: 0;
     padding-bottom: 2rem;
     line-height: normal;
-
 }
 
 .subtext:first-of-type {
     margin-top: 3rem;
-
 }
 
 @media screen and (min-width: 951px) {
@@ -209,9 +205,6 @@ hr.registerHr {
         max-width: 95%;
         margin: 0 auto;
     }
-
-
-
 
     .login__or {
         display: none;
@@ -249,7 +242,6 @@ hr.registerHr {
         flex-direction: row;
         justify-content: space-between;
         margin: 1rem 0rem 1rem 0rem;
-
     }
 
     .surname #insertion {
@@ -278,10 +270,12 @@ hr.registerHr {
         margin-top: 1.25rem;
         width: 15.5rem;
     }
+
 .background-decoration {
     display: flex;
     overflow: clip;
 }
+
     .background-decoration span.bg-circle:nth-child(1) {
         top: -12rem;
         left: 8rem;
@@ -298,7 +292,5 @@ hr.registerHr {
         right: -18rem;
         width: 30rem;
         top: 15rem;
-
     }
-
 }

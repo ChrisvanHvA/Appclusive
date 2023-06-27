@@ -38,7 +38,7 @@ a[href="/logout"] {
 
 .settings legend {
     margin-bottom: 0.25rem;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--tertiary-text);
