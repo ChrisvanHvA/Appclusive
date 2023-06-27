@@ -3,7 +3,7 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![handlebars badge](https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=white)
-![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
 ![appclusive logo](https://github.com/ChrisvanHvA/Appclusive/assets/90341211/97bc65a3-8953-41f4-aa65-2936546a81ce)
 
@@ -13,10 +13,13 @@ Appclusive is an online webtool for UX designers and organisations, designed to 
 
 ## Features
 
-|        Feature        | Progress |
-| :-------------------: | :------: |
-|        Feature        |    ✅    |
-| GraphQL data fetching |    🚧    |
+|          Feature          | Progress |
+| :-----------------------: | :------: |
+|     Login / register      |    ✅    |
+|  Invite users to project  |    ✅    |
+| Assign users to checklist |    🚧    |
+
+
 
 ## Documentation
 
