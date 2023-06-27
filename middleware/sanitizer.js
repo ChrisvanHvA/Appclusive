@@ -37,7 +37,7 @@ const validationChecks = [
         .notEmpty()
         .withMessage('Confirm password must not be empty')
         .custom((value, { req }) => value === req.body.password)
-        .withMessage('Passwords do not match!!')
+        .withMessage('Passwords do not match')
 ];
 
 // Define validation middleware function to handle errors
