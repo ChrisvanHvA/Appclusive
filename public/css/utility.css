@@ -27,12 +27,12 @@ a {
 
 
 button.code {
+	width: fit-content;
     position: relative;
     padding: 0.1rem 0.25rem;
     color: var(--primary-color);
     border-radius: 3px;
     transition: 250ms color ease-in-out, 250ms background-color ease-in-out;
-    cursor: pointer;
 	font-weight: 700;
 }
 

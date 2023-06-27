@@ -21,11 +21,10 @@ router.post('/', async (req, res) => {
         });
     }
 
-    const { completedInsert, projectId } =
-        await ProjectController.createProject(req.body, req.user?.user_id);
+    const projectId = await ProjectController.createProject(req.body, req.user?.user_id);
 
     // TODO: show error on fail
-    return completedInsert
+    return projectId
         ? res.redirect(`/project/${projectId}/categories`)
         : res.send('failed');
 });

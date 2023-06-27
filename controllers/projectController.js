@@ -4,11 +4,10 @@ import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
 import { calcTotalProgressByItems } from '../helpers/calcTotalProgress.js';
 
-
 const WCAGModel = new wcagModel();
 const ProjectModel = new projectModel();
 const ProjectUserModel = new projectUserModel();
-const checklistModel = new projectChecklistModel();
+const ProjectChecklistModel = new projectChecklistModel();
 
 /**
  * Inserting data into multiple tables to ensure
@@ -16,7 +15,7 @@ const checklistModel = new projectChecklistModel();
  *
  * @params insertData: todo
  * @params user_id: user who created the project
- * @returns { boolean, number }
+ * @returns {Promise<any>}
  */
 const createProject = async (projectData, user_id) => {
     // todo: remove this default user_id
@@ -24,7 +23,6 @@ const createProject = async (projectData, user_id) => {
         user_id = 1;
     }
 
-    let completedInsert = true;
     const projectId = await ProjectModel.insert(projectData);
 
     const projectUserInsert = {
@@ -34,71 +32,63 @@ const createProject = async (projectData, user_id) => {
     };
 
     await ProjectUserModel.insert(projectUserInsert);
+	await updateWcagItemsForProject(projectId);
 
-    // Get all WCAG items based on the WCAG level
-    const allMatchingWCAGItems = await WCAGModel.listWCAGItemsByLevel(
-        projectData.level
-    );
-
-    // Insert each WCAG item into the project checklist model
-    for (let i = 0; i < allMatchingWCAGItems.length; i++) {
-        const item = allMatchingWCAGItems[i];
-
-        const insertData = {
-            project_id: projectId,
-            wcag_item_id: item.wcag_item_id,
-            wcag_level: item.wcag_level,
-            is_completed: false
-        };
-
-        const insertId = await checklistModel.insert(insertData);
-
-        // If the insert went wrong, it will return 0, so end the loop!
-        if (insertId == 0) {
-            completedInsert = false;
-            break;
-        }
-    }
-
-    return { completedInsert: completedInsert, projectId: projectId };
+    return projectId;
 };
 
 /**
- * Updates a project by adding WCAG items of the specified level that are not already present in the existing WCAG items.
- * @param {Array} existingWCAGItems - An array of existing WCAG items.
- * @param {string} level - The WCAG level to filter the WCAG items.
- * @param {string} project_id - The ID of the project to update.
+ * Updates the checklists of a project, removing any items that are higher than the project level, and adding any items that are lower than or equal to the project level.
+ * @param {string} projectId - The ID of the project to update.
  * @returns {Promise<void>} - A promise that resolves when the update is complete.
  */
-const insertWcagItemsForProject = async (level, project_id) => {
-    const wcagItemsToInsert = await WCAGModel.listWCAGItemsByLevel(level);
+const updateWcagItemsForProject = async (projectId) => {
+    const project = await ProjectModel.getProject(projectId);
+
+    if (!project) {
+        return false;
+    }
+
+    const projectLevel = project.wcag_level.length;
+
+    const allWcagItems = await WCAGModel.listWCAGItemsByLevel('AAA');
     let completedInsert = true;
 
-    for (let i = 0; i < wcagItemsToInsert.length; i++) {
-        const item = wcagItemsToInsert[i];
+    for (let i = 0; i < allWcagItems.length; i++) {
+        const item = allWcagItems[i];
+        const itemLevel = item.wcag_level.length;
 
-        const insertData = {
-            project_id: project_id,
-            wcag_item_id: item.wcag_item_id,
-            is_completed: false
-        };
+        // check if the item is already in the project
+        const itemInDatabase = await ProjectChecklistModel.getChecklistItem(
+            projectId,
+            item.wcag_item_id
+        );
 
-        const insertId = await checklistModel.insert(insertData);
+        // if the item is in the project, check if it is higher than the level we want to add
+        // if the item is higher than the projectLevel, delete it
+        if (itemInDatabase && itemLevel > projectLevel) {
+            await ProjectChecklistModel.delete(
+                projectId,
+                itemInDatabase.wcag_item_id
+            );
+        } else if (!itemInDatabase) {
+            // else if the item is not in the project, add it
+            const insertData = {
+                project_id: projectId,
+                wcag_item_id: item.wcag_item_id,
+                is_completed: false,
+                assignees: []
+            };
 
-		// If the insert went wrong, it will return 0, so end the loop!
-        if (insertId == 0) {
-            completedInsert = false;
-            break;
+            await ProjectChecklistModel.insert(insertData);
         }
     }
 
-	return { completedInsert: completedInsert, projectId: project_id };
-
+    return completedInsert;
 };
 
-
 const createFullProjectOverview = async (wcagCategory, projectId) => {
-    const wcagItems = await checklistModel.listChecklistItems(
+    const wcagItems = await ProjectChecklistModel.listChecklistItems(
         wcagCategory.wcag_id,
         projectId
     );
@@ -110,9 +100,9 @@ const createFullProjectOverview = async (wcagCategory, projectId) => {
 
     projectInfo.all_checklists = all_checklists;
     projectInfo.completed_checklists = completed_checklists;
-    
+
     const allProjectUsers = await ProjectUserModel.listProjectUsers(projectId);
-    
+
     projectInfo.all_users = allProjectUsers;
     projectInfo.checklist_data = wcagItems;
 
@@ -121,6 +111,6 @@ const createFullProjectOverview = async (wcagCategory, projectId) => {
 
 export default {
     createProject,
-    insertWcagItemsForProject,
+    updateWcagItemsForProject,
     createFullProjectOverview
 };

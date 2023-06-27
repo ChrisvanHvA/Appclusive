@@ -11,13 +11,9 @@
             <li>
                 <h4>Level A</h4>
                 <ul>
-                    {{#each (sortTasksByLevel tasks "A")}}
+                    {{#each (filterTasksByLevel tasks "A")}}
                         <li class="checklist__item">
-                            {{> listItem pid=../project.project_id checklist=this}}
-                        </li>
-                    {{else}}
-                        <li>
-                            <p>No tasks found for Level A</p>
+                            {{> listItem isAdmin=../isAdmin pid=../project.project_id checklist=this}}
                         </li>
                     {{/each}}
                 </ul>
@@ -27,9 +23,9 @@
                 <li>
                     <h4>Level AA</h4>
                     <ul>
-                        {{#each (sortTasksByLevel tasks "AA")}}
+                        {{#each (filterTasksByLevel tasks "AA")}}
                             <li class="checklist__item">
-                                {{> listItem pid=../project.project_id checklist=this}}
+                                {{> listItem isAdmin=../isAdmin pid=../project.project_id checklist=this}}
                             </li>
                         {{else}}
                             <li>
@@ -44,9 +40,9 @@
                 <li>
                     <h4>Level AAA</h4>
                     <ul>
-                        {{#each (sortTasksByLevel tasks "AAA")}}
+                        {{#each (filterTasksByLevel tasks "AAA")}}
                             <li class="checklist__item">
-                                {{> listItem pid=../project.project_id checklist=this}}
+                                {{> listItem isAdmin=../isAdmin pid=../project.project_id checklist=this}}
                             </li>
                         {{else}}
                             <li>

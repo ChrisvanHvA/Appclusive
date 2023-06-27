@@ -17,9 +17,10 @@ const mapObject = (obj, callback) => {
     }, {});
 };
 
+let project;
 router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
-    const project = await ProjectModel.getProject(projectId);
+    project = await ProjectModel.getProject(projectId);
 
     res.render('projectSettings', {
         ...res.locals,
@@ -42,35 +43,32 @@ router.post('/', async (req, res) => {
             });
         }
 
-		// update project item
+        // update project item
         const updatedProject = await ProjectModel.update(
             projectId,
-            submitData
+            submitData,
+            project
         );
 
         if (!updatedProject) {
             console.log('failed to update');
         }
 
-        const { completedInsert } = await ProjectController.insertWcagItemsForProject(
-            submitData.wcag_level,
-            projectId
-        );
+        const completedInsert =
+            await ProjectController.updateWcagItemsForProject(projectId);
 
-		if (completedInsert) {
-			console.log('project and its checklists were successfully updated');
-			return res.redirect(`/project/${projectId}/settings`);
-		} else {
-			console.log('failed to update project and its checklists');
-			return res.redirect(`/project/${projectId}/settings?m=1`);
-		}
-
-        
+        if (completedInsert) {
+            console.log('project and its checklists were successfully updated');
+            return res.redirect(`/project/${projectId}/settings`);
+        } else {
+            console.log('failed to update project and its checklists');
+            return res.redirect(`/project/${projectId}/settings?m=1`);
+        }
     } else if (type === 'delete') {
         const deletedData = await ProjectModel.deleteProject(projectId);
 
         if (deletedData && deletedData.length === 0) {
-			// todo: error msg
+            // todo: error msg
             console.log('failed to delete');
         }
 

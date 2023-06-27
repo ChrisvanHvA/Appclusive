@@ -37,11 +37,15 @@ class projectModel {
      * @params updateData: object containing the fields to update
      * @returns boolean indicating whether the update was successful
      */
-    async update(project_id, updateData) {
+    async update(projectId, updateData, oldProject) {
         try {
-            const oldProject = await this.getProject(project_id);
             if (!oldProject) {
-                return false;
+                try {
+                    oldProject = await this.getProject(projectId);
+                } catch (error) {
+                    console.log(error);
+                    return false;
+                }
             }
 
             const { wcag_level: oldWcagLevel } = oldProject;
@@ -52,20 +56,8 @@ class projectModel {
                 SET title = ${title ?? sql`title`},
                 description = ${description ?? sql`description`},
                 wcag_level = ${newWcagLevel ?? sql`wcag_level`}
-                WHERE project_id = ${project_id}
+                WHERE project_id = ${projectId}
             `;
-
-            if (newWcagLevel.length < oldWcagLevel.length) {
-                // delete checklist items of higher level from project_checklist
-                await sql`
-				DELETE FROM project_checklists
-					WHERE project_id = ${project_id} 
-					AND wcag_item_id IN (
-						SELECT wi.wcag_item_id
-						FROM wcag_item AS wi
-						WHERE LENGTH(wi.wcag_level) > ${newWcagLevel.length}
-					);`;
-            }
 
             return true;
         } catch (error) {
