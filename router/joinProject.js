@@ -4,6 +4,12 @@ const router = express.Router();
 import projectModel from '../models/projectModel.js';
 import projectUserModel from '../models/projectUserModel.js';
 
+import {
+    validationChecks,
+    handleValidationErrors
+} from '../middleware/sanitizer.js';
+import messageController from '../controllers/messageController.js';
+
 router.get('/', async (req, res) => {
     res.render('joinProject', {
         ...res.locals,
@@ -11,10 +17,21 @@ router.get('/', async (req, res) => {
     });
 });
 
-router.post('/', async (req, res) => {
+router.post('/', 
+    validationChecks,
+    handleValidationErrors('joinProject', { noNav: true }),
+async (req, res) => {
     const { code } = req.body;
+
     const ProjectModel = new projectModel();
+    const MessageController = new messageController();
+
     const project = await ProjectModel.getProjectByCode(code);
+
+    if (!project) {
+        const messageKey = MessageController.getMessageKeyByType('unknown_project', 'fail');
+        return res.redirect(`/joinProject?m=${messageKey}`);
+    }
 
     const ProjectUserModel = new projectUserModel();
     await ProjectUserModel.insert({
@@ -23,9 +40,8 @@ router.post('/', async (req, res) => {
         is_admin: false
     });
 
-    //TODO: add error message
-
-    return res.redirect('/');
+    const messageKey = MessageController.getMessageKeyByType('joined');
+    return res.redirect(`/project/${project.project_id}/categories?m=${messageKey}`);
 });
 
 export default router;

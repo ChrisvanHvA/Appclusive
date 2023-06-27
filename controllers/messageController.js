@@ -40,6 +40,41 @@ class messageController {
                 'message_class': `${this.messageClass}error`,
                 'type': ['file_save', 'fail']
             },
+            '8': {
+                'message': "Failed to update project",
+                'message_class': `${this.messageClass}error`,
+                'type': ['project_update', 'fail']
+            },
+            '9': {
+                'message': "Failed to delete project",
+                'message_class': `${this.messageClass}error`,
+                'type': ['project_delete', 'fail']
+            },
+            '10': {
+                'message': "Failed to create project",
+                'message_class': `${this.messageClass}error`,
+                'type': ['project_create', 'fail']
+            },
+            '11': {
+                'message': "We could not find the project you are looking for...",
+                'message_class': `${this.messageClass}error`,
+                'type': ['unknown_project']
+            },
+            '12': {
+                'message': "Project joined!",
+                'message_class': `${this.messageClass}success`,
+                'type': ['joined']
+            },
+            '13': {
+                'message': "Successfully assigned task",
+                'message_class': `${this.messageClass}success`,
+                'type': ['assigned_task', 'saved']
+            },
+            '14': {
+                'message': "Failed to assign task",
+                'message_class': `${this.messageClass}success`,
+                'type': ['assigned_task', 'fail']
+            },
         };
     }
 
@@ -48,6 +83,8 @@ class messageController {
         let messageKey = 2;
 
         const keys = Object.keys(this.messageObjects);
+
+        console.log(searchStrings);
 
         for (let i = 1; i <= keys.length; i++) {
             const key = keys[i];

@@ -1,7 +1,14 @@
 import express from 'express';
 const router = express.Router();
 
-import ProjectController from '../controllers/projectController.js';
+import projectController from '../controllers/projectController.js';
+
+import {
+    validationChecks,
+    handleValidationErrors
+} from '../middleware/sanitizer.js';
+import messageController from '../controllers/messageController.js';
+
 
 router.get('/', (req, res) => {
     res.render('projectCreate', {
@@ -10,38 +17,20 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', async (req, res) => {
-    const formErrors = validateForm(req.body);
+router.post(
+    '/', 
+    validationChecks,
+    handleValidationErrors('projectCreate'),
+    async (req, res) => {
 
-    if (Object.keys(formErrors).length > 0) {
-        return res.render('projectCreate', {
-            ...res.locals,
-            formErrors
-        });
-    }
+        const MessageController = new messageController();
 
-    const { completedInsert, projectId } =
-        await ProjectController.createProject(req.body, req.user?.user_id);
+        const { completedInsert, projectId } = await projectController.createProject(req.body, req.user?.user_id);
+        const messageKey = MessageController.getMessageKeyByType('project_create', 'fail');
 
-    // TODO: show error on fail
-    return completedInsert
-        ? res.redirect(`/project/${projectId}/categories`)
-        : res.send('failed');
+        return completedInsert
+            ? res.redirect(`/project/${projectId}/categories`)
+            : res.redirect(`/?m=${messageKey}`);
 });
-
-const validateForm = (formData) => {
-    const { title, level } = formData;
-    const errors = {};
-
-    if (!title) {
-        errors.title = 'Title is required';
-    }
-
-    if (!level) {
-        errors.level = 'An accessibility level is required';
-    }
-
-    return errors;
-};
 
 export default router;

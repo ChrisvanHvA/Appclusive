@@ -7,22 +7,23 @@
 
         <h2>Project invite code: <span class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</span></h2>
 
-        <label for="title">Project title <span class="required">*</span>
-		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
-		</label>
-        <input
-            class="textinput"
-            type="text"
-            name="title"
-            id="title"
-            placeholder="What would you like to name your project?"
-            value="{{project.title}}"
-			required
-        />
-
-        <div>
+        <fieldset class="form__section {{#if title-error.length}} form__error {{/if}}">
+            <label for="title">Project title <span class="required">*</span></label>
+             <input
+                class="textinput"
+                type="text"
+                name="title"
+                id="title"
+                placeholder="What would you like to name your project?"
+                value="{{project.title}}"
+                required
+            />
+            <label class="message message--error {{#unless title-error.length}}hide{{/unless}}">{{title-error}}</label>
+        </fieldset>
+		
+        <fieldset class="form__section">
             <label for="description">Project description</label>
-            <textarea
+             <textarea
                 class="textinput"
                 name="description"
                 id="description"
@@ -30,11 +31,10 @@
                 maxlength="500"
             >{{#if project.description}}{{project.description}}{{/if}}</textarea>
             <small class="description-char-counter"></small>
-        </div>
+        </fieldset>
 
-        <fieldset class="project__level">
+        <fieldset class="project__level form__section {{#if wcag_level-error.length}} form__error {{/if}}">
             <legend>What level of accessibility should be applied? <span class="required">*</span>
-			<span class="formerror">{{#if formErrors.level}}An accessibility level is required{{/if}}</span>
 			</legend>
 
             <section>
@@ -64,6 +64,8 @@
                     </div>
                 </aside>
             </section>
+
+            <label class="message message--error {{#unless wcag_level-error.length}}hide{{/unless}}">{{wcag_level-error}}</label>
         </fieldset>
 
         <button class="btn">Save changes</button>

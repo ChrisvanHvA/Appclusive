@@ -5,6 +5,12 @@ import projectModel from '../models/projectModel.js';
 const router = express.Router({ mergeParams: true });
 const ProjectModel = new projectModel();
 
+import {
+    validationChecks,
+    handleValidationErrors
+} from '../middleware/sanitizer.js';
+import messageController from '../controllers/messageController.js';
+
 const mapObject = (obj, callback) => {
     return Object.keys(obj).reduce((result, key) => {
         const value = obj[key];
@@ -28,68 +34,59 @@ router.get('/', async (req, res) => {
     });
 });
 
-router.post('/', async (req, res) => {
-    const type = req.body.type;
-    const formErrors = validateForm(req.body);
-    const submitData = mapObject(req.body, (value) => value);
-    const projectId = req.params.projectId;
+router.post(
+    '/',
+    validationChecks,
+    handleValidationErrors('projectSettings'),
+    async (req, res) => {
+        const type = req.body.type;
+        const submitData = mapObject(req.body, (value) => value);
+        const projectId = req.params.projectId;
 
-    if (type === 'update') {
-        if (Object.keys(formErrors).length > 0) {
-            return res.render(`/settings/${projectId}`, {
-                ...res.locals,
-                formErrors
-            });
-        }
+        const MessageController = new messageController();
 
-		// update project item
-        const updatedProject = await ProjectModel.update(
-            projectId,
-            submitData
-        );
-
-        if (!updatedProject) {
-            console.log('failed to update');
-        }
-
-        const { completedInsert } = await ProjectController.insertWcagItemsForProject(
-            submitData.wcag_level,
-            projectId
-        );
-
-		if (completedInsert) {
-			console.log('project and its checklists were successfully updated');
-			return res.redirect(`/project/${projectId}/settings`);
-		} else {
-			console.log('failed to update project and its checklists');
-			return res.redirect(`/project/${projectId}/settings?error=1`);
-		}
-
+        if (type === 'update') {
         
-    } else if (type === 'delete') {
-        const deletedData = await ProjectModel.deleteProject(projectId);
+            // update project item
+            const updatedProject = await ProjectModel.update(
+                projectId,
+                submitData
+            );
 
-        if (deletedData && deletedData.length === 0) {
-            console.log('failed to delete');
+            if (!updatedProject) {
+                console.log('failed to update project');
+                messageKey = MessageController.getMessageKeyByType('project_update', 'fail');
+                return res.redirect(`/settings?m=${messageKey}`);            
+            }
+
+            const { completedInsert } =
+                await ProjectController.insertWcagItemsForProject(
+                    submitData.wcag_level,
+                    projectId
+                );
+
+            if (completedInsert) {
+                console.log('project and its checklists were successfully updated');
+                return res.redirect(`/project/${projectId}/settings?m=1`);
+
+            } else {
+                messageKey = MessageController.getMessageKeyByType('project_update', 'fail');
+                console.log('failed to update project and its checklists');
+                return res.redirect(`/project/${projectId}/settings?m=${messageKey}`);
+            }
+
+        } else if (type === 'delete') {
+            const deletedData = await ProjectModel.deleteProject(projectId);
+
+            if (deletedData && deletedData.length === 0) {
+                messageKey = MessageController.getMessageKeyByType('project_delete', 'fail');
+                console.log('failed to delete project and its checklists');
+                return res.redirect(`/project/${projectId}/settings?m=${messageKey}`);
+            }
+
+            return res.redirect('/');
         }
-
-        return res.redirect('/');
     }
-});
-
-const validateForm = (formData) => {
-    const { title, wcag_level } = formData;
-    const errors = {};
-
-    if (!title) {
-        errors.title = 'Title is required';
-    }
-
-    if (!wcag_level) {
-        errors.level = 'An accessibility level is required';
-    }
-
-    return errors;
-};
+);
 
 export default router;

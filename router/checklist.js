@@ -2,10 +2,9 @@ import express from 'express';
 
 import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
-
 import dialogController from '../controllers/dialogController.js';
-
 import projectController from '../controllers/projectController.js';
+import messageController from '../controllers/messageController.js';
 
 const router = express.Router({ mergeParams: true });
 const ProjectChecklistModel = new projectChecklistModel();
@@ -16,9 +15,6 @@ const DialogController = new dialogController();
 router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
     const category = req.query.category;
-
-    // #TODO: receive custom message based on param id
-    const errorParam = req.query.error;
 
     const wcagCategory = await WCAGModel.getWCAGCategoryIdBySlug(category);
 
@@ -45,10 +41,9 @@ router.get('/', async (req, res) => {
 
 router.post('/submit', async (req, res) => {
     const jsonReturn = req.query.json;
-
     const updatedStatus = req.body.is_completed === 'true' ? false : true;
 
-    let updateChecklist = await ProjectChecklistModel.updateChecklistCompletion(
+    const updateChecklist = await ProjectChecklistModel.updateChecklistCompletion(
         req.body.wcag_item_id,
         req.params.projectId,
         updatedStatus
@@ -57,9 +52,8 @@ router.post('/submit', async (req, res) => {
     const categoryItem = await WCAGModel.getWCAGCategory(req.body.parent_id);
     let errorParam = '';
 
-    // #TODO: pass custom message id
     if (!updateChecklist) {
-        errorParam = '&error=1';
+        errorParam = '&m=2';
     }
 
     if (jsonReturn) {
@@ -74,6 +68,7 @@ router.post('/submit', async (req, res) => {
 });
 
 router.post('/assign', async (req, res) => {
+    const MessageController = new messageController();
 	const projectId = req.params.projectId;
 
 	if (!projectId) return false;
@@ -81,10 +76,12 @@ router.post('/assign', async (req, res) => {
 	const assignees = (req.body.user_ids || []).map((id) => parseInt(id));
 	const checklistId = req.body.wcag_item_id;
 
-	// todo: handle this
-	const insertResult = await ProjectChecklistModel.updateAssignees(assignees, projectId, checklistId);
+	const updatedAssignees = await ProjectChecklistModel.updateAssignees(assignees, projectId, checklistId);
+    const type = updatedAssignees ? 'saved' : 'fail';
 
-	return res.send('ok');
+    const messageKey = MessageController.getMessageKeyByType('assigned_task', type);
+
+    return res.redirect(`/project/${projectId}/categories?m=${messageKey}`);
 });
 
 export default router;
