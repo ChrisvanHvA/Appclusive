@@ -24,6 +24,10 @@
 			{{>dialog this projectUsers=../project.all_users projectId=../this.project.project_id}}
 		{{/each}}
 
+		{{#if loading}}
+			{{>loading}}
+		{{/if}}
+
 		<div class="message message--system animate animate--slide {{#unless system_message}}hide{{/unless}}">
 			<p>{{system_message}}</p>
 		</div>

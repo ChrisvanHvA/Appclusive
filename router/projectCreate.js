@@ -6,7 +6,8 @@ import ProjectController from '../controllers/projectController.js';
 router.get('/', (req, res) => {
     res.render('projectCreate', {
         ...res.locals,
-        title: 'Create a new project'
+        title: 'Create a new project',
+        loading: true
     });
 });
 
