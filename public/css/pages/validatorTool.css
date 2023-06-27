@@ -1,3 +1,12 @@
+.layout__validator {
+    display: grid;
+    grid-template-rows: min-content;
+    gap: 2.5rem;
+    width: clamp(10rem, 100%, 80rem);
+    justify-self: center;
+    height: fit-content;
+}
+
 .layout__validator .textinput {
     resize: none;
     border-radius: var(--card-border-radius);
@@ -14,6 +23,8 @@
 
 .validator__results h3 {
     font-size: 1rem;
+    word-break: break-word;
+    max-width: 60rem;
 }
 
 .validator__results li {
@@ -23,6 +34,11 @@
     padding: 1rem;
     border: 2px solid var(--card-border-color);
     border-radius: var(--card-border-radius);
+}
+
+.validator__results pre {
+    word-break: break-word;
+    max-width: 60rem;
 }
 
 .validator__results .validator__results__status {

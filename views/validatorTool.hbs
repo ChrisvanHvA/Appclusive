@@ -1,6 +1,8 @@
 <main class="layout layout__validator">
 
-    {{>pageTitleHeader title="Validator" subtitle="Validate your HTML so it's ready for the web"}}
+    {{>pageTitleHeader title="Validator"}}
+
+    <h2>Validate your HTML so it's ready for the web</h2>
 
     <form class="validator__form" action="validator/result" method="POST">
         <textarea class="textinput validator__text" id="html" name="html" placeholder="Paste your HTML here"></textarea>
@@ -9,33 +11,45 @@
 
 
 {{#if validatorMessages}}
-    <ul class="validator__results">
-        {{#each validatorMessages.messages}}
-            <li>
-                {{#if (eq this.type "warning")}}
-                    <p class="validator__results__status message--warning"> 
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        {{this.type}}
-                    </p>
-                {{else if (eq this.type "error")}}
-                    <p class="validator__results__status message--error">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                        {{this.type}}
-                    </p>
-                {{else if (eq this.type "info")}}
-                    <p class="validator__results__status message--success">
-                        <i class="fa-solid fa-circle-info"></i>
-                        {{this.type}}
-                    </p>
-                {{/if}}
-                <h3>{{this.message}}</h3>
-                {{!-- <p>From line 1, column 1; to line 1, column 39</p> --}}
-                <pre>
+
+    <div>
+
+        {{#if (lt validatorMessages.messages.length 1)}}
+            <h3>Your HTML has no issues. Good job!</h3>
+        {{else}}
+            <h3>{{validatorMessages.messages.length}} issues found</h3>
+            <ul class="validator__results">
+                {{#each validatorMessages.messages}}
+                    <li>
+                        {{#if (eq this.type "warning")}}
+                            <p class="validator__results__status message--warning"> 
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                {{this.type}}
+                            </p>
+                        {{else if (eq this.type "error")}}
+                            <p class="validator__results__status message--error">
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                {{this.type}}
+                            </p>
+                        {{else if (eq this.type "info")}}
+                            <p class="validator__results__status message--success">
+                                <i class="fa-solid fa-circle-info"></i>
+                                {{this.type}}
+                            </p>
+                        {{/if}}
+                        <h3>{{this.message}}</h3>
+                        {{!-- <p>From line 1, column 1; to line 1, column 39</p> --}}
+                        <pre>
 {{{this.extract}}}
-                </pre>
-            </li>
-        {{/each}}
-    </ul>
+                        </pre>
+                    </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+
+    </div>
+
+
 {{/if}}
 
 </main>

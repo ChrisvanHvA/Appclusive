@@ -101,7 +101,8 @@ const data = {
     '/validator': {
         title: 'Validator',
         description: '',
-        scripts: ['validatorTool']
+        scripts: ['validatorTool'],
+        backUrl: '/'
     },
     '*': {
         title: 'Page not found',

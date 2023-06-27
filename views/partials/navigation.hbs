@@ -15,6 +15,13 @@
 				</a>
 			</li>
 
+			<li {{#if (eq head.currentPath '/validator')}}class="active"{{/if}}>
+				<a href="/validator">
+					<i class="fa-solid fa-screwdriver-wrench"></i>
+					<p>Tools</p>
+				</a>
+			</li>
+
 			<li {{#if (eq head.currentPath '/settings')}}class="active"{{/if}}>
 				<a href="/settings">
 					<i class="fa-solid fa-gear"></i>

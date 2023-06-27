@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
     res.render('validatorTool', {
         ...res.locals,
         title: 'Validator',
+        loading: true
     });
 });
 
@@ -18,7 +19,8 @@ router.post('/result', async (req, res) => {
     res.render('validatorTool', {
         ...res.locals,
         title: 'Validator',
-        validatorMessages: validatedHTML
+        validatorMessages: validatedHTML,
+        loading: true
     })
 })
 

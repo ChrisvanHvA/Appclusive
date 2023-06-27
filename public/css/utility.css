@@ -160,7 +160,7 @@ button {
 
 @media screen and (min-width: 951px) {
     .layout {
-        padding: 3.5rem 2.5rem;
+        padding: 3.5rem 6.5rem 3.5rem 0rem;
     }
     
     .layout:not(.layout__login) .page-title div {
