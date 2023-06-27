@@ -28,8 +28,6 @@ router.get('/', async (req, res) => {
 
     const projectInfo = await projectController.createFullProjectOverview(wcagCategory, projectId);
 
-    console.log(projectInfo);
-
     const dialogMessages = [
         DialogController.getMessage('category_finished'),
         DialogController.getMessage('level'),
@@ -81,12 +79,10 @@ router.post('/assign', async (req, res) => {
 
 	if (!projectId) return false;
 
-	console.log(req.body);
-
 	const assignees = (req.body.user_ids || []).map((id) => parseInt(id));
 	const checklistId = req.body.wcag_item_id;
 
-	console.log(assignees, checklistId, projectId);
+	// todo: handle this
 	const insertResult = await ProjectChecklistModel.updateAssignees(assignees, projectId, checklistId);
 
 	return res.send('ok');
