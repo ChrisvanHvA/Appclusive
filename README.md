@@ -13,7 +13,7 @@ Appclusive is an online webtool for UX designers and organisations, designed to 
 
 ## Contents 📑
 
-- [Features](https://github.com/ChrisvanHva/Appclusive#use-features) The ✨special✨ things?
+- [Features](https://github.com/ChrisvanHva/Appclusive#features) The ✨special✨ things?
 - [Install it](https://github.com/EvaZ7/project1#install-it) How do I start? How do I use it?
 - [The Data](https://github.com/EvaZ7/project1#the-external-data-source) A Github API
 - [Wishlist](https://github.com/EvaZ7/project1#wishlist) ...
