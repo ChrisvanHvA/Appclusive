@@ -3,7 +3,7 @@
     <form method="POST">
         <h2>Hi there!</h2>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section {{#if first_name-error.length}} form__error {{/if}}">
             <label for="first_name">First Name</label>
             <input
                 type="name"
@@ -13,7 +13,7 @@
                 data-input-type="first_name"
                 required
             />
-            <label class="error {{#unless first_name-error.length}}hide{{/unless}}">{{first_name-error}}</label>
+            <label class="message message--error {{#unless first_name-error.length}}hide{{/unless}}">{{first_name-error}}</label>
         </fieldset>
 
         <fieldset class="form__section">
@@ -27,7 +27,7 @@
             />
         </fieldset>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section {{#if surname-error.length}} form__error {{/if}}">
             <label for="surname">Surname</label>
             <input
                 type="name"
@@ -37,10 +37,10 @@
                 data-input-type="surname"
                 required
             />
-            <label class="error {{#unless surname-error.length}}hide{{/unless}}">{{surname-error}}</label>
+            <label class="message message--error {{#unless surname-error.length}}hide{{/unless}}">{{surname-error}}</label>
         </fieldset>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section {{#if email_address-error.length}} form__error {{/if}}">
             <label for="email_address">Email</label>
             <input
                 type="email"
@@ -52,10 +52,10 @@
                 data-input-type="email_address"
                 required
             />
-            <label class="error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
+            <label class="message message--error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
         </fieldset>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section {{#if password-error.length}} form__error {{/if}}">
             <label for="password">Password</label>
             <input
                 type="password"
@@ -66,10 +66,10 @@
                 data-input-type="password"
                 required
             />
-            <label class="error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
+            <label class="message message--error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
         </fieldset>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section {{#if confirm_password-error.length}} form__error {{/if}}">
             <label for="confirm_password">Confirm password</label>
             <input
                 type="password"
@@ -80,7 +80,7 @@
                 data-input-type="confirm_password"
                 required
             />
-            <label class="error {{#unless confirm_password-error.length}}hide{{/unless}}">{{confirm_password-error}}</label>
+            <label class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}">{{confirm_password-error}}</label>
         </fieldset>
 
         <button class="btn btn--login" type="submit">Register</button>

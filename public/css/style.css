@@ -37,6 +37,8 @@
 	--status-text-wip: #5B3100;
 	--status-text-done: #035C11;
 
+	--error: hsl(0, 96%, 41%);
+
 	--welcome-padding-vertical: 0.5rem;
 }
 
