@@ -11,6 +11,17 @@
 
 Appclusive is an online webtool for UX designers and organisations, designed to easily check digital products for accessibility. By using the WCAG guidelines and other tips for digital accessibility, the user can check their digital product for problems. This webtool is designed to motivate, and make it easier for designers to apply accessibility to their digital products.
 
+## Contents 📑
+
+- [Features](https://github.com/ChrisvanHva/Appclusive#use-features) The ✨special✨ things?
+- [Install it](https://github.com/EvaZ7/project1#install-it) How do I start? How do I use it?
+- [The Data](https://github.com/EvaZ7/project1#the-external-data-source) A Github API
+- [Wishlist](https://github.com/EvaZ7/project1#wishlist) ...
+- [Author](https://github.com/EvaZ7/project1#author) This project is made by...
+- [Help](https://github.com/EvaZ7/project1#help) Where do I find help?
+- [Progress](https://github.com/EvaZ7/project1#progressin-dutch-) Yes I wrote it in Dutch🇳🇱, shoot in an issue.
+- [Sources](https://github.com/EvaZ7/project1#sources) APA list with used sources.
+
 ## Features
 
 |          Feature          | Progress |
