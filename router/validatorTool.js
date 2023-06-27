@@ -11,12 +11,9 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/result', async (req, res) => {
-    // console.log(req)
     const data = req.body.html
 
     const validatedHTML = await validateHTML(data)
-
-    console.log(validatedHTML)
     
     res.render('validatorTool', {
         ...res.locals,
@@ -24,24 +21,6 @@ router.post('/result', async (req, res) => {
         validatorMessages: validatedHTML
     })
 })
-
-// function validateHTML(html) {
-//     fetch('https://validator.w3.org/nu/?out=json', {
-//         method: 'POST',
-//         headers: {
-//             'Content-type':
-//             'text/html; charset=UTF-8'
-//         },
-//         body: html
-//     })
-//     .then(res => 
-//         res.json())
-//     .then(result => {
-//         return result
-//     })
-//     .catch(err => console.error('Error:',
-//     error));
-// }
 
 async function validateHTML(html) {
     console.log('Validating html...')
@@ -55,12 +34,22 @@ async function validateHTML(html) {
             body: html
         })
         const data = await response.json();
+
+        // convert "<" and ">" to html entities within messages.extract
+
+        data.messages.forEach(message => {
+            message.extract = message.extract.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        })
     
+        console.log('Validation complete.')
+        
         return data;
     }catch(err) {
         console.log(err)
     }
 }
+
+  
 
 
 export default router;

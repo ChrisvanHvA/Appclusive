@@ -46,3 +46,18 @@
         transform: translate(-50%, 0);
     }
 }
+
+.message--error {
+    background: var(--error);
+    color: var(--light);
+}
+
+.message--success {
+    background: var(--status-bg-done);
+    color: var(--status-text-done);
+}
+
+.message--warning {
+    background: var(--status-bg-wip);
+    color: var(--dark);
+}
