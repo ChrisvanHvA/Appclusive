@@ -55,18 +55,17 @@ class projectModel {
                 WHERE project_id = ${project_id}
             `;
 
-			if (newWcagLevel.length < oldWcagLevel.length) {
-				// delete checklist items of higher level from project_checklist
-				await sql`
+            if (newWcagLevel.length < oldWcagLevel.length) {
+                // delete checklist items of higher level from project_checklist
+                await sql`
 				DELETE FROM project_checklists
 					WHERE project_id = ${project_id} 
 					AND wcag_item_id IN (
 						SELECT wi.wcag_item_id
 						FROM wcag_item AS wi
 						WHERE LENGTH(wi.wcag_level) > ${newWcagLevel.length}
-					);`
-			}
-
+					);`;
+            }
 
             return true;
         } catch (error) {
@@ -83,24 +82,15 @@ class projectModel {
      */
     async deleteProject(projectId) {
         try {
-            await sql.begin(async (sql) => {
-                await sql`
-                    DELETE FROM project_users
-                    WHERE project_id = ${projectId}
-                `;
-
-                await sql`
-                    DELETE FROM project_checklists
-                    WHERE project_id = ${projectId}
-                `;
-
-                const result = await sql`
-                    DELETE FROM projects
-                    WHERE project_id = ${projectId}
-                `;
-
-                return result;
-            });
+            await Promise.all([
+                sql`DELETE FROM project_users
+					WHERE project_id = ${projectId};`,
+                sql`DELETE FROM project_checklists
+					WHERE project_id = ${projectId};`,
+                sql`DELETE FROM projects 
+					WHERE project_id = ${projectId};`
+            ]);
+            return true;
         } catch (error) {
             console.log(error);
             return false;

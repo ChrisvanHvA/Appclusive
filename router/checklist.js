@@ -49,7 +49,6 @@ router.get('/', async (req, res) => {
         category: wcagCategory,
         project: projectInfo,
 		isAdmin,
-        system_message: errorParam ? 'Failed to update' : null,
         dialog_messages: dialogMessages
     });
 });

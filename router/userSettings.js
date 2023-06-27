@@ -49,12 +49,7 @@ router.get('/', (req, res) => {
 
     res.render('userSettings', {
         title: 'Settings',
-        avatar,
-        system_message: errorParam
-            ? errorParam == 1
-                ? 'Success!!!'
-                : 'Failed to update'
-            : null
+        avatar
     });
 });
 
