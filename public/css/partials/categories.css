@@ -16,7 +16,7 @@
 }
 
 .categories li > a {
-    height: clamp(5rem, 12rem, 15rem);
+    height: clamp(5rem, 9rem, 10rem);
     max-width: 70rem;
 
     display: flex;
@@ -91,7 +91,7 @@
     top: 0;
     left: 0;
     color: var(--dark);
-    padding: 1.25rem;
+    padding: .8rem;
     border-radius: .75rem;
     background-color: var(--primary-bg);
     transform: rotateX(0deg);
@@ -112,7 +112,6 @@
     .category__item__back > p {
         height: 100%;
         overflow-y: hidden;
-        padding-top: 1rem;
     }
 
 
@@ -132,8 +131,8 @@ input[id^="flip"]:focus-visible + label {
     position: absolute;
     width: 1.25rem;
     height: 1.25rem;
-    top: 1.4rem;
-    right: 1.5rem;
+    top: .8rem;
+    right: .8rem;
     cursor: pointer;
     z-index: 1;
   }
@@ -151,8 +150,8 @@ input[id^="flip"]:focus-visible + label {
 .category__item__content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding-top: 1rem;
+    gap: .5rem;
+    /* padding-top: .5rem; */
     color: var(--primary-text);
 }
 
@@ -167,11 +166,12 @@ input[id^="flip"]:focus-visible + label {
 .checklist__categories h2 {
     color: var(--primary-text);
     white-space: normal;
+    font-size: 1.2rem;
 }
 
 .checklist__categories > p {
     color: var(--primary-text);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     max-width: calc(100% - 2rem);
 }
 
@@ -194,12 +194,24 @@ ul.categoryContent > li:first-of-type .icon{
 }
 
 @media screen and (min-width: 950px) {
-
+    .categories li > a {
+        height: clamp(5rem, 12rem, 15rem);
+    }
+    .category__item__content {
+        gap: 1rem;
+    }
+    .category__item__front, .category__item__back {
+        padding: 1.5rem;
+    }
 	.categories li > a > ul{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex-wrap: nowrap;
+    }
+    [for^="flip"]{
+        top: 1.4rem;
+        right: 1.5rem;
     }
 
     ul.categoryContent > li:first-of-type .icon{
