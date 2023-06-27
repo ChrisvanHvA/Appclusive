@@ -13,6 +13,7 @@ import messageController from '../controllers/messageController.js';
 router.get('/', (req, res) => {
     res.render('projectCreate', {
         ...res.locals,
+        mobileTitle: 'Project creation',
         title: 'Create a new project',
         loading: true
     });

@@ -55,7 +55,7 @@
 			{{#if (eq title 'Dashboard')}}
 				<p>Welcome, {{user.first_name}}</p>
 			{{/if}}
-        	<h1>{{#if title}}{{title}}{{else}}{{project.title}}{{/if}}</h1>
+        	<h1>{{#if mobileTitle}}{{mobileTitle}}{{else if title}}{{title}}{{else}}{{project.title}}{{/if}}</h1>
 		</div>
 
 		{{#if (eq title 'Settings')}}

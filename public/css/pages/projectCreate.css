@@ -67,7 +67,7 @@ main.layout__project-create .project__level section aside {
 	.layout__project-create fieldset,
 	.layout__project-create label + input,
 	.layout__project-create label + textarea {
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 	.layout__project-create input::placeholder,
 	.layout__project-create textarea::placeholder {
@@ -82,7 +82,7 @@ main.layout__project-create .project__level section aside {
 
 		.layout__project-create form div small {
 			position: absolute;
-			bottom: 2rem;
+			bottom: 0.6rem;
 			right: 0;
 			color: var(--tertiary-text);
 		}

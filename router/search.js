@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
     res.render('search', {
         ...res.locals,
         projects: allProjects,
-        title: 'Project search'
+        mobileTitle: 'Project search',
+        title: 'Search for a project'
     });
 });
 
