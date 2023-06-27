@@ -155,6 +155,7 @@ button {
 /* ---------------------------------- */
 .layout {
     padding: 1rem;
+    padding-top: 2rem;
 }
 
 @media screen and (min-width: 951px) {
