@@ -66,6 +66,23 @@ class projectUserModel {
             return [];
         }
     }
+
+    async isAdmin(projectId, userId) {
+		if (!projectId || !userId) return false;
+		
+        try {
+			const [{ is_admin: isAdmin }] = await sql`
+				SELECT is_admin
+					FROM project_users
+					WHERE project_id = ${projectId}
+					AND user_id = ${userId}
+			`;
+			return isAdmin;
+        } catch (error) {
+            console.log(error);
+			return false;
+        }
+    }
 }
 
 export default projectUserModel;

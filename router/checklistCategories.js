@@ -2,6 +2,7 @@ import express from 'express';
 
 import projectModel from '../models/projectModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
+import projectUserModel from '../models/projectUserModel.js';
 
 import dialogController from '../controllers/dialogController.js';
 
@@ -11,20 +12,24 @@ const DialogController = new dialogController();
 
 const ProjectChecklistModel = new projectChecklistModel();
 const ProjectModel = new projectModel();
+const ProjectUserModel = new projectUserModel();
 
 const router = express.Router({ mergeParams: true });
 
 router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
+	// todo: remove default user id
+	const userId = req.user?.user_id || 7;
 
     if (!projectId || projectId == 0) {
         // todo: betere redirect / error handling
         return res.redirect('/');
     }
 
-    const [project, categories] = await Promise.all([
+    const [project, categories, isAdmin] = await Promise.all([
         ProjectModel.getProject(projectId),
-        ProjectChecklistModel.getProjectCategoryData(projectId)
+        ProjectChecklistModel.getProjectCategoryData(projectId),
+		ProjectUserModel.isAdmin(projectId, userId)
     ]);
 
 	const { all_checklists, completed_checklists } = calcTotalProgressByCategory(categories);
@@ -39,6 +44,7 @@ router.get('/', async (req, res) => {
         ...res.locals,
         categories,
         project,
+		isAdmin,
         dialog_messages: dialogMessages
     });
 });

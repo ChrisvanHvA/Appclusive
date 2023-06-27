@@ -2,6 +2,7 @@ import express from 'express';
 
 import wcagModel from '../models/wcagModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
+import projectUserModel from '../models/projectUserModel.js';
 
 import dialogController from '../controllers/dialogController.js';
 
@@ -9,12 +10,16 @@ import projectController from '../controllers/projectController.js';
 
 const router = express.Router({ mergeParams: true });
 const ProjectChecklistModel = new projectChecklistModel();
+const ProjectUserModel = new projectUserModel();
+
 const WCAGModel = new wcagModel();
 
 const DialogController = new dialogController();
 
 router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
+	// todo: remove default user
+	const userId = req.user?.user_id || 7;
     const category = req.query.category;
 
     // #TODO: receive custom message based on param id
@@ -26,7 +31,11 @@ router.get('/', async (req, res) => {
         return res.redirect(`/project/${projectId}/categories`);
     }
 
-    const projectInfo = await projectController.createFullProjectOverview(wcagCategory, projectId);
+
+	const [projectInfo, isAdmin] = await Promise.all([
+        projectController.createFullProjectOverview(wcagCategory, projectId),
+		ProjectUserModel.isAdmin(projectId, userId)
+    ]);
 
     const dialogMessages = [
         DialogController.getMessage('category_finished'),
@@ -39,6 +48,7 @@ router.get('/', async (req, res) => {
         tasks: projectInfo.checklist_data,
         category: wcagCategory,
         project: projectInfo,
+		isAdmin,
         system_message: errorParam ? 'Failed to update' : null,
         dialog_messages: dialogMessages
     });
