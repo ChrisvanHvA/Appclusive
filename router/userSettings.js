@@ -100,7 +100,7 @@ router.post(
         }
 
 		// todo: dit wat netter maken, misschien aparte functie voor maken
-		const imgUrl = await saveFileToBucket(req.file);
+		const imgUrl = await saveFileToBucket(req.file, user.profile_pic?.split('/').pop());
 
 		if (!imgUrl) {
 			messageKey = MessageController.getMessageKeyByType('file_save', 'fail');
