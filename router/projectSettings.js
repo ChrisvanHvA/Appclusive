@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
 			return res.redirect(`/project/${projectId}/settings`);
 		} else {
 			console.log('failed to update project and its checklists');
-			return res.redirect(`/project/${projectId}/settings?error=1`);
+			return res.redirect(`/project/${projectId}/settings?m=1`);
 		}
 
         
@@ -70,6 +70,7 @@ router.post('/', async (req, res) => {
         const deletedData = await ProjectModel.deleteProject(projectId);
 
         if (deletedData && deletedData.length === 0) {
+			// todo: error msg
             console.log('failed to delete');
         }
 
