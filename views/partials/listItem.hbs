@@ -46,7 +46,7 @@
 					{{#each assignees}}
 						{{#if (lt @index 2)}}
 							<figure>
-								<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}" />
+								<img src="https://unsplash.it/40/40" alt="profile picture of {{user.first_name}}" title="{{ this.full_name }}" />
 							</figure>
 						{{/if}}
 					{{/each}}
@@ -54,7 +54,7 @@
 				{{else}}
 					{{#each assignees}}
 						<figure>
-							<img src="https://unsplash.it/40/40" alt="" title="{{ this.full_name }}"/>
+							<img src="https://unsplash.it/40/40" alt="profile picture of {{user.first_name}}" title="{{ this.full_name }}"/>
 						</figure>
 					{{/each}}
 				{{/if}}
