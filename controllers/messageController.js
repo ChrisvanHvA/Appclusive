@@ -20,15 +20,15 @@ class messageController {
                 'message': "Failed to save",
                 'message_class': `${this.messageClass}error`
             },
-            '4': {
+            '5': {
                 'message': "Failed to update",
                 'message_class': `${this.messageClass}error`
             },
-            '5': {
+            '6': {
                 'message': "Failed to load",
                 'message_class': `${this.messageClass}error`
             },
-            '6': {
+            '7': {
                 'message': "Something went wrong",
                 'message_class': `${this.messageClass}error`
             },
