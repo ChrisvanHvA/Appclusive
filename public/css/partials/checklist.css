@@ -78,15 +78,31 @@
         border: var(--card-border-style);
         border-radius: 50%;
     }
+
+	.checklist__item input + label > span i {
+		display: none;
+		color: var(--light);
+		font-size: 1.3rem;
+	}
+	
     .checklist__item input:checked + label > span {
         border: transparent;
         border: var(--primary-color) solid 2px;
 
-        background: var(--primary-color) url(../images/check.svg) no-repeat center center;
+        background-color: var(--primary-color);
         background-size: 60%;
         background-origin: 50%;
         animation: bounce-in .3s ease-in-out;
+		display: flex;
+		justify-content: center;
+		align-items: center;
     }
+
+	.checklist__item input:checked + label > span i {
+		display: block;
+	}
+
+
 
 @keyframes bounce-in {
     0% {
