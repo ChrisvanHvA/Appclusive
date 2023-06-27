@@ -46,6 +46,43 @@ class projectUserModel {
             return false;
         }
     }
+
+    async listProjectUsers(projectId) {
+        try {
+            const result = await sql`
+                SELECT u.*, CONCAT_WS(' ',
+				  u.first_name,
+				  NULLIF(u.insertion, ''),
+				  u.surname
+				) AS "full_name", pc.is_admin
+                FROM project_users AS pc
+                LEFT JOIN users AS u ON u.user_id = pc.user_id
+                WHERE project_id = ${projectId}
+		  `;
+
+            return result;
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
+
+    async isAdmin(projectId, userId) {
+		if (!projectId || !userId) return false;
+		
+        try {
+			const [{ is_admin: isAdmin }] = await sql`
+				SELECT is_admin
+					FROM project_users
+					WHERE project_id = ${projectId}
+					AND user_id = ${userId}
+			`;
+			return isAdmin;
+        } catch (error) {
+            console.log(error);
+			return false;
+        }
+    }
 }
 
 export default projectUserModel;

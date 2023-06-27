@@ -5,7 +5,7 @@
     <form method="POST" autocomplete="off" novalidate>
         <input type="hidden" name="type" value="update">
 
-        <h2>Project invite code: <span class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</span></h2>
+        <h2>Project invite code: <button class="code" data-tooltip="">{{project.project_invite_code}}</button></h2>
 
         <label for="title">Project title <span class="required">*</span>
 		<span class="formerror">{{#if formErrors.title}}A project title is required{{/if}}</span>
@@ -40,7 +40,7 @@
             <section>
                 <aside>
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="a" name="level" value="A" role="radio" required {{#if (eq project.wcag_level "A")}}checked{{/if}} />
+                        <input type="radio" id="a" name="wcag_level" value="A" role="radio" required {{#if (eq project.wcag_level "A")}}checked{{/if}} />
                         <label for="a" id="level-label">
                             <h3>Level A: Essential</h3>
                             <p>If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</p>
@@ -48,7 +48,7 @@
                     </div>
 
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="aa" name="level" value="AA" role="radio" required {{#if (eq project.wcag_level "AA")}}checked{{/if}} />
+                        <input type="radio" id="aa" name="wcag_level" value="AA" role="radio" required {{#if (eq project.wcag_level "AA")}}checked{{/if}} />
                         <label for="aa" id="level-label">
                             <h3>Level AA: Ideal Support</h3>
                             <p>Required for multiple government and public body websites. 'Appclusive' strives for AA compliance.</p>
@@ -56,7 +56,7 @@
                     </div>
 
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="aaa" name="level" value="AAA" role="radio" required {{#if (eq project.wcag_level "AAA")}}checked{{/if}} />
+                        <input type="radio" id="aaa" name="wcag_level" value="AAA" role="radio" required {{#if (eq project.wcag_level "AAA")}}checked{{/if}} />
                         <label for="aaa" id="level-label">
                             <h3>Level AAA: Specialized Support</h3>
                             <p>This is typically reserved for parts of websites and web apps that serve a specialized audience.</p>

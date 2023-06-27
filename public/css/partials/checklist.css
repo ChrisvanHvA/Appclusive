@@ -78,15 +78,31 @@
         border: var(--card-border-style);
         border-radius: 50%;
     }
+
+	.checklist__item input + label > span i {
+		display: none;
+		color: var(--light);
+		font-size: 1.3rem;
+	}
+	
     .checklist__item input:checked + label > span {
         border: transparent;
         border: var(--primary-color) solid 2px;
 
-        background: var(--primary-color) url(../images/check.svg) no-repeat center center;
+        background-color: var(--primary-color);
         background-size: 60%;
         background-origin: 50%;
         animation: bounce-in .3s ease-in-out;
+		display: flex;
+		justify-content: center;
+		align-items: center;
     }
+
+	.checklist__item input:checked + label > span i {
+		display: block;
+	}
+
+
 
 @keyframes bounce-in {
     0% {
@@ -106,10 +122,6 @@
     border-color: var(--primary-color);
 }
 
-.checklist__item input:checked + label .checklist__content .checklist__users, 
-.checklist__item input:checked + label .checklist__content > details {
-    display: none;
-}
 
 /* ---------------------------------- */
 /*    button voor submit zonder js    */
@@ -140,7 +152,7 @@
 
 /* --------- DETAILS ELEMENT -------- */
 
-.checklist__content > details {
+.checklist__content details {
     display: flex;
     flex-direction: column;
     gap: .625rem;
@@ -148,7 +160,7 @@
 	cursor: default;
 }
 
-    .checklist__content > details a {
+    .checklist__content details a {
         color: var(--primary-color);
         font-style: italic;
         word-break: break-all;
@@ -182,7 +194,7 @@
     }
 	
 	/* if details open */
-	.checklist__content > details > summary > p .icon {
+	.checklist__content details > summary > p .icon {
 		width: 1.25rem;
 		height: 1.25rem;
 		position: absolute;
@@ -191,40 +203,61 @@
         left: 0;
 	}
 
-	.checklist__content > details[open] > summary > p .icon:first-of-type,
-	.checklist__content > details:not([open]) > summary > p .icon:last-of-type {
+	.checklist__content details[open] > summary > p .icon:first-of-type,
+	.checklist__content details:not([open]) > summary > p .icon:last-of-type {
 		display: none;
 	}
 
-.checklist__content > details img {
-	width: 1.25rem;
-    height: 1.25rem;
-}
+    .checklist__content details img {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
 
 
-.checklist__content > details[open] {
-    border-radius: .9375rem;
-    padding: .625rem 1.25rem 1.25rem 1.25rem;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    border-radius: var(--card-border-radius);
+    .checklist__content details[open] {
+        border-radius: .9375rem;
+        padding: .625rem 1.25rem 1.25rem 1.25rem;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: var(--card-border-radius);
+    }
+
+        .checklist__content details[open] > summary {
+            padding: 0 0 .625rem 0;
+            border: none;
+        }
+
+        .checklist__content details[open] > summary:focus-visible {
+            outline: 2px solid var(--primary-color);
+            padding: 0;
+            margin-bottom: .625rem;
+        }
+
+    .checklist__content details > ul {
+        list-style:  disc;
+        margin: .625rem 0 0 1rem;
+    }
+
+    .checklist__content:has(details[open]) .checklist__details {
+        flex-direction: column;
+        align-items: start;
+    }
+
+.checklist__details {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
-.checklist__content > details[open] > summary {
-    padding: 0 0 .625rem 0;
-    border: none;
-}
-
-.checklist__content > details[open] > summary:focus-visible {
-    outline: 2px solid var(--primary-color);
-	padding: 0;
-	margin-bottom: .625rem;
-}
-
-.checklist__content > details > ul {
-    list-style:  disc;
-    margin: .625rem 0 0 1rem;
-}
+    .checklist__details .btn--user {
+        border-radius: 50%;
+        border: 2px solid var(--primary-color);
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 /* ---------------------------------- */
 /*                USERS               */
@@ -235,16 +268,3 @@
     gap: .625rem;
     align-items: center;
 }
-
-    .checklist__users figure {
-        width: 1.875rem;
-        height: 1.875rem;
-        border-radius: 50%;
-        border: 1.5px solid var(--primary-color);
-    }
-
-        .checklist__users figure img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }

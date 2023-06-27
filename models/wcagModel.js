@@ -77,9 +77,10 @@ class wcagModel {
             // `;
 
 			const wcagItem = await sql`
-			SELECT wi.*, pc.is_completed
+			SELECT wi.*, pc.is_completed, pc.assignees
 			FROM wcag_item AS wi
 			LEFT JOIN project_checklists AS pc ON pc.wcag_item_id = wi.wcag_item_id
+            LEFT JOIN users ON users.user_id = ANY(pc.assignees)
 			WHERE parent_id = ${parent_id}
 			AND pc.project_id = ${project_id}
 			ORDER BY is_completed, wcag_item_id
@@ -91,6 +92,7 @@ class wcagModel {
             return [];
         }
     }
+    
     /**
      *
      * Async function to retrieve a list of WCAG items based on category parent id

@@ -23,12 +23,12 @@
 
             <progress
                 class='progress'
+                min='0'
+                max='100'
                 value='{{calcProgress
                     project.completed_checklists
                     project.all_checklists
                 }}'
-                min='0'
-                max='100'
             ></progress>
 
             <button class='hide' class='sidebar__buttons'>Close project</button>
@@ -50,11 +50,13 @@
         </section>
 
         <section>
-            <h3>Project invite code: <span class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</span></h3>
+            <h3>Project invite code: <button class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</button></h3>
         </section>
 
-        <section class="sidebar__settings">
-            <a href="/project/{{project.project_id}}/settings"><h3>Project settings</h3>{{> icons/settings}}</a>
-        </section>
+		{{#isAdmin}}
+			<section class="sidebar__settings">
+				<a href="/project/{{project.project_id}}/settings"><h3>Project settings</h3><i class="fa-solid fa-gear"></i></a>
+			</section>
+		{{/isAdmin}}
     </aside>
 </div>

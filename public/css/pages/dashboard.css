@@ -1,4 +1,5 @@
 .layout__dashboard {
+	--card-gap: 0.75rem;
 	padding-top: 0;
 
 	/* width: clamp(10rem, 100%, 70rem);
@@ -6,9 +7,18 @@
 }
 
 .layout__dashboard > header {
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 }
 
+/* section met create en join knopjes */
+.layout__dashboard .action-cards {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--card-gap);
+	margin-bottom: 2rem;
+}
+
+/* dit is de heading van de hele section eg "all projects" */
 .layout__dashboard .dashboard-section > h3 {
 	margin: 1.75rem 0 0.25rem 0;
 	color: var(--tertiary-text);
@@ -16,44 +26,19 @@
 	font-size: 1rem;
 }
 
-.layout__dashboard > div {
-	margin: 1.75rem 0 0.25rem 0;
-	color: var(--tertiary-text);
-	text-transform: uppercase;
-}
-
-.layout__dashboard .recent-projects {
-	position: relative;
-}
-
-.recent-projects > label {
-	position: absolute;
-	right: 0;
-	top: 0;
-	cursor: pointer;
-	user-select: none;
-	color: var(--tertiary-text);
-	text-decoration: underline;
-}
-
-.layout__dashboard .recent-projects > input[name="overview"]:focus-visible + label {
-	outline: 2px solid var(--primary-color);
-}
-
-.layout__dashboard input[name="overview"] {
-	appearance: none;
-	position: absolute;
-}
-
 .cards.project-cards {
 	display: grid;
-  	grid-template-columns: repeat(2, 1fr);
-	gap: 0.75rem;
+  	grid-template-columns: 1fr 1fr;
+	gap: var(--card-gap);
 }
 	.cards.project-cards .card__item {
 		width: 100%;
 		height: 100%;
 	}
+
+.card.project-cards--header {
+	margin-bottom: 1.5rem;
+}
 
 /* dit is echt de meest messy code ooit inshallah */
 .layout__dashboard > a.create-project-card {
@@ -64,35 +49,13 @@
 	display: none;
 }
 
-/* .cards-category__recent {
+
+.cards-category__recent {
 	display: flex !important;
 	flex-wrap: nowrap;
 	overflow-x: auto;
 	max-width: calc(100vw - 1.5rem - 1.5rem);
-} */
-
-.cards.cards-category__recent {
-
-    display: flex;
-    margin: 0 -1rem;
-    padding: 0 1rem;
-    scroll-padding-left: 1rem;
-    scroll-padding-right: 1rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    max-width: 100vw;
 }
-
-.cards.cards-category__recent::-webkit-scrollbar {
-    display: none;
-}
-
-    .cards-category__recent .card__item {
-        scroll-snap-align: start;
-    }
 
 .layout__dashboard input[name="overview"]:checked ~ .cards-category__recent {
 	flex-wrap: wrap;
@@ -103,6 +66,21 @@
 		flex: 0 100%;
 	}
 
+.layout__dashboard .dashboard__empty {
+	width: 100%;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.layout__dashboard .dashboard__empty > h3 {
+	color: var(--primary-color);
+}
+
 @media screen and (min-width: 560px) {
 	.layout__dashboard input[name="overview"]:checked ~ .cards-category__recent .card__item {
 		flex: 1 calc(50% - 0.375rem);
@@ -112,31 +90,19 @@
 
 @media screen and (min-width: 951px) {
 	.layout__dashboard {
+		--card-gap: 1.5rem;
+		margin-right: 5rem;
 		padding-top: 3.5rem;
-	}
-
-	.layout__dashboard .recent-projects > label,
-	.layout__dashboard .recent-projects > input[name="overview"],
-	.layout__dashboard .dashboard-section > h3,
-	.layout__dashboard > a.create-project-card,
-	.layout__dashboard .cards-category__recent {
-		display: none;
-	}
-
-	.layout__dashboard .create-card-container {
 		display: flex;
+		flex-direction: column;
 	}
 
-	.cards.project-cards {
-		gap: 1.5rem;
+	.layout__dashboard .action-cards {
+		grid-template-columns: 1fr 1fr;
 	}
 
-	.cards-category__recent {
-		display: none !important;
-	}
-
-	.layout__dashboard h3 + label {
-		display: none;
+	.layout__dashboard .dashboard__empty {
+		margin-top: 0rem;
 	}
 }
 
@@ -144,4 +110,35 @@
 	.cards.project-cards {
 		grid-template-columns: 1fr;
 	}	
+}
+
+#searchAutocompleteList {
+	margin-top: 0.4em;
+	border: none;
+	max-height: 7.2em;
+	overflow-y: auto;
+}
+.autocompleteItems {
+	position: absolute;
+	border: 1px solid var(--dark);
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	top: 100%;
+	left: 0;
+	right: 0;
+}
+.autocompleteItems li {
+	padding: 10px;
+	cursor: pointer;
+	background-color: var(--light);
+	border: 1px solid var(--dark);
+	border-top: none;
+}
+.autocompleteItems li:hover {
+	background-color: #e9e9e9;
+}
+.autocompleteActive {
+	background-color: var(--dark) !important;
+	color: var(--light);
 }
