@@ -1,14 +1,42 @@
 class messageController {
 
     constructor() {
-        this.messages = {
-            '1': "Success",
-            '2': "Error message here"
+        this.messageClass = 'message--';
+
+        this.messageObjects = {
+            '1': {
+                'message': "Successfully updated",
+                'message_class': `${this.messageClass}success`
+            },
+            '2': {
+                'message': "Successfully saved",
+                'message_class': `${this.messageClass}success`
+            },
+            '3': {
+                'message': "Successfully created",
+                'message_class': `${this.messageClass}success`
+            },
+            '4': {
+                'message': "Failed to save",
+                'message_class': `${this.messageClass}error`
+            },
+            '4': {
+                'message': "Failed to update",
+                'message_class': `${this.messageClass}error`
+            },
+            '5': {
+                'message': "Failed to load",
+                'message_class': `${this.messageClass}error`
+            },
+            '6': {
+                'message': "Something went wrong",
+                'message_class': `${this.messageClass}error`
+            },
         };
     }
 
     getMessage(key) {
-        return this.messages[key];
+        return this.messageObjects[key];
     }
 }
 
