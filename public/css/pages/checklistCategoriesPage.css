@@ -8,16 +8,16 @@
     justify-self: center;
 }
 
-.layout__categories > header {
-    grid-column: 1 / -1;
-}
+    .layout__categories > header {
+        grid-column: 1 / -1;
+    }
 
 @media screen and (max-width: 950px) {
     .layout__categories {
         grid-template-columns: 1fr;
     }
 
-    .layout__categories > header {
-        display: none;
-    }
+        .layout__categories > header {
+            display: none;
+        }
 }

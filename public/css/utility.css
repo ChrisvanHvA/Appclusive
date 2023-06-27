@@ -1,7 +1,9 @@
 /* ---------------------------------- */
 /*            #GENERAL                */
 /* ---------------------------------- */
-.hide { display: none !important; }
+.hide { 
+    display: none !important; 
+}
 
 hr { 
     height: 0.1875rem;
@@ -24,7 +26,6 @@ a {
     color: var(--primary-color);
     font-weight: 700;
 }
-
 
 button.code {
     position: relative;
@@ -124,7 +125,6 @@ button {
     background-color: var(--light);
 }
 
-
 .btn--cancel {
     color: var(--tertiary-text);
     font-weight: 700;
@@ -177,7 +177,6 @@ button {
     .layout:not(.layout__login) .page-title h1 {
         display: inline-block;
     }
-
 }
 
 /* ---------------------------------- */
@@ -309,6 +308,7 @@ input[type="radio"]:checked::after {
         height: 1rem;
         color: var(--secondary-text);
     }
+
 /* ---------------------------------- */
 /*            #PROGRESS               */
 /* ---------------------------------- */

@@ -5,107 +5,106 @@
     max-width: 23.375rem;
 }
 
-.checklist__sidebar > input {
-	appearance: none;
-	display: none;
-	position: absolute;
-	top: var(--toggle-button-top);
-	opacity: 0;
-}
-
-.checklist__sidebar > label {
-	display: none;
-	align-items: center;
-	justify-content: center;
-	position: fixed;
-	top: var(--toggle-button-top);
-	right: 0;
-	width: 3.5rem;
-	height: 3rem;
-	background-color: var(--primary-bg);
-	border-radius: 50% 0 0 50%;
-	cursor: pointer;
-	border: solid 2px var(--primary-color);
-	border-right: none;
-	z-index: 3;
-}
-
-	.checklist__sidebar > label i {
-		font-size: 1.5rem;
-		color: var(--primary-color);
-	}
-
-.checklist__sidebar .backdrop {
-	display: none;
-	position: fixed;
-	inset: 0;
-	opacity: 0;
-	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 2;
-	pointer-events: none;
-}
-
-.checklist__sidebar aside {
-    gap: 1.25rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-    .checklist__sidebar aside h3 {
-        margin-bottom: 0.62rem;
-        font-size: 1rem;  
+    .checklist__sidebar > input {
+        appearance: none;
+        display: none;
+        position: absolute;
+        top: var(--toggle-button-top);
+        opacity: 0;
     }
 
-    .checklist__sidebar aside .progress {
-        --progress-bar-height: 1rem;
+    .checklist__sidebar > label {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: var(--toggle-button-top);
+        right: 0;
+        width: 3.5rem;
+        height: 3rem;
+        background-color: var(--primary-bg);
+        border-radius: 50% 0 0 50%;
+        cursor: pointer;
+        border: solid 2px var(--primary-color);
+        border-right: none;
+        z-index: 3;
     }
 
-    @media (prefers-reduced-motion: no-preference){
-        .checklist__sidebar .progress[value]::-webkit-progress-value {
-            transition: width .5s ease-in-out, background-color .5s ease-in-out, border-color .5s ease-in-out;
+        .checklist__sidebar > label i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
-    
-        /* if value is 100 */
-    
-        .checklist__sidebar .progress[value='100']::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            width: calc(100% + 2rem);
-            height: calc(100% + 2rem);
-    
-            border-radius: 3rem;
-    
-            animation: fadeIn 1s ease-in-out forwards;
-            animation-delay: .4s;
-        }
-    
-        @keyframes fadeIn {
-            0% {
-                transform: translate(-50%, -50%) scale(0);
-                opacity: 0;
-                background-color: rgba(24, 184, 144, 0.5);
-            }
-    
-            60% {
-                transform: translate(-50%, -50%) scale(1.05);
-                opacity: 1;
-                background-color: rgba(24, 184, 144, 0.5);
-            }
-    
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0;
-                background-color: rgba(24, 184, 144, 0.5);
-            }
-        }
-    
+
+    .checklist__sidebar .backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        pointer-events: none;
     }
+
+    .checklist__sidebar aside {
+        gap: 1.25rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+        .checklist__sidebar aside h3 {
+            margin-bottom: 0.62rem;
+            font-size: 1rem;  
+        }
+
+        .checklist__sidebar aside .progress {
+            --progress-bar-height: 1rem;
+        }
+
+@media (prefers-reduced-motion: no-preference){
+    .checklist__sidebar .progress[value]::-webkit-progress-value {
+        transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+    }
+
+    /* if value is 100 */
+    .checklist__sidebar .progress[value='100']::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        width: calc(100% + 2rem);
+        height: calc(100% + 2rem);
+
+        border-radius: 3rem;
+
+        animation: fadeIn 1s ease-in-out forwards;
+        animation-delay: 0.4s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            background-color: rgba(24, 184, 144, 0.5);
+        }
+
+        60% {
+            transform: translate(-50%, -50%) scale(1.05);
+            opacity: 1;
+            background-color: rgba(24, 184, 144, 0.5);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+            background-color: rgba(24, 184, 144, 0.5);
+        }
+    }
+
+}
 
     .checklist__sidebar aside .sidebar__infoicon {
         display: none;
@@ -153,22 +152,27 @@
     align-items: center;
     margin-top: 0.75rem;
 }
-.checklist__sidebar aside ul li span {
-    margin-left: 0.625rem;
-}
+
+    .checklist__sidebar aside ul li span {
+        margin-left: 0.625rem;
+    }
+
     .checklist__sidebar aside ul li img {
         margin-right: 0.625rem;
     }
+
     .checklist__sidebar aside ul li p {
         margin-right: 0.625rem;
     }
     .checklist__sidebar aside ul li p:last-child {
         color: var(--tertiary-text);
     }
+
     .checklist__sidebar aside h2 {
         margin-bottom: 2.5rem;
         font-size: 1.3rem;
     }
+
     .checklist__sidebar aside button.btn {
         margin-top: 0.75rem;
         width: 100%;
@@ -193,64 +197,65 @@
         }
 
 @media screen and (max-width: 950px) {
+
 	.checklist__sidebar {
 		position: absolute;
 	}
 
-	.checklist__sidebar > label {
-		display: flex;
-	}
-
-	.checklist__sidebar > input {
-		display: block;
-	}
-
-	.checklist__sidebar > input:checked + label {
-		right: var(--mobile-sidebar-width);
-	}
-
-	.checklist__sidebar .backdrop {
-		display: block;
-	}
-
-	.checklist__sidebar > input:checked ~ .backdrop {
-		opacity: 1;
-		pointer-events: auto;
-	}
-
-    .checklist__sidebar aside {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        width: var(--mobile-sidebar-width);
-        z-index: 2;
-
-        background-color: var(--primary-bg);
-        padding: 2.5rem 1.5rem;
-        right: calc(-1 * var(--mobile-sidebar-width));
-    }
-        .checklist__sidebar > input:checked ~ aside {
-            right: 0;
+        .checklist__sidebar > label {
+            display: flex;
         }
 
-		.checklist__sidebar > input:not(:checked) ~ aside * {
-			display: none;
-		}
+        .checklist__sidebar > input {
+            display: block;
+        }
 
-    .checklist__sidebar aside .sidebar__infoicon {
-        position: absolute;
-        top: 10.8rem;
-        left: -3.7rem;
-        display: flex;
-        align-items: center;
-        padding: 0.5rem;
-        padding-right: 2rem;
-        background-color: var(--primary-bg);
-        border: 2px solid var(--primary-color);
-        border-right: none;
-        border-radius: 1.5rem 0 0 1.5rem;
-        outline: 2px solid var(--primary-bg);
-    }
+        .checklist__sidebar > input:checked + label {
+            right: var(--mobile-sidebar-width);
+        }
+
+        .checklist__sidebar .backdrop {
+            display: block;
+        }
+
+        .checklist__sidebar > input:checked ~ .backdrop {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .checklist__sidebar aside {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: var(--mobile-sidebar-width);
+            z-index: 2;
+
+            background-color: var(--primary-bg);
+            padding: 2.5rem 1.5rem;
+            right: calc(-1 * var(--mobile-sidebar-width));
+        }
+            .checklist__sidebar > input:checked ~ aside {
+                right: 0;
+            }
+
+            .checklist__sidebar > input:not(:checked) ~ aside * {
+                display: none;
+            }
+
+        .checklist__sidebar aside .sidebar__infoicon {
+            position: absolute;
+            top: 10.8rem;
+            left: -3.7rem;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            padding-right: 2rem;
+            background-color: var(--primary-bg);
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 1.5rem 0 0 1.5rem;
+            outline: 2px solid var(--primary-bg);
+        }
 
 		.checklist__sidebar > input:focus-visible + label,
 		.checklist__sidebar > input:hover + label {
@@ -263,7 +268,9 @@
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
+
     @media screen and (max-width: 950px) {
+        
 		.checklist__sidebar:not(.no-transition) > label {
 			transition: background-color 0.2s ease-in-out, right 0.5s ease-in-out;
 		}
