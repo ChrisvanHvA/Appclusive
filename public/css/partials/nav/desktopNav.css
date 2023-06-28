@@ -88,7 +88,7 @@
 						text-align: center;
 					}
 
-					.nav__desktop li.profile-icon div {
+					.nav__desktop li.profile-icon .profile-pic {
 						width: var(--icon-width);
 						border-color: var(--light);
 						flex-shrink: 0;

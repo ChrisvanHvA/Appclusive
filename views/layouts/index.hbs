@@ -33,10 +33,15 @@
 		{{#if loading}}
 			{{>loading}}
 		{{/if}}
+
 		<div class="message message--system {{#if system_message}}{{system_message.message_class}}{{/if}} animate animate--slide {{#unless system_message}}hide{{/unless}}">
 			<p>{{system_message.message}}</p>
 		</div>
 
 		{{{body}}}
+
+		{{#if (and dialog_message dialog_trigger)}}
+			<script src="/js/dialog.js" type="module"></script>
+		{{/if}}
 	</body>
 </html>

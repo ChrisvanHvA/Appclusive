@@ -109,7 +109,7 @@ main.layout__project-create .project__level section aside {
 			gap: 1rem;
 		}
 		
-			.project__level section aside div[aria-labelledby="level-label"] label {
+			.project__level section aside div[aria-labelledby^="level-label"] label {
 				display: flex;
 				flex-direction: column;
 				height: 100%;
@@ -118,22 +118,32 @@ main.layout__project-create .project__level section aside {
 				border: 2px solid var(--primary-color);
 				border-radius: var(--card-border-radius);
 			}
-			.project__level section aside div[aria-labelledby="level-label"] label:hover {
+			.project__level section aside div[aria-labelledby^="level-label"] label:hover {
 				color: var(--primary-color);
 			}
-			.project__level section aside div[aria-labelledby="level-label"] label:hover h3 {
+			.project__level section aside div[aria-labelledby^="level-label"] label:hover h3 {
 				text-decoration: underline;
 			}
-			.project__level section aside div[aria-labelledby="level-label"] input:checked + label {
+			.project__level section aside div[aria-labelledby^="level-label"] input:checked + label {
 				color: var(--light);
 				background-color: var(--primary-color);
 			}
-
-			.project__level section aside div[aria-labelledby="level-label"] input:checked + label .project__level__check {
+			.project__level section aside div[aria-labelledby^="level-label"] input:focus-visible + label {
+				position: relative;
+			}
+			.project__level section aside div[aria-labelledby^="level-label"] input:focus-visible + label::after {
+				content: url(../../images/chevron_up.svg);
+				position: absolute;
+				bottom: -2rem;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+	
+			.project__level section aside div[aria-labelledby^="level-label"] input:checked + label .project__level__check {
 				opacity: 1;
 			}
 			
-				.project__level section aside div[aria-labelledby="level-label"] input:checked + label {
+				.project__level section aside div[aria-labelledby^="level-label"] input:checked + label {
 					color: var(--light);
 				}
 			
@@ -144,7 +154,14 @@ main.layout__project-create .project__level section aside {
 				}
 		
 		.layout__project-create .project__level input {
-			display: none;
+			position: absolute;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			border: 0;
 		}
 
 		.project__level section h3 {

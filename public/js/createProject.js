@@ -20,5 +20,3 @@ if (descriptionInput && descriptionCharCount) {
         descriptionInput.dispatchEvent(new Event('input'));
     }
 }
-
-form?.addEventListener('submit', validateForm);

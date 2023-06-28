@@ -12,18 +12,18 @@
 	name="wcag_{{wcag_item_id}}"
 	{{#if is_completed}}checked{{/if}} 
 	value="{{is_completed}}" 
-	/>
+	>
 
 	<label for="wcag_{{wcag_item_id}}">
-		<span>
+		<span class="checklist__icon">
 			<i class="fa-solid fa-check"></i>
 		</span>
 
-		<div class="checklist__content">
+		<span class="checklist__content">
 			<h4>{{title}} <span>({{wcag_level}})</span></h4>
 			<p>{{{description}}}</p>
 
-			<div class="checklist__details">
+			<span class="checklist__details">
 				<details>
 					<summary>
 						<p>
@@ -35,7 +35,7 @@
 					<a class="checklist__source" target="_blank" href={{ref_link}}><i class="icon fa-solid fa-up-right-from-square"></i>View WCAG details</a>
 				</details>
 
-				<div class="checklist__users">
+				<span class="checklist__users">
 					{{#if isAdmin}}
 						<button aria-label="Assign users" class="btn--user hide" type="button">
 							<i class="icon fa-solid fa-user-plus"></i>
@@ -54,9 +54,9 @@
 							{{>profilePicture imgUrl=this.profile_pic fullName=this.full_name}}
 						{{/each}}
 					{{/if}}
-				</div>
-			</div>
-		</div>
+				</span>
+			</span>
+		</span>
 		<button aria-label="Checklist item" tabindex="-1" type="submit" data-checklist-button></button>
 	</label>
 </form>

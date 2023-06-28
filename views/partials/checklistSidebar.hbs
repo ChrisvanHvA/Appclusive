@@ -1,5 +1,5 @@
 <div class='checklist__sidebar'>
-    <input id='toggle-sidebar' type='checkbox' />
+    <input id='toggle-sidebar' type='checkbox'>
     <label for='toggle-sidebar' aria-label='toggle sidebar'>
 		<i class='icon fa-regular fa-circle-question'></i>
 	</label>
@@ -25,7 +25,6 @@
 
             <progress
                 class='progress'
-                min='0'
                 max='100'
                 value='{{calcProgress
                     project.completed_checklists
@@ -33,7 +32,7 @@
                 }}'
             ></progress>
 
-            <button class='hide' class='sidebar__buttons'>Close project</button>
+            <button class='sidebar__buttons hide'>Close project</button>
         </section>
 
         {{#if project.description}}

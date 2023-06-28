@@ -13,39 +13,39 @@
             <label for="first_name">First Name <span class="required">*</span></label>
             <input
                 aria-describedby="first_name-error"
-                type="name"
+                type="text"
                 name="first_name"
                 id="first_name"
                 placeholder="First Name"
                 data-input-type="first_name"
                 required
-            />
+            >
             <label id="first_name-error" class="message message--error {{#unless first_name-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{first_name-error}}</label>
         </fieldset>
 
         <section class="surname">
-            <fieldset class="form__section" id="insertion">
+            <fieldset class="form__section" id="insertionField">
                 <label for="insertion">Insertion</label>
                 <input
-                    type="name"
+                    type="text"
                     name="insertion"
                     id="insertion"
                     placeholder="Insertion"
                     data-input-type="insertion"
-                />
+                >
             </fieldset>
 
-            <fieldset class="form__section {{#if surname-error.length}} form__error {{/if}}" id="surname">
+            <fieldset class="form__section {{#if surname-error.length}} form__error {{/if}}" id="surnameField">
                 <label for="surname">Surname <span class="required">*</span></label>
                 <input
                     aria-describedby="surname-error"
-                    type="name"
+                    type="text"
                     name="surname"
                     id="surname"
                     placeholder="Surname"
                     data-input-type="surname"
                     required
-                />
+                >
                 <label id="surname-error" class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
             </fieldset>
         </section>
@@ -64,7 +64,7 @@
                 pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                 data-input-type="email_address"
                 required
-            />
+            >
             <label id="email_address-error" class="message message--error {{#unless email_address-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{email_address-error}}</label>
         </fieldset>
 
@@ -80,7 +80,7 @@
                     autocomplete="off"
                     data-input-type="password"
                     required
-                />
+                >
                 <label id="password-error" class="message message--error {{#unless password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{password-error}}</label>
             </fieldset>
 
@@ -95,7 +95,7 @@
                     autocomplete="off"
                     data-input-type="confirm_password"
                     required
-                />
+                >
                 <label id="confirm_password-error" class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{confirm_password-error}}</label>
             </fieldset>
         </section>

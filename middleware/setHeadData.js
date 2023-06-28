@@ -34,7 +34,7 @@ const data = {
     '/': {
         title: 'Dashboard',
         description: '',
-        scripts: ['copyOnClick', 'autocomplete', 'dashboard']
+        scripts: ['copyOnClick', 'autocomplete']
     },
     '/search': {
         title: 'Search',
@@ -45,7 +45,7 @@ const data = {
     '/new-project': {
         title: 'New Project | Appclusive',
         description: '',
-        scripts: ['createProject'],
+        scripts: [],
         backUrl: '/'
     },
     '/join-project': {
@@ -69,13 +69,13 @@ const data = {
     '/project/:projectId/settings': {
         title: 'Project settings',
         description: '',
-        scripts: ['createProject', 'copyOnClick'],
+        scripts: ['copyOnClick'],
         backUrl: '/project/:projectId/categories'
     },
     '/login': {
         title: 'Login',
         description: '',
-        scripts: ['login']
+        scripts: []
     },
     '/landing': {
         title: 'Appclusive | Landing',
