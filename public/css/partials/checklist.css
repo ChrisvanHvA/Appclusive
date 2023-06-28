@@ -163,6 +163,7 @@
     .checklist__content details a {
         color: var(--primary-color);
         font-style: italic;
+        text-decoration: underline;
         word-break: break-all;
     }
 
