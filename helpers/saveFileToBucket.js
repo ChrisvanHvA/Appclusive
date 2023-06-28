@@ -25,9 +25,9 @@ const saveFileToBucket = async (file, oldPath) => {
         return null;
     } else if (data && data.path) {
         if (oldPath) {
-            supabase.storage.from('user_avatars').remove([oldPath]);
+            supabase.storage.from('img').remove([oldPath]);
         }
-        return process.env.SUPABASE_AVATARS_BUCKET + data.path;
+        return data.path;
     }
 
     return null;
@@ -38,12 +38,12 @@ const saveFileToBucket = async (file, oldPath) => {
  *
  * @param {{originalname: string, buffer: Buffer, mimetype: string }} file - The file to be saved
  * @param {string|undefined} oldPath - The old file path (optional)
- * @returns {Promise<string|null>} - The saved file path or null if there was an error
+ * @returns promise<any> - The saved file path or null if there was an error
  */
-const saveFromMemory = async (file, fileExt) => {
+const saveFromMemory = async (file, fileExt, folder = 'user_avatars') => {
     const { data, error } = await supabase.storage
-        .from('user_avatars')
-        .upload(`${crypto.randomUUID()}.${fileExt}`, file.buffer, {
+        .from('img')
+        .upload(`${folder}/${crypto.randomUUID()}.${fileExt}`, file.buffer, {
             contentType: file.mimetype
         });
 
