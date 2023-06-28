@@ -56,6 +56,7 @@ router.post(
     handleValidationErrors('userSettings'),
     async (req, res) => {
         const submitData = mapObject(req.body, (value) => value);
+		delete submitData.theme;
         const user = req.user;
 
         const MessageController = new messageController();

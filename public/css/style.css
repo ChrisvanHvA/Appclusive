@@ -45,9 +45,7 @@
 }
 
 /* ------------- #DARK MODE ------------ */
-:root 
-.dark  
-{
+:root[data-theme="dark"] {
 	--primary-color: #3393FF;
 	
 	--primary-bg: #040505;
