@@ -98,6 +98,12 @@ const data = {
         description: '',
         scripts: []
     },
+    '/validator': {
+        title: 'Validator',
+        description: '',
+        scripts: ['validatorTool'],
+        backUrl: '/'
+    },
     '*': {
         title: 'Page not found',
         description: '',

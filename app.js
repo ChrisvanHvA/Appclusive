@@ -25,7 +25,6 @@ const port = process.env.PORT || 5500;
 const app = express();
 const server = http.createServer(app);
 
-
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 app.use('/', express.static(__dirname + '/'));

@@ -6,7 +6,7 @@
     display: grid;
     place-items: center;
     opacity: 0;
-    animation: opacity 1s forwards;
+    animation: opacity .2s forwards;
 }
 
 @keyframes opacity {

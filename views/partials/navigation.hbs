@@ -8,10 +8,17 @@
 				</a>
 			</li>
 
-			<li {{#if (eq head.currentPath '/search')}}class="active"{{/if}}>
+			{{!-- <li {{#if (eq head.currentPath '/new-project')}}class="active"{{/if}}>
 				<a href="/search">
 					<i class="fa-solid fa-magnifying-glass"></i>
 					<p>Search</p>
+				</a>
+			</li> --}}
+
+			<li {{#if (eq head.currentPath '/validator')}}class="active"{{/if}}>
+				<a href="/validator">
+					<i class="fa-solid fa-screwdriver-wrench"></i>
+					<p>Tools</p>
 				</a>
 			</li>
 

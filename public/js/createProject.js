@@ -24,29 +24,31 @@ if (descriptionInput && descriptionCharCount) {
 }
 
 const validateForm = (e) => {
-    if (titleError) {
-        titleError.textContent = '';
+	if (titleError) {
+		titleError.textContent = '';
 
-        if (!titleInput?.value) {
-            e.preventDefault();
-            titleError.textContent = 'A title is required';
-        }
-    }
+		if (!titleInput?.value) {
+			e.preventDefault();
+			titleError.textContent = 'A title is required';
+		}
+	}
 
-    if (levelError) {
-        levelError.textContent = '';
+	if (levelError) {
+		levelError.textContent = '';
+		
+		if (!levelInput?.value) {
+			e.preventDefault();
+			levelError.textContent = 'An accessibility level is required';
+		}
+	}
 
-        if (!levelInput?.value) {
-            e.preventDefault();
-            levelError.textContent = 'An accessibility level is required';
-        }
-    }
+	// while loading, show loading state
 
-    // while loading, show loading state
-    if (titleInput?.value && levelInput?.value) {
-        console.log('removing hide');
-        loadingState?.classList.remove('hide');
-    }
+
+	if(titleInput?.value && levelInput?.value) {
+		loadingState?.classList.remove('hide');
+	}
+
 };
 
 form?.addEventListener('submit', validateForm);
