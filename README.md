@@ -79,7 +79,8 @@ We need to build an online application called Appclusive that helps UX-designers
 
 ## The solution
 
-TADAAA!!! ✨link✨
+TADAAA!!! ✨[Link](https://appclusive-production.up.railway.app/landing)
+✨
 
 Just kidding.
 
@@ -111,5 +112,3 @@ As you might know, project are almost never finished since we can always improve
 - Sort on tasks assigned to you
 - Live updating on checklist items
 - Remove categories from project that are not relevant
-
-## Code explanation?
