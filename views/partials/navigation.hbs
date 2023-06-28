@@ -24,9 +24,7 @@
 
 			<li class="profile-icon">
 				<a href="/settings">
-					<div>
-						<img src="{{#if user.profile_pic}}{{user.profile_pic}}{{else}}../../public/images/no_img.png{{/if}}" alt="profile picture of {{user.first_name}}" />
-					</div>
+					{{> profilePicture imgUrl=user.profile_pic fullName=user.full_name}}
 					<p>Account</p>
 				</a>
 			</li>
@@ -60,7 +58,7 @@
 
 		{{#if (eq title 'Settings')}}
 			<form method="POST" action="/settings" enctype="multipart/form-data" class="content-avatar">
-				<img src="{{avatar}}" alt="profile picture of {{user.first_name}}" class="avatar" />
+				{{> profilePicture imgUrl=avatar fullName=user.full_name imgClass="avatar"}}
 				<label aria-label="edit profile picture">
 					<i class="fa-solid fa-pencil"></i>
 					<input type="file" name="avatar" />
