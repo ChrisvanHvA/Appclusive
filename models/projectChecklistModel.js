@@ -21,7 +21,7 @@ class projectChecklistModel {
 
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -50,7 +50,7 @@ class projectChecklistModel {
 
             return updated.project_checklists_id ? true : false;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -88,7 +88,7 @@ class projectChecklistModel {
 
             return data;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -131,7 +131,7 @@ class projectChecklistModel {
 
             return data;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -158,7 +158,7 @@ class projectChecklistModel {
 				)
 			`;
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 
@@ -184,7 +184,7 @@ class projectChecklistModel {
 				)
 			`;
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 	}
 }

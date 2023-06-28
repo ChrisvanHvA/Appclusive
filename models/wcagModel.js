@@ -17,7 +17,7 @@ class wcagModel {
 
             return category || null;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -38,7 +38,7 @@ class wcagModel {
 
             return category || null;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -57,7 +57,7 @@ class wcagModel {
 
             return categories;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return [];
         }
     }
@@ -85,7 +85,7 @@ class wcagModel {
 
             return wcagItem;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return [];
         }
     }

@@ -25,7 +25,7 @@ class projectModel {
 			`;
             return insertedRow.project_id ?? 0;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return 0;
         }
     }
@@ -52,7 +52,7 @@ class projectModel {
 
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -75,7 +75,7 @@ class projectModel {
             ]);
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -98,7 +98,7 @@ class projectModel {
 
             return project;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -123,7 +123,7 @@ class projectModel {
 
             return project;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -171,7 +171,7 @@ class projectModel {
 
             return projects;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return [];
         }
     }

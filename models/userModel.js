@@ -38,7 +38,7 @@ class UserModel {
             `;
             return insertedRow.user_id ?? 0;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return 0;
         }
     }
@@ -60,7 +60,7 @@ class UserModel {
 
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -70,7 +70,7 @@ class UserModel {
      *
      * @param {number} user_id The user ID
      * @param {string} profile_pic The profile picture
-     * @returns {boolean} True if the update is successful, false otherwise
+     * @returns {promise<boolean>} True if the update is successful, false otherwise
      */
     async updateProfilePic(user_id, profile_pic) {
         try {
@@ -81,7 +81,7 @@ class UserModel {
             `;
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -102,7 +102,7 @@ class UserModel {
             `;
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -125,7 +125,7 @@ class UserModel {
 
             return user || null;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -148,7 +148,7 @@ class UserModel {
 
             return user || null;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }

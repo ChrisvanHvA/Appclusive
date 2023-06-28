@@ -25,7 +25,7 @@ class projectUserModel {
             `;
             return insertedRow.project_users_id ?? 0;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return 0;
         }
     }
@@ -49,7 +49,7 @@ class projectUserModel {
 
             return result;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -75,7 +75,7 @@ class projectUserModel {
 
             return result;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return [];
         }
     }
@@ -99,7 +99,7 @@ class projectUserModel {
 			`;
 			return is_admin ?? false;
         } catch (error) {
-            console.log(error);
+            console.error(error);
 			return false;
         }
     }

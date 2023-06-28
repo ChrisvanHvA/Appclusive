@@ -50,7 +50,7 @@ const createProject = async (projectData, user_id) => {
 
         return { completedInsert: true, projectId: projectId };
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return { completedInsert: false, projectId: projectId };
     }
 };

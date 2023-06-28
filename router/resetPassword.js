@@ -38,10 +38,10 @@ router.get('/:id/:token', async (req, res, next) => {
                 email: user.email_address
             });
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 });
 
@@ -80,10 +80,10 @@ router.post('/:id/:token', async (req, res, next) => {
                 res.send('Failed to update password');
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 });
 

@@ -90,7 +90,7 @@ router.post(
         const updatedData = userModel.update(req.user.user_id, submitData);
 
         if (!updatedData) {
-            console.log('failed to update user');
+            console.error('failed to update user');
             messageKey = MessageController.getMessageKeyByType(
                 'user_update',
                 'fail'

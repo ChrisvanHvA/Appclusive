@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
             message: 'Password updated successfully'
         });
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 });
 
