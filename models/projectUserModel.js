@@ -81,6 +81,38 @@ class projectUserModel {
     }
 
     /**
+     * Async function to get a specific users associated with a project by their user_id
+     *
+     * @param {number} user_id The user ID
+     * @param {number} project_id The project ID
+     * @returns object - An object of the project user
+     */
+    async getProjectUserByUserId(user_id = 0, project_id = 0) {
+        try {
+
+            if (project_id == 0 || user_id == 0) {
+                return null;
+            }
+
+            const [result] = await sql`
+                SELECT u.*, CONCAT_WS(' ',
+				  u.first_name,
+				  NULLIF(u.insertion, ''),
+				  u.surname
+				) AS "full_name", pc.is_admin
+                FROM project_users AS pc
+                LEFT JOIN users AS u ON u.user_id = pc.user_id
+                WHERE pc.project_id = ${project_id} AND pc.user_id = ${user_id}
+		  `;
+
+            return result || null;
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
+    }
+
+    /**
      * Async function to check if a user is an admin of a project
      *
      * @param {number} projectId The project ID
@@ -88,19 +120,20 @@ class projectUserModel {
      * @returns {boolean} True if the user is an admin, false otherwise
      */
     async isAdmin(projectId, userId) {
-		if (!projectId || !userId) return false;
-		
+        if (!projectId || !userId) return false;
+
         try {
-			const [{ is_admin }] = await sql`
+            const [{ is_admin }] = await sql`
 				SELECT is_admin
 					FROM project_users
 					WHERE project_id = ${projectId}
 					AND user_id = ${userId}
 			`;
-			return is_admin ?? false;
+
+            return is_admin ?? false;
         } catch (error) {
             console.error(error);
-			return false;
+            return false;
         }
     }
 }

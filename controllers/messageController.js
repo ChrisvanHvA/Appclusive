@@ -80,10 +80,15 @@ class messageController {
                 'message_class': `${this.messageClass}success`,
                 'type': ['assigned_task', 'success']
             },
-            '9': {
+            '16': {
                 'message': "Project deleted",
                 'message_class': `${this.messageClass}success`,
                 'type': ['project_delete', 'success']
+            },
+            '17': {
+                'message': "You already joined this project",
+                'message_class': `${this.messageClass}success`,
+                'type': ['already_joined']
             },
         };
     }

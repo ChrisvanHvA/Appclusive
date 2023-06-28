@@ -48,7 +48,18 @@ router.get('/', async (req, res) => {
 
 router.post('/submit', async (req, res) => {
     const jsonReturn = req.query.json;
-    const updatedStatus = req.body.is_completed === 'true' ? false : true;
+    let updatedStatus = req.body.is_completed === 'true' ? false : true;
+
+    const checklistFromDb =
+        await ProjectChecklistModel.getSpecificChecklistItemByProjectId(
+            req.params.projectId,
+            req.body.wcag_item_id
+        );
+
+    // Someone updated it already!
+    if (checklistFromDb && checklistFromDb.is_completed != req.body.is_completed) {
+        updatedStatus = checklistFromDb.is_completed;
+    }
 
     const updateChecklist =
         await ProjectChecklistModel.updateChecklistCompletion(

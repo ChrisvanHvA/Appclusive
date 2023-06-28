@@ -3,7 +3,7 @@ import sql from '../config/db.js';
 class projectChecklistModel {
     constructor() {}
 
-	/**
+    /**
      * Async function to update the assignees of a checklist item within a project
      *
      * @param {number[]} assignees The assignees to be updated
@@ -55,7 +55,7 @@ class projectChecklistModel {
         }
     }
 
-	/**
+    /**
      * Async function to retrieve project category data
      *
      * @param {number} project_id The project ID
@@ -66,24 +66,47 @@ class projectChecklistModel {
             return null;
         }
         try {
+            // const data = await sql`
+			// SELECT wc.*,
+			// (
+			// 	SELECT COUNT(wi.*) 
+			// 	FROM project_checklists AS pc
+			// 	LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+			// 	LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+			// 	WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
+			// ) AS all_checklists,
+			// (
+			// 	SELECT COUNT(wi.*) 
+			// 	FROM project_checklists AS pc
+			// 	LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+			// 	LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+			// 	WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
+			// ) AS completed_checklists
+			// FROM wcag AS wc
+			// ORDER BY completed_checklists ASC, wc.wcag_id;
+			// `;
             const data = await sql`
-			SELECT wc.*,
-			(
-				SELECT COUNT(wi.*) 
-				FROM project_checklists AS pc
-				LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
-				LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
-				WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
-			) AS all_checklists,
-			(
-				SELECT COUNT(wi.*) 
-				FROM project_checklists AS pc
-				LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
-				LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
-				WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
-			) AS completed_checklists
-			FROM wcag AS wc
-			ORDER BY wc.wcag_id;
+			SELECT *
+                FROM (
+                SELECT wc.*,
+                    (
+                    SELECT COUNT(wi.*) 
+                    FROM project_checklists AS pc
+                    LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+                    LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+                    WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id}
+                    ) AS all_checklists,
+                    (
+                    SELECT COUNT(wi.*) 
+                    FROM project_checklists AS pc
+                    LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
+                    LEFT JOIN wcag AS wc_parent ON wc_parent.wcag_id = wi.parent_id
+                    WHERE wc_parent.wcag_id = wc.wcag_id AND pc.project_id = ${project_id} AND pc.is_completed = TRUE
+                    ) AS completed_checklists
+                FROM wcag AS wc
+                ) AS subquery
+                ORDER BY completed_checklists = all_checklists ASC, wcag_id;
+
 			`;
 
             return data;
@@ -93,7 +116,7 @@ class projectChecklistModel {
         }
     }
 
-	/**
+    /**
      * Async function to list checklist items for a given parent ID and project ID
      *
      * @param {number} parentId The parent ID
@@ -126,7 +149,8 @@ class projectChecklistModel {
 			) AS assignees
 			FROM project_checklists AS pc
 			LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
-			WHERE pc.project_id = ${projectId} AND wi.parent_id = ${parentId};
+			WHERE pc.project_id = ${projectId} AND wi.parent_id = ${parentId}
+            ORDER BY pc.is_completed ASC;
 			`;
 
             return data;
@@ -136,7 +160,7 @@ class projectChecklistModel {
         }
     }
 
-	/**
+    /**
      * Async function to add new project checklists based on the WCAG level of the project
      *
      * @param {number} projectId The project ID
@@ -162,15 +186,15 @@ class projectChecklistModel {
         }
     }
 
-	/**
+    /**
      * Async function to delete all project checklists above the project level
      *
      * @param {number} projectId The project ID
      * @returns promise<void>
      */
-	async deleteProjectChecklists(projectId) {
-		try {
-			await sql`
+    async deleteProjectChecklists(projectId) {
+        try {
+            await sql`
 				DELETE FROM project_checklists
 				WHERE project_id = ${projectId}
 				AND wcag_item_id IN (
@@ -183,10 +207,35 @@ class projectChecklistModel {
 					)
 				)
 			`;
-		} catch (error) {
-			console.error(error);
-		}
-	}
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    /**
+     * Async function to get a specific checklist item based on project_id and wcag_item_id
+     *
+     * @param {number} projectId The project ID
+     * @returns object - The project category data
+     */
+    async getSpecificChecklistItemByProjectId(projectId = 0, wcag_item_id = 0) {
+        try {
+            if (projectId == 0 || wcag_item_id == 0) {
+                return null;
+            }
+
+            const [item] = await sql`
+				SELECT *
+                FROM project_checklists
+                WHERE project_id = ${projectId} AND wcag_item_id = ${wcag_item_id}
+			`;
+
+            return item || null;
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
+    }
 }
 
 export default projectChecklistModel;

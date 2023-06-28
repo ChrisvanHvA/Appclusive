@@ -38,13 +38,23 @@ router.post(
         }
 
         const ProjectUserModel = new projectUserModel();
-        await ProjectUserModel.insert({
-            project_id: project.project_id,
-            user_id: res.locals.user.user_id,
-            is_admin: false
-        });
+        const doesUserAlreadyExist = await ProjectUserModel.getProjectUserByUserId(res.locals.user.user_id, project.project_id);
 
-        const messageKey = MessageController.getMessageKeyByType('joined');
+        let messageKey = MessageController.getMessageKeyByType('joined');
+
+        if (!doesUserAlreadyExist) {
+            await ProjectUserModel.insert({
+                project_id: project.project_id,
+                user_id: res.locals.user.user_id,
+                is_admin: false
+            });  
+            
+            return res.redirect(
+                `/project/${project.project_id}/categories?m=${messageKey}`
+            );
+        }
+
+        messageKey = MessageController.getMessageKeyByType('already_joined');
         return res.redirect(
             `/project/${project.project_id}/categories?m=${messageKey}`
         );
