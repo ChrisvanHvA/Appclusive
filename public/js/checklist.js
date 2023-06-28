@@ -1,16 +1,20 @@
 // import does not need to be called, it will run automatically
 import noTransitionOnResize from './informationSidebar.js';
 
-const checklistIdInput = document.querySelector('input[name="wcag_item_id"][type="hidden"]');
+const checklistIdInput = document.querySelector(
+    'input[name="wcag_item_id"][type="hidden"]'
+);
 const assignDialog = document.querySelector('.dialog-assign_users');
 
 const toggleAssignDialog = (e) => {
-	e.stopPropagation();
+    e.stopPropagation();
 
-	assignDialog?.showModal();
+    assignDialog?.showModal();
 
     const form = e.currentTarget.closest('form');
-    const checklistAssignees = form.querySelector('input[name="checklist_assignees"]').value;
+    const checklistAssignees = form.querySelector(
+        'input[name="checklist_assignees"]'
+    ).value;
 
     const checklistAssigneesArr = checklistAssignees.split(';');
 
@@ -20,22 +24,22 @@ const toggleAssignDialog = (e) => {
 
     checkboxes.forEach((checkbox) => {
         checkbox.checked = checklistAssigneesArr.includes(checkbox.value);
-    })
+    });
 
-	const id = form.getAttribute('data-checklist-id');
-	checklistIdInput.value = id;
+    const id = form.getAttribute('data-checklist-id');
+    checklistIdInput.value = id;
 };
 
 const projectId = document.querySelector('.hidden-project-id').value;
 const checkboxes = document.querySelectorAll('.checklist__checkbox');
 
 const init = () => {
-	const addUserButtons = document.querySelectorAll('.btn--user');
-	// init assign users dialog so it's only shown with js enabled
-	addUserButtons.forEach((button) => {
-		button.classList.remove('hide');
-		button.addEventListener('click', toggleAssignDialog);
-	});
+    const addUserButtons = document.querySelectorAll('.btn--user');
+    // init assign users dialog so it's only shown with js enabled
+    addUserButtons.forEach((button) => {
+        button.classList.remove('hide');
+        button.addEventListener('click', toggleAssignDialog);
+    });
 
     const checklistButtons = document.querySelectorAll(
         '[data-checklist-button]'
@@ -130,9 +134,11 @@ const updateProgress = () => {
     if (checkedCheckboxes.length === checkboxes.length) {
         const dialog = document.querySelector('.dialog-category_finished');
 
-        dialog ? setTimeout(() => {
-            dialog.showModal();
-        }, 1000): null;
+        dialog
+            ? setTimeout(() => {
+                  dialog.showModal();
+              }, 1000)
+            : null;
     }
 };
 

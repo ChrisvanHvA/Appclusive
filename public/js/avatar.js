@@ -1,7 +1,7 @@
 const avatars = document.querySelectorAll('.avatar');
 const avatarForms = document.querySelectorAll('.content-avatar');
 
-avatarForms.forEach((avatarForm) => {
+avatarForms?.forEach((avatarForm) => {
     avatarForm.classList.add('removeUpload');
     avatarForm.addEventListener('change', previewImage);
 });
