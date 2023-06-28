@@ -58,6 +58,8 @@
 	--secondary-text: #989898;
 	--tertiary-text: var(--secondary-text);
 
+	--icon-alt: #8bb6ff;
+
     /* --create-project-card-bg: #001C4D;  */
 }
 
