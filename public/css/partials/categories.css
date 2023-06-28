@@ -76,7 +76,7 @@
 		opacity: 0;
 	}
 
-    .category__item input[id^="flip"]:checked ~ a {
+    .category__item:has(input[id^="flip"]:checked)  a {
         transform: rotateY(180deg);
         transition: transform .5s;
     }
@@ -100,6 +100,7 @@
 
 .category__item__front {
     backface-visibility: hidden;
+    z-index: 1;
 }
 
     .category__item__front > .icon {
@@ -119,7 +120,7 @@
 /* ---------------------------------- */
 /*       little flip icon thingy      */
 /* ---------------------------------- */
-input[id^="flip"]:focus-visible + label {
+input[id^="flip"]:focus-visible ~ label {
 	outline: 2px solid var(--primary-color);
 	border-radius: 50%;
 	outline-offset: 5px;
