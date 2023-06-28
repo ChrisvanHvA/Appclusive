@@ -16,14 +16,18 @@
 		{{#each head.scripts}}
 			<script src="/js/{{this}}.js" type="module"></script>
 		{{/each}}
-		<script src="/js/theme.js" defer></script>
+		<script src="/js/state.js" defer></script>
+
+		{{#if (and dialog_message dialog_trigger)}}
+			<script src="/js/dialog.js" type="module"></script>
+		{{/if}}
 	</head>
 
 	<body {{#unless noNav}}class="page-with-nav"{{/unless}}>
 		{{#unless noNav}}{{> navigation}}{{/unless}}
 
 		{{#each dialog_messages}}
-			{{>dialog this projectUsers=../project.all_users projectId=../this.project.project_id}}
+			{{>dialog this env=../this.env projectUsers=../project.all_users projectId=../this.project.project_id}}
 		{{/each}}
 
 		{{#if loading}}
@@ -39,27 +43,5 @@
 		{{#if (and dialog_message dialog_trigger)}}
 			<script src="/js/dialog.js" type="module"></script>
 		{{/if}}
-		
-		{{!-- <script>
-
-			window.addEventListener('pageshow', (event) => {
-				if (event.persisted) {
-
-					console.log('This page was restored from the bfcache.');
-
-					const loadingState = document.querySelector('.loading');
-					console.log(loadingState);
-					console.log(loadingState.className);
-
-					if (loadingState) {
-						loadingState.classList.add('hide');
-					}
-
-				} else {
-					console.log('This page was loaded normally.');
-				}
-			});
-
-		</script> --}}
 	</body>
 </html>
