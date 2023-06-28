@@ -9,8 +9,8 @@
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
-	/* container-type: inline-size; */
-	container-type: normal;
+	container-type: inline-size;
+	/* container-type: normal; */
 }
 
 .profile-pic img {
@@ -23,6 +23,6 @@
 .profile-pic span {
 	position: absolute;
 	font-size: 1rem;
-	/* font-size: 50cqw; */
-	font-size: .9cqw;
+	font-size: 50cqw;
+	/* font-size: .9cqw; */
 }

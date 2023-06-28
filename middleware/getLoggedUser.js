@@ -3,11 +3,9 @@ const getLoggedUser = async (req, res, next) => {
     if (user) {
         res.locals.user = {
             ...user,
-            full_name: `
-			${user.first_name || ''} 
-			${user.insertion || ''} 
-			${user.last_name || ''}`
-			.trim()
+            full_name: `${user.first_name || ''}${
+                user.insertion ? ' ' + user.insertion : ''
+            } ${user.surname || ''}`.trim()
         };
     } else {
         res.locals.user = null;

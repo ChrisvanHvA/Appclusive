@@ -148,7 +148,7 @@ a[href="/logout"] {
 			.settings .settings__item-avatar div {
 				width: 12rem;
 				height: 12rem;
-				border: none;
+				border-color: var(--primary-color);
 			}
             
             .settings .settings__item-avatar input[type="file"] {

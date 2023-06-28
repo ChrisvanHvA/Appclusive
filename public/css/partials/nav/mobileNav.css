@@ -131,14 +131,11 @@
 		}
 
 		.nav__mobile .content-avatar div {
-			width: auto;
-			border: none;
+			width: 6.5rem;
+			height: 6.5rem;
+			border-color: var(--light);
+			background-color: var(--primary-color);
 		}
-
-			.nav__mobile .content-avatar img {
-				width: 6.5rem;
-				height: 6.5rem;
-			}
 
 			.nav__mobile .content-avatar input[type="file"] {
 				display: none;
