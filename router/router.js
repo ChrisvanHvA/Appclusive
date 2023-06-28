@@ -27,8 +27,8 @@ const routes = [
 	{ path: '/join-project', handler: joinProject, auth: true },
 
     { path: '/change-password', handler: changePassword, auth: true },
-    { path: '/forgot-password', handler: forgotPassword, auth: true },
-    { path: '/reset-password', handler: resetPassword, auth: true },
+    { path: '/forgot-password', handler: forgotPassword, auth: false },
+    { path: '/reset-password', handler: resetPassword, auth: false },
     { path: '/settings', handler: userSettings, auth: true },
     { path: '/login', handler: login, auth: false },
     { path: '/logout', handler: logout, auth: false },

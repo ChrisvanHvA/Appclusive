@@ -20,7 +20,7 @@
                 id="title"
                 placeholder="What would you like to name your project?"
                 required
-            />
+            >
             <label id="title-error" class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
         </fieldset>
 
@@ -43,7 +43,7 @@
             <section>
                 <aside>
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="a" name="wcag_level" value="A" role="radio" required />
+                        <input type="radio" id="a" name="wcag_level" value="A" role="radio" required >
                         <label for="a" id="level-label">
                             <h3>Level A: Essential</h3>
                             <p>If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</p>
@@ -52,7 +52,7 @@
                     </div>
 
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="aa" name="wcag_level" value="AA" role="radio" required checked />
+                        <input type="radio" id="aa" name="wcag_level" value="AA" role="radio" required checked >
                         <label for="aa" id="level-label">
                             <h3>Level AA: Ideal Support</h3>
                             <p>Required for multiple government and public body websites. 'Appclusive' strives for AA compliance.</p>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input aria-describedby="level-error" type="radio" id="aaa" name="wcag_level" value="AAA" role="radio" required />
+                        <input aria-describedby="level-error" type="radio" id="aaa" name="wcag_level" value="AAA" role="radio" required >
                         <label for="aaa" id="level-label">
                             <h3>Level AAA: Specialized Support</h3>
                             <p>This is typically reserved for parts of websites and web apps that serve a specialized audience.</p>
