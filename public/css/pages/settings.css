@@ -31,10 +31,10 @@ a[href="/logout"] {
     }
 
 .settings fieldset {
-    margin-top: 1.69rem;
+    margin-top: 1.65rem;
 }
 
-    .settings fieldset div:not(:first-of-type) {
+    .settings > fieldset > div:not(:first-of-type) {
         margin-top: 1rem;
     }
 
@@ -46,8 +46,20 @@ a[href="/logout"] {
         color: var(--tertiary-text);
     }
 
-.settings .settings__item-avatar {
+.settings .settings__item-avatar .img-container {
     display: none;
+}
+
+.settings .settings__item-avatar .theme-selector {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.settings .settings__item-avatar .theme-selector div {
+	display: flex;
+	align-items: center;
+	gap: .2rem;
 }
 
 .settings__item-input {
@@ -137,25 +149,28 @@ a[href="/logout"] {
         }
 
         .settings .settings__item-avatar {
-            position: relative;
-            display: block;
             grid-column: 2 / 3;
             grid-row: -1 / 3;
             align-self: flex-start;
             margin: 0 0 0 8rem;
         }
 
-			.settings .settings__item-avatar div {
+		.settings .settings__item-avatar .img-container {
+			display: block;
+			position: relative;
+		}
+
+			.settings .settings__item-avatar .img-container div {
 				width: 12rem;
 				height: 12rem;
 				border-color: var(--primary-color);
 			}
             
-            .settings .settings__item-avatar input[type="file"] {
+            .settings .settings__item-avatar .img-container input[type="file"] {
                 display: none;
             }
 
-            .settings .settings__item-avatar label {
+            .settings .settings__item-avatar .img-container label {
                 position: absolute;
                 bottom: 0;
                 right: 0;
@@ -172,8 +187,19 @@ a[href="/logout"] {
 				z-index: 2;
             }
 
-				.settings .settings__item-avatar label i {
+				.settings .settings__item-avatar .img-container label i {
 					font-size: 1rem;
 					color: var(--light);
 				}
+}
+
+
+
+/* ---------------------------------- */
+/*       ziek illegaal maar lol       */
+/* ---------------------------------- */
+/* beetje last minute */
+label[aria-label="edit profile picture"]:focus-visible {
+	outline-offset: 2px;
+	outline: solid 2px var(--primary-color);
 }

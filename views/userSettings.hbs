@@ -52,11 +52,27 @@
         </fieldset>
 
         <fieldset class="settings__item-avatar content-avatar">
-			{{>profilePicture imgUrl=avatar fullName=user.full_name imgClass="avatar"}}
-            <label aria-label="edit profile picture">
-                <i class="fa-solid fa-pencil"></i>
-                <input type="file" name="avatar" />
-            </label>
+			<section class="img-container">
+				{{>profilePicture imgUrl=avatar fullName=user.full_name imgClass="avatar"}}
+				<label tabindex="0" aria-label="edit profile picture">
+					<i class="fa-solid fa-pencil"></i>
+					<input type="file" name="avatar" />
+				</label>
+			</section>
+
+			<fieldset class="theme-selector">
+				<legend>Change theme</legend>
+
+				<div>
+					<input type="radio" id="light" name="theme" value="light"checked>
+					<label for="light">Light</label>
+				</div>
+
+				<div>
+					<input type="radio" id="dark" name="theme" value="dark">
+					<label for="dark">Dark</label>
+				</div>
+			</fieldset>
         </fieldset>
 
         <div>

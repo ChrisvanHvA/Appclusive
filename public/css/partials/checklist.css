@@ -171,7 +171,7 @@
     align-items: center;
     font-weight: 700;
     border: 2px solid var(--primary-color);
-    padding: 0.625rem 1.25rem;
+    padding: 0.25rem 0.75rem;
     color: var(--primary-color);
     border-radius: 50rem;
 }
@@ -199,7 +199,7 @@
 
     .checklist__content details[open] {
         border-radius: 0.9375rem;
-        padding: 0.625rem 1.25rem 1.25rem 1.25rem;
+        padding: 0.25rem 0.75rem;
         color: var(--primary-color);
         border: 2px solid var(--primary-color);
         border-radius: var(--card-border-radius);

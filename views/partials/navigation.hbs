@@ -66,7 +66,7 @@
 		{{#if (eq title 'Settings')}}
 			<form method="POST" action="/settings" enctype="multipart/form-data" class="content-avatar">
 				{{> profilePicture imgUrl=avatar fullName=user.full_name imgClass="avatar"}}
-				<label aria-label="edit profile picture">
+				<label tabindex="0" aria-label="edit profile picture">
 					<i class="fa-solid fa-pencil"></i>
 					<input type="file" name="avatar" />
 				</label>

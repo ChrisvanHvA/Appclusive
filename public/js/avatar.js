@@ -14,8 +14,9 @@ const previewImage = (e) => {
 
 const avatars = document.querySelectorAll('.avatar');
 const avatarForms = document.querySelectorAll('.content-avatar');
+const avatarInputs = document.querySelectorAll('.content-avatar input[type="file"]');
 
-avatarForms?.forEach((avatarForm) => {
-    avatarForm.classList.add('removeUpload');
-    avatarForm.addEventListener('change', previewImage);
+avatarInputs.forEach((avatarInput, i) => {
+    avatarForms[i].classList.add('removeUpload');
+    avatarInput.addEventListener('change', previewImage);
 });
