@@ -11,7 +11,6 @@ const copyToClipboard = async (e) => {
 
     try {
         await navigator.clipboard.writeText(textToCopy);
-        console.log('INVITE CODE copied to clipboard');
         inviteCode.setAttribute('data-tooltip', 'copied to clipboard');
         setTimeout(() => inviteCode.removeAttribute('data-tooltip'), 1500);
     } catch (err) {

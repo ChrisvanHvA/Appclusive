@@ -9,8 +9,8 @@ class UserModel {
     /**
      * Async function to insert a user into the database
      *
-     * @params insertData: Object - The data to be inserted
-     * @returns Number - The inserted user_id
+     * @param object insertData: The data to be inserted
+     * @returns {number} The inserted user_id
      */
     async insert(insertData) {
         try {
@@ -38,7 +38,7 @@ class UserModel {
             `;
             return insertedRow.user_id ?? 0;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return 0;
         }
     }
@@ -46,9 +46,9 @@ class UserModel {
     /**
      * Async function to update a user in the database
      *
-     * @params user_id: Number - The user ID
-     * @params updateData: Object - The data to be updated
-     * @returns Boolean - True if the update is successful, false otherwise
+     * @param {number} user_id: The user ID
+     * @param object updateData The data to be updated
+     * @returns {boolean} True if the update is successful, false otherwise
      */
     async update(user_id, updateData) {
         try {
@@ -60,7 +60,7 @@ class UserModel {
 
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -68,9 +68,9 @@ class UserModel {
     /**
      * Async function to update a user's profile picture in the database
      *
-     * @params user_id: Number - The user ID
-     * @params profile_pic: String - The profile picture
-     * @returns Boolean - True if the update is successful, false otherwise
+     * @param {number} user_id The user ID
+     * @param {string} profile_pic The profile picture
+     * @returns {promise<boolean>} True if the update is successful, false otherwise
      */
     async updateProfilePic(user_id, profile_pic) {
         try {
@@ -81,7 +81,7 @@ class UserModel {
             `;
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -89,9 +89,9 @@ class UserModel {
     /**
      * Async function to update a user's password in the database
      *
-     * @params user_id: Number - The user ID
-     * @params newPassword: String - The new password
-     * @returns Boolean - True if the update is successful, false otherwise
+     * @param {number} user_id The user ID
+     * @param {string} newPassword The new password
+     * @returns {boolean} True if the update is successful, false otherwise
      */
     async updatePassword(user_id, newPassword) {
         try {
@@ -102,40 +102,15 @@ class UserModel {
             `;
             return true;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
-        }
-    }
-
-    /**
-     *
-     * Async function to retrieve the current logged-in user
-     *
-     * @param user_id
-     * @returns Object - The current logged-in user
-     */
-	// todo: check if this is needed
-    async getCurrentLoggedUser() {
-        try {
-            if (this.user_id == 0) return {};
-
-            const [user] = await sql`
-                SELECT *
-                FROM users
-                WHERE user_id = ${this.user_id}
-            `;
-
-            return user || null;
-        } catch (error) {
-            console.log(error);
-            return null;
         }
     }
 
     /**
      * Async function to retrieve a user based on email address
      *
-     * @params email_address: String - The email address
+     * @param {string} email_address The email address
      * @returns Object - The user object
      */
     async getUserByEmail(email_address) {
@@ -150,7 +125,7 @@ class UserModel {
 
             return user || null;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
         }
     }
@@ -158,8 +133,8 @@ class UserModel {
     /**
      * Async function to retrieve a user based on user ID
      *
-     * @params user_id: Number - The user ID
-     * @returns Object - The user object
+     * @param {number} user_id: Number - The user ID
+     * @returns object - The user object
      */
     async getUser(user_id) {
         try {
@@ -173,28 +148,8 @@ class UserModel {
 
             return user || null;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return null;
-        }
-    }
-
-    /**
-     * Async function to retrieve a list of all users in the database
-     *
-     * @returns Array - An array of users
-     */
-	// todo: check if this is needed
-    async listUsers() {
-        try {
-            const users = await sql`
-                SELECT *
-                FROM users
-            `;
-
-            return users;
-        } catch (error) {
-            console.log(error);
-            return [];
         }
     }
 }

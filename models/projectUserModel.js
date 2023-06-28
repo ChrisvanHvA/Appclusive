@@ -6,8 +6,8 @@ class projectUserModel {
     /**
      * Async function to insert project users into db
      *
-     * @params insertData: Object - The data to be inserted
-     * @returns Number - The inserted row id
+     * @param insertData: Object - The data to be inserted
+     * @returns {number} - The inserted row id
      */
     async insert(insertData) {
         try {
@@ -25,7 +25,7 @@ class projectUserModel {
             `;
             return insertedRow.project_users_id ?? 0;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return 0;
         }
     }
@@ -33,9 +33,9 @@ class projectUserModel {
     /**
      * Async function to check if a user has access to a project
      *
-     * @params projectId: Number - The project ID
-     * @params userId: Number - The user ID
-     * @returns Boolean - True if the user has access, false otherwise
+     * @param {number} projectId The project ID
+     * @param {number} userId The user ID
+     * @returns {boolean} True if the user has access, false otherwise
      */
     async hasAccessToProject(projectId, userId) {
         try {
@@ -49,7 +49,7 @@ class projectUserModel {
 
             return result;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return false;
         }
     }
@@ -57,7 +57,7 @@ class projectUserModel {
     /**
      * Async function to list users associated with a project
      *
-     * @params projectId: Number - The project ID
+     * @param {number} projectId The project ID
      * @returns Array - An array of project users
      */
     async listProjectUsers(projectId) {
@@ -75,7 +75,7 @@ class projectUserModel {
 
             return result;
         } catch (error) {
-            console.log(error);
+            console.error(error);
             return [];
         }
     }
@@ -83,9 +83,9 @@ class projectUserModel {
     /**
      * Async function to check if a user is an admin of a project
      *
-     * @params projectId: Number - The project ID
-     * @params userId: Number - The user ID
-     * @returns Boolean - True if the user is an admin, false otherwise
+     * @param {number} projectId The project ID
+     * @param {number} userId The user ID
+     * @returns {boolean} True if the user is an admin, false otherwise
      */
     async isAdmin(projectId, userId) {
 		if (!projectId || !userId) return false;
@@ -99,7 +99,7 @@ class projectUserModel {
 			`;
 			return is_admin ?? false;
         } catch (error) {
-            console.log(error);
+            console.error(error);
 			return false;
         }
     }

@@ -55,7 +55,7 @@ router.post('/', async (req, res, next) => {
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                console.log(error);
+                console.error(error);
                 res.render('forgotPassword', {
                     noNav: true,
                     message: 'Error sending password reset email',
@@ -69,7 +69,7 @@ router.post('/', async (req, res, next) => {
             }
         });
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 });
 
