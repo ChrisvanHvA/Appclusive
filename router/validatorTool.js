@@ -20,6 +20,7 @@ router.post('/result', async (req, res) => {
         ...res.locals,
         title: 'Validator',
         validatorMessages: validatedHTML,
+        html: data,
         loading: true
     })
 })
@@ -41,6 +42,8 @@ async function validateHTML(html) {
 
         data.messages.forEach(message => {
             message.extract = message.extract.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            // remove /n
+            message.extract = message.extract.replace(/\n/g, '')
         })
     
         console.log('Validation complete.')

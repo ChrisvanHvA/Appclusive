@@ -1,12 +1,14 @@
 <main class="layout layout__validator">
 
-    {{>pageTitleHeader title="Validator"}}
+    <div class="validator__header">
+        {{>pageTitleHeader title="Validator"}}
 
-    <h2>Validate your HTML so it's ready for the web</h2>
+        <p>Validate your HTML so it's ready for the web</p>
+    </div>
 
-    <form class="validator__form" action="validator/result" method="POST">
-        <textarea class="textinput validator__text" id="html" name="html" placeholder="Paste your HTML here"></textarea>
-        <button class="btn" type="submit">Submit</button>
+    <form class="validator__form" action="/validator/result" method="POST">
+        <textarea class="textinput validator__text" id="html" name="html" placeholder="Paste your HTML here">{{#if html}}{{html}}{{/if}}</textarea>
+        <button class="btn" type="submit">Validate</button>
     </form>
 
 
@@ -39,9 +41,7 @@
                         {{/if}}
                         <h3>{{this.message}}</h3>
                         {{!-- <p>From line 1, column 1; to line 1, column 39</p> --}}
-                        <pre>
-{{{this.extract}}}
-                        </pre>
+                        <pre>{{{this.extract}}}</pre>
                     </li>
                 {{/each}}
             </ul>
