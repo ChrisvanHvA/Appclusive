@@ -1,8 +1,4 @@
-<input id='flip-{{slug}}' type='checkbox'>
-<label
-    aria-label='show info about {{title}}'
-    for='flip-{{slug}}'
-><i class='icon fa-regular fa-xl fa-circle-question'></i></label>
+
 
 <a aria-label="Category: {{title}}" href='/project/{{projectId}}?category={{slugify title}}'>
     <div class='category__item__front'>
@@ -15,6 +11,7 @@
             </div>
 
             <progress
+                aria-hidden="true"
                 class='progress'
                 max='100'
                 value='{{calcProgress completed_checklists all_checklists}}'
@@ -22,7 +19,7 @@
 
             <div>
                 <p class='category__acc'>{{calcProgress completed_checklists all_checklists}}%<span>&nbsp;completed</span></p>
-                <p>{{completed_checklists}} / {{all_checklists}}</p>
+                <p aria-hidden="true">{{completed_checklists}} / {{all_checklists}}</p>
             </div>
         </div>
     </div>
@@ -31,3 +28,10 @@
     </div>
 
 </a>
+
+<input id='flip-{{slug}}' type='checkbox' aria-hidden="true">
+
+<label
+    aria-label='show info about {{title}}'
+    for='flip-{{slug}}'
+><i class='icon fa-regular fa-xl fa-circle-question'></i></label>

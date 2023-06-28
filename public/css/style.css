@@ -87,3 +87,20 @@ body {
 		grid-template-columns: 1fr;
 	}
 }
+
+.skip-to-main-content-link {
+	position: absolute;
+	left: -999rem;
+	top: 30%;
+	z-index: 999;
+	padding: 1em;
+	background-color: black;
+	color: white;
+	opacity: 0;
+  }
+  .skip-to-main-content-link:focus,
+  .skip-to-main-content-link:focus-visible {
+    left: 50%;
+    transform: translateX(-100%);
+    opacity: 1;
+  }
