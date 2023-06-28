@@ -59,10 +59,10 @@ export default {
 		total = Number(total);
 		return Math.round((completed / total) * 100);
 	},
-    filterTasksByLevel: function (tasks, level) {
+    
+    filterTasksByLevel: (tasks, level) => {
         return tasks.filter(task => task.wcag_level === level);
     },
-
     // basically provides logical operator == !== || etc.
     // <3 handlebars
     eq: function () {
