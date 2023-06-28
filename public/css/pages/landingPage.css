@@ -1,37 +1,77 @@
 .landingHeader {
-    border-radius: 0 0 1rem 1rem;
     position: relative;
-    overflow: clip;
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding: 2rem;
+
+    color: var(--light);
     background-color: var(--primary-color);
-    height: 25rem;
-    color: white;
-    top: 0;
-    padding: 3rem 3rem 0 3rem;
+    border-radius: 0 0 1rem 1rem;
 }
 
+    .landingHeader .mobileHeader,
+    footer.landingFooter {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .landingHeader .mobileHeader {
+        margin-bottom: 4rem;
+        background-color: var(--primary-color);
+    }
+
+    footer.landingFooter {
+        padding: 2rem;
+        text-align: right;
+        background-color: var(--footer-bg);
+    }
+
+        footer.landingFooter a {
+            color: var(--light);
+        }
+        footer.landingFooter a:hover,
+        footer.landingFooter a:focus-visible {
+            text-decoration: underline;
+        }
+
+        .landingHeader .mobileHeader svg,
+        footer.landingFooter svg {
+            width: 6rem;
+        }
+
     .landingHeader h1 {
-        background-color: var(--primary-color);
-        font-size: 2.5rem;
+        width: 90%;
+        font-size: 2rem;
         font-weight: 700;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        width: 80%;
         line-height: normal;
-    }
-
-    .landingHeader h2 {
+        text-transform: uppercase;
         background-color: var(--primary-color);
-        margin-bottom: 5rem;
-        width: 70%;
-        position: relative;
-        line-height: normal;
-        z-index: 1;
-        padding: 0.5rem 0.5rem 0.5rem 0;
     }
 
-    .landingHeader .landingCircles {
+    .landingHeader > p {
+        position: relative;
+        margin: 1rem 0;
+        line-height: normal;
+        background-color: var(--primary-color);
+        z-index: 1;
+    }
+    .landingHeader > p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .landingHeader .eg img {
+        width: 100%;
+    }
+    .landingHeader .eg img:last-of-type {
+        display: none;
+    }
+
+    .landingHeader .landingTopbar {
+        display: none;
+    }
+
+    /* .landingHeader .landingCircles {
         top: 0;
         left: 0;
         overflow: clip;
@@ -69,226 +109,111 @@
             right: -20rem;
             width: 25rem;
             bottom: -13rem;
-        }
-
-    .landingHeader .landingTopbar {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-        .landingHeader .landingTopbar li:first-child {
-            display: block;
-            width: 10rem;
-            height: auto;
-            background-color: var(--primary-color);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .landingHeader .landingTopbar li:last-child {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .landingHeader .landingTopbar li:last-child span.topbarDivider {
-            display: block;
-            width: 0.1rem;
-            height: 2rem;
-            background-color: white;
-        }
+        } */
 
 .layout__landingpage {
-    width: 80%;
-    margin: auto;
+    padding: 2rem 2rem 0 2rem;
 }
 
-    .layout__landingpage .landingSubheader {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .layout__landingpage > ul > li {
+        padding: 2rem 0;
     }
-
-        .layout__landingpage .landingSubheader h2,
-        .layout__landingpage .landingContent h2 {
-            line-height: normal;
-            font-size: 2.3rem;
-            font-weight: 700;
-            padding-top: 4rem;
-        }
-
-        .layout__landingpage .landingSubheader > p {
-            padding-top: 4rem;
-            font-size: 1.5rem;
-            line-height: normal;
-            margin: auto;
-        }
-
-    .layout__landingpage .landingContent {
-        display: flex;
-        flex-direction: column;
-        gap: 2vw;
-        flex-wrap: wrap-reverse;
-        margin-top: 5rem;
-        width: 100%;
-        padding-bottom: 10rem;
-
-    }
-
-        .layout__landingpage .landingContent > li {
-            width: 100%;
-            text-align: left;
-        }
-        .layout__landingpage .landingContent > li:first-of-type {
-            display: block;
-            max-width: 25rem;
-            margin: auto;
-            margin-top: -4rem;
-        }
-
-            .layout__landingpage .landingContent > li img {
-                width: 100%;
-                margin: auto;
-                max-width: 37rem;
-                padding-top: 3rem;
-            }
-
-        .layout__landingpage .landingContent p:first-of-type {
-            padding: 1rem 0;
-            font-size: 2rem;
-            font-weight: 400;
-            line-height: normal;
-        }
-
-        .layout__landingpage hr {
-            background-color: var(--secondary-bg);
-            width: 100%;
-            border: 0.1rem solid var(--light);
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-        }
-        .layout__landingpage hr:first-of-type {
-            display: none;
-        }
-
-    .landingBottom {
-        padding-top: 8rem;
-        width: 100%;
+    .layout__landingpage > ul > li:nth-child(2n) {
+        margin: 0 -2rem;
+        padding: 2rem;
         background-color: var(--secondary-bg);
-        display: block;
-        margin: auto;
-        line-height: normal;
-        text-align: center;
     }
 
-        .landingBottom > h2 {
-            font-size: 3rem;
-            padding: 2rem;
-        }
-
-        .landingBottom > p {
-            font-weight: bold;
-            padding-top: 2rem;
-            padding-bottom: 8rem;
-        }
-
-    footer.landingFooter {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        background-color: var(--secondary-text);
-    }
-
-        footer.landingFooter .footerContent {
+        .layout__landingpage > ul > li a[href="/register"] {
             display: block;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            color: var(--light);
-            justify-content: space-around;
-            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
         }
 
-        footer.landingFooter .footerContent li {
-            padding: 3rem;
-            flex: 1 1 0px
+        .layout__landingpage > ul > li img {
+            display: block;
+            width: 13.75rem;
+            margin: auto auto 2rem auto;
+        }
+        .layout__landingpage > ul > li img.img-border {
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
         }
 
-            footer.landingFooter .footerContent li.logo svg{
-                max-width: 15rem;
-                min-width: 15rem;
-                height: auto;
-            } 
-
-            footer.landingFooter .footerContent li ol.links {
-                display: flex;
-                flex-direction: row;
-                max-width: 100%;
-                flex-wrap: wrap;
-                margin: auto;
-                justify-content: center;
-                min-width: 25rem;
-            
-            }
-
-                footer.landingFooter .footerContent li ol.links li {
-                    display: flex;
-                    flex-direction: column;
-                    text-align: center;
-                    padding: 1rem;
-                    padding-top: 0rem;
-                    white-space: nowrap;
-                    
-                }
-                footer.landingFooter .footerContent li ol.links li:hover {
-                    transform: scale(1.05);
-                }
-
-                    footer.landingFooter .footerContent ol li a {
-                        color: white;
-                        text-decoration: none;
-                    
-                    }
-
-        footer.landingFooter .footerContent li.rights {
-            text-align: right;
+        .layout__landingpage > ul > li h2 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 700;
             line-height: normal;
         }
 
-            footer.landingFooter .footerContent li.rights h3 {
-                font-size: 2rem;
-            }
-
-            footer.landingFooter .footerContent li.rights p {
-                line-height: normal;
-            }
+        .layout__landingpage > ul > li p,
+        .layout__landingpage > ul > li a {
+            font-size: 1rem;
+        }
 
 @media screen and (min-width: 950px) {
 
+    /* * {
+        outline: 1px solid red;
+    } */
+
     .landingHeader {
         height: 40rem;
-        box-shadow: 0px 10px 35px 10px rgba(0, 0, 0, 0.17);
+        padding: 3rem 3rem 0 3rem;
         border-radius: 0;
+        overflow: hidden;
     }
 
+        .landingHeader > .mobileHeader {
+            display: none;
+        }
+        
         .landingHeader h1 {
-            width: 50%;
+            width: 100%;
+            max-width: 55rem;
+            margin-top: 6rem;
             font-size: 4rem;
             font-weight: 700;
-            margin-top: 4rem;
-            margin-bottom: 2rem;
         }
 
-        .landingHeader h2 {
-            width: 50%;
+        .landingHeader .landingTopbar {
+            display: flex;
+            justify-content: space-between;
+            order: 1;
+            width: 100%;
         }
+    
+            .landingHeader .landingTopbar li:first-child {
+                display: block;
+                width: 10rem;
+                height: auto;
+                background-color: var(--primary-color);
+                position: relative;
+                z-index: 1;
+            }
+            
+            .landingHeader .landingTopbar li:last-child {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+    
+                .landingHeader .landingTopbar li:last-child a.btn {
+                    min-width: 7.5rem;
+                }
+                .landingHeader .landingTopbar li:last-child a[href="/register"] {
+                    border-color: var(--light);
+                }
+            
+                .landingHeader .landingTopbar li:last-child span.topbarDivider {
+                    display: block;
+                    width: 0.1rem;
+                    height: 2rem;
+                    background-color: white;
+                }
 
-        .landingHeader .landingCircles {
+        /* .landingHeader .landingCircles {
             height: 40rem;
             pointer-events: none;
         }
@@ -303,71 +228,71 @@
                 right: -15rem;
                 width: 25rem;
                 bottom: -13rem;
+            } */
+        
+        .landingHeader .landingTopbar {
+            order: -1;
+        }
+
+        .landingHeader > p {
+            max-width: 55rem;
+        }
+
+        .landingHeader .eg {
+            display: flex;
+            gap: 2rem;
+            width: fit-content;
+        }
+
+            .landingHeader .eg img {
+                max-width: 26.5rem;
+            }
+            .landingHeader .eg img:last-of-type {
+                display: block;
+            }
+
+    .layout__landingpage > ul > li,
+    .layout__landingpage > ul > li:nth-child(2n) {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        padding: 4rem 14rem;
+    }
+    .layout__landingpage > ul > li:nth-child(2n) {
+        padding: 4rem 16rem;
+    }
+    .layout__landingpage > ul > li:last-of-type {
+        display: none;
+    }
+
+        .layout__landingpage > ul > li img {
+            margin: 0;
+        }
+
+        .layout__landingpage > ul > li > div {
+            margin: 0 auto;
+        }
+        .layout__landingpage > ul > li:nth-child(2n) > div {
+            order: -1;
+        }
+
+            .layout__landingpage > ul > li h2 {
+                font-size: 1.75rem;
+            }
+
+            .layout__landingpage > ul > li p,
+            .layout__landingpage > ul > li a {
+                font-size: 1.25rem;
             }
     
-    .layout__landingpage {
-        width: 60%;
-        margin: auto;
+    footer.landingFooter {
+        padding: 2rem 3rem;
     }
+}
 
-        .layout__landingpage .landingContent {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap-reverse;
-            padding-top: 4rem;
-            width: 100%;
-            padding-bottom: 10rem;
-        }
+@media screen and (max-width: 1280px) {
 
-            .layout__landingpage .landingContent > li {
-                width: 100%;
-                min-width: 25rem;
-                max-width: 25rem;
-            }
-            .layout__landingpage .landingContent > li:first-of-type {
-                display: none;
-            }
-        
-                .layout__landingpage .landingContent > li img {
-                    display: block;
-                    margin: auto;
-                    width: 30rem;
-                }
-
-        .layout__landingpage hr {
-            background-color: var(--secondary-bg);
-            width: 100%;
-            border: 0.1rem solid var(--light);
-            margin-top: 3rem;
-            margin-bottom: 3rem;
-        }
-        .layout__landingpage hr:first-of-type {
-            display: block;
-        }
-
-        .layout__landingpage .landingContent p:first-of-type {
-            padding-top: 1rem;
-            font-size: 2rem;
-            font-weight: 400;
-            line-height: normal;
-        }
-
-    footer.landingFooter .footerContent li ol.links {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+    .landingHeader .dog {
+        display: none;
     }
-
-        footer.landingFooter .footerContent li ol.links li {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            padding: 1rem;
-            padding-top: 0rem;
-            white-space: nowrap;
-        }
-        footer.landingFooter .footerContent li ol.links li:hover {
-            transform: scale(1.05);
-        }
 }
