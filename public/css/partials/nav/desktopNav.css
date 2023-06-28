@@ -31,12 +31,21 @@
 		border-radius: 0 var(--card-border-radius-dashboard) var(--card-border-radius-dashboard) 0;
 		width: 3.55rem;
 		overflow: hidden;
-		transition: width 0.3s;
 	}
 	.nav__desktop ul:focus-within,
 	.nav__desktop ul:hover {
 		width: 10rem;
-		transition: width 0.2s ease-in-out;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.nav__desktop ul {
+			transition: width 0.3s;
+		}
+
+		.nav__desktop ul:focus-within,
+		.nav__desktop ul:hover {
+			transition: width 0.2s ease-in-out;
+		}
 	}
 
 		.nav__desktop ul li {

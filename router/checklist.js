@@ -36,6 +36,8 @@ router.get('/', async (req, res) => {
         DialogController.getMessage('assign_users')
     ];
 
+    console.log(projectInfo)
+
     res.render('checklist', {
         ...res.locals,
         tasks: projectInfo.checklist_data,

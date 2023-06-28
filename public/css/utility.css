@@ -128,6 +128,8 @@ button {
 .btn--cancel {
     color: var(--tertiary-text);
     font-weight: 700;
+    background-color: transparent;
+    border: none;
 }
 
 .btn--cancel:hover,
@@ -412,6 +414,10 @@ hr {
 
 .icon--light {
     color: var(--light);
+}
+
+.icon--error {
+    color: var(--error);
 }
 
 .user__counter {
