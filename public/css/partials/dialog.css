@@ -111,6 +111,6 @@
 			cursor: pointer;
         }
         
-        .dialog__user-list label p {
+        .dialog__user-list .dialog__user-list__name  {
             flex: 1;
         }
