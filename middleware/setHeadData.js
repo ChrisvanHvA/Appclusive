@@ -57,7 +57,7 @@ const data = {
     '/project/:projectId': {
         title: 'Checklist',
         description: '',
-        scripts: ['checklist', 'projectinfo', 'dialog'],
+        scripts: ['checklist', 'projectinfo', 'dialog', 'copyOnClick'],
         backUrl: '/project/:projectId/categories'
     },
     '/project/:projectId/categories': {
