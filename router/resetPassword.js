@@ -25,8 +25,10 @@ router.get('/:id/:token', async (req, res, next) => {
         const user = await userModel.getUser(id);
 
         if (!user) {
-            res.send('Invalid user');
-            return;
+            return res.render('resetPassword', {
+                noNav: true,
+                message: 'Invalid user'
+            });
         }
 
         const secret = JWT_SECRET + user.password;
@@ -53,8 +55,10 @@ router.post('/:id/:token', async (req, res, next) => {
         const user = await userModel.getUser(id);
 
         if (!user) {
-            res.send('Invalid user');
-            return;
+            return res.render('resetPassword', {
+                noNav: true,
+                message: 'Invalid user'
+            });
         }
 
         const secret = JWT_SECRET + user.password;
@@ -63,8 +67,10 @@ router.post('/:id/:token', async (req, res, next) => {
             const payload = jwt.verify(token, secret);
 
             if (password !== confirm_password) {
-                res.send('Passwords do not match');
-                return;
+                return res.render('resetPassword', {
+                    noNav: true,
+                    message: 'Passwords do not match'
+                });
             }
 
             const hashedPassword = await generateHash(password);
@@ -75,9 +81,15 @@ router.post('/:id/:token', async (req, res, next) => {
             );
 
             if (updated) {
-                res.send('Password updated successfully');
+                return res.render('resetPassword', {
+                    noNav: true,
+                    success: 'Password updated successfully'
+                });
             } else {
-                res.send('Failed to update password');
+                return res.render('resetPassword', {
+                    noNav: true,
+                    message: 'Failed to update password'
+                });
             }
         } catch (error) {
             console.error(error);
