@@ -1,5 +1,5 @@
 <div class="profile-pic" title="{{this.fullName}}">
-	<img src="{{this.imgUrl}}" alt="" onerror="this.style.display='none';" 
+	<img src="{{this.imgUrl}}" alt="Profile picture of {{this.fullName}}" onerror="this.style.display='none';" 
 		{{#if this.imgClass}}class="{{this.imgClass}}"{{/if}}>
 	<span aria-label="{{this.fullName}}">
 		{{fullNameToInitials this.fullName}}
