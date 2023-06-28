@@ -6,7 +6,10 @@
         <p>Validate your HTML so it's ready for the web</p>
     </div>
 
-    <p class="validator__error hide"><i class="icon fa-solid fa-circle-exclamation"></i></p>
+    <div class="validator__error hide">
+        <i class="icon icon--error fa-solid fa-circle-exclamation"></i>
+        <p></p>
+    </div>
 
     <form class="validator__form" action="/validator/result" method="POST">
         <textarea class="textinput validator__text" id="html" name="html" placeholder="Paste your HTML here">{{#if html}}{{html}}{{/if}}</textarea>

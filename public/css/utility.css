@@ -416,6 +416,10 @@ hr {
     color: var(--light);
 }
 
+.icon--error {
+    color: var(--error);
+}
+
 .user__counter {
     width: auto;
     min-width: 2rem;
