@@ -1,8 +1,11 @@
-<div class="profile-pic" title="{{this.fullName}}">
-	<img src="{{this.env.imgBucket}}{{this.imgUrl}}" alt="Profile picture of {{this.fullName}}" onerror="this.style.display='none';" onload="this.style.display='block'"
-		{{#if this.imgClass}}class="{{this.imgClass}}"{{/if}}>
-		
-	<span aria-label="{{this.fullName}}">
-		{{fullNameToInitials this.fullName}}
-	</span>
-</div>
+<span class="profile-pic" title="{{this.fullName}}">
+
+	{{#if this.imgUrl}}
+		<img src="{{this.env.imgBucket}}{{this.imgUrl}}" alt="Profile picture of {{this.fullName}}" onerror="this.style.display='none';" onload="this.style.display='block'"
+			{{#if this.imgClass}}class="{{this.imgClass}}"{{/if}}>
+	{{else}}	
+		<span aria-label="{{this.fullName}} initials">
+			{{fullNameToInitials this.fullName}}
+		</span>
+	{{/if}}
+</span>

@@ -160,7 +160,7 @@ a[href="/logout"] {
 			position: relative;
 		}
 
-			.settings .settings__item-avatar .img-container div {
+			.settings .settings__item-avatar .img-container .profile-pic {
 				width: 12rem;
 				height: 12rem;
 				border-color: var(--primary-color);
