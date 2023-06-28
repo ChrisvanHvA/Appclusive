@@ -5,6 +5,12 @@
     <form method="POST" autocomplete="off" novalidate>
         <input type="hidden" name="type" value="update">
 
+        {{#if general-form-error}}
+            <div class="message message--error">
+				{{general-form-error}}
+            </div>
+        {{/if}}
+
         <h2>Project invite code: <button class="code" data-tooltip="">{{project.project_invite_code}}</button></h2>
 
         <fieldset class="form__section {{#if title-error.length}} form__error {{/if}}">

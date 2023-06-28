@@ -3,6 +3,12 @@
     {{>pageTitleHeader title=title}}
     
     <form action="/new-project" method="POST" novalidate>
+
+        {{#if general-form-error}}
+            <div class="message message--error">
+				{{general-form-error}}
+            </div>
+        {{/if}}
        
         <fieldset class="form__section {{#if title-error.length}} form__error {{/if}}">
             <label for="title">Project title <span class="required">*</span></label>
