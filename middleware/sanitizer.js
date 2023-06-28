@@ -70,6 +70,15 @@ const handleValidationErrors = (render, extraParams) => (req, res, next) => {
             errorFields = { ...errorFields, ...extraParams };
         }
 
+        errorFields['general-form-error'] = 'Something'
+
+        if (req.originalUrl.includes('login') && errorFields['password-error']) {
+            console.log('login password character error -> not relevant on login');
+            delete errorFields['password-error'];
+
+            errorFields['general-form-error'] = 'We could not find an account with the provided information'
+        }
+
         console.error(errorFields);
 
         return res.render(render, errorFields);
