@@ -9,11 +9,13 @@
 
 ## Live version
 
+[Live version](https://appclusive-production.up.railway.app/landing)
+
 ## Case
 
 Appclusive is an online web tool for UX designers and organizations, designed to easily check digital products for accessibility. For each project, UX-Designers need to be able to check if the project lives up to all the WCAG-standards and by doing so is completely accessible. This web tool is designed to motivate, and make it easier for designers to apply accessibility to their digital products. Since we already have a design, it's our job is to build the application in code.
 
-![appclusive screen](https://github.com/ChrisvanHvA/Appclusive/assets/90341211/97bc65a3-8953-41f4-aa65-2936546a81ce)
+![appclusive screen](https://github.com/ChrisvanHvA/Appclusive/blob/154bc6e014a18e5908a2101605e3c484d7af8795/public/images/ssreadme.png)
 
 ## Contents 📑
 
