@@ -5,4 +5,4 @@ form?.addEventListener('submit', () => {
     setTimeout(() => {
         loadingState?.classList.remove('hide');
     }, 500);
-})
+});
