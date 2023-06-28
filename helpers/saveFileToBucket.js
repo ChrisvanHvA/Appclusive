@@ -1,10 +1,12 @@
 import { supabase } from '../config/db.js';
-
 import crypto from 'crypto';
 
 /**
- * @param {object} file - The file to be uploaded, as received from multer memory storage
- * @returns Promise<string || null> - The URL of the uploaded file
+ * Save file to the storage bucket
+ *
+ * @params file: Object - The file to be saved
+ * @params oldPath: String - The old file path (optional)
+ * @returns String|null - The saved file path or null if there was an error
  */
 const saveFileToBucket = async (file, oldPath) => {
     const fileExt = file.originalname.split('.').pop();
