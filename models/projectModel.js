@@ -103,7 +103,7 @@ class projectModel {
         }
     }
 
-	 /**
+    /**
      * Async function to retrieve a project by it's invite code
      *
      * @param {number} projectCode The requested invite code
@@ -173,6 +173,32 @@ class projectModel {
         } catch (error) {
             console.error(error);
             return [];
+        }
+    }
+
+    /**
+     * Async function to add notes to a project
+     *
+     * @param {number} project_id The ID of the project to add notes to
+     * @param {string} notes The notes to be added
+     * @returns {boolean} - True if the notes were added successfully, false otherwise
+     */
+    async addNotes(project_id, notes) {
+        try {
+            if (!project_id) {
+                throw new Error('No project ID provided');
+            }
+
+            await sql`
+                UPDATE projects
+                SET notes = ${notes}
+                WHERE project_id = ${project_id}
+            `;
+
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
         }
     }
 }

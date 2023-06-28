@@ -60,5 +60,18 @@
 				<a href="/project/{{project.project_id}}/settings"><h3>Project settings</h3><i class="fa-solid fa-gear"></i></a>
 			</section>
 		{{/isAdmin}}
+
+        <section class="sidebar__notes">
+            <h3>Notes</h3>
+            <form action="/project/{{project.project_id}}" method="POST">
+                <textarea
+                    name="notes"
+                    placeholder='Leave your brainfarts here...'
+                    rows='5'
+                    maxlength="500"
+                >{{project.notes}}</textarea>
+                <button type="submit">Save</button>
+            </form>
+        </section>
     </aside>
 </div>
