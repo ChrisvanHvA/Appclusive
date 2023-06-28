@@ -260,3 +260,7 @@
     gap: 0.625rem;
     align-items: center;
 }
+
+.checklist__users .profile-pic {
+    border-color: var(--primary-color);
+}
