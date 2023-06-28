@@ -24,7 +24,7 @@
 							value="{{this.user_id}}" >
 
 							<label for="user_ids-{{ this.user_id }}">
-								{{> profilePicture imgUrl=this.profile_pic fullName=this.full_name}}
+								{{> profilePicture ../this imgUrl=this.profile_pic fullName=this.full_name}}
 								<p>{{ this.full_name}}</p>
 								<i class="icon user-check fa-solid fa-check-circle"></i>
 							</label>

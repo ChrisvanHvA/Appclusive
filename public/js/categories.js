@@ -23,14 +23,3 @@ if (progressBar.value === progressBar.max) {
           }, 1000)
         : null;
 }
-
-const categoryLinks = document.querySelectorAll('.category__item > a');
-const loadingState = document.querySelector('.loading');
-
-categoryLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-        setTimeout(() => {
-            loadingState?.classList.remove('hide');
-        }, 500);
-    });
-});

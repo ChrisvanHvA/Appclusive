@@ -1,11 +1,9 @@
-const form = document.querySelector('form');
 const titleInput = document.querySelector('input[name="title"]');
 const levelInput = document.querySelector('input[name="level"]');
 const descriptionInput = document.querySelector('textarea[name="description"]');
 const descriptionCharCount = document.querySelector(
     '.description-char-counter'
 );
-const loadingState = document.querySelector('.loading');
 
 const titleError = document.querySelector('[data-name="title"]');
 const levelError = document.querySelector('[data-name="level"]');
@@ -22,9 +20,5 @@ if (descriptionInput && descriptionCharCount) {
         descriptionInput.dispatchEvent(new Event('input'));
     }
 }
-
-form?.addEventListener('submit', () => {
-    loadingState?.classList.remove('hide');
-})
 
 form?.addEventListener('submit', validateForm);

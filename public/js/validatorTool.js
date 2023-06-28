@@ -1,6 +1,3 @@
-const form = document.querySelector('.validator__form');
-const loadingState = document.querySelector('.loading');
-
 const errorState = document.querySelector('.validator__error');
 const errorStateContent = document.querySelector('.validator__error > p');
 
@@ -13,7 +10,6 @@ form?.addEventListener('submit', (e) => {
         errorStateContent.textContent =
             'HTML is too large. Please enter a smaller HTML file.';
     } else {
-        loadingState?.classList.remove('hide');
         form.submit();
     }
 });
