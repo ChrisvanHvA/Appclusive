@@ -74,6 +74,10 @@
         overflow-y: auto;
     }
 
+        .dialog__user-list .profile-pic {
+            border: 2px solid var(--primary-color);
+        }
+
         .dialog__user-list input {
             -webkit-appearance: none;
             -moz-appearance: none;
