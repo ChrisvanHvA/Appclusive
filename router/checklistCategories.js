@@ -24,8 +24,6 @@ router.get('/', async (req, res) => {
         return res.redirect('/');
     }
 
-    console.log(categories)
-
     const [project, categories, isAdmin] = await Promise.all([
         ProjectModel.getProject(projectId),
         ProjectChecklistModel.getProjectCategoryData(projectId),
