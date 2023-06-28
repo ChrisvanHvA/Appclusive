@@ -6,16 +6,12 @@
 
 <a href='/project/{{projectId}}?category={{slugify title}}'>
     <div class='category__item__back'>
-        <p>
-            {{#if short_description}}
-                {{short_description}}
-            {{else}}
-                {{description}}
-            {{/if}}
-        </p>
+        <p>{{#if short_description}}{{short_description}}{{else}}{{description}}{{/if}}</p>
     </div>
+
     <div class='category__item__front'>
         <i class='icon icon--alt {{#if (ne completed_checklists all_checklists)}} {{icon_class}} {{else}} fa-regular fa-circle-check {{/if}} '></i>
+        
         <div class='category__item__content'>
             <div>
                 <h2>{{title}}</h2>

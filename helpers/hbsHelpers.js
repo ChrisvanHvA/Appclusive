@@ -30,7 +30,7 @@ export default {
 	},
 
     concat: function (string, context) {
-        const regex = /{{(.*?)}}/g; // Regular expression to match placeholders inside curly brackets
+        const regex = /{{(.*?)}}/g; // regular expression to match placeholders inside curly brackets
 
         return string.replace(regex, (_, placeholder) => {
 			placeholder = placeholder.trim().replace(/\./g, '?.');
@@ -62,7 +62,7 @@ export default {
         return tasks.filter(task => task.wcag_level === level);
     },
 
-    // basically zorgt voor logical operator == !== || etc
+    // basically provides logical operator == !== || etc.
     // <3 handlebars
     eq: function () {
         return reduceOp(arguments, (a, b) => a === b);
@@ -90,8 +90,7 @@ export default {
     }
 };
 
-// bron: https://gist.github.com/servel333/21e1eedbd70db5a7cfff327526c72bc5
-// geen idee hoe dit werkt lol
+// source: https://gist.github.com/servel333/21e1eedbd70db5a7cfff327526c72bc5
 const reduceOp = (args, reducer) => {
     args = Array.from(args);
     args.pop(); // => options

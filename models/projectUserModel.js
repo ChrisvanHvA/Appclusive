@@ -6,8 +6,8 @@ class projectUserModel {
     /**
      * Async function to insert project users into db
      *
-     * @params insertData: todo
-     * @returns inserted row id
+     * @params insertData: Object - The data to be inserted
+     * @returns Number - The inserted row id
      */
     async insert(insertData) {
         try {
@@ -30,6 +30,13 @@ class projectUserModel {
         }
     }
 
+    /**
+     * Async function to check if a user has access to a project
+     *
+     * @params projectId: Number - The project ID
+     * @params userId: Number - The user ID
+     * @returns Boolean - True if the user has access, false otherwise
+     */
     async hasAccessToProject(projectId, userId) {
         try {
             const [{ result }] = await sql`
@@ -47,6 +54,12 @@ class projectUserModel {
         }
     }
 
+    /**
+     * Async function to list users associated with a project
+     *
+     * @params projectId: Number - The project ID
+     * @returns Array - An array of project users
+     */
     async listProjectUsers(projectId) {
         try {
             const result = await sql`
@@ -67,6 +80,13 @@ class projectUserModel {
         }
     }
 
+    /**
+     * Async function to check if a user is an admin of a project
+     *
+     * @params projectId: Number - The project ID
+     * @params userId: Number - The user ID
+     * @returns Boolean - True if the user is an admin, false otherwise
+     */
     async isAdmin(projectId, userId) {
 		if (!projectId || !userId) return false;
 		

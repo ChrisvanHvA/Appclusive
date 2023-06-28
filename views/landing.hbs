@@ -5,93 +5,78 @@
         <span class="bg-circle"></span>
         <span class="bg-circle"></span>
     </div>
+
     <div class="dog">
-        <img src="images/hulphond_body.svg" alt="Dog image body">
-        <img class="desktopDog" src="images/hulphond.svg" alt="Dog image head">
+        <img src="images/hulphond_body.svg" alt="Dog image body" />
+        <img class="desktopDog" src="images/hulphond.svg" alt="Dog image head" />
     </div>
-    <ol class="landingTopbar">
+
+    <section class="mobileHeader">
+        {{>icons/logo}}
+        <a href="/login" class="btn btn--secondary">Log in</a>
+    </section>
+
+    <ul class="landingTopbar">
         <li>
             {{>icons/logo}}
         </li>
 
-
         <li>
-            <a href="/login" class="btn btn--secondary">
-                Log in
-            </a>
+            <a href="/login" class="btn btn--secondary">Log in</a>
             <span class="topbarDivider"></span>
-            <a href="/register" class="btn">
-                Register
-            </a>
-        </li>
-    </ol>
-
-    <h1>Inclusivity Starts here...</h1>
-    <h2>Don’t imagine a world where everyone is equal
-        make it.</h2>
-
-</header>
-<main class="layout layout__landingpage">
-    <section class="landingSubheader">
-        <h2>One billion people, or 15% of the world’s population
-            experience some form of disability.
-
-        </h2>
-        <p>Appclusive is an application that helps you create
-            projects that are inclusive for everyone.</p>
-    </section>
-    <hr>
-    <ul class="landingContent">
-        <li> <img class="mobileDog" src="images/hulphond.svg" alt="Dog head"></li>
-        <li>
-            <h2>Did you know...
-            </h2>
-            <p>
-                Making your website accessible to everyone is not only the right thing to do, but it also makes good
-                business sense.</p>
-            <hr>
-            <p> By making your website accessible, you can reach a wider audience and improve your search engine
-                optimization (SEO).
-            </p>
-        <li><img src="images/landingpage_image.svg" alt="Project example image"></li>
-        </li>
-        </section>
-</main>
-<section class="landingBottom">
-    <h2>Create projects today!</h2>
-    <a href="/register" class="btn btn__primary">Sign up now!</a>
-    <p>Already have an account? <a href="/login" class="login__forgot">Log in here</a></p>
-</section>
-
-<footer>
-
-    <ul class="footerContent">
-        <li class="logo"> {{>icons/logo}} </li>
-        <li>
-            <ol class="links">
-                <li><a href="google.com">
-                        <p>Socials</p>
-                        <img src="images/instagram.svg" alt="Instagram icon">
-                    </a></li>
-                <li><a href="google.com">
-                        <p>Documentation</p>
-                        <img src="images/documentation.svg" alt="Documentation icon">
-                    </a></li>
-                <li><a href="google.com">
-                        <p>Github</p>
-                        <img src="images/github.svg" alt="Github icon">
-                    </a></li>
-                <li><a href="google.com">
-                        <p>Mail us!</p>
-                        <img src="images/email.svg" alt="Email icon">
-                    </a></li>
-            </ol>
-        </li>
-        <li class="rights">
-            <h3>Copyright 2023</h3>
-            <p>Minor Web design & Development<br>
-                All rights reserved: Team Appclusive</p>
+            <a href="/register" class="btn">Register</a>
         </li>
     </ul>
 
+    <h1>Accessibility in apps...</h1>
+    <p>...ensures that everyone can use them easily and feel included in the digital world. Unfortunately, many apps lack accessibility, leaving a significant number of users excluded. This is where Appclusive comes in clutch!</p>
+
+    <div class="eg">
+        <img src="images/checklistItem.png" alt="Project checklist example" />
+        <img src="images/checklistItem2.png" alt="Project checklist example" aria-hidden="true" />
+    </div>
+
+    <p>Appclusive provides you with checklists, so you can easily walk through the WCAG guidelines (on different levels)!</p>
+</header>
+
+<main class="layout layout__landingpage">
+    <ul>
+        <li>
+            <img src="images/illustration-celebrate.svg" alt="Celebration people illustration" />
+            <div>
+                <h2>Did you know?</h2>
+                <p>Making your website accessible to everyone is not only the right thing to do, but it also makes good 'business' sense.</p>
+                <p>By making your website accessible, you can reach a wider audience and improve your search engine optimization (SEO).</p>
+            </div>
+        </li>
+
+        <li>
+            <img class="mobileDog" src="images/hulphond.svg" alt="Dog head" />
+            <div>
+                <h2>One billion people, or 15% of the world’s population experience some form of disability.</h2>
+                <p>Appclusive is an application that helps you improve accessibility in your web applications, so that you can create amazing things for everyone!</p>
+            </div>
+        </li>
+
+        <li>
+            <img src="images/dialog.png" alt="Project dialog example" class="img-border" />
+            <div>
+                <h2>Let your whole team join</h2>
+                <p>Appclusive allows you to invite people to your project, and let's you assign different tasks to different people. This way, you can work together with your team to make your project accessible!</p>
+            </div>
+        </li>
+
+        <li>
+            <div>
+                <h2>Create projects today!</h2>
+                <a href="/register" class="btn btn__primary">Sign up now!</a>
+                <p>Already have an account? <a href="/login" class="login__forgot">Log in here</a></p>
+            </div>
+        </li>
+    </ul>
+</main>
+
+<footer class="landingFooter">
+    {{>icons/logo}}
+    <a href="https://github.com/ChrisvanHvA/Appclusive" target="_blank">Team Appclusive<br>&#169; 2023</a>
 </footer>

@@ -1,8 +1,9 @@
 import express from 'express';
+const router = express.Router();
+
 import multer from 'multer';
 import UserModel from '../models/userModel.js';
 
-const router = express.Router();
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'public/uploads/');
@@ -16,7 +17,7 @@ const upload = multer({ storage: storage });
 
 router.post('/', upload.single('avatar'), async (req, res) => {
     const user = req.user.user_id;
-    
+
     if (!req.file) {
         // TODO: handle error
         console.log('No file uploaded');

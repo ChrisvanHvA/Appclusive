@@ -1,5 +1,4 @@
 const sidebarContainer = document.querySelector('.checklist__sidebar');
-
 let resizeTimer;
 
 const noTransitionOnResize = () => {

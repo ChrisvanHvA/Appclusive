@@ -1,17 +1,15 @@
 .message {
     display: flex;
     flex-direction: column;
-
     font-weight: 700;
-
     width: 100%;
-
     padding: .75rem;
-
     border-radius: .3rem;
 }
 
-.message.hide { display: none; }
+.message.hide { 
+    display: none; 
+}
 
     .message p {
         text-align: center;
@@ -31,7 +29,9 @@
     z-index: 200;
 }
 
-.message.animate { transition: all 250ms ease-in-out; }
+.message.animate { 
+    transition: all 250ms ease-in-out; 
+}
 
 .message.animate--slide {
     /* play animation forwards, wait 2 seconds, play backwards */
@@ -42,7 +42,6 @@
     0% {
         transform: translate(-50%, calc(-100% - .75rem));
     }
-
     100% {
         transform: translate(-50%, 0);
     }

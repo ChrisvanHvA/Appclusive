@@ -26,9 +26,11 @@
     }
 
 @media screen and (max-width: 950px) {
+    
     .page-title {
         display: none;
     }
+
     h1 {
         font-size: 2.25rem;
         font-weight: 700;

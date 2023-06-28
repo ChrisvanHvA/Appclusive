@@ -1,8 +1,9 @@
 import express from 'express';
+const router = express.Router();
+
 import UserModel from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 
-const router = express.Router();
 const userModel = new UserModel();
 
 const generateHash = async (password) => {
@@ -22,22 +23,20 @@ router.post('/', async (req, res) => {
     try {
         if (!user) {
             res.render('settings', {
-                message: 'User not found',
+                message: 'User not found'
             });
             return;
         }
 
         const isValidPassword = await validPassword(oldpassword, user.password);
-
         if (!isValidPassword) {
             res.render('settings', {
-                message: 'Invalid old password',
+                message: 'Invalid old password'
             });
             return;
         }
 
         const hashedPassword = await generateHash(newpassword);
-
         const success = await userModel.updatePassword(
             user.user_id,
             hashedPassword
@@ -45,12 +44,13 @@ router.post('/', async (req, res) => {
 
         if (!success) {
             res.render('settings', {
-                message: 'Error updating password',
+                message: 'Error updating password'
             });
             return;
         }
+
         res.render('settings', {
-            message: 'Password updated successfully',
+            message: 'Password updated successfully'
         });
     } catch (error) {
         console.log(error);

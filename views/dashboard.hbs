@@ -1,11 +1,12 @@
 <main class="layout layout__dashboard">
+
 	{{>pageTitleHeader title=(concat "Hi, {{user.first_name}}!")}}
 
 	<section id="searchbar">
-		<form action="/search" method="POST" autocomplete="off">
+		<form action="/search" method="GET" autocomplete="off">
 			<i class="icon fa-solid fa-magnifying-glass"></i>
 			<label for="search" class="label-hidden">Search for projects</label>
-			<input type="text" placeholder="Search for projects..." name="search_projects" id="search" />
+			<input type="text" placeholder="Search for projects..." name="query" id="search" />
 		</form>
 	</section>
 
@@ -15,18 +16,17 @@
 	</section>
 
 	{{#if projects}}
-	<section class="dashboard-section">
-		<h3>All projects</h3>
+		<section class="dashboard-section">
+			<h3>All projects</h3>
 
-		<ul class="cards project-cards">
-			{{#each projects}}
-			<li class="card__item allprojects-card">
-				{{> projectCard this}}
-			</li>
-			{{/each}}
-		</ul>
-	</section>
-
+			<ul class="cards project-cards">
+				{{#each projects}}
+				<li class="card__item allprojects-card">
+					{{> projectCard this}}
+				</li>
+				{{/each}}
+			</ul>
+		</section>
 	{{else}}
 		<section class="dashboard__empty">
 			<h3>You don't have any projects yet...</h3>

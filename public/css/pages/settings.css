@@ -1,7 +1,9 @@
 .settings > * + * {
     margin-top: 2.5rem;
 }
-.settings, .settings button[type="submit"] {
+
+.settings, 
+.settings button[type="submit"] {
     max-width: 50rem;
 }
 
@@ -32,17 +34,17 @@ a[href="/logout"] {
     margin-top: 1.69rem;
 }
 
-.settings fieldset div:not(:first-of-type) {
-    margin-top: 1rem;
-}
+    .settings fieldset div:not(:first-of-type) {
+        margin-top: 1rem;
+    }
 
-.settings legend {
-    margin-bottom: 0.25rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--tertiary-text);
-}
+    .settings legend {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--tertiary-text);
+    }
 
 .settings .settings__item-avatar {
     display: none;
@@ -98,6 +100,7 @@ a[href="/logout"] {
 }
 
 @media screen and (min-width: 951px) {
+    
     .layout__settings {
         padding-top: 2.5rem;
         width: clamp(10rem, 100%, 70rem);

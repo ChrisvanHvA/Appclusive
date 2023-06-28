@@ -2,11 +2,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
+const router = express.Router();
+
 import UserModel from '../models/userModel.js';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 
-const router = express.Router();
 const userModel = new UserModel();
 
 const JWT_SECRET = process.env.JWT_SECRET;

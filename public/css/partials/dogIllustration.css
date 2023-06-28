@@ -1,0 +1,60 @@
+.dog {
+    display: none;
+}
+
+.mobileDog {
+    cursor: pointer;
+}
+
+#dognod {
+    animation: dogbounce 0.5s infinite;
+}
+
+@keyframes dogbounce {
+    0% {
+        transform: rotate(0deg) scale(1.0);
+    }
+    50% {
+        transform: scale(1.05, 0.9) rotate(-2deg);
+    }
+    100% {
+        transform: rotate(0deg) scale(1.0);
+    }
+}
+
+@media screen and (min-width: 950px) {
+    
+    .dog {
+        display: block;
+        top: 100%;
+        left: 100%;
+        transform: translate(-100%, -100%);
+        overflow: clip;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 30rem;
+        aspect-ratio: 1/1;
+        color: white;
+        z-index: 10;
+        user-select: none;
+        cursor: pointer;
+    }
+   
+        .dog img {
+            position: absolute;
+            pointer-events: none;
+            width: 22rem;
+            height: auto;
+        }
+
+        .dog img:first-child {
+            bottom: -10rem;
+            right: 0;
+        }
+
+        .dog img:last-child {
+            bottom: 5rem;
+            right: 3rem;
+        }
+}

@@ -4,62 +4,62 @@
     gap: 1.5rem;
 }
 
-.categories > p {
-    font-size: 1rem;
-    width: 90%;
-    margin: 1.25rem;
-    max-width: 70rem;
-}
-
-.categories progress {
-    --progress-bar-height: 1rem;
-}
-
-.categories li > a {
-    height: clamp(5rem, 9rem, 10rem);
-    max-width: 70rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    border-radius: .75rem;
-    border: var(--card-border-style-alt);
-    text-decoration: none;
-
-    visibility: visible;
-    transform-style: preserve-3d;
-    transition: transform .7s;
-}
-
-    .categories li > a:focus-visible {
-        outline: 2px solid var(--primary-color);
-        outline-offset: 2px;
+    .categories > p {
+        font-size: 1rem;
+        width: 90%;
+        margin: 1.25rem;
+        max-width: 70rem;
     }
 
-    .categories a > .icon {
-        max-width: 2rem;
-        aspect-ratio: 1/1;
+    .categories progress {
+        --progress-bar-height: 1rem;
     }
 
-    .categories li > a > ul{
+    .categories li > a {
+        height: clamp(5rem, 9rem, 10rem);
+        max-width: 70rem;
+
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
-        flex-wrap: nowrap;
+
+        border-radius: .75rem;
+        border: var(--card-border-style-alt);
+        text-decoration: none;
+
+        visibility: visible;
+        transform-style: preserve-3d;
+        transition: transform .7s;
     }
 
-        .categories li > a > ul > li:last-of-type{
+        .categories li > a:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .categories a > .icon {
+            max-width: 2rem;
+            aspect-ratio: 1/1;
+        }
+
+        .categories li > a > ul {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
-        .categories li > a > ul > li:last-of-type .icon {
-            width: 0.625rem;
-            height: auto;
-        }
+            .categories li > a > ul > li:last-of-type {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .categories li > a > ul > li:last-of-type .icon {
+                width: 0.625rem;
+                height: auto;
+            }
         
 
 .category__item {
@@ -81,7 +81,8 @@
         transition: transform .5s;
     }
 
-.category__item__front, .category__item__back {
+.category__item__front,
+.category__item__back {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -114,7 +115,6 @@
         overflow-y: hidden;
     }
 
-
 /* ---------------------------------- */
 /*       little flip icon thingy      */
 /* ---------------------------------- */
@@ -135,13 +135,13 @@ input[id^="flip"]:focus-visible + label {
     right: .8rem;
     cursor: pointer;
     z-index: 1;
-  }
+}
 
-  [for^="flip"]:hover i{
-    transition: 0.5s;
-    color: var(--primary-color);
-    font-weight: 800;
-  }
+    [for^="flip"]:hover i {
+        transition: 0.5s;
+        color: var(--primary-color);
+        font-weight: 800;
+    }
 
 	[for^="flip"] > svg {
 		color: var(--primary-text);
@@ -163,6 +163,7 @@ input[id^="flip"]:focus-visible + label {
     /* .checklist__categories {
         margin-top: -1.8rem;
     } */
+
 .checklist__categories h2 {
     color: var(--primary-text);
     white-space: normal;
@@ -197,31 +198,38 @@ ul.categoryContent > li:first-of-type .icon{
     .categories li > a {
         height: clamp(5rem, 12rem, 15rem);
     }
+
     .category__item__content {
         gap: 1rem;
     }
-    .category__item__front, .category__item__back {
+
+    .category__item__front, 
+    .category__item__back {
         padding: 1.5rem;
     }
-	.categories li > a > ul{
+    .category__item__back {
+        padding-right: 3rem;
+    }
+
+	.categories li > a > ul {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex-wrap: nowrap;
     }
-    [for^="flip"]{
+
+    [for^="flip"] {
         top: 1.4rem;
         right: 1.5rem;
     }
 
-    ul.categoryContent > li:first-of-type .icon{
+    ul.categoryContent > li:first-of-type .icon {
         width: 3rem;
         margin: 1rem; 
     }
     /* .checklist__categories > p {
         max-width: 28rem
     } */
-    
 }
 
 @media (prefers-reduced-motion) {
@@ -229,7 +237,8 @@ ul.categoryContent > li:first-of-type .icon{
         transform: rotateY(180deg);
         transition: none;
     }
-    .categories li>a {
+
+    .categories li > a {
         transition: none;
     }
-  }
+}

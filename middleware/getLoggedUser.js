@@ -3,5 +3,4 @@ const getLoggedUser = async (req, res, next) => {
     next();
 };
 
-
 export { getLoggedUser };

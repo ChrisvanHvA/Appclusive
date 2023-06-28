@@ -13,9 +13,9 @@ const ProjectChecklistModel = new projectChecklistModel();
  * Inserting data into multiple tables to ensure
  * checklists are connected to the right projects and users
  *
- * @params insertData: todo
- * @params user_id: user who created the project
- * @returns {Promise<any>}
+ * @param projectData: Object - The project data to be inserted
+ * @param user_id: Number - The ID of the user who created the project
+ * @returns Promise<any>
  */
 const createProject = async (projectData, user_id) => {
 
@@ -44,8 +44,7 @@ const createProject = async (projectData, user_id) => {
         }
 
         const updatedWcagItems = await updateWcagItemsForProject(
-            projectId,
-            projectData.wcag_level.length
+            projectId
         );
 
         if (!updatedWcagItems) {
@@ -60,55 +59,36 @@ const createProject = async (projectData, user_id) => {
 };
 
 /**
- * Updates the checklists of a project, removing any items that are higher than the project level, and adding any items that are lower than or equal to the project level.
- * @param {string} projectId - The ID of the project to update.
- * @returns {Promise<void>} - A promise that resolves when the update is complete.
+ * Updates WCAG items for a project
+ *
+ * @param projectId: Number - The ID of the project
+ * @returns boolean - True if the update is completed, false otherwise
  */
 const updateWcagItemsForProject = async (projectId) => {
     
     try {
         const project = await ProjectModel.getProject(projectId);
-        const projectLevel = project.wcag_level.length;
+        await ProjectChecklistModel.addNewProjectChecklists(projectId);
 
-        const allWcagItems = await WCAGModel.listWCAGItemsByLevel('AAA');
-        // TODO: getAllChecklistItems of project id
-
-        for (let i = 0; i < allWcagItems.length; i++) {
-            const item = allWcagItems[i];
-            const itemLevel = item.wcag_level.length;
-
-            // check if the item is already in the project
-            const itemInDatabase = await ProjectChecklistModel.getChecklistItem(
-                projectId,
-                item.wcag_item_id
-            );
-
-            // if the item exists and is higher than the projectLevel -> delete it
-            if (itemInDatabase && itemLevel > projectLevel) {
-                await ProjectChecklistModel.delete(
-                    projectId,
-                    itemInDatabase.wcag_item_id
-                );
-
-            // if the item is not in the project -> add it
-            } else if (!itemInDatabase) {
-                const insertData = {
-                    project_id: projectId,
-                    wcag_item_id: item.wcag_item_id,
-                    is_completed: false,
-                    assignees: []
-                };
-
-                await ProjectChecklistModel.insert(insertData);
-            }
+        // If the project is not AAA, delete all checklists that are above the project level
+        if (project.wcag_level !== 'AAA') {
+            await ProjectChecklistModel.deleteProjectChecklists(projectId);
         }
 
-        return false;
+        return true;
     } catch (error) {
         return false;
     }   
 };
 
+
+/**
+ * Creates a full project overview with checklist data
+ *
+ * @param wcagCategory: Object - The WCAG category object
+ * @param projectId: Number - The ID of the project
+ * @returns Object - The project information
+ */
 const createFullProjectOverview = async (wcagCategory, projectId) => {
     const wcagItems = await ProjectChecklistModel.listChecklistItems(
         wcagCategory.wcag_id,

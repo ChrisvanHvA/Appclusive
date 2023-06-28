@@ -12,13 +12,12 @@
                 name="title"
                 id="title"
                 placeholder="What would you like to name your project?"
-                value="{{project.title}}"
                 required
             />
             <label class="message message--error {{#unless title-error.length}}hide{{/unless}}">{{title-error}}</label>
         </fieldset>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section form__section--counter">
             <label for="description">Project description</label>
              <textarea
                 class="textinput"
@@ -26,7 +25,7 @@
                 id="description"
                 placeholder="What is the project about?"
                 maxlength="500"
-            >{{#if project.description}}{{project.description}}{{/if}}</textarea>
+            ></textarea>
             <small class="description-char-counter"></small>
         </fieldset>
 
@@ -37,7 +36,7 @@
             <section>
                 <aside>
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="a" name="wcag_level" value="A" role="radio" required {{#if (eq project.wcag_level "A")}}checked{{/if}} />
+                        <input type="radio" id="a" name="wcag_level" value="A" role="radio" required />
                         <label for="a" id="level-label">
                             <h3>Level A: Essential</h3>
                             <p>If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</p>
@@ -45,7 +44,7 @@
                     </div>
 
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="aa" name="wcag_level" value="AA" role="radio" required {{#if (eq project.wcag_level "AA")}}checked{{/if}} />
+                        <input type="radio" id="aa" name="wcag_level" value="AA" role="radio" required checked />
                         <label for="aa" id="level-label">
                             <h3>Level AA: Ideal Support</h3>
                             <p>Required for multiple government and public body websites. 'Appclusive' strives for AA compliance.</p>
@@ -53,7 +52,7 @@
                     </div>
 
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="aaa" name="wcag_level" value="AAA" role="radio" required {{#if (eq project.wcag_level "AAA")}}checked{{/if}} />
+                        <input type="radio" id="aaa" name="wcag_level" value="AAA" role="radio" required />
                         <label for="aaa" id="level-label">
                             <h3>Level AAA: Specialized Support</h3>
                             <p>This is typically reserved for parts of websites and web apps that serve a specialized audience.</p>

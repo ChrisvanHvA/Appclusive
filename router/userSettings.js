@@ -1,27 +1,22 @@
-import bcrypt from 'bcrypt';
 import express from 'express';
+const router = express.Router();
+
+import bcrypt from 'bcrypt';
 import multer from 'multer';
 import UserModel from '../models/userModel.js';
 
 import messageController from '../controllers/messageController.js';
 
-const router = express.Router();
-const userModel = new UserModel();
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
-});
-
-const upload = multer({ storage: storage });
-
 import {
     validationChecks,
     handleValidationErrors
 } from '../middleware/sanitizer.js';
+import saveFileToBucket from '../helpers/saveFileToBucket.js';
+
+const userModel = new UserModel();
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 const generateHash = async (password) => {
     const saltRounds = 10;
@@ -60,7 +55,6 @@ router.post(
     validationChecks,
     handleValidationErrors('userSettings'),
     async (req, res) => {
-
         const submitData = mapObject(req.body, (value) => value);
         const user = req.user;
 
@@ -79,7 +73,10 @@ router.post(
             );
 
             if (!isValidPassword) {
-                messageKey = MessageController.getMessageKeyByType('password_match', 'fail');
+                messageKey = MessageController.getMessageKeyByType(
+                    'password_match',
+                    'fail'
+                );
                 return res.redirect(`/settings?m=${messageKey}`);
             }
 
@@ -94,26 +91,46 @@ router.post(
 
         if (!updatedData) {
             console.log('failed to update user');
-            messageKey = MessageController.getMessageKeyByType('user_update', 'fail');
-            return res.redirect(`/settings?m=${messageKey}`);            
+            messageKey = MessageController.getMessageKeyByType(
+                'user_update',
+                'fail'
+            );
+            return res.redirect(`/settings?m=${messageKey}`);
         }
 
         messageKey = 1;
 
         // no file, nothing else needed! so success
         if (!req.file) {
-            return res.redirect(`/settings?m=${messageKey}`);            
+            return res.redirect(`/settings?m=${messageKey}`);
         }
 
-        const avatar = req.file.path;
+        // todo: dit wat netter maken, misschien aparte functie voor maken
+        const imgUrl = await saveFileToBucket(
+            req.file,
+            user.profile_pic?.split('/').pop()
+        );
+
+        if (!imgUrl) {
+            messageKey = MessageController.getMessageKeyByType(
+                'file_save',
+                'fail'
+            );
+            return res.redirect(`/settings?m=${messageKey}`);
+        }
+
         const avatarUpdated = await userModel.updateProfilePic(
             user.user_id,
-            avatar
+            imgUrl
         );
 
         if (!avatarUpdated) {
-            messageKey = MessageController.getMessageKeyByType('file_save', 'fail');
-            return res.redirect(`/settings?m=${messageKey}`);            
+            messageKey = MessageController.getMessageKeyByType(
+                'file_save',
+                'fail'
+            );
+            
+            return res.redirect(`/settings?m=${messageKey}`);
         }
 
         return res.redirect(`/settings?m=${messageKey}`);

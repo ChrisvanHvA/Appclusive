@@ -27,6 +27,7 @@ export default (passport) => {
                 passReqToCallback: true
             },
             async (req, email_address, password, done) => {
+
                 try {
                     email_address = email_address.toLowerCase();
                     const user = await userModel.getUserByEmail(email_address);
@@ -46,6 +47,7 @@ export default (passport) => {
 
                         return done(null, userId);
                     }
+
                 } catch (error) {
                     return done(error);
                 }
@@ -62,12 +64,15 @@ export default (passport) => {
                 passReqToCallback: true
             },
             async (req, email_address, password, done) => {
+
                 try {
                     email_address = email_address.toLowerCase();
+
                     const user = await userModel.getUserByEmail(email_address);
                     if (!user) {
                         return done(null, false);
                     }
+
                     const isValidPassword = await validPassword(
                         password,
                         user.password
@@ -75,7 +80,9 @@ export default (passport) => {
                     if (!isValidPassword) {
                         return done(null, false);
                     }
+                    
                     return done(null, user.user_id);
+
                 } catch (error) {
                     return done(error);
                 }

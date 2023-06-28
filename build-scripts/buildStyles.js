@@ -5,7 +5,6 @@ import autoPrefixer from 'gulp-autoprefixer';
 
 import {deleteAsync} from 'del';
 
-
 ( async () => {
     await deleteAsync('./public/css/index.css');
 

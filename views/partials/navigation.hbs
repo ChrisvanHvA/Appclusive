@@ -8,7 +8,7 @@
 				</a>
 			</li>
 
-			<li {{#if (eq head.currentPath '/new-project')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/search')}}class="active"{{/if}}>
 				<a href="/search">
 					<i class="fa-solid fa-magnifying-glass"></i>
 					<p>Search</p>
@@ -25,7 +25,7 @@
 			<li class="profile-icon">
 				<a href="/settings">
 					<div>
-						<img src="{{#if user.profile_pic}}../../{{user.profile_pic}}{{else}}../../public/images/no_img.png{{/if}}" alt="profile picture of {{user.first_name}}" />
+						<img src="{{#if user.profile_pic}}{{user.profile_pic}}{{else}}../../public/images/no_img.png{{/if}}" alt="profile picture of {{user.first_name}}" />
 					</div>
 					<p>Account</p>
 				</a>
@@ -55,11 +55,11 @@
 			{{#if (eq title 'Dashboard')}}
 				<p>Welcome, {{user.first_name}}</p>
 			{{/if}}
-        	<h1>{{#if title}}{{title}}{{else}}{{project.title}}{{/if}}</h1>
+        	<h1>{{#if mobileTitle}}{{mobileTitle}}{{else if title}}{{title}}{{else}}{{project.title}}{{/if}}</h1>
 		</div>
 
 		{{#if (eq title 'Settings')}}
-			<form method="POST" action="/upload" enctype="multipart/form-data" class="content-avatar">
+			<form method="POST" action="/settings" enctype="multipart/form-data" class="content-avatar">
 				<img src="{{avatar}}" alt="profile picture of {{user.first_name}}" class="avatar" />
 				<label aria-label="edit profile picture">
 					<i class="fa-solid fa-pencil"></i>

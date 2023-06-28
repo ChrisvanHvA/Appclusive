@@ -2,11 +2,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
+const router = express.Router();
+
 import UserModel from '../models/userModel.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-const router = express.Router();
 const userModel = new UserModel();
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -34,7 +35,7 @@ router.get('/:id/:token', async (req, res, next) => {
             const payload = jwt.verify(token, secret);
             res.render('resetPassword', {
                 noNav: true,
-                email: user.email_address,
+                email: user.email_address
             });
         } catch (error) {
             console.log(error);

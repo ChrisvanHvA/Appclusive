@@ -2,21 +2,23 @@
 /*            #VARIABLES           	  */
 /* ---------------------------------- */
 :root {	
-	--light: #fff;
-    --dark: #1e1e1e;
+	--light: #fdfdfd;
+    --dark: #1E1E1E;
 	
 	--primary-color: #044ECF;
 	
-	--primary-bg: #fff;
+	--primary-bg: #FDFDFD;
 	--secondary-bg: #F1F1F1;
 	--tertiary-bg: #7A7A7A;
 	
-	--primary-text: #000;
+	--primary-text: var(--dark);
 	--secondary-text: #1B1F24;
 	--tertiary-text: #69717B;
 	
 	--nav-bg: #1E1E1E;
 	--nav-selected: #3393FF;
+
+	--footer-bg: #1B1F24; 
 	
     --create-project-card-bg: #E1ECFF; 
 
@@ -52,11 +54,11 @@
 	--secondary-bg: #1E1E1E;
 	--tertiary-bg: #989898;
 
-	--primary-text: #fff;
+	--primary-text: #FDFDFD;
 	--secondary-text: #989898;
 	--tertiary-text: var(--secondary-text);
 
-    /* --create-project-card-bg: #001c4d;  */
+    /* --create-project-card-bg: #001C4D;  */
 }
 
 /* turn on to debug weird margins and such */

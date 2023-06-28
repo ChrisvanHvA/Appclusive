@@ -23,9 +23,9 @@ main.layout__project-create .project__level section aside {
 	border-radius: var(--card-border-radius);
 }
 
-.layout__project-create form > input,
-.layout__project-create form > div,
-.layout__project-create form > label {
+.layout__project-create form fieldset > input,
+.layout__project-create form fieldset > textarea,
+.layout__project-create form fieldset > label {
 	max-width: 30rem;
 }
 
@@ -35,6 +35,10 @@ main.layout__project-create .project__level section aside {
 	max-width: 62.5rem;
 	margin-top: 2rem;
 }
+
+	.layout__project-create .form__section--counter {
+		margin-bottom: 1.1rem;
+	}
 
 	.layout__project-create form .formerror {
 		display: block;
@@ -54,7 +58,7 @@ main.layout__project-create .project__level section aside {
 	.layout__project-create form label[for="description"],
 	.layout__project-create form .project__level > legend {
 		font-size: 1.2rem;
-		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
 	}
 
 	label[for="title"],
@@ -64,26 +68,17 @@ main.layout__project-create .project__level section aside {
 	}
 
 	.layout__project-create form h2,
-	.layout__project-create fieldset,
-	.layout__project-create label + input,
-	.layout__project-create label + textarea {
-		margin-bottom: 4rem;
+	.layout__project-create fieldset {
+		margin-bottom: 2.5rem;
 	}
 	.layout__project-create input::placeholder,
 	.layout__project-create textarea::placeholder {
 		font-size: 0.875rem;
 	}
 
-	.layout__project-create form > div {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-	}
-
-		.layout__project-create form div small {
-			position: absolute;
-			bottom: 2rem;
-			right: 0;
+		.layout__project-create form small {
+			max-width: 30rem;
+			text-align: right;
 			color: var(--tertiary-text);
 		}
 

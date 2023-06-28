@@ -6,6 +6,12 @@ class UserModel {
         this.user_id = user_id ?? 0;
     }
 
+    /**
+     * Async function to insert a user into the database
+     *
+     * @params insertData: Object - The data to be inserted
+     * @returns Number - The inserted user_id
+     */
     async insert(insertData) {
         try {
             const {
@@ -37,6 +43,13 @@ class UserModel {
         }
     }
 
+    /**
+     * Async function to update a user in the database
+     *
+     * @params user_id: Number - The user ID
+     * @params updateData: Object - The data to be updated
+     * @returns Boolean - True if the update is successful, false otherwise
+     */
     async update(user_id, updateData) {
         try {
             await sql`
@@ -52,6 +65,13 @@ class UserModel {
         }
     }
 
+    /**
+     * Async function to update a user's profile picture in the database
+     *
+     * @params user_id: Number - The user ID
+     * @params profile_pic: String - The profile picture
+     * @returns Boolean - True if the update is successful, false otherwise
+     */
     async updateProfilePic(user_id, profile_pic) {
         try {
             await sql`
@@ -66,6 +86,13 @@ class UserModel {
         }
     }
 
+    /**
+     * Async function to update a user's password in the database
+     *
+     * @params user_id: Number - The user ID
+     * @params newPassword: String - The new password
+     * @returns Boolean - True if the update is successful, false otherwise
+     */
     async updatePassword(user_id, newPassword) {
         try {
             await sql`
@@ -82,11 +109,12 @@ class UserModel {
 
     /**
      *
-     * Async function to retrieve the current logged in user
+     * Async function to retrieve the current logged-in user
      *
      * @param user_id
-     * @returns user object
+     * @returns Object - The current logged-in user
      */
+	// todo: check if this is needed
     async getCurrentLoggedUser() {
         try {
             if (this.user_id == 0) return {};
@@ -105,11 +133,10 @@ class UserModel {
     }
 
     /**
+     * Async function to retrieve a user based on email address
      *
-     * Async function to retrieve a user based on email_address
-     *
-     * @param email_address
-     * @returns user object
+     * @params email_address: String - The email address
+     * @returns Object - The user object
      */
     async getUserByEmail(email_address) {
         try {
@@ -129,11 +156,10 @@ class UserModel {
     }
 
     /**
+     * Async function to retrieve a user based on user ID
      *
-     * Async function to retrieve a user based on user_id
-     *
-     * @param user_id
-     * @returns user object
+     * @params user_id: Number - The user ID
+     * @returns Object - The user object
      */
     async getUser(user_id) {
         try {
@@ -153,11 +179,11 @@ class UserModel {
     }
 
     /**
+     * Async function to retrieve a list of all users in the database
      *
-     * Async function to retrieve list of all users in DB
-     *
-     * @returns list of users
+     * @returns Array - An array of users
      */
+	// todo: check if this is needed
     async listUsers() {
         try {
             const users = await sql`

@@ -6,16 +6,16 @@ const closeSidebar = () => {
 };
 
 document.addEventListener('keydown', (e) => {
-	if (e.key === 'Escape') {
-		closeSidebar();
-	}
+    if (e.key === 'Escape') {
+        closeSidebar();
+    }
 });
 
 backDrop?.addEventListener('click', closeSidebar);
 
 sidebarToggle?.addEventListener('keydown', (e) => {
-	if (e.key === 'Enter') {
-		e.preventDefault();
-		sidebarToggle.checked = !sidebarToggle.checked;
-	}
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        sidebarToggle.checked = !sidebarToggle.checked;
+    }
 });

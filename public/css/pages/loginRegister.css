@@ -15,26 +15,32 @@
         max-width: 95%;
         margin: 0 auto;
     }
+
         .layout__login form h2 {
             font-size: 2.5rem;
         }
+
         .form__section {
             display: flex;
             flex-direction: column;
         }
-        .form__section:first-of-type {
+        .layout__login .form__section:first-of-type {
             margin-top: 3rem;
         }
-        .form__section + .form__section {
+
+        .layout__login .form__section + .form__section {
             margin-top: 1.25rem;
         }
+
             .form__section label {
                 font-size: 1rem;
                 font-weight: 700;
             }
-            .form__section label + input {
+
+            .layout__login .form__section label + input {
                 margin-top: 0.25rem;
             }
+
             .form__section input {
                 font-size: 1rem;
                 padding: 0.75rem;
@@ -42,9 +48,11 @@
                 border-radius: var(--card-border-radius);
                 border: 0.125rem solid var(--dark);
             }
+
             .form__section input::placeholder {
                 font-size: 0.875rem;
             }
+
         .login__forgot {
             margin-top: 0.5rem;
             margin-left: auto;
@@ -54,10 +62,12 @@
             font-size: 0.875rem; 
             color: var(--primary-color);
         }
+
         .login__forgot:hover,
         .login__forgot:focus-visible {
             text-decoration: underline;
         }
+
         .login__submit {
             text-decoration: none;
             margin-top: 2.25rem;
@@ -73,9 +83,11 @@
         .login__description {
             margin-top: 0.75rem;
         }
+
         .login__signuptext {
             display: none;
         }
+
         .login__or {
             margin: 1rem 0;
             text-align: center;
@@ -106,22 +118,26 @@
 	margin: 0 auto;
 }
 
-.login-aside h1 {
-    background-color: var(--primary-color);
-    z-index: 1;
-    padding: 1.25rem;
-}
+    .login-aside h1 {
+        background-color: var(--primary-color);
+        z-index: 1;
+        padding: 1.25rem;
+    }
 
-.login-aside h1, .login-aside span, .login-aside div {
-    display: none;
-}
-    .login-aside svg{
+    .login-aside h1,
+    .login-aside span,
+    .login-aside div {
+        display: none;
+    }
+
+    .login-aside svg {
         height: 3.313rem;
         margin-top: 1.5rem;
     }
-    .login-aside svg path{
-        fill: var(--primary-color);
-    }
+
+        .login-aside svg path{
+            fill: var(--primary-color);
+        }
 
 .layout__login .btn[href="/register"],
 .layout__login .btn[href="/login"] {
@@ -135,6 +151,7 @@
         align-items: center;
         padding: 0;
     }
+
         .login-aside {
             display: flex;
             justify-content: center;
@@ -146,15 +163,18 @@
 			width: unset;
 			padding-left: 1.75rem;
         }
+
             .login-aside svg {
                 position: absolute;
                 bottom: 2.75rem;
                 left: 2.75rem;
 				margin: 0;
             }
+
                 .login-aside svg path {
                     fill: var(--light);
                 }
+
 			.login-aside h1 {
 				display: block;
                 color: var(--light);
@@ -163,26 +183,29 @@
                 line-height: 2.588rem;
                 width: 29.938rem;
             }
+
             .login-aside span {
                 height: 24.5rem;
 				display: block;
 				z-index: 0;
             }
-               .login-aside span:first-of-type {
-                    bottom: -5.25rem;
-                    left: -6.25rem;
-                }
-                .login-aside span:nth-of-type(2) {
-                    bottom: 11.75rem;
-                    right: -14.25rem;
-                }
-                .login-aside span:last-of-type {
-                    top: -17.25rem;
-                    left: 0;
-                }
+            .login-aside span:first-of-type {
+                bottom: -5.25rem;
+                left: -6.25rem;
+            }
+            .login-aside span:nth-of-type(2) {
+                bottom: 11.75rem;
+                right: -14.25rem;
+            }
+            .login-aside span:last-of-type {
+                top: -17.25rem;
+                left: 0;
+            }
+
         .login__or {
             display: none;
         }
+
         .login__signuptext {
             display: block;
             width: fit-content;
@@ -204,6 +227,7 @@
         a.login__signuptext:focus-visible {
             text-decoration: solid underline var(--primary-color);
         }
+        
         .login__register {
             position: relative;
         }
