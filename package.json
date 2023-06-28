@@ -24,14 +24,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "URL HERE"
+    "url": "https://github.com/ChrisvanHvA/Appclusive"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "URL HERE"
+    "url": "https://github.com/ChrisvanHvA/Appclusive/issues"
   },
   "homepage": "https://github.com/ChrisvanHvA/Appclusive/",
   "dependencies": {
