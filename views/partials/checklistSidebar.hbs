@@ -51,7 +51,7 @@
         </section>
 
         <section>
-            <h3>Project invite code: <button class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</button></h3>
+            <h3>Project invite code: <button aria-label="Project code is {{project.project_invite_code}}" class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</button></h3>
         </section>
 
 		{{#isAdmin}}
@@ -65,6 +65,7 @@
             <form action="/project/{{project.project_id}}" method="POST">
                 <textarea
                     name="notes"
+                    aria-label="Notes for project {{project.title}}"
                     placeholder='Leave your brainfarts here...'
                     rows='5'
                     maxlength="500"

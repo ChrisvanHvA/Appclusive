@@ -4,11 +4,7 @@
     for='flip-{{slug}}'
 ><i class='icon fa-regular fa-xl fa-circle-question'></i></label>
 
-<a aria-label="Category item" href='/project/{{projectId}}?category={{slugify title}}'>
-    <div class='category__item__back'>
-        <p>{{#if short_description}}{{short_description}}{{else}}{{description}}{{/if}}</p>
-    </div>
-
+<a aria-label="Category: {{title}}" href='/project/{{projectId}}?category={{slugify title}}'>
     <div class='category__item__front'>
         <i class='icon icon--alt {{#if (ne completed_checklists all_checklists)}} {{icon_class}} {{else}} fa-regular fa-circle-check {{/if}} '></i>
         
@@ -30,4 +26,8 @@
             </div>
         </div>
     </div>
+    <div class='category__item__back'>
+        <p>{{#if short_description}}{{short_description}}{{else}}{{description}}{{/if}}</p>
+    </div>
+
 </a>

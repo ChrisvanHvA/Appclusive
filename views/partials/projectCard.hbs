@@ -1,4 +1,4 @@
-<a href="/project/{{this.project_id}}/categories" draggable="false">
+<a href="/project/{{this.project_id}}/categories" draggable="false" aria-label="Project card named {{this.title}}, with a completion status of {{calcProgress this.completed_checklists this.all_checklists}}%. This project currently has {{this.all_users.length}} users">
 	<header>
 		<div class="header__title">
 			<h3>{{this.title}} <span>({{this.wcag_level}})</span></h3>
@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="header__extra-info">
-			<h4><button class="code" data-tooltip="" tabindex="0">{{this.project_invite_code}}</button></h4>
+			<h4><button aria-label="Project code is {{this.project_invite_code}}" class="code" data-tooltip="" tabindex="0">{{this.project_invite_code}}</button></h4>
 
 			<div class="header__members">
 				<p>{{this.all_users.length}}</p>
@@ -30,6 +30,7 @@
 		<progress class="progress"
 			max="100"
 			value="{{calcProgress this.completed_checklists this.all_checklists}}"
+			aria-hidden="true"
 		></progress>
 
 		<div>

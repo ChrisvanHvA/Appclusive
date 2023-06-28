@@ -100,6 +100,7 @@
 
 .category__item__front {
     backface-visibility: hidden;
+    z-index: 1;
 }
 
     .category__item__front > .icon {
