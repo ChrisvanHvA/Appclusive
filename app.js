@@ -17,6 +17,8 @@ import { getLoggedUser } from './middleware/getLoggedUser.js';
 import { checkAuth } from './middleware/checkAuth.js';
 import { hasAccessToProject } from './middleware/hasAccessToProject.js';
 import { getSystemMessage } from './middleware/systemMessage.js';
+import cacheManager from './middleware/cacheManager.js';
+
 // import { setSidebarProjects } from './middleware/setSidebarProjects.js';
 
 const __dirname = path.resolve();
@@ -39,9 +41,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
     session({ secret: 'fckweebnation', saveUninitialized: true, resave: true })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 configurePassport(passport);
+
+app.use(cacheManager.setCache);
 
 app.use(getLoggedUser);
 app.use(hasAccessToProject);

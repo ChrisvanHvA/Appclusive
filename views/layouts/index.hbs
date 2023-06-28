@@ -29,6 +29,7 @@
 		{{#if loading}}
 			{{>loading}}
 		{{/if}}
+
 		<div class="message message--system {{#if system_message}}{{system_message.message_class}}{{/if}} animate animate--slide {{#unless system_message}}hide{{/unless}}">
 			<p>{{system_message.message}}</p>
 		</div>
@@ -38,5 +39,27 @@
 		{{#if (and dialog_message dialog_trigger)}}
 			<script src="/js/dialog.js" type="module"></script>
 		{{/if}}
+		
+		{{!-- <script>
+
+			window.addEventListener('pageshow', (event) => {
+				if (event.persisted) {
+
+					console.log('This page was restored from the bfcache.');
+
+					const loadingState = document.querySelector('.loading');
+					console.log(loadingState);
+					console.log(loadingState.className);
+
+					if (loadingState) {
+						loadingState.classList.add('hide');
+					}
+
+				} else {
+					console.log('This page was loaded normally.');
+				}
+			});
+
+		</script> --}}
 	</body>
 </html>

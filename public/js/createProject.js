@@ -26,5 +26,3 @@ if (descriptionInput && descriptionCharCount) {
 form?.addEventListener('submit', () => {
     loadingState?.classList.remove('hide');
 })
-
-form?.addEventListener('submit', validateForm);
