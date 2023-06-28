@@ -81,7 +81,7 @@ router.post('/submit', async (req, res) => {
         return res.redirect(
             `/project/${
                 req.params.projectId
-            }?category=${categoryItem.title.toLowerCase()}${errorParam}`
+            }?category=${categoryItem.slug})}${errorParam}`
         );
     }
 });
@@ -107,7 +107,9 @@ router.post('/assign', async (req, res) => {
         type
     );
 
-    return res.redirect(`/project/${projectId}/categories?m=${messageKey}`);
+    const categoryItem = await WCAGModel.getWCAGCategoryByChildId(checklistId);
+
+    return res.redirect(`/project/${projectId}?category=${categoryItem.slug}&m=${messageKey}`);
 });
 
 export default router;

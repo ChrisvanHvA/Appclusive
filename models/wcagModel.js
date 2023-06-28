@@ -63,6 +63,32 @@ class wcagModel {
     }
 
     /**
+     * Async function to get the WCAG category based on wcag_item_id
+     *
+     * @returns {object} - WCAG object
+     */
+    async getWCAGCategoryByChildId(wcag_item_id) {
+        try {
+            
+            if (wcag_item_id == 0) {
+                return null;
+            }
+
+            const [categories] = await sql`
+                SELECT *
+                FROM wcag_item AS wi
+                LEFT JOIN wcag AS w ON w.wcag_id = wi.parent_id
+                WHERE wcag_item_id = ${wcag_item_id}
+            `;
+
+            return categories || null;
+        } catch (error) {
+            console.error(error);
+            return [];
+        }
+    }
+
+    /**
      * Async function to retrieve a list of WCAG items based on the parent category ID
      *
      * @param {number} parent_id The ID of the parent category

@@ -22,8 +22,16 @@ const validationChecks = [
         .if(body('password').exists())
         .notEmpty()
         .withMessage('Password must not be empty')
-        .isLength({ min: 6 })
-        .withMessage('Password must be at least 6 characters long'),
+        .custom((value, { req }) => {
+            if (!req.originalUrl.includes('login')) {
+                if (value.length < 6) {
+                    throw new Error(
+                        'Password must be at least 6 characters long'
+                    );
+                }
+            }
+            return true;
+        }),
     body('old_password')
         .if(body('old_password').exists().notEmpty())
         .isLength({ min: 6 })
@@ -72,12 +80,13 @@ const handleValidationErrors = (render, extraParams) => (req, res, next) => {
 
         errorFields['general-form-error'] = 'One or multiple fields were not filled in correctly.';
 
-        if (req.originalUrl.includes('login') && errorFields['password-error']) {
-            console.log('login password character error -> not relevant on login');
-            delete errorFields['password-error'];
+        // if (req.originalUrl.includes('login') && errorFields['password-error']) {
+        //     console.log('login password character error -> not relevant on login');
+        //     delete errorFields['password-error'];
+        //     delete errorFields['general-form-error'];
 
-            errorFields['general-form-error'] = 'We could not find an account with the provided information'
-        }
+        //     // errorFields['general-form-error'] = 'We could not find an account with the provided information'
+        // }
 
         console.error(errorFields);
 
