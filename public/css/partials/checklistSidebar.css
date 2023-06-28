@@ -147,6 +147,26 @@
     font-weight: 700;
 }
 
+.checklist__sidebar .sidebar__notes textarea {
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    font-size: 0.875rem;
+    resize: none;
+}
+
+.checklist__sidebar .sidebar__notes button {
+    display: block;
+    width: fit-content;
+    margin: auto 0 auto auto;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.checklist__sidebar .sidebar__notes button:hover,
+.checklist__sidebar .sidebar__notes button:focus-visible {
+    text-decoration: underline;
+}
+
 .checklist__sidebar aside ul li {
     display: flex;
     align-items: center;

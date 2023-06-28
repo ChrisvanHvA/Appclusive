@@ -2,6 +2,7 @@ import express from 'express';
 const router = express.Router({ mergeParams: true });
 
 import wcagModel from '../models/wcagModel.js';
+import projectModel from '../models/projectModel.js';
 import projectChecklistModel from '../models/projectChecklistModel.js';
 import projectUserModel from '../models/projectUserModel.js';
 
@@ -9,6 +10,7 @@ import dialogController from '../controllers/dialogController.js';
 import projectController from '../controllers/projectController.js';
 import messageController from '../controllers/messageController.js';
 
+const ProjectModel = new projectModel();
 const ProjectChecklistModel = new projectChecklistModel();
 const ProjectUserModel = new projectUserModel();
 const WCAGModel = new wcagModel();
@@ -44,6 +46,14 @@ router.get('/', async (req, res) => {
         isAdmin,
         dialog_messages: dialogMessages
     });
+});
+
+router.post('/', async (req, res) => {
+    const notes = req.body.notes;
+    const project_id = req.params.projectId;
+
+    await ProjectModel.addNotes(project_id, notes);
+    return res.redirect(`/project/${project_id}?category=${req.query.category}`);
 });
 
 router.post('/submit', async (req, res) => {
