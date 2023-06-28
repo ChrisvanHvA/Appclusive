@@ -6,7 +6,7 @@
 }
 
 hr { 
-    height: 0.1875rem;
+    height: 0.1rem;
     background: var(--card-border-color);
     border:none;
     border-radius: .25rem;
