@@ -1,6 +1,6 @@
 .categories {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(13rem,1fr));
     gap: 1.5rem;
 }
 
@@ -108,6 +108,7 @@
 
 .category__item__back {
     transform: scaleX(-1);
+    padding: 1.5rem 3rem 1.5rem 1.5rem !important;
 }
 
     .category__item__back > p {
@@ -206,9 +207,6 @@ ul.categoryContent > li:first-of-type .icon{
     .category__item__front, 
     .category__item__back {
         padding: 1.5rem;
-    }
-    .category__item__back {
-        padding-right: 3rem;
     }
 
 	.categories li > a > ul {
