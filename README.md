@@ -13,6 +13,8 @@
 
 Appclusive is an online web tool for UX designers and organizations, designed to easily check digital products for accessibility. For each project, UX-Designers need to be able to check if the project lives up to all the WCAG-standards and by doing so is completely accessible. This web tool is designed to motivate, and make it easier for designers to apply accessibility to their digital products. Since we already have a design, it's our job is to build the application in code.
 
+![appclusive screen](https://github.com/ChrisvanHvA/Appclusive/assets/90341211/97bc65a3-8953-41f4-aa65-2936546a81ce)
+
 ## Contents 📑
 
 - [Features](https://github.com/ChrisvanHva/Appclusive#features) The ✨special✨ things
@@ -20,10 +22,10 @@ Appclusive is an online web tool for UX designers and organizations, designed to
 - [User stories](https://github.com/ChrisvanHva/Appclusive#user-stories) The goals
 - [Installation](https://github.com/ChrisvanHva/Appclusive#installation) Let's get started
 - [License](https://github.com/ChrisvanHva/Appclusive#license) This project belongs to some talented people
-
-- [Help](https://github.com/EvaZ7/project1#help) Where do I find help?
-- [Progress](https://github.com/EvaZ7/project1#progressin-dutch-) Yes I wrote it in Dutch🇳🇱, shoot in an issue.
-- [Sources](https://github.com/EvaZ7/project1#sources) APA list with used sources.
+- [The problem](https://github.com/ChrisvanHva/Appclusive#the-problem) This is what's going on
+- [The solution](https://github.com/ChrisvanHva/Appclusive#the-solution) This is what's going on
+- [Our client](https://github.com/ChrisvanHva/Appclusive#our-client) Credits
+- [Wishlist](https://github.com/ChrisvanHva/Appclusive#wishlist) Credits
 
 ## Features
 
@@ -31,8 +33,7 @@ Appclusive is an online web tool for UX designers and organizations, designed to
 | :-----------------------: | :------: |
 |     Login / register      |    ✅    |
 |  Invite users to project  |    ✅    |
-| Assign users to checklist |    🚧    |
-
+| Assign users to checklist |    ✅    |
 
 ## Documentation
 
@@ -97,8 +98,6 @@ We split up each category into small checklist items with one WCAG-guideline. So
 
 Our client is Sanne Duinker, an alumni of CMD. Sanne designed Appclusive for her graduation project. For us she already had an entire design in Figma and a styleguide to work with.
 
-## Code explanation
-
 ## Wishlist
 
 As you might know, project are almost never finished since we can always improve or do things a little different or better with more time. Therefore we have created a wishlist with features we might want to implement one day...
@@ -108,3 +107,7 @@ As you might know, project are almost never finished since we can always improve
 - Create onboarding for the first time experience
 - Being able to filter on level within categories
 - Sort on tasks assigned to you
+- Live updating on checklist items
+- Remove categories from project that are not relevant
+
+## Code explanation?
