@@ -135,6 +135,7 @@ button {
 .btn--cancel:hover,
 .btn--cancel:focus-visible {
     color: var(--dark);
+    text-decoration: underline;
 }
 
 /* NAV BUTTON */
