@@ -10,7 +10,7 @@
 	margin-bottom: 3rem;
 }
 
-/* section met create en join knopjes */
+/* section with create and join buttons */
 .layout__dashboard .action-cards {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -18,7 +18,7 @@
 	margin-bottom: 2rem;
 }
 
-/* dit is de heading van de hele section eg "all projects" */
+/* heading of complete section e.g. "all projects" */
 .layout__dashboard .dashboard-section > h3 {
 	margin: 1.75rem 0 0.25rem 0;
 	color: var(--tertiary-text);
@@ -40,7 +40,6 @@
 	margin-bottom: 1.5rem;
 }
 
-/* dit is echt de meest messy code ooit inshallah */
 .layout__dashboard > a.create-project-card {
 	display: flex;
 }
@@ -48,7 +47,6 @@
 .layout__dashboard .create-card-container {
 	display: none;
 }
-
 
 .cards-category__recent {
 	display: flex !important;
