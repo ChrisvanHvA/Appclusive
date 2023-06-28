@@ -1,7 +1,7 @@
 <a href="/project/{{this.project_id}}/categories" draggable="false">
 	<header>
 		<div class="header__title">
-			<h3>{{this.title}}  <span>{{this.wcag_level}}</span></h3>
+			<h3>{{this.title}} <span>({{this.wcag_level}})</span></h3>
 			<div class="status {{slugify this.status}}">
 
 				{{#if (eq (toLowerCase this.status) "new")}}

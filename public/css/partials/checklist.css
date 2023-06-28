@@ -185,24 +185,17 @@
     }
 
     .checklist__content summary > p {
-		position: relative;
-        padding-left: 1.625rem;
 		display: flex;
+		gap: .625rem;
     }
 	
 	/* if details open */
-	.checklist__content details > summary > p .icon {
-		width: 1.25rem;
-		height: 1.25rem;
-		position: absolute;
-        top: 50%;
-		transform: translateY(-50%);
-        left: 0;
+	.checklist__content details > summary p i {
+		font-size: 1.1rem;
 	}
-	.checklist__content details[open] > summary > p .icon:first-of-type,
-	.checklist__content details:not([open]) > summary > p .icon:last-of-type {
-		display: none;
-	}
+		.checklist__content details:not([open]) > summary p i {
+			transform: rotate(180deg);
+		}
 
     .checklist__content details[open] {
         border-radius: 0.9375rem;

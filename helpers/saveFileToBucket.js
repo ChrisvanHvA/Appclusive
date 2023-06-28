@@ -4,18 +4,21 @@ import crypto from 'crypto';
 /**
  * Save file to the storage bucket
  *
- * @params file: Object - The file to be saved
- * @params oldPath: String - The old file path (optional)
- * @returns String|null - The saved file path or null if there was an error
+ * @param {{originalname: string, buffer: Buffer, mimetype: string }} file - The file to be saved
+ * @param {string|undefined} oldPath - The old file path (optional)
+ * @returns {Promise<string|null>} - The saved file path or null if there was an error
  */
 const saveFileToBucket = async (file, oldPath) => {
     const fileExt = file.originalname.split('.').pop();
 
-    const { data, error } = await supabase.storage
-        .from('user_avatars')
-        .upload(`${crypto.randomUUID()}.${fileExt}`, file.buffer, {
-            contentType: file.mimetype
-        });
+	let data;
+	let error;
+
+	if (file.buffer) {
+		const res = await saveFromMemory(file, fileExt);
+		data = res.data;
+		error = res.error;
+	}
 
     if (error) {
         console.error(error);
@@ -28,6 +31,23 @@ const saveFileToBucket = async (file, oldPath) => {
     }
 
     return null;
+};
+
+/**
+ * Save file to the storage bucket if it's in memory
+ *
+ * @param {{originalname: string, buffer: Buffer, mimetype: string }} file - The file to be saved
+ * @param {string|undefined} oldPath - The old file path (optional)
+ * @returns {Promise<string|null>} - The saved file path or null if there was an error
+ */
+const saveFromMemory = async (file, fileExt) => {
+    const { data, error } = await supabase.storage
+        .from('user_avatars')
+        .upload(`${crypto.randomUUID()}.${fileExt}`, file.buffer, {
+            contentType: file.mimetype
+        });
+
+	return { data, error };
 };
 
 export default saveFileToBucket;

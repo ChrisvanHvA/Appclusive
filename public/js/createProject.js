@@ -7,8 +7,8 @@ const descriptionCharCount = document.querySelector(
 );
 const loadingState = document.querySelector('.loading');
 
-const titleError = document.querySelector('label[for="title"] span.formerror');
-const levelError = document.querySelector('label[for="level"] span.formerror');
+const titleError = document.querySelector('[data-name="title"]');
+const levelError = document.querySelector('[data-name="level"]');
 
 // check if description input and char counter exist, if so, update char counter on input
 if (descriptionInput && descriptionCharCount) {
@@ -22,6 +22,8 @@ if (descriptionInput && descriptionCharCount) {
         descriptionInput.dispatchEvent(new Event('input'));
     }
 }
+
+console.log(titleError, levelError)
 
 const validateForm = (e) => {
 	if (titleError) {
@@ -43,11 +45,11 @@ const validateForm = (e) => {
 	}
 
 	// while loading, show loading state
-
-
 	if(titleInput?.value && levelInput?.value) {
 		loadingState?.classList.remove('hide');
 	}
+
+    e.preventDefault();
 
 };
 

@@ -25,17 +25,15 @@ router.post(
     async (req, res) => {
         const MessageController = new messageController();
 
-        const projectId = await projectController.createProject(
-            req.body,
-            req.user?.user_id
-        );
+        const { completedInsert, projectId } = await projectController.createProject(req.body, req.user?.user_id);
+
         
         const messageKey = MessageController.getMessageKeyByType(
             'project_create',
             'fail'
         );
 
-        return projectId
+        return completedInsert
             ? res.redirect(`/project/${projectId}/categories`)
             : res.redirect(`/?m=${messageKey}`);
     }

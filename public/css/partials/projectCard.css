@@ -47,7 +47,7 @@
 		font-size: 1rem;
 	}
 
-		.project-cards li.card__item a header .header__title h3 > span {
+		.project-cards li.card__item a header .header__title span {
 			color: var(--primary-color);
 		}
 

@@ -48,6 +48,7 @@ export default {
     },
 
 	fullNameToInitials: (fullName) => {
+		if (!fullName) return '';
 		const nameArray = fullName.split(' ');
 		const initials = nameArray[0][0] + nameArray[nameArray.length - 1][0];
 		return initials.toUpperCase();
