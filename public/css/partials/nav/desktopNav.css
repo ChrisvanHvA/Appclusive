@@ -72,10 +72,6 @@
 					outline: solid 2px #3584e4;
 				}
 
-					.nav__desktop ul li a span {
-						margin-left: 1rem;
-					}
-
 					.nav__desktop ul li a i {
 						font-size: 1.3rem;
 						width: var(--icon-width);
@@ -84,16 +80,9 @@
 					}
 
 					.nav__desktop li.profile-icon div {
-						aspect-ratio: 1;
 						width: var(--icon-width);
+						border-color: var(--light);
 						flex-shrink: 0;
-					}
-
-					.nav__desktop li.profile-icon img {
-						border-radius: 50%;
-						width: 100%;
-						height: 100%;
-						object-fit: cover;
 					}
 
 /* ---------------------------------- */

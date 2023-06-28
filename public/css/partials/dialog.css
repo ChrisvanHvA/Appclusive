@@ -103,11 +103,6 @@
             border: 2px solid var(--card-border-color);
             border-radius: var(--card-border-radius);
         }
-
-            .dialog__user-list label img {
-                height: 1rem;
-                width: 1rem;
-            }
         
         .dialog__user-list label p {
             flex: 1;
