@@ -37,6 +37,9 @@
 
 .checklist__source {
     margin-top: 1rem;
+    display: flex;
+    gap: .5rem;
+    text-decoration: underline;
 }
 
 /* ---------------------------------- */

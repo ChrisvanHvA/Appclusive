@@ -32,12 +32,12 @@
 					</summary>
 
 					<p>{{{tip_description}}}</p>
-					<a class="checklist__source" target="_blank" href={{ref_link}}>Official WCAG website</a>
+					<a class="checklist__source" target="_blank" href={{ref_link}}><i class="icon fa-solid fa-up-right-from-square"></i>View WCAG details</a>
 				</details>
 
 				<div class="checklist__users">
 					{{#if isAdmin}}
-						<button class="btn--user hide" type="button">
+						<button aria-label="Assign users" class="btn--user hide" type="button">
 							<i class="icon fa-solid fa-user-plus"></i>
 						</button>
 					{{/if}}
@@ -48,7 +48,7 @@
 								{{>profilePicture imgUrl=this.profile_pic fullName=this.full_name}}
 							{{/if}}
 						{{/each}}
-						<span class="user__profile user__counter">+{{subtract assignees.length 2}}</span>
+						<span class="profile-pic user__counter">+{{subtract assignees.length 2}}</span>
 					{{else}}
 						{{#each assignees}}
 							{{>profilePicture imgUrl=this.profile_pic fullName=this.full_name}}
@@ -57,6 +57,6 @@
 				</div>
 			</div>
 		</div>
-		<button tabindex="-1" type="submit" data-checklist-button></button>
+		<button aria-label="Checklist item" tabindex="-1" type="submit" data-checklist-button></button>
 	</label>
 </form>

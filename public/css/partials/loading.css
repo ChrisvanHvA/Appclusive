@@ -39,7 +39,7 @@
     }
 
     .loading .loading__loader {
-        width: 100%;
+        width: 50%;
         aspect-ratio: 1/1;
         position: relative;
         container-type: size;
