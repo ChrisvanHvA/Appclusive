@@ -11,14 +11,14 @@ class projectModel {
      */
     async insert(insertData) {
         try {
-            const { title, description, level } = insertData;
+            const { title, description, wcag_level } = insertData;
 
             const [insertedRow] = await sql`
 				INSERT INTO projects (title, description, wcag_level)
 				VALUES (
 					${title ?? null},
 					${description ?? null},
-					${level ?? null}
+					${wcag_level ?? null}
 				)
 	
 				RETURNING project_id;
@@ -37,18 +37,8 @@ class projectModel {
      * @params updateData: object containing the fields to update
      * @returns boolean indicating whether the update was successful
      */
-    async update(projectId, updateData, oldProject) {
+    async update(projectId, updateData) {
         try {
-            if (!oldProject) {
-                try {
-                    oldProject = await this.getProject(projectId);
-                } catch (error) {
-                    console.log(error);
-                    return false;
-                }
-            }
-
-            const { wcag_level: oldWcagLevel } = oldProject;
             const { title, description, wcag_level: newWcagLevel } = updateData;
 
             await sql`

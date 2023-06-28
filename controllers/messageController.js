@@ -72,8 +72,18 @@ class messageController {
             },
             '14': {
                 'message': "Failed to assign task",
-                'message_class': `${this.messageClass}success`,
+                'message_class': `${this.messageClass}error`,
                 'type': ['assigned_task', 'fail']
+            },
+            '15': {
+                'message': "Project deleted",
+                'message_class': `${this.messageClass}success`,
+                'type': ['assigned_task', 'success']
+            },
+            '9': {
+                'message': "Project deleted",
+                'message_class': `${this.messageClass}success`,
+                'type': ['project_delete', 'success']
             },
         };
     }
@@ -83,8 +93,6 @@ class messageController {
         let messageKey = 2;
 
         const keys = Object.keys(this.messageObjects);
-
-        console.log(searchStrings);
 
         for (let i = 1; i <= keys.length; i++) {
             const key = keys[i];

@@ -46,13 +46,14 @@ router.post(
 
         const MessageController = new messageController();
 
+        let messageKey = 1;
+
         if (type === 'update') {
         
             // update project item
             const updatedProject = await ProjectModel.update(
                 projectId,
                 submitData,
-                project
             );
 
             if (!updatedProject) {
@@ -61,7 +62,9 @@ router.post(
                 return res.redirect(`/settings?m=${messageKey}`);            
             }
 
-            const completedInsert = await ProjectController.updateWcagItemsForProject(projectId);
+            const completedInsert = await ProjectController.updateWcagItemsForProject(
+                projectId
+            );
 
             if (completedInsert) {
                 console.log('project and its checklists were successfully updated');
@@ -76,13 +79,15 @@ router.post(
         } else if (type === 'delete') {
             const deletedData = await ProjectModel.deleteProject(projectId);
 
-            if (deletedData && deletedData.length === 0) {
+            if (!deletedData) {
                 messageKey = MessageController.getMessageKeyByType('project_delete', 'fail');
                 console.log('failed to delete project and its checklists');
                 return res.redirect(`/project/${projectId}/settings?m=${messageKey}`);
             }
 
-            return res.redirect('/');
+            messageKey = MessageController.getMessageKeyByType('project_delete', 'success');
+
+            return res.redirect(`/?m=${messageKey}`);
         }
     }
 );
