@@ -103,7 +103,7 @@ a[href="/logout"] {
     
     .layout__settings {
         padding-top: 2.5rem;
-        width: clamp(10rem, 100%, 70rem);
+        width: clamp(10rem, 100%, 80rem);
         justify-self: center;
     }
 

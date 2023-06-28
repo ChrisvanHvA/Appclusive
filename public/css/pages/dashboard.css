@@ -2,8 +2,8 @@
 	--card-gap: 0.75rem;
 	padding-top: 0;
 
-	/* width: clamp(10rem, 100%, 70rem);
-    justify-self: center; */
+	width: clamp(10rem, 100%, 80rem);
+    justify-self: center;
 }
 
 .layout__dashboard > header {
