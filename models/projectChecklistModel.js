@@ -48,8 +48,11 @@ class projectChecklistModel {
 					RETURNING project_checklists_id;
 				`;
 
+                console.log(updated);
+
             return updated.project_checklists_id ? true : false;
         } catch (error) {
+            console.log('error????');
             console.error(error);
             return false;
         }

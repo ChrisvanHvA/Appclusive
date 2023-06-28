@@ -5,7 +5,7 @@
 	<form action="/join-project" method="POST" autocomplete="off" autocapitalize="on">
 		{{#if general-form-error}}
             <div class="message message--error">
-				Are you sure you got the right invite code?
+				<i class="fa-solid fa-triangle-exclamation"></i> Are you sure you got the right invite code?
             </div>
         {{/if}}
 
@@ -19,7 +19,7 @@
 				placeholder="e.g. ABC123"
 				required
 			/>
-            <label class="message message--error {{#unless code-error.length}}hide{{/unless}}">{{code-error}}</label>
+            <label class="message message--error {{#unless code-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{code-error}}</label>
         </fieldset>
 
 		<button type="submit" class="btn">Join project</button>

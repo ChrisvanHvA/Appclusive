@@ -36,8 +36,6 @@ router.get('/', async (req, res) => {
         DialogController.getMessage('assign_users')
     ];
 
-    console.log(projectInfo)
-
     res.render('checklist', {
         ...res.locals,
         tasks: projectInfo.checklist_data,
@@ -59,7 +57,7 @@ router.post('/submit', async (req, res) => {
         );
 
     // Someone updated it already!
-    if (checklistFromDb && checklistFromDb.is_completed != req.body.is_completed) {
+    if (checklistFromDb && `${checklistFromDb.is_completed}` != req.body.is_completed) {
         updatedStatus = checklistFromDb.is_completed;
     }
 

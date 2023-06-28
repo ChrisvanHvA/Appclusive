@@ -7,7 +7,7 @@
 
         {{#if general-form-error}}
             <div class="message message--error">
-				{{general-form-error}}
+				<i class="fa-solid fa-triangle-exclamation"></i> {{general-form-error}}
             </div>
         {{/if}}
 
@@ -24,7 +24,7 @@
                 value="{{project.title}}"
                 required
             />
-            <label class="message message--error {{#unless title-error.length}}hide{{/unless}}">{{title-error}}</label>
+            <label class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
         </fieldset>
 		
         <fieldset class="form__section">
@@ -71,7 +71,7 @@
                 </aside>
             </section>
 
-            <label class="message message--error {{#unless wcag_level-error.length}}hide{{/unless}}">{{wcag_level-error}}</label>
+            <label class="message message--error {{#unless wcag_level-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{wcag_level-error}}</label>
         </fieldset>
 
         <button class="btn">Save changes</button>

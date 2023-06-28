@@ -5,7 +5,7 @@
 
         {{#if general-form-error}}
             <div class="message message--error">
-                We were unable to create an account for you. Check if have you filled everything in correctly!
+                <i class="fa-solid fa-triangle-exclamation"></i> We were unable to create an account for you. Check if have you filled everything in correctly!
             </div>
         {{/if}}
 
@@ -19,7 +19,7 @@
                 data-input-type="first_name"
                 required
             />
-            <label class="message message--error {{#unless first_name-error.length}}hide{{/unless}}">{{first_name-error}}</label>
+            <label class="message message--error {{#unless first_name-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{first_name-error}}</label>
         </fieldset>
 
         <section class="surname">
@@ -44,7 +44,7 @@
                     data-input-type="surname"
                     required
                 />
-                <label class="message message--error {{#unless surname-error.length}}hide{{/unless}}">{{surname-error}}</label>
+                <label class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
             </fieldset>
         </section>
 
@@ -62,7 +62,7 @@
                 data-input-type="email_address"
                 required
             />
-            <label class="message message--error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
+            <label class="message message--error {{#unless email_address-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{email_address-error}}</label>
         </fieldset>
 
         <section class="passwords">
@@ -77,7 +77,7 @@
                     data-input-type="password"
                     required
                 />
-                <label class="message message--error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
+                <label class="message message--error {{#unless password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{password-error}}</label>
             </fieldset>
 
             <fieldset class="form__section {{#if confirm_password-error.length}} form__error {{/if}}">
@@ -91,7 +91,7 @@
                     data-input-type="confirm_password"
                     required
                 />
-                <label class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}">{{confirm_password-error}}</label>
+                <label class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{confirm_password-error}}</label>
             </fieldset>
         </section>
 
