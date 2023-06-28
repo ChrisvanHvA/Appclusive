@@ -16,6 +16,7 @@
         <fieldset class="form__section {{#if title-error.length}} form__error {{/if}}">
             <label for="title">Project title <span class="required">*</span></label>
              <input
+                aria-describedby="title-error"
                 class="textinput"
                 type="text"
                 name="title"
@@ -24,7 +25,7 @@
                 value="{{project.title}}"
                 required
             />
-            <label class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
+            <label id="title-error" class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
         </fieldset>
 		
         <fieldset class="form__section">

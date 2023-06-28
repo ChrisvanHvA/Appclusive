@@ -12,6 +12,7 @@
         <fieldset class="form__section {{#if first_name-error.length}} form__error {{/if}}">
             <label for="first_name">First Name <span class="required">*</span></label>
             <input
+                aria-describedby="first_name-error"
                 type="name"
                 name="first_name"
                 id="first_name"
@@ -19,7 +20,7 @@
                 data-input-type="first_name"
                 required
             />
-            <label class="message message--error {{#unless first_name-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{first_name-error}}</label>
+            <label id="first_name-error" class="message message--error {{#unless first_name-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{first_name-error}}</label>
         </fieldset>
 
         <section class="surname">
@@ -37,6 +38,7 @@
             <fieldset class="form__section {{#if surname-error.length}} form__error {{/if}}" id="surname">
                 <label for="surname">Surname <span class="required">*</span></label>
                 <input
+                    aria-describedby="surname-error"
                     type="name"
                     name="surname"
                     id="surname"
@@ -44,7 +46,7 @@
                     data-input-type="surname"
                     required
                 />
-                <label class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
+                <label id="surname-error" class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
             </fieldset>
         </section>
 
@@ -53,6 +55,7 @@
         <fieldset class="form__section {{#if email_address-error.length}} form__error {{/if}}">
             <label for="email_address">Email <span class="required">*</span></label>
             <input
+                aria-describedby="email_address-error"
                 type="email"
                 name="email_address"
                 id="email_address"
@@ -62,13 +65,14 @@
                 data-input-type="email_address"
                 required
             />
-            <label class="message message--error {{#unless email_address-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{email_address-error}}</label>
+            <label id="email_address-error" class="message message--error {{#unless email_address-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{email_address-error}}</label>
         </fieldset>
 
         <section class="passwords">
             <fieldset class="form__section form__section {{#if password-error.length}} form__error {{/if}}">
                 <label for="password">Password <span class="required">*</span></label>
                 <input
+                    aria-describedby="password-error"
                     type="password"
                     name="password"
                     id="password"
@@ -77,12 +81,13 @@
                     data-input-type="password"
                     required
                 />
-                <label class="message message--error {{#unless password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{password-error}}</label>
+                <label id="password-error" class="message message--error {{#unless password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{password-error}}</label>
             </fieldset>
 
             <fieldset class="form__section {{#if confirm_password-error.length}} form__error {{/if}}">
                 <label for="confirm_password">Confirm password <span class="required">*</span></label>
                 <input
+                    aria-describedby="confirm_password-error"
                     type="password"
                     name="confirm_password"
                     id="confirm_password"
@@ -91,7 +96,7 @@
                     data-input-type="confirm_password"
                     required
                 />
-                <label class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{confirm_password-error}}</label>
+                <label id="confirm_password-error" class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{confirm_password-error}}</label>
             </fieldset>
         </section>
 

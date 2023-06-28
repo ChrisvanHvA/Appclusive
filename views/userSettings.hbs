@@ -14,20 +14,22 @@
             <legend>Email address*</legend>
 
             <div class="settings__item-input">
-                <input type="email" name="email_address" id="email_address" placeholder=" " value="{{user.email_address}}" />
+                <input aria-describedby="email-error" type="email" name="email_address" id="email_address" placeholder=" " value="{{user.email_address}}" />
                 <label for="email_address">Email address*</label>
             </div>
-            <label class="message message--error {{#unless email_address-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{email_address-error}}</label>
+            <label id="email-error" class="message message--error {{#unless email_address-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{email_address-error}}</label>
         </fieldset>
 
         <fieldset class="settings__item-name">
             <legend>Full name*</legend>
 
             <div class="settings__item-input">
-                <input type="text" name="first_name" id="first_name" placeholder=" " value="{{user.first_name}}" />
+                <input aria-describedby="first_name-error" type="text" name="first_name" id="first_name" placeholder=" " value="{{user.first_name}}" />
                 <label for="first_name">First name*</label>
             </div>
-            <label class="message message--error {{#unless first_name-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{first_name-error}}</label>
+
+            <label id="first_name-error" class="message message--error {{#unless first_name-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{first_name-error}}</label>
+
 
             <div class="settings__item-input">
                 <input type="text" name="insertion" id="insertion" placeholder=" " value="{{user.insertion}}" />
@@ -35,26 +37,26 @@
             </div>
 
             <div class="settings__item-input">
-                <input type="text" name="surname" id="surname" placeholder=" " value="{{user.surname}}" />
+                <input aria-describedby="surname-error" type="text" name="surname" id="surname" placeholder=" " value="{{user.surname}}" />
                 <label for="surname">Surname*</label>
             </div>
-            <label class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
+            <label id="surname-error" class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
         </fieldset>
 
        <fieldset class="settings__item-password">
             <legend>Change password</legend>
 
             <div class="settings__item-input">
-                <input type='password' name='old_password' id="old_password" placeholder=" " />
+                <input aria-describedby="password-error" type='password' name='old_password' id="old_password" placeholder=" " />
                 <label for="old_password">Current password</label>
             </div>
-            <label class="message message--error {{#unless old_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{old_password-error}}</label>
+            <label id="password-error" class="message message--error {{#unless old_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{old_password-error}}</label>
 
             <div class="settings__item-input">
-                <input type='password' name='new_password' id="new_password" placeholder=" " />
+                <input aria-describedby="new_password-error" type='password' name='new_password' id="new_password" placeholder=" " />
                 <label for="new_password">New password</label>
             </div>
-            <label class="message message--error {{#unless new_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{new_password-error}}</label>
+            <label id="new_password-error" class="message message--error {{#unless new_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{new_password-error}}</label>
         </fieldset>
 
         <fieldset class="settings__item-avatar content-avatar">
