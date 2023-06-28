@@ -8,8 +8,12 @@ import {
 } from '../middleware/sanitizer.js';
 
 router.get('/', (req, res) => {
+
+    const registerError = req.query.error;
+
     res.render('register', {
-        noNav: true
+        noNav: true,
+        'general-form-error': registerError
     });
 });
 
@@ -19,7 +23,7 @@ router.post(
     handleValidationErrors('register', { noNav: true }),
     passport.authenticate('local-signup', {
         successRedirect: '/',
-        failureRedirect: '/register'
+        failureRedirect: '/register?error=1'
     })
 );
 

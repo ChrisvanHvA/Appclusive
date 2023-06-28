@@ -3,8 +3,14 @@
     <form method="POST">
       <h3 class="subtext">Tell us about yourself</h3>
 
+        {{#if general-form-error}}
+            <div class="message message--error">
+                We were unable to create an account for you. Check if have you filled everything in correctly!
+            </div>
+        {{/if}}
+
         <fieldset class="form__section {{#if first_name-error.length}} form__error {{/if}}">
-            <label for="first_name">First Name</label>
+            <label for="first_name">First Name <span class="required">*</span></label>
             <input
                 type="name"
                 name="first_name"
@@ -29,7 +35,7 @@
             </fieldset>
 
             <fieldset class="form__section {{#if surname-error.length}} form__error {{/if}}" id="surname">
-                <label for="surname">Surname</label>
+                <label for="surname">Surname <span class="required">*</span></label>
                 <input
                     type="name"
                     name="surname"
@@ -45,7 +51,7 @@
         <hr class="registerHr">
 
         <fieldset class="form__section {{#if email_address-error.length}} form__error {{/if}}">
-            <label for="email_address">Email</label>
+            <label for="email_address">Email <span class="required">*</span></label>
             <input
                 type="email"
                 name="email_address"
@@ -61,7 +67,7 @@
 
         <section class="passwords">
             <fieldset class="form__section form__section {{#if password-error.length}} form__error {{/if}}">
-                <label for="password">Password</label>
+                <label for="password">Password <span class="required">*</span></label>
                 <input
                     type="password"
                     name="password"
@@ -75,7 +81,7 @@
             </fieldset>
 
             <fieldset class="form__section {{#if confirm_password-error.length}} form__error {{/if}}">
-                <label for="confirm_password">Confirm password</label>
+                <label for="confirm_password">Confirm password <span class="required">*</span></label>
                 <input
                     type="password"
                     name="confirm_password"

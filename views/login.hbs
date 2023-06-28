@@ -3,6 +3,12 @@
     <form method="POST">
         <h2>Welcome back!</h2>
 
+        {{#if general-form-error}}
+            <div class="message message--error">
+                {{general-form-error}}
+            </div>
+        {{/if}}
+
         <fieldset class="form__section">
             <label for="email_address">Email</label>
             <input type="email" name="email_address" id="email_address" placeholder="Enter your email" autocapitalize="off"
