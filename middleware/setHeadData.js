@@ -29,7 +29,7 @@ const data = {
     '/': {
         title: 'Dashboard',
         description: '',
-        scripts: ['copyOnClick', 'autocomplete']
+        scripts: ['copyOnClick', 'autocomplete', 'dashboard']
     },
     '/search': {
         title: 'Search',
@@ -70,7 +70,7 @@ const data = {
     '/login': {
         title: 'Login',
         description: '',
-        scripts: []
+        scripts: ['login']
     },
     '/landing': {
         title: 'Appclusive | Landing',

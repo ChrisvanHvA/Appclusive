@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
     res.render('dashboard', {
         ...res.locals,
         projects: allProjects,
-        title: 'Dashboard'
+        title: 'Dashboard',
+        loading: true
     });
 });
 

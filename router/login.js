@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
     }
 
     res.render('login', {
-        noNav: true
+        noNav: true,
+        loading: true
     });
 });
 
