@@ -51,6 +51,7 @@
 			color: var(--primary-color);
 		}
 
+	.project-cards li.card__item a header h3,
 	.project-cards li.card__item.allprojects-card a header h3 {
 		max-width: calc(100vw - 13.8rem);
 	}
