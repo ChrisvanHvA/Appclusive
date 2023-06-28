@@ -70,7 +70,7 @@ const handleValidationErrors = (render, extraParams) => (req, res, next) => {
             errorFields = { ...errorFields, ...extraParams };
         }
 
-        errorFields['general-form-error'] = 'Something'
+        errorFields['general-form-error'] = 'One or multiple fields were not filled in correctly.';
 
         if (req.originalUrl.includes('login') && errorFields['password-error']) {
             console.log('login password character error -> not relevant on login');
