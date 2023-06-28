@@ -130,6 +130,11 @@ button {
     font-weight: 700;
 }
 
+.btn--cancel:hover,
+.btn--cancel:focus-visible {
+    color: var(--dark);
+}
+
 /* NAV BUTTON */
 .btn--nav {
     display: flex;
