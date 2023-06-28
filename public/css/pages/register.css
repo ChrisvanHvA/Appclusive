@@ -44,7 +44,7 @@
                 padding: 0.75rem;
                 padding-left: 1.25rem;
                 border-radius: var(--card-border-radius);
-                border: 0.125rem solid var(--dark);
+                border: 0.125rem solid var(--primary-text);
             }
             .layout__register .form__section input::placeholder {
                 font-size: 0.875rem;

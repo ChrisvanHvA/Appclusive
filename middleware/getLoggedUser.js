@@ -9,7 +9,6 @@ const getLoggedUser = async (req, res, next) => {
 			${user.last_name || ''}`
 			.trim()
         };
-		console.log(res.locals.user);
     } else {
         res.locals.user = null;
     }

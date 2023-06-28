@@ -5,6 +5,8 @@
     padding: 2rem;
     scale: 1;
     animation: scaleUp .25s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
+	background-color: var(--primary-bg);
+	color: var(--primary-text);
 }
 .dialog::backdrop {
     background: rgba(0, 0, 0, 0.5);

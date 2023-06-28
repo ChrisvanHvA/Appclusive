@@ -1,8 +1,9 @@
 #searchbar {
     display: block;
     position: relative;
-    margin: 0 -1.5rem;
-    padding: 0 1.5rem;
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    padding: 0 1rem;
     z-index: 2;
 }
 
@@ -78,6 +79,7 @@
 @media screen and (max-width: 950px) {
     
     #searchbar {
+        padding: 0 1.5rem;
         background: linear-gradient(to bottom, var(--primary-color) 70%, transparent 30%);
     }
 	#searchbar::before,
@@ -86,7 +88,7 @@
         position: absolute;
         bottom: 0;
         width: 1.85rem;
-        height: 2rem;
+        height: 1.75rem;
         background-color: var(--primary-bg);
         z-index: -1;
     }

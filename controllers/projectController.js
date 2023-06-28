@@ -18,7 +18,6 @@ const ProjectChecklistModel = new projectChecklistModel();
  * @returns Promise<any>
  */
 const createProject = async (projectData, user_id) => {
-
     try {
         // todo: remove this default user_id
         if (!user_id) {
@@ -43,9 +42,7 @@ const createProject = async (projectData, user_id) => {
             throw new Error('Project user insert went wrong');
         }
 
-        const updatedWcagItems = await updateWcagItemsForProject(
-            projectId
-        );
+        const updatedWcagItems = await updateWcagItemsForProject(projectId);
 
         if (!updatedWcagItems) {
             throw new Error('WCAG Items not updated');
@@ -53,7 +50,7 @@ const createProject = async (projectData, user_id) => {
 
         return { completedInsert: true, projectId: projectId };
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return { completedInsert: false, projectId: projectId };
     }
 };
@@ -65,22 +62,24 @@ const createProject = async (projectData, user_id) => {
  * @returns boolean - True if the update is completed, false otherwise
  */
 const updateWcagItemsForProject = async (projectId) => {
-    
     try {
         const project = await ProjectModel.getProject(projectId);
-        await ProjectChecklistModel.addNewProjectChecklists(projectId);
 
-        // If the project is not AAA, delete all checklists that are above the project level
+		// if the project is not AAA, delete all checklists above the project's WCAG level
         if (project.wcag_level !== 'AAA') {
-            await ProjectChecklistModel.deleteProjectChecklists(projectId);
+            await Promise.all([
+                ProjectChecklistModel.deleteProjectChecklists(projectId),
+                ProjectChecklistModel.addNewProjectChecklists(projectId)
+            ]);
+        } else {
+            await ProjectChecklistModel.addNewProjectChecklists(projectId);
         }
 
         return true;
     } catch (error) {
         return false;
-    }   
+    }
 };
-
 
 /**
  * Creates a full project overview with checklist data

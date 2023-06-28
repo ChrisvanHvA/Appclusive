@@ -58,7 +58,7 @@ const handleValidationErrors = (render, extraParams) => (req, res, next) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        console.log('errors found');
+        console.error('errors found');
 
         let errorFields = {};
 
@@ -70,12 +70,10 @@ const handleValidationErrors = (render, extraParams) => (req, res, next) => {
             errorFields = { ...errorFields, ...extraParams };
         }
 
-        console.log(errorFields);
+        console.error(errorFields);
 
         return res.render(render, errorFields);
     }
-
-    console.log('continue');
 
     next();
 };

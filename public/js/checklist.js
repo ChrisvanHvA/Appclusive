@@ -104,7 +104,7 @@ const submitHandler = async (e) => {
             updateProgress();
         }
     } catch (err) {
-        console.log(err);
+        console.error(err);
         window.location.href = `/project/${projectId}?category=${category}&error=1`;
     }
 };
