@@ -115,12 +115,14 @@ function getSuggestions() {
     const info = document.querySelectorAll(
         'li.card__item.allprojects-card .header__title h3'
     );
+
     info.forEach((item) => {
-        item.innerHTML = item.innerHTML.replace(
+        const modifiedContent = item.innerHTML.replace(
             /<span\b[^>]*>(.*?)<\/span>/i,
             ''
         );
-        const content = item.innerHTML.trim();
+        const content = modifiedContent.trim();
+
         if (!suggestions.includes(content)) {
             suggestions.push(content);
         }
