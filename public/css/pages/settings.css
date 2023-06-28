@@ -177,3 +177,14 @@ a[href="/logout"] {
 					color: var(--light);
 				}
 }
+
+
+
+/* ---------------------------------- */
+/*       ziek illegaal maar lol       */
+/* ---------------------------------- */
+/* beetje last minute */
+label[aria-label="edit profile picture"]:focus-visible {
+	outline-offset: 2px;
+	outline: solid 2px var(--primary-color);
+}
