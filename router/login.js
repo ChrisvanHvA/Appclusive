@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
         return res.redirect('/settings');
     }
 
-    const loginFailed = req.query.error;
+    const loginFailed = req.query.error ? 'We could not find an account with the provided information' : null;
 
     res.render('login', {
         noNav: true,

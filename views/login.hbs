@@ -18,8 +18,8 @@
 
         <fieldset class="form__section">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Enter your password" required />
-            <label class="error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
+            <input aria-describedby="password-error" type="password" name="password" id="password" placeholder="Enter your password" required />
+            <label id="password-error" class="error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
         </fieldset>
 
         <a class="login__forgot" href="/forgot-password">Forgot password?</a>

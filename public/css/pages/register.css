@@ -159,7 +159,7 @@
 
 hr.registerHr {
     width: 100%;
-    margin: 3rem 0rem 3rem 0rem;
+    margin: 1rem 0rem;
 }
 
 .passwords {
@@ -175,9 +175,6 @@ hr.registerHr {
     margin: 0;
     padding-bottom: 2rem;
     line-height: normal;
-}
-.subtext:first-of-type {
-    margin-top: 3rem;
 }
 
 @media screen and (min-width: 951px) {

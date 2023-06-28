@@ -13,6 +13,7 @@
         <fieldset class="form__section {{#if title-error.length}} form__error {{/if}}">
             <label for="title">Project title <span class="required">*</span></label>
              <input
+                aria-describedby="title-error"
                 class="textinput"
                 type="text"
                 name="title"
@@ -20,7 +21,7 @@
                 placeholder="What would you like to name your project?"
                 required
             />
-            <label class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
+            <label id="title-error" class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
         </fieldset>
 
         <fieldset class="form__section form__section--counter">
@@ -60,7 +61,7 @@
                     </div>
 
                     <div role="radiogroup" aria-labelledby="level-label">
-                        <input type="radio" id="aaa" name="wcag_level" value="AAA" role="radio" required />
+                        <input aria-describedby="level-error" type="radio" id="aaa" name="wcag_level" value="AAA" role="radio" required />
                         <label for="aaa" id="level-label">
                             <h3>Level AAA: Specialized Support</h3>
                             <p>This is typically reserved for parts of websites and web apps that serve a specialized audience.</p>
@@ -70,7 +71,7 @@
                 </aside>
             </section>
 
-            <label class="message message--error {{#unless wcag_level-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{wcag_level-error}}</label>
+            <label id="level-error" class="message message--error {{#unless wcag_level-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{wcag_level-error}}</label>
         </fieldset>
 
         <button class="btn">Create Project</button>

@@ -4,14 +4,15 @@
 
 	<form action="/join-project" method="POST" autocomplete="off" autocapitalize="on">
 		{{#if general-form-error}}
-            <div class="message message--error">
+            <div class="message message--error" id="code-error">
 				<i class="fa-solid fa-triangle-exclamation"></i> Are you sure you got the right invite code?
             </div>
         {{/if}}
 
 		 <fieldset class="form__section {{#if code-error.length}} form__error {{/if}}">
             <label for="title">Invite code <span class="required">*</span></label>
-            <input 
+            <input
+				aria-describedby="code-error" 
 				name="code" 
 				type="text" 
 				maxlength="6" 
