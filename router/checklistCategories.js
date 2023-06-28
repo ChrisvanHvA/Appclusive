@@ -45,7 +45,8 @@ router.get('/', async (req, res) => {
         categories,
         project,
         isAdmin,
-        dialog_messages: dialogMessages
+        dialog_messages: dialogMessages,
+        loading: true
     });
 });
 
