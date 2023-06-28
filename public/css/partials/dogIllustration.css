@@ -2,6 +2,10 @@
     display: none;
 }
 
+.mobileDog {
+    cursor: pointer;
+}
+
 #dognod {
     animation: dogbounce 0.5s infinite;
 }
