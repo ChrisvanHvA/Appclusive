@@ -39,13 +39,13 @@
             <legend>Change password</legend>
 
             <div class="settings__item-input">
-                <input type='password' name='old_password' id="old_password" placeholder=" " autocomplete="new-password" />
+                <input type='password' name='old_password' id="old_password" placeholder=" " />
                 <label for="old_password">Current password</label>
             </div>
             <label class="error {{#unless old_password-error.length}}hide{{/unless}}">{{old_password-error}}</label>
 
             <div class="settings__item-input">
-                <input type='password' name='new_password' id="new_password" placeholder=" " autocomplete="new-password" />
+                <input type='password' name='new_password' id="new_password" placeholder=" " />
                 <label for="new_password">New password</label>
             </div>
             <label class="error {{#unless new_password-error.length}}hide{{/unless}}">{{new_password-error}}</label>

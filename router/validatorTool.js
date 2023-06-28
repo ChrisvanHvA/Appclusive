@@ -27,6 +27,8 @@ router.post('/result', async (req, res) => {
 
 async function validateHTML(html) {
     console.log('Validating html...')
+
+    // if html has more characters than 2048, return error
     try {
         const response = await fetch('https://validator.w3.org/nu/?out=json', {
             method: 'POST',

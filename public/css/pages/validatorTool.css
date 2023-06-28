@@ -66,3 +66,11 @@
     .validator__form .btn {
         width: fit-content;
     }
+
+.validator__error {
+    display: flex;
+    gap: .5rem;
+    border-radius: .3rem;
+    color: var(--error);
+    font-weight: 700;
+}

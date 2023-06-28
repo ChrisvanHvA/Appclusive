@@ -110,10 +110,11 @@ main.layout__project-create .project__level section aside {
 		}
 		
 			.project__level section aside div[aria-labelledby="level-label"] label {
-				display: block;
+				display: flex;
+				flex-direction: column;
 				height: 100%;
-				padding: 0.75rem;
-				background-color: var(--primary-bg);
+				padding: .75rem;
+				background-color: var(--light);
 				border: 2px solid var(--primary-color);
 				border-radius: var(--card-border-radius);
 			}
@@ -127,6 +128,10 @@ main.layout__project-create .project__level section aside {
 				color: var(--light);
 				background-color: var(--primary-color);
 			}
+
+			.project__level section aside div[aria-labelledby="level-label"] input:checked + label .project__level__check {
+				opacity: 1;
+			}
 			
 				.project__level section aside div[aria-labelledby="level-label"] input:checked + label {
 					color: var(--light);
@@ -135,6 +140,7 @@ main.layout__project-create .project__level section aside {
 				.project__level section aside div label p {
 					display: block;
 					font-weight: 400;
+					flex: 1;
 				}
 		
 		.layout__project-create .project__level input {
@@ -145,6 +151,12 @@ main.layout__project-create .project__level section aside {
 			margin-bottom: 0.5rem;
 			padding-top: 0.1rem;
 		}
+
+.project__level__check {
+	align-self: end;
+    justify-items: end;
+	opacity: 0;
+}
 
 @media screen and (min-width: 951px) {
 

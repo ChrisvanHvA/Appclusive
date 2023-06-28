@@ -1,5 +1,6 @@
 const copyToClipboard = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (!navigator.clipboard) {
         console.error('Clipboard API not available');

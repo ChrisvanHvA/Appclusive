@@ -4,7 +4,7 @@
     for='flip-{{slug}}'
 ><i class='icon fa-regular fa-xl fa-circle-question'></i></label>
 
-<a href='/project/{{projectId}}?category={{slugify title}}'>
+<a aria-label="Category item" href='/project/{{projectId}}?category={{slugify title}}'>
     <div class='category__item__back'>
         <p>{{#if short_description}}{{short_description}}{{else}}{{description}}{{/if}}</p>
     </div>
