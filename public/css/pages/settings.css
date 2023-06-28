@@ -143,14 +143,13 @@ a[href="/logout"] {
             grid-row: -1 / 3;
             align-self: flex-start;
             margin: 0 0 0 8rem;
-        }       
+        }
 
-            .settings .settings__item-avatar img {
-                width: 12rem;
-                height: 12rem;
-                border-radius: 50%;
-                object-fit: cover;
-            }
+			.settings .settings__item-avatar div {
+				width: 12rem;
+				height: 12rem;
+				border: none;
+			}
             
             .settings .settings__item-avatar input[type="file"] {
                 display: none;
@@ -170,6 +169,7 @@ a[href="/logout"] {
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				z-index: 2;
             }
 
 				.settings .settings__item-avatar label i {
