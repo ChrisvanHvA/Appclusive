@@ -13,9 +13,9 @@ const ProjectChecklistModel = new projectChecklistModel();
  * Inserting data into multiple tables to ensure
  * checklists are connected to the right projects and users
  *
- * @params insertData: todo
- * @params user_id: user who created the project
- * @returns {Promise<any>}
+ * @param projectData: Object - The project data to be inserted
+ * @param user_id: Number - The ID of the user who created the project
+ * @returns Promise<any>
  */
 const createProject = async (projectData, user_id) => {
     // todo: remove this default user_id
@@ -38,9 +38,10 @@ const createProject = async (projectData, user_id) => {
 };
 
 /**
- * Updates the checklists of a project, removing any items that are higher than the project level, and adding any items that are lower than or equal to the project level.
- * @param {string} projectId - The ID of the project to update.
- * @returns {Promise<boolean>} - A promise that resolves when the update is complete.
+ * Updates WCAG items for a project
+ *
+ * @param projectId: Number - The ID of the project
+ * @returns boolean - True if the update is completed, false otherwise
  */
 const updateWcagItemsForProject = async (projectId) => {
     const project = await ProjectModel.getProject(projectId);
@@ -65,6 +66,14 @@ const updateWcagItemsForProject = async (projectId) => {
     return completedUpdate;
 };
 
+
+/**
+ * Creates a full project overview with checklist data
+ *
+ * @param wcagCategory: Object - The WCAG category object
+ * @param projectId: Number - The ID of the project
+ * @returns Object - The project information
+ */
 const createFullProjectOverview = async (wcagCategory, projectId) => {
     const wcagItems = await ProjectChecklistModel.listChecklistItems(
         wcagCategory.wcag_id,
