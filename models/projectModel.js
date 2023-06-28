@@ -6,8 +6,8 @@ class projectModel {
     /**
      * Async function to insert a project into the db
      *
-     * @params insertData: Object - The fields to insert
-     * @returns Number - The project_id
+     * @param object insertData: The fields to insert
+     * @returns {number} - The project_id
      */
     async insert(insertData) {
         try {
@@ -33,10 +33,10 @@ class projectModel {
     /**
      * Async function to update project information
      *
-     * @params projectId: Number - The ID of the project to update
-     * @params updateData: Object - The fields to update
-     * @params oldProject: Object (optional) - The old project object
-     * @returns Boolean - True if the update was successful, false otherwise
+     * @param {number} projectId The ID of the project to update
+     * @param object updateData: The fields to update
+     * @param object (optional) oldProject: The old project object
+     * @returns {boolean} - True if the update was successful, false otherwise
      */
     async update(projectId, updateData) {
         try {
@@ -60,8 +60,8 @@ class projectModel {
     /**
      * Async function to delete a project
      *
-     * @params projectId: Number - The ID of the project to delete
-     * @returns Boolean - True if the deletion was successful, false otherwise
+     * @param {number} projectId The ID of the project to delete
+     * @returns {boolean} True if the deletion was successful, false otherwise
      */
     async deleteProject(projectId) {
         try {
@@ -83,8 +83,8 @@ class projectModel {
     /**
      * Async function to retrieve a project by ID
      *
-     * @params projectId: Number - The ID of the requested project
-     * @returns Object - The project object
+     * @param {number} projectId The ID of the requested project
+     * @returns object - The project object
      */
     async getProject(projectId) {
         if (!projectId || projectId == 0) return null;
@@ -103,6 +103,12 @@ class projectModel {
         }
     }
 
+	 /**
+     * Async function to retrieve a project by it's invite code
+     *
+     * @param {number} projectCode The requested invite code
+     * @returns object - The project object
+     */
     async getProjectByCode(projectCode) {
         try {
             if (!projectCode) {
@@ -123,10 +129,10 @@ class projectModel {
     }
 
     /**
-     * Async function to retrieve a project by project code
+     * Async function to list projects by user ID
      *
-     * @params projectCode: String - The project code
-     * @returns Object - The project object
+     * @param {number} userId The ID of the user
+     * @returns array of objects - The project object
      */
     async listProjects(userId) {
         try {
