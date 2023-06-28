@@ -48,7 +48,7 @@
 								{{>profilePicture imgUrl=this.profile_pic fullName=this.full_name}}
 							{{/if}}
 						{{/each}}
-						<span class="user__profile user__counter">+{{subtract assignees.length 2}}</span>
+						<span class="user__counter">+{{subtract assignees.length 2}}</span>
 					{{else}}
 						{{#each assignees}}
 							{{>profilePicture imgUrl=this.profile_pic fullName=this.full_name}}
