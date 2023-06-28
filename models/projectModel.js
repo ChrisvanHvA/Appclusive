@@ -6,8 +6,8 @@ class projectModel {
     /**
      * Async function to insert a project into the db
      *
-     * @params insertData: object containing the fields to insert
-     * @returns project_id
+     * @params insertData: Object - The fields to insert
+     * @returns Number - The project_id
      */
     async insert(insertData) {
         try {
@@ -33,9 +33,10 @@ class projectModel {
     /**
      * Async function to update project information
      *
-     * @params projectId: id of the project to update
-     * @params updateData: object containing the fields to update
-     * @returns boolean indicating whether the update was successful
+     * @params projectId: Number - The ID of the project to update
+     * @params updateData: Object - The fields to update
+     * @params oldProject: Object (optional) - The old project object
+     * @returns Boolean - True if the update was successful, false otherwise
      */
     async update(projectId, updateData, oldProject) {
         try {
@@ -66,10 +67,10 @@ class projectModel {
     }
 
     /**
-     * Async function to update project information
+     * Async function to delete a project
      *
-     * @params projectId: id of the project to update
-     * @returns boolean indicating whether the deletion was successful
+     * @params projectId: Number - The ID of the project to delete
+     * @returns Boolean - True if the deletion was successful, false otherwise
      */
     async deleteProject(projectId) {
         try {
@@ -89,9 +90,10 @@ class projectModel {
     }
 
     /**
-     * Async function to retrieve singular project by id
-     * @params projectId: id of the requested project
-     * @returns project
+     * Async function to retrieve a project by ID
+     *
+     * @params projectId: Number - The ID of the requested project
+     * @returns Object - The project object
      */
     async getProject(projectId) {
         if (!projectId || projectId == 0) return null;
@@ -130,9 +132,10 @@ class projectModel {
     }
 
     /**
-     * Async function to retrieve list of projects user is involved in
-     * @params userId: id of the user account
-     * @returns list of projects
+     * Async function to retrieve a project by project code
+     *
+     * @params projectCode: String - The project code
+     * @returns Object - The project object
      */
     async listProjects(userId) {
         try {

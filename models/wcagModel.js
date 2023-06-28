@@ -2,10 +2,10 @@ import sql from '../config/db.js';
 
 class wcagModel {
     /**
+     * Async function to retrieve a WCAG category by ID
      *
-     * Async function to retrieve list of all WCAG categories
-     *
-     * @returns list of WCAG categories
+     * @params wcag_id: number - The ID of the WCAG category
+     * @returns Object - The WCAG category object
      */
     async getWCAGCategory(wcag_id) {
         try {
@@ -22,6 +22,12 @@ class wcagModel {
         }
     }
 
+    /**
+     * Async function to retrieve a WCAG category by slug
+     *
+     * @params slug: string - The slug of the WCAG category
+     * @returns Object - The WCAG category object
+     */
     async getWCAGCategoryIdBySlug(slug) {
         try {
             const [category] = await sql`
@@ -38,10 +44,9 @@ class wcagModel {
     }
 
     /**
+     * Async function to retrieve a list of all WCAG categories
      *
-     * Async function to retrieve list of all WCAG categories
-     *
-     * @returns list of WCAG categories
+     * @returns Array - An array of WCAG category objects
      */
     async listWCAGCategories() {
         try {
@@ -58,11 +63,11 @@ class wcagModel {
     }
 
     /**
+     * Async function to retrieve a list of WCAG items based on the parent category ID
      *
-     * Async function to retrieve a list of WCAG items based on category parent id
-     *
-     * @params parent_id: id of wcag category, project_id: id of project
-     * @returns list of WCAG items within category
+     * @params parent_id: number - The ID of the parent category
+     * @params project_id: number (optional) - The ID of the project
+     * @returns Array - An array of WCAG item objects within the category
      */
     async listWCAGItemsByParentId(parent_id, project_id = 0) {
         try {
@@ -94,10 +99,10 @@ class wcagModel {
     }
     
     /**
+     * Async function to retrieve a list of WCAG items based on the WCAG level
      *
-     * Async function to retrieve a list of WCAG items based on category parent id
-     *
-     * @returns list of WCAG categories
+     * @params wcag_level: string - The WCAG level
+     * @returns Array - An array of WCAG item objects
      */
 	// todo: check if needed
     async listWCAGItemsByLevel(wcag_level) {
@@ -118,10 +123,10 @@ class wcagModel {
     }
 
     /**
+     * Async function to retrieve a specific WCAG item by ID
      *
-     * Async function to retrieve a specific WCAG item based on its id
-     *
-     * @returns get specific WCAG item {}
+     * @params wcag_item_id: number - The ID of the WCAG item
+     * @returns Object - The specific WCAG item object
      */
 	// todo: check if needed
     async getWCAGItemById(wcag_item_id) {

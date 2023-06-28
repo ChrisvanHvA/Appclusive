@@ -3,6 +3,14 @@ import sql from '../config/db.js';
 class projectChecklistModel {
     constructor() {}
 
+	/**
+     * Async function to update the assignees of a checklist item within a project
+     *
+     * @params assignees: Array - The assignees to be updated
+     * @params projectId: Number - The project ID
+     * @params wcagItemId: Number - The WCAG item ID
+     * @returns Boolean - True if the update was successful, false otherwise
+     */
     async updateAssignees(assignees, projectId, wcagItemId) {
         try {
             await sql`
@@ -21,10 +29,10 @@ class projectChecklistModel {
     /**
      * Async function to update the completion status of a specific checklist item within a project
      *
-     * @params wcag_item_id
-     * @params project_id
-     * @params bool
-     * @returns bool
+     * @params wcag_item_id: Number - The WCAG item ID
+     * @params project_id: Number - The project ID
+     * @params Boolean - The completion status
+     * @returns Boolean - True if the update was successful, false otherwise
      */
     async updateChecklistCompletion(wcag_item_id, project_id, bool) {
         if (wcag_item_id == 0 || project_id == 0 || bool == null) {
@@ -47,6 +55,12 @@ class projectChecklistModel {
         }
     }
 
+	/**
+     * Async function to retrieve project category data
+     *
+     * @params project_id: Number - The project ID
+     * @returns Object - The project category data
+     */
     async getProjectCategoryData(project_id) {
         if (project_id == 0) {
             return null;
@@ -79,6 +93,13 @@ class projectChecklistModel {
         }
     }
 
+	/**
+     * Async function to list checklist items for a given parent ID and project ID
+     *
+     * @params parentId: Number - The parent ID
+     * @params projectId: Number - The project ID
+     * @returns Array - An array of checklist items
+     */
     async listChecklistItems(parentId, projectId) {
         if (projectId == 0) {
             return null;
@@ -117,7 +138,8 @@ class projectChecklistModel {
 
 	/**
      * Async function to add new project checklists based on the WCAG level of the project
-     * @params projectId
+     *
+     * @params projectId: Number - The project ID
      * @returns void
      */
     async addNewProjectChecklists(projectId) {
@@ -141,10 +163,11 @@ class projectChecklistModel {
     }
 
 	/**
-	 * Async function to delete all project checklists above the project level
-	 * @params projectId
-	 * @returns void
-	 */
+     * Async function to delete all project checklists above the project level
+     *
+     * @params projectId: Number - The project ID
+     * @returns void
+     */
 	async deleteProjectChecklists(projectId) {
 		try {
 			await sql`
