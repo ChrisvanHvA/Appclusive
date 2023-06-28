@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
     const ProjectModel = new projectModel();
     const allProjects = await ProjectModel.listProjects(userId);
 
-	const search = req.query.query;
-	let matchingItems = [];
+    const search = req.query.query;
+    let matchingItems = [];
 
     if (search) {
         const searchLowercase = search.toLowerCase();
@@ -29,6 +29,5 @@ router.get('/', async (req, res) => {
         title: 'Project search'
     });
 });
-
 
 export default router;

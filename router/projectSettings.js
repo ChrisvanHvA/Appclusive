@@ -47,7 +47,6 @@ router.post(
         const MessageController = new messageController();
 
         if (type === 'update') {
-        
             // update project item
             const updatedProject = await ProjectModel.update(
                 projectId,
@@ -57,29 +56,48 @@ router.post(
 
             if (!updatedProject) {
                 console.log('failed to update project');
-                messageKey = MessageController.getMessageKeyByType('project_update', 'fail');
-                return res.redirect(`/settings?m=${messageKey}`);            
+                messageKey = MessageController.getMessageKeyByType(
+                    'project_update',
+                    'fail'
+                );
+
+                return res.redirect(`/settings?m=${messageKey}`);
             }
 
-            const completedInsert = await ProjectController.updateWcagItemsForProject(projectId);
+            const completedInsert =
+                await ProjectController.updateWcagItemsForProject(projectId);
 
             if (completedInsert) {
-                console.log('project and its checklists were successfully updated');
+                console.log(
+                    'project and its checklists were successfully updated'
+                );
+
                 return res.redirect(`/project/${projectId}/settings?m=1`);
 
             } else {
-                messageKey = MessageController.getMessageKeyByType('project_update', 'fail');
+                messageKey = MessageController.getMessageKeyByType(
+                    'project_update',
+                    'fail'
+                );
                 console.log('failed to update project and its checklists');
-                return res.redirect(`/project/${projectId}/settings?m=${messageKey}`);
-            }
 
+                return res.redirect(
+                    `/project/${projectId}/settings?m=${messageKey}`
+                );
+            }
         } else if (type === 'delete') {
             const deletedData = await ProjectModel.deleteProject(projectId);
 
             if (deletedData && deletedData.length === 0) {
-                messageKey = MessageController.getMessageKeyByType('project_delete', 'fail');
+                messageKey = MessageController.getMessageKeyByType(
+                    'project_delete',
+                    'fail'
+                );
                 console.log('failed to delete project and its checklists');
-                return res.redirect(`/project/${projectId}/settings?m=${messageKey}`);
+                
+                return res.redirect(
+                    `/project/${projectId}/settings?m=${messageKey}`
+                );
             }
 
             return res.redirect('/');
