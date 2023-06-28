@@ -1,5 +1,5 @@
 <div class="profile-pic" title="{{this.fullName}}">
-	<img src="{{this.env.imgBucket}}{{this.imgUrl}}" alt="Profile picture of {{this.fullName}}" onerror="this.style.display='none';" 
+	<img src="{{this.env.imgBucket}}{{this.imgUrl}}" alt="Profile picture of {{this.fullName}}" onerror="this.style.display='none';" onload="this.style.display='block'"
 		{{#if this.imgClass}}class="{{this.imgClass}}"{{/if}}>
 		
 	<span aria-label="{{this.fullName}}">
