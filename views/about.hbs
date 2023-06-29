@@ -6,35 +6,40 @@
         <span class="bg-circle"></span>
     </div>
 
-    <div class="dog">
-        <img src="images/hulphond_body.svg" alt="Dog image body">
-        <img class="desktopDog" src="images/hulphond.svg" alt="Dog image head">
-    </div>
+    <div class="landingHeader__container">
 
-    <section class="mobileHeader">
-        {{>icons/logo}}
-        <a href="/login" class="btn btn--secondary">Log in</a>
-    </section>
+        <div class="dog">
+            <img src="images/hulphond_body.svg" alt="Dog image body">
+            <img class="desktopDog" src="images/hulphond.svg" alt="Dog image head">
+        </div>
 
-    <ul class="landingTopbar">
-        <li>
+        <section class="mobileHeader">
             {{>icons/logo}}
-        </li>
-
-        <li>
             <a href="/login" class="btn btn--secondary">Log in</a>
-            <span class="topbarDivider"></span>
-            <a href="/register" class="btn">Register</a>
-        </li>
-    </ul>
+        </section>
 
-    <h1>Accessibility in apps...</h1>
-    <p>...ensures that everyone can use them easily and feel included in the digital world. Appclusive provides you with checklists, so you can easily walk through the WCAG guidelines (on different levels)!</p>
+        <ul class="landingTopbar">
+            <li>
+                {{>icons/logo}}
+            </li>
 
-    <div class="eg">
-        <img src="images/checklistItem.png" alt="Project checklist example">
-        <img src="images/checklistItem2.png" alt="Project checklist example" aria-hidden="true">
+            <li>
+                <a href="/login" class="btn btn--secondary">Log in</a>
+                <span class="topbarDivider"></span>
+                <a href="/register" class="btn">Register</a>
+            </li>
+        </ul>
+
+        <h1>Accessibility in apps...</h1>
+        <p>...ensures that everyone can use them easily and feel included in the digital world. Appclusive provides you with checklists, so you can easily walk through the WCAG guidelines (on different levels)!</p>
+
+        <div class="eg">
+            <img src="images/checklistItem.png" alt="Project checklist example">
+            <img src="images/checklistItem2.png" alt="Project checklist example" aria-hidden="true">
+        </div>
+
     </div>
+
     
 </header>
 

@@ -10,6 +10,11 @@
     border-radius: 0 0 1rem 1rem;
 }
 
+    .landingHeader__container {
+        max-width: 90rem;
+        margin: 0 auto;
+    }
+
     .landingHeader .mobileHeader,
     footer.landingFooter {
         display: flex;
@@ -133,7 +138,7 @@
         overflow: hidden;
     }
 
-        .landingHeader > .mobileHeader {
+        .landingHeader .mobileHeader {
             display: none;
         }
         
