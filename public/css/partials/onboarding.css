@@ -52,3 +52,9 @@ footer.shepherd-footer {
     footer.shepherd-footer .shepherd-button:last-child {
         margin-left: auto;
     }
+
+@media screen and (max-width: 950px) {
+    body > div.shepherd-has-cancel-icon.shepherd-has-title.shepherd-element.shepherd-enabled {
+        width: calc(100% - 4rem);
+    }
+}
