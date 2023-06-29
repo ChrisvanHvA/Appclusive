@@ -150,8 +150,8 @@ class projectChecklistModel {
 			FROM project_checklists AS pc
 			LEFT JOIN wcag_item AS wi ON wi.wcag_item_id = pc.wcag_item_id
 			WHERE pc.project_id = ${projectId} AND wi.parent_id = ${parentId}
-            ORDER BY pc.is_completed ASC;
-			`;
+            ORDER BY pc.is_completed ASC, wi.wcag_item_id;
+            `;
 
             return data;
         } catch (error) {

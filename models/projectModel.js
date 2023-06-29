@@ -136,37 +136,77 @@ class projectModel {
      */
     async listProjects(userId) {
         try {
+        //     const projects = await sql`
+		// 	SELECT p.*, pu.user_id,
+		// 	(SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) AS all_checklists,
+		// 	(SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) AS completed_checklists,
+		// 	(
+		// 	  SELECT json_agg(json_build_object(
+		// 		'first_name', u.first_name,
+		// 		'insertion', u.insertion,
+		// 		'surname', u.surname,
+		// 		'full_name', CONCAT_WS(' ',
+		// 		  u.first_name,
+		// 		  NULLIF(u.insertion, ''),
+		// 		  u.surname
+		// 		),
+		// 		'profile_pic', u.profile_pic
+		// 	  ))
+		// 	  FROM project_users AS pu
+		// 	  LEFT JOIN users AS u ON u.user_id = pu.user_id
+		// 	  WHERE pu.project_id = p.project_id
+		// 	) AS all_users,
+		// 	(CASE
+		// 		WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = 0 THEN 'New'
+		// 		WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) THEN 'Done'
+		// 		ELSE 'In Progress'
+		// 	  END) AS status
+		//   FROM project_users AS pu
+		//   LEFT JOIN projects AS p ON p.project_id = pu.project_id
+		//   LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
+		//   WHERE pu.user_id = ${userId} AND p.project_id IS NOT NULL
+		//   GROUP BY p.project_id, pu.user_id
+		//   ORDER BY p.updated_at DESC NULLS LAST, p.project_id DESC;
+        //     `;
             const projects = await sql`
-			SELECT p.*, pu.user_id,
-			(SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) AS all_checklists,
-			(SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) AS completed_checklists,
-			(
-			  SELECT json_agg(json_build_object(
-				'first_name', u.first_name,
-				'insertion', u.insertion,
-				'surname', u.surname,
-				'full_name', CONCAT_WS(' ',
-				  u.first_name,
-				  NULLIF(u.insertion, ''),
-				  u.surname
-				),
-				'profile_pic', u.profile_pic
-			  ))
-			  FROM project_users AS pu
-			  LEFT JOIN users AS u ON u.user_id = pu.user_id
-			  WHERE pu.project_id = p.project_id
-			) AS all_users,
-			(CASE
-				WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = 0 THEN 'New'
-				WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) THEN 'Done'
-				ELSE 'In Progress'
-			  END) AS status
-		  FROM project_users AS pu
-		  LEFT JOIN projects AS p ON p.project_id = pu.project_id
-		  LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
-		  WHERE pu.user_id = ${userId} AND p.project_id IS NOT NULL
-		  GROUP BY p.project_id, pu.user_id
-		  ORDER BY p.updated_at DESC NULLS LAST, p.project_id DESC;
+                SELECT p.*, pu.user_id,
+                (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) AS all_checklists,
+                (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) AS completed_checklists,
+                (
+                SELECT json_agg(json_build_object(
+                    'first_name', u.first_name,
+                    'insertion', u.insertion,
+                    'surname', u.surname,
+                    'full_name', CONCAT_WS(' ',
+                    u.first_name,
+                    NULLIF(u.insertion, ''),
+                    u.surname
+                    ),
+                    'profile_pic', u.profile_pic
+                ))
+                FROM project_users AS pu
+                LEFT JOIN users AS u ON u.user_id = pu.user_id
+                WHERE pu.project_id = p.project_id
+                ) AS all_users,
+                (CASE
+                    WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = 0 THEN 'New'
+                    WHEN (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id AND is_completed = TRUE) = (SELECT COUNT(*) FROM project_checklists WHERE project_id = p.project_id) THEN 'Done'
+                    ELSE 'In Progress'
+                END) AS status
+            FROM project_users AS pu
+            LEFT JOIN projects AS p ON p.project_id = pu.project_id
+            LEFT JOIN project_checklists pc ON pc.project_id = p.project_id
+            WHERE pu.user_id = ${userId} AND p.project_id IS NOT NULL
+            GROUP BY p.project_id, pu.user_id
+            ORDER BY (
+                    SELECT COUNT(*) 
+                    FROM project_checklists 
+                    WHERE project_id = p.project_id AND is_completed = TRUE
+                    ) = (
+                    SELECT COUNT(*) 
+                    FROM project_checklists
+                    WHERE project_id = p.project_id
+                    ) ASC, p.updated_at DESC NULLS LAST, p.project_id DESC
             `;
 
             return projects;
