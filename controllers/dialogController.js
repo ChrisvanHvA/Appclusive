@@ -1,7 +1,5 @@
 class dialogController {
 
-    // TODO: button hrefs
-
     constructor () {
         this.messages = {
             'finish_project_incomplete': {

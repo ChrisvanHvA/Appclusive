@@ -97,7 +97,7 @@ body {
 .skip-to-main-content-link {
 	position: absolute;
 	left: -999rem;
-	top: 30%;
+	top: 1rem;
 	z-index: 999;
 	padding: 1em;
 	background-color: black;
