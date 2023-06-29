@@ -115,7 +115,7 @@ For each project you now have several categories, each with it's own checklist c
 
 ### The task distributing problem
 
-We solved this problem by making it possible for project-managers to be able to assign tasks to team members. It is now possible for users to invite other others to certain projects. They can do so by copying an invite code and sharing said code (even those who don't use Appclusive yet). The invited user can then create an account and then click on the "join project" button on the dashboard.
+We solved this problem by making it possible for project-managers to be able to assign tasks to team members. It is now possible for users to invite others to certain projects. They can do so by copying an invite code and sharing said code (even those who don't use Appclusive yet). The invited user can then create an account and then click on the "join project" button on the dashboard.
 
 If project-managers want to assign team members to specific tasks, they can do so by clicking on the assign user button on every step within a category of a project. You can see al the designers working on the whole project and pick an user to assign the task to.
 

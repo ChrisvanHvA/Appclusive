@@ -1,11 +1,12 @@
 <span class="profile-pic">
+	<img 
+	src="{{imgBucketUrl blehhhhhhh}}{{this.imgUrl}}" 
+	alt="" 
+	onerror="this.style.display='none';" 
+	onload="this.style.display='block'"
+	{{#if this.imgClass}}class="{{this.imgClass}}"{{/if}}>
 
-	{{#if this.imgUrl}}
-		<img src="{{this.env.imgBucket}}{{this.imgUrl}}" alt="Profile picture of {{this.fullName}}" onerror="this.style.display='none';" onload="this.style.display='block'"
-			{{#if this.imgClass}}class="{{this.imgClass}}"{{/if}}>
-	{{else}}	
-		<span aria-label="{{this.fullName}} initials">
-			{{fullNameToInitials this.fullName}}
-		</span>
-	{{/if}}
+	<span aria-label="{{this.fullName}}">
+		{{fullNameToInitials this.fullName}}
+	</span>
 </span>
