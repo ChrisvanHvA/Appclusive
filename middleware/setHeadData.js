@@ -1,16 +1,11 @@
 import { findRoute } from '../helpers/findRoute.js';
 
-import dotenv from 'dotenv';
-dotenv.config();
-
 const setHeadData = async (req, res, next) => {
     const match = await findRoute(req.originalUrl);
 
     res.locals.head = { ...data[match.route.path] } ?? { ...data.fallback };
 
     res.locals.head.currentPath = req.originalUrl.split('?')[0];
-
-    res.locals.env = { imgBucket: process.env.SUPABASE_IMAGE_BUCKET };
 
     if (res.locals.head?.backUrl) {
         const paramNames = match.paramNames;

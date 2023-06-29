@@ -1,6 +1,10 @@
 // prettier-ignore
 const illegalChars = [':','/','?','#','[',']','@','!','$','&',"'",'(',')','*','+',',',';','='];
 
+import dotenv from 'dotenv';
+dotenv.config();
+const imgBucket = process.env.SUPABASE_IMAGE_BUCKET;
+
 export default {
     divide: (a, b) => a / b,
     multiply: (a, b) => a * b,
@@ -63,6 +67,9 @@ export default {
     filterTasksByLevel: (tasks, level) => {
         return tasks.filter(task => task.wcag_level === level);
     },
+
+	imgBucketUrl: () => imgBucket,
+
     // basically provides logical operator == !== || etc.
     // <3 handlebars
     eq: function () {

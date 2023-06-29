@@ -13,7 +13,7 @@
                 <ul>
                     {{#each (filterTasksByLevel tasks "A")}}
                         <li class="checklist__item">
-                            {{> listItem isAdmin=../isAdmin pid=../project.project_id checklist=this}}
+                            {{> listItem isAdmin=../isAdmin pid=../project.project_id checklist=this this=../this}}
                         </li>
                     {{/each}}
                 </ul>
@@ -25,7 +25,7 @@
                     <ul>
                         {{#each (filterTasksByLevel tasks "AA")}}
                             <li class="checklist__item">
-                                {{> listItem isAdmin=../isAdmin pid=../project.project_id checklist=this}}
+                                {{> listItem ../this.env isAdmin=../isAdmin pid=../project.project_id checklist=this}}
                             </li>
                         {{else}}
                             <li>
@@ -42,7 +42,7 @@
                     <ul>
                         {{#each (filterTasksByLevel tasks "AAA")}}
                             <li class="checklist__item">
-                                {{> listItem isAdmin=../isAdmin pid=../project.project_id checklist=this}}
+                                {{> listItem ../this.env isAdmin=../isAdmin pid=../project.project_id checklist=this}}
                             </li>
                         {{else}}
                             <li>
