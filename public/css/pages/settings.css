@@ -115,7 +115,7 @@ a#revisitOnboarding {
     padding: 0.1rem 0.25rem;
     text-decoration: none;
     color: var(--primary-text);
-    transition: all 250ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
 a#revisitOnboarding:hover,
 a#revisitOnboarding:focus-visible {
@@ -171,6 +171,7 @@ a#revisitOnboarding:focus-visible {
 		.settings .settings__item-avatar .img-container {
 			display: block;
 			position: relative;
+            max-width: 12rem;
 		}
 
 			.settings .settings__item-avatar .img-container .profile-pic {
