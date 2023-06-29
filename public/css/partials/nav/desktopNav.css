@@ -107,6 +107,10 @@
 	font-weight: 900;
 }
 
+.nav__desktop ul li.active .profile-pic {
+	border: 2px solid var(--nav-selected);
+}
+
 @media screen and (max-width: 950px) {
 	.nav__desktop {
 		display: none;
