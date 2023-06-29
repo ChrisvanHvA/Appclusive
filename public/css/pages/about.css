@@ -15,6 +15,11 @@
         margin: 0 auto;
     }
 
+        .landingHeader__container > p {
+            max-width: 50%;
+            margin-bottom: 2rem;
+        }
+
     .landingHeader .mobileHeader,
     footer.landingFooter {
         display: flex;
