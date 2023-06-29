@@ -148,8 +148,9 @@
 
 .checklist__sidebar .sidebar__notes textarea {
     width: 100%;
-    border-radius: var(--card-border-radius);
+    margin-top: 0.75rem;
     font-size: 0.875rem;
+    border-radius: var(--card-border-radius);
     resize: none;
 }
 
