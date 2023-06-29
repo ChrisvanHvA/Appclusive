@@ -85,7 +85,7 @@ const data = {
     '/settings': {
         title: 'Account Settings | Appclusive',
         description: '',
-        scripts: ['avatar'],
+        scripts: ['avatar', 'localStorage'],
         backUrl: '/'
     },
     '/forgot-password': {

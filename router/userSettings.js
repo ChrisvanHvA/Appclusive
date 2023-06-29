@@ -59,6 +59,7 @@ router.post(
         let messageKey = 2;
 
         const type = req.body.type;
+
         if (type === 'delete') {
             const user = req.user;
             const deletedUser = await userModel.deleteUser(user.user_id);
@@ -119,7 +120,6 @@ router.post(
             return res.redirect(`/settings?m=${messageKey}`);
         }
 
-        // todo: dit wat netter maken, misschien aparte functie voor maken
         const imgUrl = await saveFileToBucket(
             req.file,
             user.profile_pic?.split('/').pop()

@@ -111,6 +111,19 @@ a[href="/logout"] {
     gap: 1rem;
 }
 
+a#revisitOnboarding {
+    padding: 0.1rem 0.25rem;
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: all 250ms ease-in-out;
+}
+a#revisitOnboarding:hover,
+a#revisitOnboarding:focus-visible {
+    text-decoration: underline;
+    color: var(--light);
+    background-color: var(--primary-color);
+}
+
 @media screen and (min-width: 951px) {
     
     .layout__settings {
