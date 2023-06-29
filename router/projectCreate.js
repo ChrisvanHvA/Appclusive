@@ -23,7 +23,6 @@ router.post(
     validationChecks,
     handleValidationErrors('projectCreate'),
     async (req, res) => {
-        console.log(req.body)
         const MessageController = new messageController();
 
         const { completedInsert, projectId } = await projectController.createProject(req.body, req.user?.user_id);

@@ -27,12 +27,12 @@ const setHeadData = async (req, res, next) => {
 
 const data = {
     '/': {
-        title: 'Dashboard',
+        title: 'Dashboard | Appclusive',
         description: '',
         scripts: ['copyOnClick', 'autocomplete']
     },
     '/search': {
-        title: 'Search',
+        title: 'Search projects | Appclusive',
         description: '',
         scripts: ['copyOnClick', 'autocomplete'],
         backUrl: '/'
@@ -50,56 +50,56 @@ const data = {
         backUrl: '/'
     },
     '/project/:projectId': {
-        title: 'Checklist',
+        title: 'Checklist | Appclusive',
         description: '',
         scripts: ['checklist', 'projectinfo', 'dialog', 'copyOnClick', 'checklistSocket'],
         backUrl: '/project/:projectId/categories'
     },
     '/project/:projectId/categories': {
-        title: 'Categories',
+        title: 'Categories | Appclusive',
         description: '',
         scripts: ['categories', 'projectinfo', 'dialog', 'copyOnClick'],
         backUrl: '/'
     },
     '/project/:projectId/settings': {
-        title: 'Project settings',
+        title: 'Project Settings | Appclusive',
         description: '',
         scripts: ['copyOnClick'],
         backUrl: '/project/:projectId/categories'
     },
     '/login': {
-        title: 'Login',
+        title: 'Login | Appclusive',
         description: '',
         scripts: []
     },
-    '/landing': {
-        title: 'Appclusive | Landing',
+    '/about': {
+        title: 'About | Appclusive',
         description: '',
         scripts: ['dog']
     },
     '/register': {
-        title: 'Register',
+        title: 'Register | Appclusive',
         description: '',
         scripts: ['validator']
     },
     '/settings': {
-        title: 'Settings',
+        title: 'Account Settings | Appclusive',
         description: '',
         scripts: ['avatar'],
         backUrl: '/'
     },
     '/forgot-password': {
-        title: 'Forgot Password',
+        title: 'Forgot Password | Appclusive',
         description: '',
         scripts: []
     },
     '/reset-password': {
-        title: 'Reset Password',
+        title: 'Reset Password | Appclusive',
         description: '',
         scripts: []
     },
     '/validator': {
-        title: 'Validator',
+        title: 'HTML Validator | Appclusive',
         description: '',
         scripts: ['validatorTool'],
         backUrl: '/'

@@ -73,43 +73,43 @@
         display: none;
     }
 
-.layout__landingpage {
+.layout__aboutpage {
     padding: 2rem 2rem 0 2rem;
 }
 
-    .layout__landingpage > ul > li {
+    .layout__aboutpage > ul > li {
         padding: 2rem 0;
     }
-    .layout__landingpage > ul > li:nth-child(2n) {
+    .layout__aboutpage > ul > li:nth-child(2n) {
         margin: 0 -2rem;
         padding: 2rem;
         background-color: var(--secondary-bg);
     }
 
-        .layout__landingpage > ul > li a[href="/register"] {
+        .layout__aboutpage > ul > li a[href="/register"] {
             display: block;
             margin-bottom: 0.5rem;
         }
 
-        .layout__landingpage > ul > li img {
+        .layout__aboutpage > ul > li img {
             display: block;
             width: 13.75rem;
             margin: auto auto 2rem auto;
         }
-        .layout__landingpage > ul > li img.img-border {
+        .layout__aboutpage > ul > li img.img-border {
             border: 1px solid var(--primary-color);
             border-radius: 5px;
         }
 
-        .layout__landingpage > ul > li h2 {
+        .layout__aboutpage > ul > li h2 {
             margin-bottom: 1rem;
             font-size: 1.25rem;
             font-weight: 700;
             line-height: normal;
         }
 
-        .layout__landingpage > ul > li p,
-        .layout__landingpage > ul > li a {
+        .layout__aboutpage > ul > li p,
+        .layout__aboutpage > ul > li a {
             font-size: 1rem;
         }
 
@@ -249,8 +249,8 @@
                 display: block;
             }
 
-    .layout__landingpage > ul > li,
-    .layout__landingpage > ul > li:nth-child(2n) {
+    .layout__aboutpage > ul > li,
+    .layout__aboutpage > ul > li:nth-child(2n) {
         display: flex;
         align-items: center;
         gap: 4rem;
@@ -259,31 +259,31 @@
         flex-direction: row;
         justify-content: center;
     }
-    .layout__landingpage > ul > li:nth-child(2n) {
+    .layout__aboutpage > ul > li:nth-child(2n) {
         padding: 4rem;
     }
-    .layout__landingpage > ul > li:last-of-type {
+    .layout__aboutpage > ul > li:last-of-type {
         display: none;
     }
 
-        .layout__landingpage > ul > li img {
+        .layout__aboutpage > ul > li img {
             margin: 0;
         }
 
-        .layout__landingpage > ul > li > div {
+        .layout__aboutpage > ul > li > div {
             /* margin: 0 auto; */
             max-width: 40rem;
         }
-        .layout__landingpage > ul > li:nth-child(2n) > div {
+        .layout__aboutpage > ul > li:nth-child(2n) > div {
             order: -1;
         }
 
-            .layout__landingpage > ul > li h2 {
+            .layout__aboutpage > ul > li h2 {
                 font-size: 1.75rem;
             }
 
-            .layout__landingpage > ul > li p,
-            .layout__landingpage > ul > li a {
+            .layout__aboutpage > ul > li p,
+            .layout__aboutpage > ul > li a {
                 font-size: 1.25rem;
             }
     
@@ -321,7 +321,7 @@
             background-color: var(--light);
             color: var(--dark);
         }
-        .layout__landingpage>ul>li a[href="/register"] {
+        .layout__aboutpage>ul>li a[href="/register"] {
             color: var(--dark);
             background-color: var(--primary-color);
         }

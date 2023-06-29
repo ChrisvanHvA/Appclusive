@@ -3,7 +3,7 @@ import error404 from './404.js';
 import search from './search.js';
 import checklist from './checklist.js';
 import checklistCategories from './checklistCategories.js';
-import landing from './landing.js';
+import about from './about.js';
 
 import projectCreate from './projectCreate.js';
 import joinProject from './joinProject.js';
@@ -42,7 +42,7 @@ const routes = [
     { path: '/validator', handler: validatorTool, auth: true },
 	
     { path: '/search', handler: search, auth: true },
-    { path: '/landing', handler: landing, auth: false },
+    { path: '/about', handler: about, auth: false },
 
     { path: '/', handler: dashboard, auth: true },
     { path: '*', handler: error404, auth: false }
@@ -66,7 +66,7 @@ const routes = [
 	// { path: '/validator', handler: validatorTool, auth: false },
 	
     // { path: '/search', handler: search, auth: false },
-    // { path: '/landing', handler: landing, auth: false },
+    // { path: '/about', handler: about, auth: false },
 
     // { path: '/', handler: dashboard, auth: false },
     // { path: '*', handler: error404, auth: false }

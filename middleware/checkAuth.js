@@ -6,7 +6,7 @@ const checkAuth = (req, res, next) => {
 
     return req.isAuthenticated() || !route?.auth
         ? next()
-        : res.redirect('/landing');
+        : res.redirect('/about');
 };
 
 export { checkAuth };
