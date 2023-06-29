@@ -114,7 +114,7 @@ main.layout__project-create .project__level section aside {
 				flex-direction: column;
 				height: 100%;
 				padding: .75rem;
-				background-color: var(--light);
+				background-color: var(--primary-bg);
 				border: 2px solid var(--primary-color);
 				border-radius: var(--card-border-radius);
 			}
