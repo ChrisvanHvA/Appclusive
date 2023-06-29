@@ -64,11 +64,10 @@
 	--landing-color: var(--dark);
 	--landing-color-focus: var(--light);
 
-    /* --create-project-card-bg: #001C4D;  */
+    --create-project-card-bg: #e1ecff00; 
 }
 
 /* turn on to debug weird margins and such */
-
 /* * {
 	outline: 1px solid red !important;
 } */
