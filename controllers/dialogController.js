@@ -39,7 +39,7 @@ class dialogController {
                 'slug': 'assign_users',
                 'image_url': null,
                 'image_alt': null,
-                'message': '<p>Assign users to this project.</p>',
+                'message': '<p>Select one or multiple users to assign</p>',
                 'button_type': 'assign',
                 'button': 'Assign users',
                 'button_href': null,

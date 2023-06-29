@@ -13,7 +13,7 @@
 
 ## Case
 
-Appclusive is an online web tool for UX designers and organizations, designed to easily check digital products for accessibility. For each project, UX-Designers need to be able to check if the project lives up to all the WCAG-standards and by doing so is completely accessible. This web tool is designed to motivate, and make it easier for designers to apply accessibility to their digital products. Since we already have a design, it's our job is to build the application in code.
+Appclusive is an online web tool for UX designers and organizations, designed to check digital products for accessibility. UX-Designers need to be able to check if the project lives up to all the WCAG-standards and will therefore be closer to having created an accessible design. This web tool is designed to motivate, and make it easier for designers to apply accessibility to their digital products based on guidelines. Since we already have a design, it's our job is to bring this design to life with code.
 
 ![appclusive screen](https://github.com/ChrisvanHvA/Appclusive/blob/154bc6e014a18e5908a2101605e3c484d7af8795/public/images/ssreadme.png)
 
@@ -24,22 +24,29 @@ Appclusive is an online web tool for UX designers and organizations, designed to
 - [User stories](https://github.com/ChrisvanHva/Appclusive#user-stories) The goals
 - [Installation](https://github.com/ChrisvanHva/Appclusive#installation) Let's get started
 - [License](https://github.com/ChrisvanHva/Appclusive#license) This project belongs to some talented people
-- [The problem](https://github.com/ChrisvanHva/Appclusive#the-problem) This is what's going on
-- [The solution](https://github.com/ChrisvanHva/Appclusive#the-solution) This is what's going on
+- [The problem](https://github.com/ChrisvanHva/Appclusive#the-problem) What are we looking to solve?
+- [The solution](https://github.com/ChrisvanHva/Appclusive#the-solution) How did we solve it?
 - [Our client](https://github.com/ChrisvanHva/Appclusive#our-client) Credits
-- [Wishlist](https://github.com/ChrisvanHva/Appclusive#wishlist) Credits
+- [Wishlist](https://github.com/ChrisvanHva/Appclusive#wishlist) Future plans
 
 ## Features
 
-|          Feature          | Progress |
-| :-----------------------: | :------: |
-|     Login / register      |    ✅    |
-|  Invite users to project  |    ✅    |
-| Assign users to checklist |    ✅    |
+|               Feature             | Progress |
+| :-------------------------------: | :------: |
+| Login / register                  |    ✅    |
+| Create project                    |    ✅    |
+| Generate checklists based on WCAG |    ✅    |
+| Invite users to project           |    ✅    |
+| Join a project                    |    ✅    |
+| Assign users to checklist         |    ✅    |
+| Change user/project settings      |    ✅    |
+| Project search                    |    ✅    |
+| HTML validator                    |    ✅    |
+| Dark mode!!!                      |    ✅    |
 
 ## Documentation
 
-The rest of the documentation for the Appclusive project can be found in the [Wiki](https://github.com/ChrisvanHvA/Appclusive/wiki).
+The rest of the documentation for the Appclusive project can be found in our [Wiki](https://github.com/ChrisvanHvA/Appclusive/wiki).
 
 ## User stories
 
@@ -69,6 +76,22 @@ $ npm install
 $ npm run start:dev
 ```
 
+4. Make sure your .env file is setup correctly and contains the following keys (contact us for details)
+
+```bash
+SUPABASE_KEY=
+SUPABASE_URL=
+
+SUPABASE_HOST=
+SUPABASE_DB=
+SUPABASE_PORT=
+SUPABASE_USER=
+SUPABASE_PASS=
+DATABASE_URL=
+
+SUPABASE_IMAGE_BUCKET=
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
@@ -86,16 +109,19 @@ Just kidding.
 
 ### All information in one place
 
-We solved this problem by creating clear instructions on how to ensure the accessibility of their your digital products. We created our own API with all the WCAG-guidelines in plain simple language because the "real" WCAG-guidelines contain far to complex instructions. We also decided to add some tips to each of our steps to make sure you really get it. For each project you now have
-several categories each with it's own checklist containing the WCAG-standards. So you have a clear and clean overview of what has been done and what is still on your to-do list. You can also easily see on what level of accessibility you are and level up if you want to. Furthermore we made a dashboard for easy access and overview of all the projects.
+We solved this problem by creating clear instructions on how to ensure the accessibility of your digital products. We created our own API with all the WCAG-guidelines in plain simple language because the "real" WCAG-guidelines contain far to complex instructions. We also decided to add some tips to each of our steps to make sure you *really* understand why these things are necessary to apply. 
+
+For each project you now have several categories, each with it's own checklist containing the WCAG-standards. This creates (at least we hope!) a clear and clean overview of what has been done and what is still on your to-do list. You can also easily see on what level of accessibility you are working on and level up if you want to. Furthermore we made a dashboard for easy access and overview of all the projects.
 
 ### The task distributing problem
 
-We solved this problem by making it possible for project-managers to be able to assign tasks to UX-designers. It is now possible for users to invite other designers to certain projects. They can do so by copying a project invite code and send this this code to their colleagues (even those who don't use Appclusive yet), they can create and account and then simply click on the "join project" button on the dashboard, paste the code and there done. If project-managers want to assign designers to specific tasks, they can do so by clicking on the assign user button on every step within a category of a project. You can see al the designers working on the whole project and pick an user to assign the task to.
+We solved this problem by making it possible for project-managers to be able to assign tasks to team members. It is now possible for users to invite other others to certain projects. They can do so by copying an invite code and sharing said code (even those who don't use Appclusive yet). The invited user can then create an account and then click on the "join project" button on the dashboard.
+
+If project-managers want to assign team members to specific tasks, they can do so by clicking on the assign user button on every step within a category of a project. You can see al the designers working on the whole project and pick an user to assign the task to.
 
 ### Baby steps
 
-We split up each category into small checklist items with one WCAG-guideline. So you have a clear and clean overview of what has been done and what is still on your to-do list. We made the overview easier by creating checklist items that you can check, so you know what has been done en wat still needs to be done. We also decided to split the WCAG-guidelines up into categories, this makes it easier to navigate and also to assigns tasks to designers/ developers.
+We split up each category into small checklist items per WCAG-guideline. So you have a clear and clean overview of what has been done and what is still on your to-do list. We made the overview easier by creating checklist items that you can check, so you know what has been done en wat still needs to be done. We also decided to split the WCAG-guidelines up into categories, this makes it easier to navigate and also to assigns tasks to designers/ developers.
 
 ## Our client
 
