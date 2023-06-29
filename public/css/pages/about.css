@@ -34,6 +34,62 @@
             color: var(--landing-color);
         }
 
+        .landingHeader .btn {
+            background-color: var(--primary-bg);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-bg);
+        }
+
+        [data-theme="dark"] .landingHeader .btn {
+            background-color: var(--light);
+            border: 2px solid var(--light);
+            color: var(--primary-bg);
+        }
+
+        [data-theme="dark"] .landingHeader .btn:hover {
+            background-color: var(--light)!important;
+            color: var(--primary-bg)!important;
+            border: 2px solid var(--light);
+        }
+
+        [data-theme="dark"] .landingHeader .btn--secondary:focus-visible {
+            outline: 2px solid var(--light)!important;
+        }
+
+        [data-theme="dark"] .landingHeader .btn--secondary {
+            background-color: transparent;
+            border: 2px solid var(--light);
+            color: var(--light);
+        }
+
+        .landingHeader .btn--secondary {
+            background-color: var(--primary-color);
+            color: var(--primary-bg);
+        }
+
+        .landingHeader .btn:hover {
+            background-color: transparent!important;
+            color: var(--light)!important;
+            border: 2px solid var(--primary-bg);
+            transform: scale(1.05);
+        }
+
+        .landingHeader .btn:focus-visible {
+            transform: scale(1.05);
+            border: 2px solid var(--primary-bg);
+        }
+
+        .landingHeader .btn--secondary:hover {
+            background-color: var(--primary-bg)!important;
+            color: var(--primary-color)!important;
+            border: 2px solid var(--primary-bg);
+        }
+
+        .landingHeader .btn--secondary:focus-visible {
+            outline: 2px solid var(--primary-bg);
+            transform: scale(1.05);
+        }
+
     footer.landingFooter {
         padding: 2rem;
         text-align: right;
@@ -85,14 +141,16 @@
     .landingHeader .landingTopbar {
         display: none;
     }
-    .landingHeader .landingTopbar li:last-child a.btn:last-child  {
-        background-color: var(--landing-color-focus);
-        color: var(--primary-bg);
-    }
-    .landingHeader .landingTopbar li:last-child a.btn {
+
+    /* .landingHeader .landingTopbar li:last-child a.btn:last-child  {
         background-color: var(--secondary-bg);
         color: var(--landing-color-focus);
     }
+
+    .landingHeader .landingTopbar li:last-child a.btn {
+        background-color: var(--landing-color-focus);
+        color: var(--primary-bg);  
+    } */
 
 .layout__aboutpage {
     padding: 2rem 2rem 0 2rem;
