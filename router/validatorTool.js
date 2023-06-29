@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     });
 });
 
-router.post('/result', async (req, res) => {
+router.post('/', async (req, res) => {
     const data = req.body.html
 
     const validatedHTML = await validateHTML(data)
