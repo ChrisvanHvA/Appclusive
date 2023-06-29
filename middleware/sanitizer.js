@@ -35,11 +35,11 @@ const validationChecks = [
     body('old_password')
         .if(body('old_password').exists().notEmpty())
         .isLength({ min: 6 })
-        .withMessage('Pass must be at least 6 characters long'),
+        .withMessage('Password must be at least 6 characters long'),
     body('new_password')
         .if(body('new_password').exists().notEmpty())
         .isLength({ min: 6 })
-        .withMessage('Pass must be at least 6 characters long'),
+        .withMessage('Password must be at least 6 characters long'),
     body('confirm_password')
         .if(body('confirm_password').exists())
         .notEmpty()

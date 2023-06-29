@@ -2,7 +2,7 @@
 
 	{{>icons/logo}}
 
-	<form action="/join-project" method="POST" autocomplete="off" autocapitalize="on">
+	<form action="/join-project" method="POST" autocomplete="off" autocapitalize="on" novalidate>
 		{{#if general-form-error}}
             <div class="message message--error message--gen" id="code-error">
 				<i class="fa-solid fa-triangle-exclamation"></i><p>Are you sure you got the right invite code?</p>
