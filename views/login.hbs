@@ -4,22 +4,22 @@
         <h2>Welcome back!</h2>
 
         {{#if general-form-error}}
-            <div class="message message--error">
-                <i class="fa-solid fa-triangle-exclamation"></i> {{general-form-error}}
+            <div class="message message--error message--gen">
+                <i class="fa-solid fa-triangle-exclamation"></i> <p>{{general-form-error}}</p>
             </div>
         {{/if}}
 
-        <fieldset class="form__section">
+        <fieldset class="form__section {{#if email_address-error.length}} form__error {{/if}}">
             <label for="email_address">Email</label>
             <input type="email" name="email_address" id="email_address" placeholder="Enter your email" autocapitalize="off"
                 pattern="[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{1,63}$" required >
-            <label class="error {{#unless email_address-error.length}}hide{{/unless}}">{{email_address-error}}</label>
+            <label class="message message--error {{#unless email_address-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{email_address-error}}</label>
         </fieldset>
 
-        <fieldset class="form__section">
+        <fieldset class="form__section {{#if password-error.length}} form__error {{/if}}">
             <label for="password">Password</label>
             <input aria-describedby="password-error" type="password" name="password" id="password" placeholder="Enter your password" required >
-            <label id="password-error" class="error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
+            <label id="password-error" class="message message--error {{#unless password-error.length}}hide{{/unless}}">{{password-error}}</label>
         </fieldset>
 
         <a class="login__forgot" href="/forgot-password">Forgot password?</a>

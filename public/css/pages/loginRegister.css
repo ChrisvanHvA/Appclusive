@@ -17,6 +17,7 @@
     }
 
         .layout__login form h2 {
+            line-height: 1;
             font-size: 2.5rem;
         }
 
@@ -25,7 +26,8 @@
             flex-direction: column;
         }
         .layout__login .form__section:first-of-type {
-            margin-top: 3rem;
+            margin-top: 1rem;
+            /* margin-top: 3rem; */
         }
 
         .layout__login .form__section + .form__section {
