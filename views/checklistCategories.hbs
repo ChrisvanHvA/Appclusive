@@ -1,8 +1,32 @@
 <main class="layout layout__categories">
+	<section class="progress__header">
+    	{{>pageTitleHeader title=project.title subtitle="Project overview"}}
 
-    {{>pageTitleHeader title=project.title subtitle="Project overview"}}
+		<div>
+            <h3>
+				<span class='percentage-count'>{{calcProgress
+						project.completed_checklists
+						project.all_checklists
+					}}</span>% completed
+			</h3>
+                <p class='completed-checks-counter'>
+                    {{project.completed_checklists}}
+                    /
+                    {{project.all_checklists}}
+                </p>
+            </div>
 
-	{{>checklistSidebar title="Project progress" project=project isAdmin=isAdmin}}
+            <progress
+                class='progress'
+                max='100'
+                value='{{calcProgress
+                    project.completed_checklists
+                    project.all_checklists
+                }}'
+            ></progress>
+	</section>
+
+		{{>checklistSidebar title=project.title project=project isAdmin=isAdmin}}
 
     <section class="checklist__categories" id="main">
         <p>To make things easy, we've grouped the numerous checklist items into categories for you.</p>
