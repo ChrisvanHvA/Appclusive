@@ -1,11 +1,8 @@
 .layout__register {
     --mobile-form-width: min(22.5rem, 95%);
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin: 0 auto;
-    padding-top: 8rem;
 }
 
     .layout__register form {
@@ -187,11 +184,8 @@ hr.registerHr {
     }
 
     .layout__register form {
-        display: flex;
-        flex-direction: column;
         width: 32.5rem;
-        max-width: 95%;
-        margin: 0 auto;
+        margin: 3rem auto;
     }
 
     .login__or {
