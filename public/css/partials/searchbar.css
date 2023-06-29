@@ -30,7 +30,7 @@
             padding-left: calc(var(--icon-width) +  0.25rem);
 			background-color: var(--primary-bg);
 			border: 2px solid var(--primary-color);
-			border-radius: 2rem;
+			border-radius: 1.22rem;
         }
         #searchbar input::placeholder {
             font-size: 1rem;
@@ -42,7 +42,7 @@
 
 		#searchbar form:has(ul.autocomplete-items:not(:empty)) input:focus,
 		#searchbar form:has(ul.autocomplete-items:not(:empty)):focus-within input {
-			border-radius: 2rem 2rem 0 0;
+			border-radius: 1.22rem 1.22rem 0 0;
 			outline: none;
 		}
 
@@ -56,33 +56,41 @@
     left: 0;
     right: 0;
     z-index: 10;
-    border-radius: 0 var(--card-border-radius) var(--card-border-radius);
+    border-radius: 0 0 var(--card-border-radius) var(--card-border-radius);
 	scroll-snap-type: y mandatory;
 }
 
 .autocomplete-items:not(:empty) {
 	border: 1px solid var(--primary-text);
+    border-top: none;
 }
 
     .autocomplete-items li {
 		background-color: var(--primary-bg);
-        border: 1px solid var(--primary-text);
-        border-top: none;
+        border: 0.5px solid var(--primary-text);
+        border-left: none;
+        border-right: none;
 		scroll-snap-align: start;
     }
-	.autocomplete-items li a {
-		display: flex;
-		align-items: center;
-		padding: 0 1rem;
-		height: var(--item-height);
-		color: var(--primary-text);
-	}
+    .autocomplete-items li:first-of-type {
+        border-top: none;
+    }
+    .autocomplete-items li:last-of-type {
+        border-bottom: none;
+    }
 
-	.autocomplete-items li a:hover,
-	.autocomplete-items li a:focus-visible {
-		background-color: var(--primary-color);
-		color: var(--light);
-	}
+        .autocomplete-items li a {
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            height: var(--item-height);
+            color: var(--primary-text);
+        }
+        .autocomplete-items li a:hover,
+        .autocomplete-items li a:focus-visible {
+            background-color: var(--primary-color);
+            color: var(--light);
+        }
 
 /* add on mobile */
 @media screen and (max-width: 950px) {
