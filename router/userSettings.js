@@ -55,6 +55,15 @@ router.post(
     validationChecks,
     handleValidationErrors('userSettings'),
     async (req, res) => {
+
+        const type = req.body.type;
+        if (type === 'delete') {
+            const user = req.user;
+            await userModel.deleteUser(user.user_id);
+            
+            return res.redirect('/');
+        };
+
         const submitData = mapObject(req.body, (value) => value);
 		delete submitData.theme;
         const user = req.user;

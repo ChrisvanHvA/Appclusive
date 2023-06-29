@@ -73,6 +73,7 @@ class projectModel {
                 sql`DELETE FROM projects 
 					WHERE project_id = ${projectId};`
             ]);
+            
             return true;
         } catch (error) {
             console.error(error);
