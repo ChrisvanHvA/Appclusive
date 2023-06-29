@@ -243,14 +243,14 @@ class projectModel {
         }
     }
 
-    async removeUserFromProject(user_id) {
+    async removeUserFromProject(user_id, project_id) {
         try {
             await Promise.all([
                 sql`DELETE FROM project_users
-                    WHERE user_id = ${user_id};`,
+                    WHERE user_id = ${user_id} AND project_id = ${project_id}`,
                 sql`UPDATE project_checklists
                     SET assignees = array_remove(assignees, ${user_id})
-                    WHERE ${user_id} = ANY(assignees);`
+                    WHERE project_id = ${project_id} AND ${user_id} = ANY(assignees);`
             ]);
 
             return true;

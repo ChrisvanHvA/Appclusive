@@ -90,6 +90,21 @@ class messageController {
                 'message_class': `${this.messageClass}success`,
                 'type': ['already_joined']
             },
+            '18': {
+                'message': "We have successfully deleted your account",
+                'message_class': `${this.messageClass}success`,
+                'type': ['user_deleted', 'saved']
+            },
+            '19': {
+                'message': "We were unable to delete your user. Please try again",
+                'message_class': `${this.messageClass}error`,
+                'type': ['user_deleted', 'fail']
+            },
+            '20': {
+                'message': "You have left the project",
+                'message_class': `${this.messageClass}success`,
+                'type': ['project_left', 'success']
+            },
         };
     }
 

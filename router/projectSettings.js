@@ -103,9 +103,12 @@ router.post(
             return res.redirect(`/?m=${messageKey}`);
 
         } else if (type === 'leave') {
-            await ProjectModel.removeUserFromProject(req.user.user_id);
+            const leftProject = await ProjectModel.removeUserFromProject(req.user.user_id, projectId);
 
-            return res.redirect('/');
+            const type = leftProject ? 'project_left' : 'generic_fail';
+            messageKey = MessageController.getMessageKeyByType(type);
+
+            return res.redirect(`/?m=${messageKey}`);
         }
     }
 );

@@ -55,21 +55,25 @@ router.post(
     validationChecks,
     handleValidationErrors('userSettings'),
     async (req, res) => {
+        const MessageController = new messageController();
+        let messageKey = 2;
 
         const type = req.body.type;
         if (type === 'delete') {
             const user = req.user;
-            await userModel.deleteUser(user.user_id);
+            const deletedUser = await userModel.deleteUser(user.user_id);
+            const type = deletedUser ? 'saved' : 'fail';
+
+            messageKey = MessageController.getMessageKeyByType('user_deleted', type);
+
+            console.log(messageKey);
             
-            return res.redirect('/');
+            return res.redirect(`/about?m=${messageKey}`);
         };
 
         const submitData = mapObject(req.body, (value) => value);
 		delete submitData.theme;
         const user = req.user;
-
-        const MessageController = new messageController();
-        let messageKey = 2;
 
         if (!user) {
             messageKey = MessageController.getMessageKeyByType('unknown_user');

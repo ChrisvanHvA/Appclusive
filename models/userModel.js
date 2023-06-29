@@ -153,19 +153,20 @@ class UserModel {
         }
     }
 
-    async deleteUser(user_id) {
-        try {
-            await sql`
-                DELETE FROM users
-                WHERE user_id = ${user_id}
-            `;
+    // @NINA: duplicate?
+    // async deleteUser(user_id) {
+    //     try {
+    //         await sql`
+    //             DELETE FROM users
+    //             WHERE user_id = ${user_id}
+    //         `;
 
-            return true;
-        } catch (error) {
-            console.error(error);
-            return false;
-        }
-    }
+    //         return true;
+    //     } catch (error) {
+    //         console.error(error);
+    //         return false;
+    //     }
+    // }
 
     async deleteUser(user_id) {
         try {
