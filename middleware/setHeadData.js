@@ -29,7 +29,7 @@ const data = {
     '/': {
         title: 'Dashboard | Appclusive',
         description: '',
-        scripts: ['copyOnClick', 'autocomplete']
+        scripts: ['copyOnClick', 'autocomplete', 'onboarding']
     },
     '/search': {
         title: 'Search projects | Appclusive',

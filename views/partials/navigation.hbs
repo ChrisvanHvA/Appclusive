@@ -2,21 +2,21 @@
     <nav>
 		<a href="#main" class="skip-to-main-content-link">Skip to main content</a>
 		<ul>
-			<li {{#if (eq head.currentPath '/')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/')}}class="active"{{/if}} id="onboarding_step-2-desktop">
 				<a href="/" aria-label="home">
 					<i class="fa-solid fa-house"></i>
 					<p>Home</p>
 				</a>
 			</li>
 
-			<li {{#if (eq head.currentPath '/search')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/search')}}class="active"{{/if}} id="onboarding_step-3-desktop">
 				<a href="/search">
 					<i class="fa-solid fa-magnifying-glass"></i>
 					<p>Search</p>
 				</a>
 			</li>
 
-			<li {{#if (eq head.currentPath '/validator')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/validator')}}class="active"{{/if}} id="onboarding_step-4-desktop">
 				<a href="/validator">
 					<i class="fa-solid fa-screwdriver-wrench"></i>
 					<p>Tools</p>
@@ -30,7 +30,7 @@
 				</a>
 			</li> --}}
 
-			<li class="profile-icon {{#if (eq head.currentPath '/settings')}}active{{/if}}">
+			<li class="profile-icon {{#if (eq head.currentPath '/settings')}}active{{/if}}" id="onboarding_step-5-desktop">
 				<a href="/settings">
 					{{> profilePicture imgUrl=user.profile_pic fullName=user.full_name}}
 					<p>Account</p>
@@ -50,7 +50,7 @@
 		{{/if}}
 
 		{{#unless (eq head.currentPath '/settings')}}
-			<a href="/settings" class="btn btn--nav" aria-label="open settings">
+			<a href="/settings" class="btn btn--nav" aria-label="open settings" id="onboarding_step-2-mobile">
 				<i class="fa-solid fa-gear"></i>
 			</a>
 		{{/unless}}

@@ -1,0 +1,60 @@
+button.shepherd-button {
+    width: fit-content;
+    color: var(--light);
+    background-color: var(--primary-color);
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+button.shepherd-button:not(:disabled):hover,
+button.shepherd-button:not(:disabled):focus-visible {
+    color: var(--primary-color);
+    background-color: var(--light);
+    outline: 2px solid var(--primary-color);
+}
+
+.shepherd-element.shepherd-has-title[data-popper-placement^=bottom] > .shepherd-arrow:before {
+    background-color: var(--primary-color) !important;
+}
+
+header.shepherd-header {
+    padding: calc(1rem - 0.8319rem) calc(1rem - 0.8319rem) calc(1rem - 0.8319rem) 1rem !important;
+    background-color: var(--primary-color) !important;
+}
+
+    header.shepherd-header h3 {
+        font-weight: 700;
+        color: var(--light);
+    }
+
+    button.shepherd-cancel-icon {
+        display: flex;
+        justify-content: flex-end;
+        width: fit-content;
+    }
+    
+        button.shepherd-cancel-icon span {
+            padding: 0.8319rem;
+            line-height: 1.1681rem;
+            color: var(--light);
+            border-radius: 3px;
+            transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+        }
+        button.shepherd-cancel-icon span:hover,
+        button.shepherd-cancel-icon:focus-visible span {
+            color: var(--primary-color);
+            background-color: var(--light);
+        }
+
+footer.shepherd-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+    footer.shepherd-footer .shepherd-button:last-child {
+        margin-left: auto;
+    }
+
+@media screen and (max-width: 950px) {
+    body > div.shepherd-has-cancel-icon.shepherd-has-title.shepherd-element.shepherd-enabled {
+        width: calc(100% - 4rem);
+    }
+}
