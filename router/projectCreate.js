@@ -21,13 +21,17 @@ router.get('/', (req, res) => {
 router.post(
     '/',
     validationChecks,
-    handleValidationErrors('projectCreate'),
+    handleValidationErrors('projectCreate', {
+        mobileTitle: 'Project creation',
+        title: 'Create a new project',
+        loading: true
+    }),
     async (req, res) => {
         const MessageController = new messageController();
 
-        const { completedInsert, projectId } = await projectController.createProject(req.body, req.user?.user_id);
+        const { completedInsert, projectId } =
+            await projectController.createProject(req.body, req.user?.user_id);
 
-        
         const messageKey = MessageController.getMessageKeyByType(
             'project_create',
             'fail'

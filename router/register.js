@@ -13,7 +13,8 @@ router.get('/', (req, res) => {
 
     res.render('register', {
         noNav: true,
-        'general-form-error': registerError
+        'general-form-error': registerError,
+        errorFields: null
     });
 });
 

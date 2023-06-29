@@ -7,6 +7,37 @@
     border-radius: .3rem;
 }
 
+.message + *,
+* + .message,
+.layout__login .message + .form__section:first-of-type {
+    margin-top: 1rem;
+}
+
+.message--system + *,
+* + .message--system,
+.layout__login .message--system + .form__section:first-of-type {
+    margin-top: 0;
+}
+
+label.message + *,
+* + label.message,
+.layout__login label.message + .form__section:first-of-type {
+    margin-top: .5rem;
+}
+
+.message + .btn {
+    margin-top: 1rem;
+}
+
+.passwords + .message { 
+    margin-top: 0;
+}
+
+.surname + .message {
+    margin-bottom: .5rem;
+    margin-top: -0.5rem;
+}
+
 .message.hide { 
     display: none; 
 }
@@ -48,8 +79,17 @@
 }
 
 .message--error {
+    flex-direction: row;
     background: var(--error);
     color: var(--light);
+}
+
+.message--error i {
+    margin-right: 6px;
+}
+
+.message--gen i {
+    margin-right: 0;
 }
 
 .message--success {
@@ -61,3 +101,36 @@
     background: var(--status-bg-wip);
     color: var(--dark);
 }
+
+.message--gen {
+    color: var(--error);
+    padding: 0;
+
+    flex-direction: revert;
+    align-items: center;
+    /* background-color: hsl(0deg 79.87% 88.22%); */
+    background-color: var(--error)!important;
+}
+
+    .message--gen i {
+        height: 100%;
+        background-color: var(--error);
+        border-top-left-radius: 0.3rem;
+        border-bottom-left-radius: 0.3rem;
+        padding: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-bg);
+    }
+
+    .message--gen p {
+        background-color: var(--primary-bg);
+        padding: 6px 12px;
+        text-align: left;
+        border: 2px solid var(--error);
+        border-left: none;
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+        width: 100%;
+    }

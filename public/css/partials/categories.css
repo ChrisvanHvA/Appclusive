@@ -108,6 +108,7 @@
     }
 
 .category__item__back {
+    color: var(--primary-text);
     transform: scaleX(-1);
     padding: 1.5rem 3rem 1.5rem 1.5rem !important;
 }

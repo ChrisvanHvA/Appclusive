@@ -57,15 +57,21 @@
         gap: .5rem;
     }
 
-.validator__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.validator__form .btn {
+    display: block;
+    width: fit-content;
+    margin-top: 1rem;
 }
 
-    .validator__form .btn {
-        width: fit-content;
-    }
+.validator__form textarea::placeholder{
+    font-size: 0.875rem;
+}
+
+.validator__form small {
+    display: block;
+    width: fit-content;
+    margin: 0 0 0 auto;
+}
 
 .validator__error {
     display: flex;

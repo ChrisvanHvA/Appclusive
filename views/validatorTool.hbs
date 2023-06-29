@@ -12,7 +12,13 @@
     </div>
 
     <form class="validator__form" action="/validator/result" method="POST">
-        <textarea class="textinput validator__text" id="html" name="html" placeholder="Paste your HTML here">{{#if html}}{{html}}{{/if}}</textarea>
+        <textarea 
+            class="textinput validator__text" 
+            id="html" 
+            name="html" 
+            placeholder="Paste your HTML here" 
+            maxlength="10000">{{#if html}}{{html}}{{/if}}</textarea>
+        <small class="description-char-counter"></small>
         <button class="btn" type="submit">Validate HTML</button>
     </form>
 
