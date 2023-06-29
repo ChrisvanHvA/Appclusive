@@ -85,6 +85,7 @@
             padding: 0 1rem;
             height: var(--item-height);
             color: var(--primary-text);
+			white-space: pre;
         }
         .autocomplete-items li a:hover,
         .autocomplete-items li a:focus-visible {

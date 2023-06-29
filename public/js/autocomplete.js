@@ -9,7 +9,6 @@ const getSuggestions = () => {
         const headingWithoutSpan = heading.innerHTML
             .replace(/<span\b[^>]*>(.*?)<\/span>/i, '')
             .trim()
-            .toLowerCase();
 
         suggestions.add(headingWithoutSpan);
     });
@@ -20,18 +19,14 @@ const autocomplete = (e) => {
     const inputValue = e.target.value.toLowerCase().trim();
 
     for (const suggestion of suggestions) {
-        if (suggestion.includes(inputValue)) {
+        if (suggestion.toLowerCase().includes(inputValue.toLowerCase())) {
             // if the suggestion is already in the list, just highlight it and continue
             if (currentSuggestions.has(suggestion)) {
                 const anchor = suggestionsList.querySelector(
                     `a[href="/search?query=${suggestion}"]`
                 );
 
-                const highlightedSuggestion = suggestion.replace(
-                    new RegExp(inputValue, 'gi'),
-                    '<strong>$&</strong>'
-                );
-                anchor.innerHTML = highlightedSuggestion;
+				setAnchorText(anchor, inputValue, suggestion);
                 continue;
             }
 
@@ -42,12 +37,7 @@ const autocomplete = (e) => {
             anchor.setAttribute('href', `/search?query=${suggestion}`);
             anchor.addEventListener('keydown', moveFocus);
 
-            // checks if the input value is in the array item (if yes, highlights it)
-            const highlightedSuggestion = suggestion.replace(
-                new RegExp(inputValue, 'gi'),
-                '<strong>$&</strong>'
-            );
-            anchor.innerHTML = highlightedSuggestion;
+			setAnchorText(anchor, inputValue, suggestion);
 
             suggestionListItem.appendChild(anchor);
 
@@ -126,3 +116,42 @@ if (autocompleteInput && suggestionsList) {
     searchSection.addEventListener('focusin', toggleSuggestions);
     searchSection.addEventListener('focusout', toggleSuggestions);
 }
+
+// no innerHTML used with user input to prevent XSS😎
+const setAnchorText = (anchor, inputValue, suggestion) => {
+    anchor.innerHTML = '';
+
+    const matches = suggestion.match(new RegExp(inputValue, 'gi'));
+
+    if (matches) {
+        matches.forEach((match, i) => {
+            const index = suggestion.indexOf(match);
+
+            // add text before the match to a textnode
+            const textNode = document.createTextNode(
+                suggestion.substring(0, index)
+            );
+
+            // add match to a strong element
+            const strong = document.createElement('strong');
+            strong.textContent = match;
+
+            anchor.append(textNode, strong);
+
+            // add text after the last match to a textnode
+            if (i + 1 === matches.length) {
+                const textNodeAfter = document.createTextNode(
+                    suggestion.substring(index + match.length)
+                );
+                anchor.appendChild(textNodeAfter);
+            }
+
+            // remove the match from the string so it doesn't get used again in the next iteration
+            suggestion = suggestion.replace(match, '');
+        });
+    } else {
+		anchor.textContent = suggestion;
+	}
+
+    return anchor;
+};
