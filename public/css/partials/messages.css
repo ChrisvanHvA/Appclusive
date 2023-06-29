@@ -25,6 +25,18 @@ label.message + *,
     margin-top: .5rem;
 }
 
+.message + .btn {
+    margin-top: 1rem;
+}
+
+.passwords + .message { 
+    margin-top: 0;
+}
+
+.surname + .message {
+    margin-bottom: .5rem;
+    margin-top: -0.5rem;
+}
 
 .message.hide { 
     display: none; 
