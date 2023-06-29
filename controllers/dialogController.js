@@ -29,7 +29,7 @@ class dialogController {
                 'slug': 'level',
                 'image_url': null,
                 'image_alt': null,
-                'message': '<p>Because it is an application for the <span class="text--highlight">government</span>, it is legally required to comply with the WCAG guidelines <span class="text--highlight">level AA</span>.</p><p><span class="text--highlight">WCAG guidelines</span> are guidelines that an application must meet to be accessible to everyone.</p> <p>The checklist is adjusted accordingly, if the checklists are checked off, the application meets this.</p> <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank"><i class="icon fa-solid fa-up-right-from-square"></i>More information about WCAG</a>',
+                'message': '<p>Applications made for the <span class="text--highlight">government</span> are legally required to comply with the WCAG guidelines <span class="text--highlight">level AA</span>.</p><p><span class="text--highlight">WCAG guidelines</span> are guidelines that an application must meet to be accessible to everyone.</p> <p>The checklist is adjusted accordingly, if the checklists are checked off, the application meets this.</p> <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank"><i class="icon fa-solid fa-up-right-from-square"></i>More information about WCAG</a>',
                 'button_type': 'form',
                 'button': 'I understand',
                 'button_href': null,
