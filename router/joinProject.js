@@ -27,7 +27,7 @@ router.post(
         const ProjectModel = new projectModel();
         const MessageController = new messageController();
 
-        const project = await ProjectModel.getProjectByCode(code);
+        const project = await ProjectModel.getProjectByCode(code.toUpperCase());
 
         if (!project) {
             const messageKey = MessageController.getMessageKeyByType(
