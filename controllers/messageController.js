@@ -66,7 +66,7 @@ class messageController {
                 'type': ['joined']
             },
             '13': {
-                'message': "Successfully assigned task",
+                'message': "Successfully updated assignees",
                 'message_class': `${this.messageClass}success`,
                 'type': ['assigned_task', 'saved']
             },
