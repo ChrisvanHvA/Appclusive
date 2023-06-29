@@ -319,31 +319,3 @@
         display: none;
     }
 }
-
-/* @media (prefers-color-scheme: dark) {
-    .landingHeader {
-        background-color: var(--dark);
-    }
-        .landingHeader h1, .landingHeader p {
-            background-color: var(--dark);
-        }
-        .landingHeader .landingTopbar li:last-child a.btn {
-            background-color: var(--light);
-            color: var(--dark);
-        }
-        .landingHeader .landingTopbar li:last-child a.btn:last-child {
-            background-color: var(--dark);
-            color: var(--light);
-        }
-        .landingHeader .mobileHeader {
-            background-color: var(--dark);
-        }
-        .landingHeader .mobileHeader .btn--secondary {
-            background-color: var(--light);
-            color: var(--dark);
-        }
-        .layout__aboutpage>ul>li a[href="/register"] {
-            color: var(--dark);
-            background-color: var(--primary-color);
-        }
-} */
