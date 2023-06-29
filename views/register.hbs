@@ -81,7 +81,6 @@
                     data-input-type="password"
                     required
                 >
-                <label id="password-error" class="message message--error {{#unless password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{password-error}}</label>
             </fieldset>
 
             <fieldset class="form__section {{#if confirm_password-error.length}} form__error {{/if}}">
@@ -96,9 +95,12 @@
                     data-input-type="confirm_password"
                     required
                 >
-                <label id="confirm_password-error" class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{confirm_password-error}}</label>
             </fieldset>
+
+
         </section>
+            <label id="password-error" class="message message--error {{#unless password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{password-error}}</label>
+            <label id="confirm_password-error" class="message message--error {{#unless confirm_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{confirm_password-error}}</label>
 
         <button class="btn btn--login" type="submit">Register</button>
 
