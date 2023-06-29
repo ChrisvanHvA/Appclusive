@@ -40,7 +40,7 @@ const data = {
     '/new-project': {
         title: 'New Project | Appclusive',
         description: '',
-        scripts: ['createProject'],
+        scripts: ['formUtils'],
         backUrl: '/'
     },
     '/join-project': {
@@ -64,7 +64,7 @@ const data = {
     '/project/:projectId/settings': {
         title: 'Project Settings | Appclusive',
         description: '',
-        scripts: ['copyOnClick', 'createProject'],
+        scripts: ['copyOnClick', 'formUtils'],
         backUrl: '/project/:projectId/categories'
     },
     '/login': {
@@ -101,7 +101,7 @@ const data = {
     '/validator': {
         title: 'HTML Validator | Appclusive',
         description: '',
-        scripts: ['createProject'],
+        scripts: ['formUtils'],
         backUrl: '/'
     },
     '*': {
