@@ -18,6 +18,7 @@
 	height: 100%;
 	object-fit: cover;
 	z-index: 1;
+	background: var(--primary-bg);
 }
 
 .profile-pic span {
