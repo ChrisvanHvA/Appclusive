@@ -2,87 +2,95 @@
 
     {{>pageTitleHeader title='Project settings' }}
     
-    <form method="POST" autocomplete="off" novalidate>
-        <input type="hidden" name="type" value="update">
+    <h2>Project invite code: <button class="code" data-tooltip="">{{project.project_invite_code}}</button></h2>
 
-        {{#if general-form-error}}
-            <div class="message message--error message--gen">
-				<i class="fa-solid fa-triangle-exclamation"></i><p>{{general-form-error}}</p>
-            </div>
-        {{/if}}
-
-        <h2>Project invite code: <button class="code" data-tooltip="">{{project.project_invite_code}}</button></h2>
-
-        <fieldset class="form__section {{#if title-error.length}} form__error {{/if}}">
-            <label for="title">Project title <span class="required">*</span></label>
-             <input
-                aria-describedby="title-error"
-                class="textinput"
-                type="text"
-                name="title"
-                id="title"
-                placeholder="What would you like to name your project?"
-                value="{{project.title}}"
-                required
-            >
-            <label id="title-error" class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
-        </fieldset>
-		
-        <fieldset class="form__section">
-            <label for="description">Project description</label>
-             <textarea
-                class="textinput"
-                name="description"
-                id="description"
-                placeholder="What is the project about?"
-                maxlength="500"
-            >{{#if project.description}}{{project.description}}{{/if}}</textarea>
-            <small class="description-char-counter"></small>
-        </fieldset>
-
-        <fieldset class="project__level form__section {{#if wcag_level-error.length}} form__error {{/if}}">
-            <legend>What level of accessibility should be applied? <span class="required">*</span>
-			</legend>
-
-            <section>
-                <aside>
-                    <div role="radiogroup" aria-labelledby="level-label-a">
-                        <input type="radio" id="a" name="wcag_level" value="A" required >
-                        <label for="a" id="level-label-a">
-                            <span class="heading">Level A: Essential</span>
-                            <span class="text">If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</span>
-                            <i class="icon icon--light fa-lg fa-solid fa-circle-check project__level__check"></i>
-                        </label>
-                    </div>
-
-                    <div role="radiogroup" aria-labelledby="level-label-aa">
-                        <input type="radio" id="aa" name="wcag_level" value="AA" required checked >
-                        <label for="aa" id="level-label-aa">
-                            <span class="heading">Level AA: Ideal Support</span>
-                            <span class="text">Required for multiple government and public body websites. 'Appclusive' strives for AA compliance.</span>
-                            <i class="icon icon--light fa-lg fa-solid fa-circle-check project__level__check"></i>
-                        </label>
-                    </div>
-
-                    <div role="radiogroup" aria-labelledby="level-label-aaa">
-                        <input aria-describedby="level-error" type="radio" id="aaa" name="wcag_level" value="AAA" required >
-                        <label for="aaa" id="level-label-aaa">
-                            <span class="heading">Level AAA: Specialized Support</span>
-                            <span class="text">This is typically reserved for parts of websites and web apps that serve a specialized audience.</span>
-                            <i class="icon icon--light fa-lg fa-solid fa-circle-check project__level__check"></i>
-                        </label>
-                    </div>
-                </aside>
-            </section>
-
-            <label class="message message--error {{#unless wcag_level-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{wcag_level-error}}</label>
-        </fieldset>
-
-        <button class="btn">Save changes</button>
+    <form class="delete leave" method="POST">
+        <input type="hidden" name="type" value="leave">
+        <button>Leave project</button>
     </form>
 
-    <form class="delete" method="POST">
-        <input type="hidden" name="type" value="delete">
-        <button>Delete project</button>
-    </form>
+    {{#isAdmin}}
+        <form method="POST" autocomplete="off" novalidate>
+            <input type="hidden" name="type" value="update">
+
+            {{#if general-form-error}}
+                <div class="message message--error message--gen">
+                    <i class="fa-solid fa-triangle-exclamation"></i><p>{{general-form-error}}</p>
+                </div>
+            {{/if}}
+
+            <fieldset class="form__section {{#if title-error.length}} form__error {{/if}}">
+                <label for="title">Project title <span class="required">*</span></label>
+                <input
+                    aria-describedby="title-error"
+                    class="textinput"
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="What would you like to name your project?"
+                    value="{{project.title}}"
+                    required
+                >
+                <label id="title-error" class="message message--error {{#unless title-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{title-error}}</label>
+            </fieldset>
+            
+            <fieldset class="form__section">
+                <label for="description">Project description</label>
+                <textarea
+                    class="textinput"
+                    name="description"
+                    id="description"
+                    placeholder="What is the project about?"
+                    maxlength="500"
+                >{{#if project.description}}{{project.description}}{{/if}}</textarea>
+                <small class="description-char-counter"></small>
+            </fieldset>
+
+            <fieldset class="project__level form__section {{#if wcag_level-error.length}} form__error {{/if}}">
+                <legend>What level of accessibility should be applied? <span class="required">*</span>
+                </legend>
+
+                <section>
+                    <aside>
+                        <div role="radiogroup" aria-labelledby="level-label-a">
+                            <input type="radio" id="a" name="wcag_level" value="A" required {{#if (eq project.wcag_level "A")}}checked{{/if}}>
+                            <label for="a" id="level-label-a">
+                                <span class="heading">Level A: Essential</span>
+                                <span class="text">If this isn't met, assistive technology may not be able to read, understand, or fully operate the page or view.</span>
+                                <i class="icon icon--light fa-lg fa-solid fa-circle-check project__level__check"></i>
+                            </label>
+                        </div>
+
+                        <div role="radiogroup" aria-labelledby="level-label-aa">
+                            <input type="radio" id="aa" name="wcag_level" value="AA" required {{#if (eq project.wcag_level "AA")}}checked{{/if}}>
+                            <label for="aa" id="level-label-aa">
+                                <span class="heading">Level AA: Ideal Support</span>
+                                <span class="text">Required for multiple government and public body websites. 'Appclusive' strives for AA compliance.</span>
+                                <i class="icon icon--light fa-lg fa-solid fa-circle-check project__level__check"></i>
+                            </label>
+                        </div>
+
+                        <div role="radiogroup" aria-labelledby="level-label-aaa">
+                            <input aria-describedby="level-error" type="radio" id="aaa" name="wcag_level" value="AAA" required {{#if (eq project.wcag_level "AAA")}}checked{{/if}}>
+                            <label for="aaa" id="level-label-aaa">
+                                <span class="heading">Level AAA: Specialized Support</span>
+                                <span class="text">This is typically reserved for parts of websites and web apps that serve a specialized audience.</span>
+                                <i class="icon icon--light fa-lg fa-solid fa-circle-check project__level__check"></i>
+                            </label>
+                        </div>
+                    </aside>
+                </section>
+
+                <label class="message message--error {{#unless wcag_level-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{wcag_level-error}}</label>
+            </fieldset>
+
+            <button class="btn">Save changes</button>
+        </form>
+
+        <form class="delete" method="POST">
+            <input type="hidden" name="type" value="delete">
+            <button>Delete project</button>
+        </form>
+    {{/isAdmin}}
+
 </main>

@@ -191,7 +191,7 @@ main.layout__project-create .project__level section aside {
 		grid-template-rows: none;
 	}
 
-	main.layout__project-create form.delete {
+	main.layout__project-create form.delete:not(.leave) {
 		margin-top: -29.5px;
     	margin-left: 16rem;
 	}

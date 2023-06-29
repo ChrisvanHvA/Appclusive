@@ -242,6 +242,23 @@ class projectModel {
             return false;
         }
     }
+
+    async removeUserFromProject(user_id) {
+        try {
+            await Promise.all([
+                sql`DELETE FROM project_users
+                    WHERE user_id = ${user_id};`,
+                sql`UPDATE project_checklists
+                    SET assignees = array_remove(assignees, ${user_id})
+                    WHERE ${user_id} = ANY(assignees);`
+            ]);
+
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
+    }
 }
 
 export default projectModel;

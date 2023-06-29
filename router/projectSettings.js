@@ -1,9 +1,11 @@
 import express from 'express';
 import ProjectController from '../controllers/projectController.js';
 import projectModel from '../models/projectModel.js';
+import projectUserModel from '../models/projectUserModel.js';
 
 const router = express.Router({ mergeParams: true });
 const ProjectModel = new projectModel();
+const ProjectUserModel = new projectUserModel();
 
 import {
     validationChecks,
@@ -28,10 +30,13 @@ router.get('/', async (req, res) => {
     const projectId = req.params.projectId;
     project = await ProjectModel.getProject(projectId);
 
+    const isAdmin = await ProjectUserModel.isAdmin(projectId, req.user.user_id);
+
     res.render('projectSettings', {
         ...res.locals,
         title: 'Project settings',
-        project
+        project,
+        isAdmin
     });
 });
 
@@ -96,6 +101,11 @@ router.post(
             messageKey = MessageController.getMessageKeyByType('project_delete', 'success');
 
             return res.redirect(`/?m=${messageKey}`);
+
+        } else if (type === 'leave') {
+            await ProjectModel.removeUserFromProject(req.user.user_id);
+
+            return res.redirect('/');
         }
     }
 );

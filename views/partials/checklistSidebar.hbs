@@ -60,11 +60,9 @@
 			</section>
 		{{/activeUsers}}
 
-		{{#isAdmin}}
-			<section class="sidebar__settings">
-				<a href="/project/{{project.project_id}}/settings"><h3>Project settings</h3><i class="fa-solid fa-gear"></i></a>
-			</section>
-		{{/isAdmin}}
+        <section class="sidebar__settings">
+            <a href="/project/{{project.project_id}}/settings"><h3>Project settings</h3><i class="fa-solid fa-gear"></i></a>
+        </section>
 
         <section class="sidebar__notes">
             <h3>Notes</h3>
