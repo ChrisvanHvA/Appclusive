@@ -53,6 +53,13 @@
             <h3>Project invite code: <button aria-label="Project code is {{project.project_invite_code}}" class="code" data-tooltip="" tabindex="0">{{project.project_invite_code}}</button></h3>
         </section>
 
+		{{#activeUsers}}
+			<section class="sidebar__active-users">
+				<h3>Currently active</h3>
+				<ul></ul>
+			</section>
+		{{/activeUsers}}
+
 		{{#isAdmin}}
 			<section class="sidebar__settings">
 				<a href="/project/{{project.project_id}}/settings"><h3>Project settings</h3><i class="fa-solid fa-gear"></i></a>
@@ -61,7 +68,7 @@
 
         <section class="sidebar__notes">
             <h3>Notes</h3>
-            <form action="/project/{{project.project_id}}" method="POST">
+            <form action="/project/{{project.project_id}}{{#if categorySlug}}?category={{categorySlug}}{{/if}}" method="POST">
                 <textarea
                     name="notes"
                     aria-label="Notes for project {{project.title}}"

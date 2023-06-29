@@ -2,6 +2,9 @@ import { findRoute } from './findRoute.js';
 import UserModel from '../models/userModel.js';
 const userModel = new UserModel();
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 const rooms = {};
 
 export const checklistSocket = async (io, socket) => {
@@ -30,11 +33,15 @@ export const checklistSocket = async (io, socket) => {
                 rooms[socket.room] = [];
             }
 
+			if (user.profile_pic) {
+				user.profile_pic = process.env.SUPABASE_IMAGE_BUCKET + user.profile_pic;
+			}
+
             user = { ...user, socketId: socket.id };
             rooms[socket.room].push(user);
         }
 
-        console.log(rooms);
+        io.in(socket.room).emit('users:update', rooms[socket.room]);
     });
 
     socket.on('checklist:update', (id) => {

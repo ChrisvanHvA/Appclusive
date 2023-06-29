@@ -29,7 +29,7 @@
 
     <p class="checklist__description">{{category.description}}</p>
 
-	{{>checklistSidebar title=(concat "{{category.title}} progress") project=project isAdmin=isAdmin}}
+	{{>checklistSidebar title=(concat "{{category.title}} progress") project=project isAdmin=isAdmin activeUsers=true categorySlug=category.slug}}
 
     <section class="checklist" id="main">
         <ol>

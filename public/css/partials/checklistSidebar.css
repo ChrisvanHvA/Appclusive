@@ -166,54 +166,44 @@
     text-decoration: underline;
 }
 
-.checklist__sidebar aside ul li {
-    display: flex;
-    align-items: center;
-    margin-top: 0.75rem;
+.checklist__sidebar aside h2 {
+	margin-bottom: 2.5rem;
+	font-size: 1.3rem;
 }
 
-    .checklist__sidebar aside ul li span {
-        margin-left: 0.625rem;
-    }
+.checklist__sidebar aside button.btn {
+	margin-top: 0.75rem;
+	width: 100%;
+	max-width: 18.125rem;
+}
 
-    .checklist__sidebar aside ul li img {
-        margin-right: 0.625rem;
-    }
+.checklist__sidebar .sidebar__settings a {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	width: fit-content;
+	color: inherit;
+	text-decoration: none;
+}
+.checklist__sidebar .sidebar__settings a:hover,
+.checklist__sidebar .sidebar__settings a:focus-visible {
+	text-decoration: underline;
+}
 
-    .checklist__sidebar aside ul li p {
-        margin-right: 0.625rem;
-    }
-    .checklist__sidebar aside ul li p:last-child {
-        color: var(--tertiary-text);
-    }
+	.checklist__sidebar .sidebar__settings a h3 {
+		margin-bottom: 0;
+	}
 
-    .checklist__sidebar aside h2 {
-        margin-bottom: 2.5rem;
-        font-size: 1.3rem;
-    }
+.checklist__sidebar .sidebar__active-users ul {
+	margin-top: .5rem;
+	display: flex;
+	gap: .5rem;
+	flex-wrap: wrap;
+}
 
-    .checklist__sidebar aside button.btn {
-        margin-top: 0.75rem;
-        width: 100%;
-        max-width: 18.125rem;
-    }
-
-    .checklist__sidebar .sidebar__settings a {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        width: fit-content;
-        color: inherit;
-        text-decoration: none;
-    }
-    .checklist__sidebar .sidebar__settings a:hover,
-    .checklist__sidebar .sidebar__settings a:focus-visible {
-        text-decoration: underline;
-    }
-
-        .checklist__sidebar .sidebar__settings a h3 {
-            margin-bottom: 0;
-        }
+.checklist__sidebar .sidebar__active-users .profile-pic {
+	border-color: var(--primary-color);
+}
 
 @media screen and (max-width: 950px) {
 

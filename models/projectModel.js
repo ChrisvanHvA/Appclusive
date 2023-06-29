@@ -181,7 +181,7 @@ class projectModel {
      *
      * @param {number} project_id The ID of the project to add notes to
      * @param {string} notes The notes to be added
-     * @returns {boolean} - True if the notes were added successfully, false otherwise
+     * @returns promise<{boolean} - True if the notes were added successfully, false otherwise
      */
     async addNotes(project_id, notes) {
         try {

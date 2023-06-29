@@ -23,53 +23,53 @@ import upload from './upload.js';
 import validatorTool from './validatorTool.js';
 
 const routes = [
-    // { path: '/new-project', handler: projectCreate, auth: true },
-	// { path: '/join-project', handler: joinProject, auth: true },
+    { path: '/new-project', handler: projectCreate, auth: true },
+	{ path: '/join-project', handler: joinProject, auth: true },
 
-    // { path: '/change-password', handler: changePassword, auth: true },
-    // { path: '/forgot-password', handler: forgotPassword, auth: false },
-    // { path: '/reset-password', handler: resetPassword, auth: false },
-    // { path: '/settings', handler: userSettings, auth: true },
-    // { path: '/login', handler: login, auth: false },
-    // { path: '/logout', handler: logout, auth: false },
-    // { path: '/register', handler: register, auth: false },
-	
-    // { path: '/project/:projectId', handler: checklist, auth: true },
-    // { path: '/project/:projectId/categories', handler: checklistCategories, auth: true },
-    // { path: '/project/:projectId/settings', handler: projectSettings, auth: true },
-    // { path: '/upload', handler: upload, auth: true },
-
-    // { path: '/validator', handler: validatorTool, auth: true },
-	
-    // { path: '/search', handler: search, auth: true },
-    // { path: '/landing', handler: landing, auth: false },
-
-    // { path: '/', handler: dashboard, auth: true },
-    // { path: '*', handler: error404, auth: false }
-
-	{ path: '/new-project', handler: projectCreate, auth: false },
-	{ path: '/join-project', handler: joinProject, auth: false },
-
-    { path: '/change-password', handler: changePassword, auth: false },
+    { path: '/change-password', handler: changePassword, auth: true },
     { path: '/forgot-password', handler: forgotPassword, auth: false },
     { path: '/reset-password', handler: resetPassword, auth: false },
-	{ path: '/settings', handler: userSettings, auth: false },
+    { path: '/settings', handler: userSettings, auth: true },
     { path: '/login', handler: login, auth: false },
     { path: '/logout', handler: logout, auth: false },
     { path: '/register', handler: register, auth: false },
 	
-    { path: '/project/:projectId', handler: checklist, auth: false },
-    { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
-    { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
-    { path: '/upload', handler: upload, auth: false },
+    { path: '/project/:projectId', handler: checklist, auth: true },
+    { path: '/project/:projectId/categories', handler: checklistCategories, auth: true },
+    { path: '/project/:projectId/settings', handler: projectSettings, auth: true },
+    { path: '/upload', handler: upload, auth: true },
 
-	{ path: '/validator', handler: validatorTool, auth: false },
+    { path: '/validator', handler: validatorTool, auth: true },
 	
-    { path: '/search', handler: search, auth: false },
+    { path: '/search', handler: search, auth: true },
     { path: '/landing', handler: landing, auth: false },
 
-    { path: '/', handler: dashboard, auth: false },
+    { path: '/', handler: dashboard, auth: true },
     { path: '*', handler: error404, auth: false }
+
+	// { path: '/new-project', handler: projectCreate, auth: false },
+	// { path: '/join-project', handler: joinProject, auth: false },
+
+    // { path: '/change-password', handler: changePassword, auth: false },
+    // { path: '/forgot-password', handler: forgotPassword, auth: false },
+    // { path: '/reset-password', handler: resetPassword, auth: false },
+	// { path: '/settings', handler: userSettings, auth: false },
+    // { path: '/login', handler: login, auth: false },
+    // { path: '/logout', handler: logout, auth: false },
+    // { path: '/register', handler: register, auth: false },
+	
+    // { path: '/project/:projectId', handler: checklist, auth: false },
+    // { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
+    // { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
+    // { path: '/upload', handler: upload, auth: false },
+
+	// { path: '/validator', handler: validatorTool, auth: false },
+	
+    // { path: '/search', handler: search, auth: false },
+    // { path: '/landing', handler: landing, auth: false },
+
+    // { path: '/', handler: dashboard, auth: false },
+    // { path: '*', handler: error404, auth: false }
 ];
 
 export default routes;
