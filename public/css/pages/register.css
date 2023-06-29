@@ -23,7 +23,7 @@
         .layout__register .form__section {
             display: flex;
             flex-direction: column;
-            margin-top: 0rem;
+            margin-top: 1rem;
         }
 
         .layout__register .form__section + .form__section {
@@ -175,6 +175,10 @@ hr.registerHr {
     margin: 0;
     padding-bottom: 2rem;
     line-height: normal;
+}
+
+.layout__register .subtext {
+    padding: 0;
 }
 
 @media screen and (min-width: 951px) {

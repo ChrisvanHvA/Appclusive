@@ -30,7 +30,7 @@
 				</a>
 			</li> --}}
 
-			<li class="profile-icon">
+			<li class="profile-icon {{#if (eq head.currentPath '/settings')}}active{{/if}}">
 				<a href="/settings">
 					{{> profilePicture imgUrl=user.profile_pic fullName=user.full_name}}
 					<p>Account</p>

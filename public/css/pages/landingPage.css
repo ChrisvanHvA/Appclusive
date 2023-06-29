@@ -299,7 +299,7 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     .landingHeader {
         background-color: var(--dark);
     }
@@ -325,4 +325,4 @@
             color: var(--dark);
             background-color: var(--primary-color);
         }
-}
+} */

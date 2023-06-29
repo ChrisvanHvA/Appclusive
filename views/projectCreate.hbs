@@ -5,8 +5,8 @@
     <form action="/new-project" method="POST" novalidate>
 
         {{#if general-form-error}}
-            <div class="message message--error">
-				<i class="fa-solid fa-triangle-exclamation"></i> {{general-form-error}}
+            <div class="message message--error message--gen">
+				<i class="fa-solid fa-triangle-exclamation"></i><p>{{general-form-error}}</p>
             </div>
         {{/if}}
        

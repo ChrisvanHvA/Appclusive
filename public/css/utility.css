@@ -437,8 +437,8 @@ hr {
 }
 
 form .message--error {
-    background: none;
+    background-color: transparent;
     color: var(--error);
     font-size: 14px !important;
-    padding: .2rem 0 0 0;
+    padding: 0;
 }

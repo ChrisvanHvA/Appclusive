@@ -34,7 +34,7 @@ router.post(
                 'unknown_project',
                 'fail'
             );
-            return res.redirect(`/joinProject?m=${messageKey}`);
+            return res.redirect(`/join-project?m=${messageKey}`);
         }
 
         const ProjectUserModel = new projectUserModel();

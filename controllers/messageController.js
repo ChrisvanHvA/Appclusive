@@ -58,7 +58,7 @@ class messageController {
             '11': {
                 'message': "We could not find the project you are looking for...",
                 'message_class': `${this.messageClass}error`,
-                'type': ['unknown_project']
+                'type': ['unknown_project', 'fail']
             },
             '12': {
                 'message': "Project joined!",

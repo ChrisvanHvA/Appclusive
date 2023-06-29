@@ -1,15 +1,15 @@
 <main class="layout layout__settings" id="main">
 
     {{>pageTitleHeader title="Settings"}}
-    
-    <form class="settings" autocomplete="off" method="POST" enctype="multipart/form-data" action="/settings">
-
-        {{#if general-form-error}}
-            <div class="message message--error">
-				<i class="fa-solid fa-triangle-exclamation"></i> {{general-form-error}}
+     {{#if general-form-error}}
+            <div class="message message--error message--gen">
+				<i class="fa-solid fa-triangle-exclamation"></i><p>{{general-form-error}}</p>
             </div>
         {{/if}}
         
+    <form class="settings" autocomplete="off" method="POST" enctype="multipart/form-data" action="/settings">
+
+       
         <fieldset class="settings__item-email">
             <legend>Email address*</legend>
 
@@ -47,13 +47,13 @@
             <legend>Change password</legend>
 
             <div class="settings__item-input">
-                <input aria-describedby="password-error" type='password' name='old_password' id="old_password" placeholder=" ">
+                <input autocomplete="new-password" aria-describedby="password-error" type='password' name='old_password' id="old_password" placeholder=" ">
                 <label for="old_password">Current password</label>
             </div>
             <label id="password-error" class="message message--error {{#unless old_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{old_password-error}}</label>
 
             <div class="settings__item-input">
-                <input aria-describedby="new_password-error" type='password' name='new_password' id="new_password" placeholder=" ">
+                <input autocomplete="new-password" aria-describedby="new_password-error" type='password' name='new_password' id="new_password" placeholder=" ">
                 <label for="new_password">New password</label>
             </div>
             <label id="new_password-error" class="message message--error {{#unless new_password-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{new_password-error}}</label>
