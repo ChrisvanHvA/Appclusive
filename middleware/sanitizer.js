@@ -64,11 +64,17 @@ const validationChecks = [
 // Define validation middleware function to handle errors
 const handleValidationErrors = (render, extraParams) => (req, res, next) => {
     const errors = validationResult(req);
+    
+    let errorFields = {};
+
+    for (const key in req.body) {
+        const value = req.body[key];
+        errorFields[`${key}-user_input`] = value;
+    }
 
     if (!errors.isEmpty()) {
         console.error('errors found');
 
-        let errorFields = {};
 
         errors.array().forEach((error) => {
             errorFields[`${error.path}-error`] = error.msg;
@@ -79,14 +85,6 @@ const handleValidationErrors = (render, extraParams) => (req, res, next) => {
         }
 
         errorFields['general-form-error'] = 'One or multiple fields were not filled in correctly.';
-
-        // if (req.originalUrl.includes('login') && errorFields['password-error']) {
-        //     console.log('login password character error -> not relevant on login');
-        //     delete errorFields['password-error'];
-        //     delete errorFields['general-form-error'];
-
-        //     // errorFields['general-form-error'] = 'We could not find an account with the provided information'
-        // }
 
         console.error(errorFields);
 

@@ -17,6 +17,7 @@
                 name="first_name"
                 id="first_name"
                 placeholder="First Name"
+                value="{{first_name-user_input}}"
                 data-input-type="first_name"
                 required
             >
@@ -31,6 +32,7 @@
                     name="insertion"
                     id="insertion"
                     placeholder="Insertion"
+                    value="{{insertion-user_input}}"
                     data-input-type="insertion"
                 >
             </fieldset>
@@ -43,12 +45,13 @@
                     name="surname"
                     id="surname"
                     placeholder="Surname"
+                    value="{{surname-user_input}}"
                     data-input-type="surname"
                     required
                 >
-                <label id="surname-error" class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
             </fieldset>
         </section>
+        <label id="surname-error" class="message message--error {{#unless surname-error.length}}hide{{/unless}}"><i class="fa-solid fa-triangle-exclamation"></i> {{surname-error}}</label>
 
         <hr class="registerHr">
 
@@ -60,6 +63,7 @@
                 name="email_address"
                 id="email_address"
                 placeholder="Email"
+                value="{{email_address-user_input}}"
                 autocapitalize="off"
                 pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                 data-input-type="email_address"
