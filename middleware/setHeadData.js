@@ -101,7 +101,7 @@ const data = {
     '/validator': {
         title: 'Validator',
         description: '',
-        scripts: ['validatorTool', 'createProject'],
+        scripts: ['createProject'],
         backUrl: '/'
     },
     '*': {

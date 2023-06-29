@@ -1,6 +1,7 @@
 const titleInput = document.querySelector('input[name="title"]');
 const levelInput = document.querySelector('input[name="level"]');
-const descriptionInput = document.querySelector('textarea[name="description"]');
+let descriptionInput = document.querySelector('textarea[name="description"]');
+if (!descriptionInput) descriptionInput = document.querySelector('textarea[name="html"]');
 const descriptionCharCount = document.querySelector(
     '.description-char-counter'
 );
