@@ -3,10 +3,19 @@ import { updateAfterEmit } from './checklist.js';
 
 const socket = io();
 
-socket.emit('checklist:join', location.pathname + location.search);
+const url = location.pathname + location.search;
+const userId = document.querySelector('meta[name="user-id"]').content;
+
+if (userId) {
+	socket.emit('checklist:join', url, parseInt(userId));
+}
 
 socket.on('checklist:update', (id) => {
-	updateAfterEmit(id);
+    updateAfterEmit(id);
+});
+
+socket.on('users:update', (users) => {
+	
 });
 
 const emitUpdate = (id) => {

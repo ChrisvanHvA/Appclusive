@@ -127,14 +127,13 @@ const updateCheckDb = async (wcagItemId, isCompleted, parentId, checkedInput) =>
     }
 };
 
-const progressBar = document.querySelector('.checklist__sidebar .progress');
-const percentageSpan = document.querySelector('.sidebar__progress > h3 > span');
+const progressBars = document.querySelectorAll('.checklist__sidebar .progress, .progress__header .progress');
+const percentageSpans = document.querySelectorAll('.percentage-count');
 const completedChecksText = document.querySelectorAll(
     '.completed-checks-counter, .page-title > div > p.page-title__subtitle'
 );
 
 const updateProgress = () => {
-    if (!progressBar || !percentageSpan) return;
     const checkedCheckboxes = Array.from(checkboxes).filter(
         (checkbox) => checkbox.checked
     );
@@ -142,11 +141,17 @@ const updateProgress = () => {
         (checkedCheckboxes.length / checkboxes.length) * 100
     );
 
-    percentageSpan.textContent = `${percentage}`;
+	percentageSpans.forEach((percentageSpan) => {
+		percentageSpan.textContent = percentage;
+	});
+
+	progressBars.forEach((progressBar) => {
+		progressBar.setAttribute('value', percentage);
+	});
+
     completedChecksText.forEach((completedChecksSpan) => {
         completedChecksSpan.textContent = `${checkedCheckboxes.length} / ${checkboxes.length}`;
     });
-    progressBar.setAttribute('value', percentage);
 
     // open dialog if all items are checked
     if (checkedCheckboxes.length === checkboxes.length) {

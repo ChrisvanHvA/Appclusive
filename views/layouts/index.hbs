@@ -21,6 +21,8 @@
 		{{#if (and dialog_message dialog_trigger)}}
 			<script src="/js/dialog.js" type="module"></script>
 		{{/if}}
+
+		<meta name="user-id" content="{{or user.user_id 7}}">
 	</head>
 
 	<body {{#unless noNav}}class="page-with-nav"{{/unless}}>
