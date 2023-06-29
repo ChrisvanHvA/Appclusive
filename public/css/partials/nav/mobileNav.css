@@ -130,7 +130,7 @@
 			width: fit-content;
 		}
 
-		.nav__mobile .content-avatar div {
+		.nav__mobile .content-avatar span {
 			width: 6.5rem;
 			height: 6.5rem;
 			border-color: var(--light);

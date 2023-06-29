@@ -31,6 +31,11 @@
     }
 
 
+    .page-with-nav:has(.layout__error) nav  {
+        display: none;
+    }
+
+
 @media screen and (min-width: 950px) {
     .layout__error {
         flex-direction: row;
@@ -40,4 +45,6 @@
     .error__content > .btn {
         max-width: fit-content;
     }
+
+
 }

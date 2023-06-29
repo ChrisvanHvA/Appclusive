@@ -94,6 +94,10 @@
 						flex-shrink: 0;
 					}
 
+					.nav__desktop li.profile-icon .profile-pic img {
+						background: var(--nav-bg);
+					}
+
 /* ---------------------------------- */
 /*            #ACTIVE                 */
 /* ---------------------------------- */
