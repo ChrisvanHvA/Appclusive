@@ -1,6 +1,5 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
-import http from 'http';
 import path from 'path';
 import routes from './router/router.js';
 import hbsHelpers from './helpers/hbsHelpers.js';
@@ -19,13 +18,17 @@ import { hasAccessToProject } from './middleware/hasAccessToProject.js';
 import { getSystemMessage } from './middleware/systemMessage.js';
 import cacheManager from './middleware/cacheManager.js';
 
-// import { setSidebarProjects } from './middleware/setSidebarProjects.js';
-
 const __dirname = path.resolve();
 const port = process.env.PORT || 5500;
 
+// server stuff
 const app = express();
-const server = http.createServer(app);
+import { createServer } from 'http';
+const http = createServer(app);
+import { Server } from 'socket.io';
+const io = new Server(http);
+
+import { checklistSocket } from './helpers/checklistSocket.js';
 
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
@@ -69,6 +72,11 @@ app.engine(
     })
 );
 
-server.listen(port, () => {
+// socket.io
+io.on('connection', (socket) => {
+	checklistSocket(io, socket);
+});
+
+http.listen(port, () => {
     console.log(`Appclusive listening on http://localhost:${port}!`);
 });

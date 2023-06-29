@@ -1,5 +1,6 @@
 // import does not need to be called, it will run automatically
 import noTransitionOnResize from './informationSidebar.js';
+import { emitUpdate } from './checklistSocket.js';
 
 const checklistIdInput = document.querySelector(
     'input[name="wcag_item_id"][type="hidden"]'
@@ -62,6 +63,18 @@ const init = () => {
     });
 };
 
+export const updateAfterEmit = (id) => {
+	const checkbox = document.querySelector(`#${id}`);
+	const formElement = checkbox.closest('form');
+	const isCompleted = formElement.querySelector('input[name="is_completed"]');
+
+	checkbox.checked = !checkbox.checked;
+	
+	const newValue = isCompleted.value === 'true' ? false : true;
+	isCompleted.value = newValue;
+	updateProgress();
+};
+
 const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -75,11 +88,15 @@ const submitHandler = async (e) => {
     const checkedInput = formElement.querySelector('.checklist__checkbox');
     checkedInput.checked = isCompleted.value === 'true' ? false : true;
 
-    const url = new URL(window.location.href);
+	updateCheckDb(wcagItemId, isCompleted, parentId, checkedInput);
+};
+
+const updateCheckDb = async (wcagItemId, isCompleted, parentId, checkedInput) => {
+	const url = new URL(window.location.href);
     const queryParams = new URLSearchParams(url.search);
     const category = queryParams.get('category');
 
-    try {
+	try {
         const res = await fetch(`/project/${projectId}/submit?json=1`, {
             method: 'post',
             headers: {
@@ -102,6 +119,7 @@ const submitHandler = async (e) => {
             const newValue = isCompleted.value === 'true' ? false : true;
             isCompleted.value = newValue;
             updateProgress();
+			emitUpdate(checkedInput.id);
         }
     } catch (err) {
         console.error(err);
