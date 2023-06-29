@@ -42,6 +42,7 @@
 
     .landingHeader h1 {
         width: 90%;
+        margin-bottom: 2rem;
         font-size: 2rem;
         font-weight: 700;
         line-height: normal;
@@ -51,17 +52,17 @@
 
     .landingHeader > p {
         position: relative;
-        margin: 1rem 0;
         line-height: normal;
         background-color: var(--primary-color);
         z-index: 1;
     }
-    .landingHeader > p:last-of-type {
-        margin-bottom: 0;
+    .landingHeader > p:first-of-type {
+        margin-bottom: 4rem;
     }
 
     .landingHeader .eg img {
-        width: 100%;
+        width: 20rem;
+        max-width: 90%;
         z-index: 1;
     }
     .landingHeader .eg img:last-of-type {
@@ -115,7 +116,7 @@
 @media screen and (min-width: 950px) {
 
     .landingHeader {
-        height: 40rem;
+        height: 42rem;
         padding: 3rem 3rem 0 3rem;
         border-radius: 0;
         overflow: hidden;
@@ -177,7 +178,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 30rem;
+        height: 42rem;
         color: white;
         z-index: 0;
     }
@@ -197,11 +198,11 @@
             width: 15rem;
         }
 
-        .landingHeader .landingCircles > span.bg-circle:nth-child(2) {
-            bottom: -10rem;
+        /* .landingHeader .landingCircles > span.bg-circle:nth-child(2) {
+            bottom: -30rem;
             left: -18rem;
             width: 20rem;
-        }
+        } */
 
         .landingHeader .landingCircles > span.bg-circle:nth-child(3) {
             right: -20rem;
@@ -210,12 +211,12 @@
         }
 
         .landingHeader .landingCircles {
-            height: 40rem;
+            height: 42rem;
             pointer-events: none;
         }
     
             .landingHeader .landingCircles > span.bg-circle:nth-child(2) {
-                bottom: -10rem;
+                bottom: -12rem;
                 left: -14rem;
                 width: 20rem;
             }
@@ -232,7 +233,7 @@
 
         .landingHeader > p {
             width: fit-content;
-            max-width: 55rem;
+            max-width: 40rem;
         }
 
         .landingHeader .eg {
@@ -253,10 +254,13 @@
         display: flex;
         align-items: center;
         gap: 4rem;
-        padding: 4rem 14rem;
+        padding: 4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
     .layout__landingpage > ul > li:nth-child(2n) {
-        padding: 4rem 16rem;
+        padding: 4rem;
     }
     .layout__landingpage > ul > li:last-of-type {
         display: none;
@@ -267,7 +271,8 @@
         }
 
         .layout__landingpage > ul > li > div {
-            margin: 0 auto;
+            /* margin: 0 auto; */
+            max-width: 40rem;
         }
         .layout__landingpage > ul > li:nth-child(2n) > div {
             order: -1;
@@ -292,4 +297,32 @@
     .landingHeader .dog {
         display: none;
     }
+}
+
+@media (prefers-color-scheme: dark) {
+    .landingHeader {
+        background-color: var(--dark);
+    }
+        .landingHeader h1, .landingHeader p {
+            background-color: var(--dark);
+        }
+        .landingHeader .landingTopbar li:last-child a.btn {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        .landingHeader .landingTopbar li:last-child a.btn:last-child {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        .landingHeader .mobileHeader {
+            background-color: var(--dark);
+        }
+        .landingHeader .mobileHeader .btn--secondary {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        .layout__landingpage>ul>li a[href="/register"] {
+            color: var(--dark);
+            background-color: var(--primary-color);
+        }
 }
