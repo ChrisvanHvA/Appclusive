@@ -34,7 +34,7 @@ const data = {
     '/': {
         title: 'Dashboard',
         description: '',
-        scripts: ['copyOnClick', 'autocomplete']
+        scripts: ['copyOnClick', 'autocomplete', 'onboarding']
     },
     '/search': {
         title: 'Search',

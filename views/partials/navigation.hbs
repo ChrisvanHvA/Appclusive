@@ -2,21 +2,21 @@
     <nav>
 		<a href="#main" class="skip-to-main-content-link">Skip to main content</a>
 		<ul>
-			<li {{#if (eq head.currentPath '/')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/')}}class="active"{{/if}} id="onboarding_step-2">
 				<a href="/" aria-label="home">
 					<i class="fa-solid fa-house"></i>
 					<p>Home</p>
 				</a>
 			</li>
 
-			<li {{#if (eq head.currentPath '/search')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/search')}}class="active"{{/if}} id="onboarding_step-3">
 				<a href="/search">
 					<i class="fa-solid fa-magnifying-glass"></i>
 					<p>Search</p>
 				</a>
 			</li>
 
-			<li {{#if (eq head.currentPath '/validator')}}class="active"{{/if}}>
+			<li {{#if (eq head.currentPath '/validator')}}class="active"{{/if}} id="onboarding_step-4">
 				<a href="/validator">
 					<i class="fa-solid fa-screwdriver-wrench"></i>
 					<p>Tools</p>
@@ -30,7 +30,7 @@
 				</a>
 			</li> --}}
 
-			<li class="profile-icon">
+			<li class="profile-icon" id="onboarding_step-5">
 				<a href="/settings">
 					{{> profilePicture imgUrl=user.profile_pic fullName=user.full_name}}
 					<p>Account</p>
