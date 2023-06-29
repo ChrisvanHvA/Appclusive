@@ -6,7 +6,7 @@
     padding: 2rem;
 
     color: var(--light);
-    background-color: var(--primary-color);
+    background-color: var(--landing-color);
     border-radius: 0 0 1rem 1rem;
 }
 
@@ -18,8 +18,11 @@
 
     .landingHeader .mobileHeader {
         margin-bottom: 4rem;
-        background-color: var(--primary-color);
+        background-color: var(--landing-color);
     }
+        .landingHeader .mobileHeader .btn--secondary {
+            color: var(--landing-color);
+        }
 
     footer.landingFooter {
         padding: 2rem;
@@ -47,13 +50,13 @@
         font-weight: 700;
         line-height: normal;
         text-transform: uppercase;
-        background-color: var(--primary-color);
+        background-color: var(--landing-color);
     }
 
     .landingHeader > p {
         position: relative;
         line-height: normal;
-        background-color: var(--primary-color);
+        background-color: var(--landing-color);
         z-index: 1;
     }
     .landingHeader > p:first-of-type {
@@ -71,6 +74,14 @@
 
     .landingHeader .landingTopbar {
         display: none;
+    }
+    .landingHeader .landingTopbar li:last-child a.btn:last-child  {
+        background-color: var(--landing-color-focus);
+        color: var(--primary-bg);
+    }
+    .landingHeader .landingTopbar li:last-child a.btn {
+        background-color: var(--secondary-bg);
+        color: var(--landing-color-focus);
     }
 
 .layout__landingpage {
