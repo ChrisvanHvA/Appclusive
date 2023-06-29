@@ -8,16 +8,31 @@
     justify-self: center;
 }
 
-    .layout__categories > header {
+	/* this code is also used on the checklist page :0 */
+    .progress__header {
         grid-column: 1 / -1;
     }
+
+	.progress__header div,
+	.progress__header progress {
+		display: none;
+	}
+
 
 @media screen and (max-width: 950px) {
     .layout__categories {
         grid-template-columns: 1fr;
     }
 
-        .layout__categories > header {
-            display: none;
-        }
+	.progress__header div {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+		.progress__header progress {
+			--progress-bar-height: 1.5rem;
+			display: block;
+			margin-top: .5rem;
+		}
 }

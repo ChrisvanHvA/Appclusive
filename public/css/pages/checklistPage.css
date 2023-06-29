@@ -12,4 +12,8 @@
     .layout__checklist {
         grid-template-columns: 1fr;
     }
+
+	.layout__checklist .checklist__sidebar {
+		display: none;
+	}
 }
