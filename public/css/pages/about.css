@@ -16,7 +16,7 @@
     }
 
         .landingHeader__container > p {
-            max-width: 50%;
+            max-width: 100%;
             margin-bottom: 2rem;
         }
 
@@ -193,6 +193,10 @@
         }
 
 @media screen and (min-width: 950px) {
+
+    .landingHeader__container > p {
+        max-width: 50%;
+    }
 
     .landingHeader {
         height: 42rem;
