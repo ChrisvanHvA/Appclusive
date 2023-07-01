@@ -133,8 +133,6 @@ As you might know, project are almost never finished since we can always improve
 
 - A JavaScript client-side form validator
 - Level / customization of the project cards
-- Create onboarding for the first time experience
 - Being able to filter on level within categories
 - Sort on tasks assigned to you
-- Live updating on checklist items
 - Remove categories from project that are not relevant
