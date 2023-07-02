@@ -105,7 +105,12 @@ class messageController {
                 'message_class': `${this.messageClass}success`,
                 'type': ['project_left', 'success']
             },
-        };
+			'21': {
+				'message': "Update failed, please choose a file smaller than 5mb",
+				'message_class': `${this.messageClass}error`,
+				'type': ['file_size', 'fail']
+			}
+        }
     }
 
     getMessageKeyByType(...searchStrings) {

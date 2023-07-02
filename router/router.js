@@ -18,7 +18,6 @@ import logout from './logout.js';
 import changePassword from './changePassword.js';
 import forgotPassword from './forgotPassword.js';
 import resetPassword from './resetPassword.js';
-import upload from './upload.js';
 
 import validatorTool from './validatorTool.js';
 
@@ -37,7 +36,6 @@ const routes = [
     { path: '/project/:projectId', handler: checklist, auth: true },
     { path: '/project/:projectId/categories', handler: checklistCategories, auth: true },
     { path: '/project/:projectId/settings', handler: projectSettings, auth: true },
-    { path: '/upload', handler: upload, auth: true },
 
     { path: '/validator', handler: validatorTool, auth: true },
 	
@@ -61,7 +59,6 @@ const routes = [
     // { path: '/project/:projectId', handler: checklist, auth: false },
     // { path: '/project/:projectId/categories', handler: checklistCategories, auth: false },
     // { path: '/project/:projectId/settings', handler: projectSettings, auth: false },
-    // { path: '/upload', handler: upload, auth: false },
 
 	// { path: '/validator', handler: validatorTool, auth: false },
 	

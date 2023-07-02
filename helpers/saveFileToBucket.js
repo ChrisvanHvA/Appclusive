@@ -11,26 +11,22 @@ import crypto from 'crypto';
 const saveFileToBucket = async (file, oldPath) => {
     const fileExt = file.originalname.split('.').pop();
 
-	let data;
-	let error;
+    let data;
+    let error;
 
-	if (file.buffer) {
-		const res = await saveFromMemory(file, fileExt);
-		data = res.data;
-		error = res.error;
-	}
+    if (file.buffer) {
+        const res = await saveFromMemory(file, fileExt);
+        data = res.data;
+        error = res.error;
+    }
 
     if (error) {
         console.error(error);
-        return null;
-    } else if (data && data.path) {
-        if (oldPath) {
-            supabase.storage.from('img').remove([oldPath]);
-        }
-        return data.path;
+    } else if (oldPath) {
+        supabase.storage.from('img').remove([oldPath]);
     }
 
-    return null;
+    return { data, error };
 };
 
 /**
@@ -47,7 +43,7 @@ const saveFromMemory = async (file, fileExt, folder = 'user_avatars') => {
             contentType: file.mimetype
         });
 
-	return { data, error };
+    return { data, error };
 };
 
 export default saveFileToBucket;

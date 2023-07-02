@@ -65,15 +65,18 @@ router.post(
             const deletedUser = await userModel.deleteUser(user.user_id);
             const type = deletedUser ? 'saved' : 'fail';
 
-            messageKey = MessageController.getMessageKeyByType('user_deleted', type);
+            messageKey = MessageController.getMessageKeyByType(
+                'user_deleted',
+                type
+            );
 
             console.log(messageKey);
-            
+
             return res.redirect(`/about?m=${messageKey}`);
-        };
+        }
 
         const submitData = mapObject(req.body, (value) => value);
-		delete submitData.theme;
+        delete submitData.theme;
         const user = req.user;
 
         if (!user) {
@@ -120,22 +123,29 @@ router.post(
             return res.redirect(`/settings?m=${messageKey}`);
         }
 
-        const imgUrl = await saveFileToBucket(
+        const { data, error } = await saveFileToBucket(
             req.file,
             user.profile_pic?.split('/').pop()
         );
 
-        if (!imgUrl) {
-            messageKey = MessageController.getMessageKeyByType(
-                'file_save',
-                'fail'
-            );
+        if (error) {
+            if (error.statusCode == 413) {
+                messageKey = MessageController.getMessageKeyByType(
+                    'file_size',
+                    'fail'
+                );
+            } else {
+                messageKey = MessageController.getMessageKeyByType(
+                    'file_save',
+                    'fail'
+                );
+            }
             return res.redirect(`/settings?m=${messageKey}`);
         }
 
         const avatarUpdated = await userModel.updateProfilePic(
             user.user_id,
-            imgUrl
+            data.path
         );
 
         if (!avatarUpdated) {
@@ -143,7 +153,7 @@ router.post(
                 'file_save',
                 'fail'
             );
-            
+
             return res.redirect(`/settings?m=${messageKey}`);
         }
 
